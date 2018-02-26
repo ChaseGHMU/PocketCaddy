@@ -39,16 +39,18 @@ class PracticeViewController: UIViewController {
                 let decoder = JSONDecoder()
                 let courseData = try decoder.decode(Courses.self , from: data)
                 
-                if let name = courseData.name{
-                    self.name.text = name
-                }
-                
-                if let zipcode = courseData.zipCode{
-                    self.zipcode.text = String(zipcode)
-                }
-                
-                if let address = courseData.address1{
-                    self.address.text = address
+                DispatchQueue.main.sync {
+                    if let name = courseData.name{
+                        self.name.text = name
+                    }
+                    
+                    if let zipcode = courseData.zipCode{
+                        self.zipcode.text = String(zipcode)
+                    }
+                    
+                    if let address = courseData.address1{
+                        self.address.text = address
+                    }
                 }
                 
             } catch let err{
@@ -56,10 +58,9 @@ class PracticeViewController: UIViewController {
             }
             }.resume()
     }
+    
     @IBOutlet weak var name: UILabel!
-    
     @IBOutlet weak var zipcode: UILabel!
-    
     @IBOutlet weak var address: UILabel!
     
     
