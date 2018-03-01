@@ -15,6 +15,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     var segue:String = "false"
+    let user:[User] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +43,12 @@ class SignUpViewController: UIViewController {
             let url = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Golfers"
             
             Alamofire.request(url, method: .post, parameters: obj, encoding:JSONEncoding.default).responseJSON(completionHandler: { response in
-                if response.result.value != nil {
+                if response.result.value != nil, let value = response.result.value {
                     let statusCode = response.response?.statusCode
                     if(statusCode != 200){
                         print("error")
                     }else{
+                        print(value)
                         let alert = UIAlertController(title: "Account Succesfully Created", message: "Please confirm your email address to login", preferredStyle: UIAlertControllerStyle.alert)
                         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{ (action: UIAlertAction!) in
                             alert.dismiss(animated: true, completion: nil)
@@ -71,7 +73,5 @@ class SignUpViewController: UIViewController {
     
     }
     
-//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-//    }
 
 }
