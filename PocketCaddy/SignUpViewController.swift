@@ -7,16 +7,17 @@
 //
 
 import UIKit
+import Alamofire
 
 class SignUpViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    var segue:String = "false"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -32,63 +33,45 @@ class SignUpViewController: UIViewController {
     @IBAction func submitNewUser(_ sender: Any) {
         if let email = emailTextField.text, let usr = usernameTextField.text, let pass = passwordTextField.text{
             
-            let obj: [String: String] = [
-                "pasword": "\(pass)",
+            let obj: Parameters = [
+                "password": "\(pass)",
                 "email": "\(email)",
                 "username": "\(usr)"
             ]
-
             
-
-            let jsonData = try? JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
-//            if let jsonData = jsonData{
-//                let str = String(data: jsonData, encoding: .utf8)
-//                if let str = str{
-//                    print(str)
-//                }
-//            }
+            let url = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Golfers"
             
-            print("\(jsonData! as NSData)")
-
-//            let url = URL(string: "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Golfers")!
-//            var request = URLRequest(url: url)
-//            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//            request.addValue("application/json", forHTTPHeaderField: "Accept")
-//            request.httpMethod = "POST"
-//            request.httpBody = jsonData
-//            print(jsonData?.description)
-//
-//            let task = URLSession.shared.dataTask(with: request) {
-//                (data, response, error) in
-//                guard let data = data, error == nil else{
-//                    print("Error: \(error!)")
-//                    return
-//                }
-//
-//                let json = try? JSONSerialization.jsonObject(with: data, options: [])
-//                print("**********JSON**************** \n \(json!)")
-//
-//                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
-//                    print("statusCode should be 200, but is \(httpStatus.statusCode)")
-//                    print("response = \(response!)")
-//                }
-//
-//                if let responseString = String(data: data, encoding: .utf8){
-//                    print("responseString = \(responseString)")
-//                }
-//            }
-//            task.resume()
+            Alamofire.request(url, method: .post, parameters: obj, encoding:JSONEncoding.default).responseJSON(completionHandler: { response in
+                if response.result.value != nil {
+                    let statusCode = response.response?.statusCode
+                    if(statusCode != 200){
+                        print("error")
+                    }else{
+                        let alert = UIAlertController(title: "Account Succesfully Created", message: "Please confirm your email address to login", preferredStyle: UIAlertControllerStyle.alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{ (action: UIAlertAction!) in
+                            alert.dismiss(animated: true, completion: nil)
+                            self.dismiss(animated: true, completion: nil)
+                        }))
+                        self.present(alert, animated: true)
+                    }
+                    
+                }
+            })
         }
         
     }
-    /*
-    // MARK: - Navigation
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+//     MARK: - Navigation
+
+//     In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+//         Get the new view controller using segue.destinationViewController.
+//         Pass the selected object to the new view controller.
+    
     }
-    */
+    
+//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+//    }
 
 }
