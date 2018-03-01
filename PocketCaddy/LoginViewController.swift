@@ -40,9 +40,9 @@ class LoginViewController: UIViewController {
                                     let usern = username["username"] as! String
                                     let userId = result["userId"] as! Int
                                     self.golfer.append(User(id: id, username: usern, userId: userId))
+                                    self.performSegue(withIdentifier: "successful", sender: self)
                                 }
                             }).resume()
-                            self.performSegue(withIdentifier: "successful", sender: self)
                         }else{
                             let alert = UIAlertController(title: "Unable to Login", message: "Email or Password Invalid", preferredStyle: UIAlertControllerStyle.alert)
                             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{ (action: UIAlertAction!) in
