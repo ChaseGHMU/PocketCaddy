@@ -226,7 +226,7 @@
             </objects>
             <point key="canvasLocation" x="663.20000000000005" y="49.925037481259373"/>
         </scene>
-        <!--View Controller-->
+        <!--Play-->
         <scene sceneID="m9c-Io-nJP">
             <objects>
                 <viewController id="y3i-lJ-har" sceneMemberID="viewController">
@@ -236,13 +236,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ZJ6-fa-bhy"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="T4J-il-aQE"/>
+                    <tabBarItem key="tabBarItem" title="Play" id="T4J-il-aQE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BTV-cA-bAM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2422" y="387"/>
         </scene>
-        <!--Practice View Controller-->
+        <!--Practice-->
         <scene sceneID="rEs-ka-COd">
             <objects>
                 <viewController id="KUY-ER-4Nj" customClass="PracticeViewController" customModule="PocketCaddy" customModuleProvider="target" sceneMemberID="viewController">
@@ -294,7 +294,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xmd-cD-Baw"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="2Xt-gs-3Dl"/>
+                    <tabBarItem key="tabBarItem" title="Practice" id="2Xt-gs-3Dl"/>
                     <connections>
                         <outlet property="address" destination="C4e-Od-d6W" id="mbM-zk-TEz"/>
                         <outlet property="name" destination="mmv-fe-gev" id="fLW-Zt-xPq"/>
@@ -305,7 +305,7 @@
             </objects>
             <point key="canvasLocation" x="2256.8000000000002" y="1195.0524737631185"/>
         </scene>
-        <!--View Controller-->
+        <!--Scores-->
         <scene sceneID="XCn-5a-P0X">
             <objects>
                 <viewController id="WeV-Oj-KdV" sceneMemberID="viewController">
@@ -315,7 +315,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="QBO-Pl-xE1"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="DMq-Vw-yOg"/>
+                    <tabBarItem key="tabBarItem" title="Scores" id="DMq-Vw-yOg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4q-bl-LjM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -324,7 +324,6 @@
         <!--Tab View Controller-->
         <scene sceneID="hmB-zX-92W">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ye4-01-7BK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController id="L7c-Bf-6WN" customClass="TabViewController" customModule="PocketCaddy" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zWa-BM-HLj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -338,6 +337,7 @@
                         <segue destination="KUY-ER-4Nj" kind="relationship" relationship="viewControllers" id="QnI-XZ-sm9"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ye4-01-7BK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1473" y="53"/>
         </scene>
