@@ -7,13 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		945DF8A72047D2D800D7F77C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945DF8A62047D2D800D7F77C /* User.swift */; };
+		945DF8A92047DEF200D7F77C /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945DF8A82047DEF200D7F77C /* TabViewController.swift */; };
+		94BD59722045CD86007E38BB /* PocketCaddyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BD59712045CD86007E38BB /* PocketCaddyData.swift */; };
+		94BD59742045CDC3007E38BB /* Courses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BD59732045CDC3007E38BB /* Courses.swift */; };
+		94BD59762045D0B9007E38BB /* Holes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BD59752045D0B9007E38BB /* Holes.swift */; };
+		94E26C0A2044949D00CDE724 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E26C092044949D00CDE724 /* PracticeViewController.swift */; };
 		94E2ACF92031018700F98A0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E2ACF82031018700F98A0A /* AppDelegate.swift */; };
-		94E2ACFB2031018700F98A0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E2ACFA2031018700F98A0A /* ViewController.swift */; };
 		94E2ACFE2031018700F98A0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94E2ACFC2031018700F98A0A /* Main.storyboard */; };
 		94E2AD002031018700F98A0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94E2ACFF2031018700F98A0A /* Assets.xcassets */; };
-		94E2AD032031018700F98A0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94E2AD012031018700F98A0A /* LaunchScreen.storyboard */; };
 		94E2AD0E2031018700F98A0A /* PocketCaddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E2AD0D2031018700F98A0A /* PocketCaddyTests.swift */; };
 		94E2AD192031018700F98A0A /* PocketCaddyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E2AD182031018700F98A0A /* PocketCaddyUITests.swift */; };
+		94FA1BEF20478FC600956F75 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA1BEE20478FC600956F75 /* LoginViewController.swift */; };
+		94FA1BF12047958900956F75 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA1BF02047958900956F75 /* SignUpViewController.swift */; };
+		A7FA04DA78DEC85ED7569E49 /* Pods_PocketCaddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF830C11FCE6476F226F528 /* Pods_PocketCaddy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,12 +41,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CF830C11FCE6476F226F528 /* Pods_PocketCaddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketCaddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21311EFA2C8255605535C0D4 /* Pods-PocketCaddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketCaddy.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy.release.xcconfig"; sourceTree = "<group>"; };
+		832520ABDE89D77C223F5E93 /* Pods-PocketCaddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketCaddy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy.debug.xcconfig"; sourceTree = "<group>"; };
+		945DF8A62047D2D800D7F77C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		945DF8A82047DEF200D7F77C /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		94BD59712045CD86007E38BB /* PocketCaddyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketCaddyData.swift; sourceTree = "<group>"; };
+		94BD59732045CDC3007E38BB /* Courses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Courses.swift; sourceTree = "<group>"; };
+		94BD59752045D0B9007E38BB /* Holes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holes.swift; sourceTree = "<group>"; };
+		94E26C092044949D00CDE724 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		94E2ACF52031018700F98A0A /* PocketCaddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketCaddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E2ACF82031018700F98A0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		94E2ACFA2031018700F98A0A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		94E2ACFD2031018700F98A0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		94E2ACFF2031018700F98A0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		94E2AD022031018700F98A0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94E2AD042031018700F98A0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94E2AD092031018700F98A0A /* PocketCaddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketCaddyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E2AD0D2031018700F98A0A /* PocketCaddyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketCaddyTests.swift; sourceTree = "<group>"; };
@@ -47,6 +61,8 @@
 		94E2AD142031018700F98A0A /* PocketCaddyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketCaddyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E2AD182031018700F98A0A /* PocketCaddyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketCaddyUITests.swift; sourceTree = "<group>"; };
 		94E2AD1A2031018700F98A0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94FA1BEE20478FC600956F75 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		94FA1BF02047958900956F75 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7FA04DA78DEC85ED7569E49 /* Pods_PocketCaddy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +91,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C39F14E656FCE6B55CE8B19 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				832520ABDE89D77C223F5E93 /* Pods-PocketCaddy.debug.xcconfig */,
+				21311EFA2C8255605535C0D4 /* Pods-PocketCaddy.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8F09136B23E8631235FF727F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0CF830C11FCE6476F226F528 /* Pods_PocketCaddy.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		94BD59702045CCEF007E38BB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				94BD59712045CD86007E38BB /* PocketCaddyData.swift */,
+				94BD59732045CDC3007E38BB /* Courses.swift */,
+				94BD59752045D0B9007E38BB /* Holes.swift */,
+				945DF8A62047D2D800D7F77C /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		94E2ACEC2031018700F98A0A = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +126,8 @@
 				94E2AD0C2031018700F98A0A /* PocketCaddyTests */,
 				94E2AD172031018700F98A0A /* PocketCaddyUITests */,
 				94E2ACF62031018700F98A0A /* Products */,
+				0C39F14E656FCE6B55CE8B19 /* Pods */,
+				8F09136B23E8631235FF727F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +144,15 @@
 		94E2ACF72031018700F98A0A /* PocketCaddy */ = {
 			isa = PBXGroup;
 			children = (
+				94BD59702045CCEF007E38BB /* Model */,
 				94E2ACF82031018700F98A0A /* AppDelegate.swift */,
-				94E2ACFA2031018700F98A0A /* ViewController.swift */,
 				94E2ACFC2031018700F98A0A /* Main.storyboard */,
 				94E2ACFF2031018700F98A0A /* Assets.xcassets */,
-				94E2AD012031018700F98A0A /* LaunchScreen.storyboard */,
 				94E2AD042031018700F98A0A /* Info.plist */,
+				94E26C092044949D00CDE724 /* PracticeViewController.swift */,
+				94FA1BEE20478FC600956F75 /* LoginViewController.swift */,
+				94FA1BF02047958900956F75 /* SignUpViewController.swift */,
+				945DF8A82047DEF200D7F77C /* TabViewController.swift */,
 			);
 			path = PocketCaddy;
 			sourceTree = "<group>";
@@ -132,9 +182,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 94E2AD1D2031018700F98A0A /* Build configuration list for PBXNativeTarget "PocketCaddy" */;
 			buildPhases = (
+				C7D0B5269814334C1E62F651 /* [CP] Check Pods Manifest.lock */,
 				94E2ACF12031018700F98A0A /* Sources */,
 				94E2ACF22031018700F98A0A /* Frameworks */,
 				94E2ACF32031018700F98A0A /* Resources */,
+				728EF0B128B0F4C40DED60C0 /* [CP] Embed Pods Frameworks */,
+				A44E021685F4D61390847BFF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,7 +285,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94E2AD032031018700F98A0A /* LaunchScreen.storyboard in Resources */,
 				94E2AD002031018700F98A0A /* Assets.xcassets in Resources */,
 				94E2ACFE2031018700F98A0A /* Main.storyboard in Resources */,
 			);
@@ -254,12 +306,73 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		728EF0B128B0F4C40DED60C0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A44E021685F4D61390847BFF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7D0B5269814334C1E62F651 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PocketCaddy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		94E2ACF12031018700F98A0A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94E2ACFB2031018700F98A0A /* ViewController.swift in Sources */,
+				94FA1BEF20478FC600956F75 /* LoginViewController.swift in Sources */,
+				94FA1BF12047958900956F75 /* SignUpViewController.swift in Sources */,
+				94BD59742045CDC3007E38BB /* Courses.swift in Sources */,
+				94E26C0A2044949D00CDE724 /* PracticeViewController.swift in Sources */,
+				945DF8A72047D2D800D7F77C /* User.swift in Sources */,
+				94BD59722045CD86007E38BB /* PocketCaddyData.swift in Sources */,
+				945DF8A92047DEF200D7F77C /* TabViewController.swift in Sources */,
+				94BD59762045D0B9007E38BB /* Holes.swift in Sources */,
 				94E2ACF92031018700F98A0A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,14 +415,6 @@
 				94E2ACFD2031018700F98A0A /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		94E2AD012031018700F98A0A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				94E2AD022031018700F98A0A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -424,6 +529,7 @@
 		};
 		94E2AD1E2031018700F98A0A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 832520ABDE89D77C223F5E93 /* Pods-PocketCaddy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -438,6 +544,7 @@
 		};
 		94E2AD1F2031018700F98A0A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21311EFA2C8255605535C0D4 /* Pods-PocketCaddy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
