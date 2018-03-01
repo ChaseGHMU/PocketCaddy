@@ -9,10 +9,13 @@
 import UIKit
 
 class TabViewController: UITabBarController {
+
     
+    var golfer:[User] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(golfer)
         // Do any additional setup after loading the view.
     }
 
