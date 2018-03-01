@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4497642B2048706800AC8FC6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4497642A2048706800AC8FC6 /* SettingsViewController.swift */; };
+		4497642D2048716100AC8FC6 /* ScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4497642C2048716100AC8FC6 /* ScoresViewController.swift */; };
 		945DF8A72047D2D800D7F77C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945DF8A62047D2D800D7F77C /* User.swift */; };
 		945DF8A92047DEF200D7F77C /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945DF8A82047DEF200D7F77C /* TabViewController.swift */; };
 		94BD59722045CD86007E38BB /* PocketCaddyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BD59712045CD86007E38BB /* PocketCaddyData.swift */; };
@@ -43,6 +45,8 @@
 /* Begin PBXFileReference section */
 		0CF830C11FCE6476F226F528 /* Pods_PocketCaddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketCaddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21311EFA2C8255605535C0D4 /* Pods-PocketCaddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketCaddy.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy.release.xcconfig"; sourceTree = "<group>"; };
+		4497642A2048706800AC8FC6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4497642C2048716100AC8FC6 /* ScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresViewController.swift; sourceTree = "<group>"; };
 		832520ABDE89D77C223F5E93 /* Pods-PocketCaddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketCaddy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy.debug.xcconfig"; sourceTree = "<group>"; };
 		945DF8A62047D2D800D7F77C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		945DF8A82047DEF200D7F77C /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
@@ -147,9 +151,11 @@
 				94BD59702045CCEF007E38BB /* Model */,
 				94E2ACF82031018700F98A0A /* AppDelegate.swift */,
 				94E2ACFC2031018700F98A0A /* Main.storyboard */,
+				4497642C2048716100AC8FC6 /* ScoresViewController.swift */,
 				94E2ACFF2031018700F98A0A /* Assets.xcassets */,
 				94E2AD042031018700F98A0A /* Info.plist */,
 				94E26C092044949D00CDE724 /* PracticeViewController.swift */,
+				4497642A2048706800AC8FC6 /* SettingsViewController.swift */,
 				94FA1BEE20478FC600956F75 /* LoginViewController.swift */,
 				94FA1BF02047958900956F75 /* SignUpViewController.swift */,
 				945DF8A82047DEF200D7F77C /* TabViewController.swift */,
@@ -365,9 +371,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4497642D2048716100AC8FC6 /* ScoresViewController.swift in Sources */,
 				94FA1BEF20478FC600956F75 /* LoginViewController.swift in Sources */,
 				94FA1BF12047958900956F75 /* SignUpViewController.swift in Sources */,
 				94BD59742045CDC3007E38BB /* Courses.swift in Sources */,
+				4497642B2048706800AC8FC6 /* SettingsViewController.swift in Sources */,
 				94E26C0A2044949D00CDE724 /* PracticeViewController.swift in Sources */,
 				945DF8A72047D2D800D7F77C /* User.swift in Sources */,
 				94BD59722045CD86007E38BB /* PocketCaddyData.swift in Sources */,
