@@ -12,12 +12,13 @@
 		94BD59762045D0B9007E38BB /* Holes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BD59752045D0B9007E38BB /* Holes.swift */; };
 		94E26C0A2044949D00CDE724 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E26C092044949D00CDE724 /* PracticeViewController.swift */; };
 		94E2ACF92031018700F98A0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E2ACF82031018700F98A0A /* AppDelegate.swift */; };
-		94E2ACFB2031018700F98A0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E2ACFA2031018700F98A0A /* ViewController.swift */; };
 		94E2ACFE2031018700F98A0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94E2ACFC2031018700F98A0A /* Main.storyboard */; };
 		94E2AD002031018700F98A0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94E2ACFF2031018700F98A0A /* Assets.xcassets */; };
 		94E2AD032031018700F98A0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94E2AD012031018700F98A0A /* LaunchScreen.storyboard */; };
 		94E2AD0E2031018700F98A0A /* PocketCaddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E2AD0D2031018700F98A0A /* PocketCaddyTests.swift */; };
 		94E2AD192031018700F98A0A /* PocketCaddyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E2AD182031018700F98A0A /* PocketCaddyUITests.swift */; };
+		94FA1BEF20478FC600956F75 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA1BEE20478FC600956F75 /* LoginViewController.swift */; };
+		94FA1BF12047958900956F75 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA1BF02047958900956F75 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +45,6 @@
 		94E26C092044949D00CDE724 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		94E2ACF52031018700F98A0A /* PocketCaddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketCaddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E2ACF82031018700F98A0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		94E2ACFA2031018700F98A0A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		94E2ACFD2031018700F98A0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		94E2ACFF2031018700F98A0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94E2AD022031018700F98A0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +55,8 @@
 		94E2AD142031018700F98A0A /* PocketCaddyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketCaddyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E2AD182031018700F98A0A /* PocketCaddyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketCaddyUITests.swift; sourceTree = "<group>"; };
 		94E2AD1A2031018700F98A0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94FA1BEE20478FC600956F75 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		94FA1BF02047958900956F75 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,12 +119,13 @@
 			children = (
 				94BD59702045CCEF007E38BB /* Model */,
 				94E2ACF82031018700F98A0A /* AppDelegate.swift */,
-				94E2ACFA2031018700F98A0A /* ViewController.swift */,
 				94E2ACFC2031018700F98A0A /* Main.storyboard */,
 				94E2ACFF2031018700F98A0A /* Assets.xcassets */,
 				94E2AD012031018700F98A0A /* LaunchScreen.storyboard */,
 				94E2AD042031018700F98A0A /* Info.plist */,
 				94E26C092044949D00CDE724 /* PracticeViewController.swift */,
+				94FA1BEE20478FC600956F75 /* LoginViewController.swift */,
+				94FA1BF02047958900956F75 /* SignUpViewController.swift */,
 			);
 			path = PocketCaddy;
 			sourceTree = "<group>";
@@ -279,11 +282,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94FA1BEF20478FC600956F75 /* LoginViewController.swift in Sources */,
+				94FA1BF12047958900956F75 /* SignUpViewController.swift in Sources */,
 				94BD59742045CDC3007E38BB /* Courses.swift in Sources */,
 				94E26C0A2044949D00CDE724 /* PracticeViewController.swift in Sources */,
 				94BD59722045CD86007E38BB /* PocketCaddyData.swift in Sources */,
 				94BD59762045D0B9007E38BB /* Holes.swift in Sources */,
-				94E2ACFB2031018700F98A0A /* ViewController.swift in Sources */,
 				94E2ACF92031018700F98A0A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
