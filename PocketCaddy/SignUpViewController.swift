@@ -40,23 +40,20 @@ class SignUpViewController: UIViewController {
                 "username": "\(usr)"
             ]
             
-            let url = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Golfers"
-            
-            Alamofire.request(url, method: .post, parameters: obj, encoding:JSONEncoding.default).responseJSON(completionHandler: { response in
-                if response.result.value != nil, let value = response.result.value {
-                    let statusCode = response.response?.statusCode
-                    if(statusCode != 200){
-                        print("error")
-                    }else{
-                        print(value)
-                        let alert = UIAlertController(title: "Account Succesfully Created", message: "Please confirm your email address to login", preferredStyle: UIAlertControllerStyle.alert)
-                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{ (action: UIAlertAction!) in
-                            alert.dismiss(animated: true, completion: nil)
-                            self.dismiss(animated: true, completion: nil)
-                        }))
-                        self.present(alert, animated: true)
-                    }
-                    
+            PocketCaddyData.post(table: .golfers, parameters: obj, login: false, completionHandler: { (dict, success, code) in
+                if(success == "Success"){
+                    let alert = UIAlertController(title: "Account Succesfully Created", message: "Please confirm your email address to login", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{ (action: UIAlertAction!) in
+                        alert.dismiss(animated: true, completion: nil)
+                        self.dismiss(animated: true, completion: nil)
+                    }))
+                    self.present(alert, animated: true)
+                }else {
+                    let alert = UIAlertController(title: "Error", message: "Email or Password already exists", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{ (action: UIAlertAction!) in
+                        alert.dismiss(animated: true, completion: nil)
+                    }))
+                    self.present(alert, animated: true)
                 }
             })
         }

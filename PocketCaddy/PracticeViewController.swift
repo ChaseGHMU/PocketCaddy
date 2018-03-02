@@ -11,24 +11,17 @@ import UIKit
 class PracticeViewController: UIViewController {
 
     @IBAction func pleaseWork(_ sender: Any) {
-        let urlString = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Courses/1"
-        guard let url = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: url){ (data, response, error) in
-            guard error == nil, let data = data else { return }
-            do {
-                let decoder = JSONDecoder()
-                let courseData = try decoder.decode(Course.self , from: data)
+        PocketCaddyData.get(table: .courses, id: "1", exists: false) { (dict, success, status) in
+            if let dict = dict, success == "Success", status == 200{
+                let name = "\(dict["courseName"]!)"
+                let address = "\(dict["addressLine1"]!)"
+                let zip = "\(dict["zipCode"]!)"
                 
-                DispatchQueue.main.sync {
-                    self.name?.text = courseData.name
-                    self.address?.text = courseData.address1
-                    self.zipcode?.text = "\(courseData.zipCode)"
-                }
-                
-            } catch let err{
-                print("Err", err)
+                self.name?.text = name
+                self.address?.text = address
+                self.zipcode?.text = zip
             }
-            }.resume()
+        }
     }
     
     @IBOutlet weak var name: UILabel!
