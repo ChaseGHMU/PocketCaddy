@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
     var golfer:[User] = []
     
     @IBAction func login(_ sender: Any) {
+
         if let email = emailTextField.text, let password = passwordTextField.text {
             let loginPassword = password.trimmingCharacters(in: .whitespaces)
             if(email.isEmpty || loginPassword.isEmpty){
@@ -27,31 +28,28 @@ class LoginViewController: UIViewController {
                     "password": "\(password)"
                 ]
                 
-                let url = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Golfers/login"
-                
-                Alamofire.request(url, method: .post, parameters: login, encoding: JSONEncoding.default).responseJSON(completionHandler: { response in
-                    if response.result.value != nil, let value = response.result.value {
-                        if(response.response?.statusCode == 200){
-                            let result = value as! NSDictionary
-                            Alamofire.request("http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Golfers/\(result["userId"]!)", method: .get).responseJSON(completionHandler: { response in
-                                if response.response?.statusCode == 200{
-                                    let username = response.result.value as! NSDictionary
-                                    let id = result["id"] as! String
-                                    let usern = username["username"] as! String
-                                    let userId = result["userId"] as! Int
-                                    self.golfer.append(User(id: id, username: usern, userId: userId))
-                                    self.performSegue(withIdentifier: "successful", sender: self)
-                                }
-                            }).resume()
-                        }else{
-                            let alert = UIAlertController(title: "Unable to Login", message: "Email or Password Invalid", preferredStyle: UIAlertControllerStyle.alert)
+                PocketCaddyData.post(table: .golfers, parameters: login, login: true, completionHandler: { (dict, success, code) in
+                    if(success == "Success"), let dict = dict{
+                        print(dict)
+                        let dictID = "\(dict["userId"]!)"
+                        print(dictID)
+                        PocketCaddyData.get(table: .golfers, id: dictID, exists: false, completionHandler: { (result, success, code) in
+                            if(success == "Success"), let result = result{
+                                let id = "\(result["id"]!)"
+                                let user = "\(result["username"]!)"
+                                let userId = "\(dict["userId"]!)"
+                                self.golfer.append(User(id: id, username: user, userId: userId))
+                                self.performSegue(withIdentifier: "successful", sender: self)
+                            }
+                        })
+                    }else{
+                        let alert = UIAlertController(title: "Unable to Login", message: "Email or Password Invalid", preferredStyle: UIAlertControllerStyle.alert)
                             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{ (action: UIAlertAction!) in
-                                alert.dismiss(animated: true, completion: nil)
-                            }))
+                            alert.dismiss(animated: true, completion: nil)
+                        }))
                             self.present(alert, animated: true, completion: nil)
                         }
-                    }
-                }).resume()
+                })
             }
         }
     }
