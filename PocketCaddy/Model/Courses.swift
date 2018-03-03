@@ -9,13 +9,13 @@
 import Foundation
 
 struct Course: Codable{
-    let id: Int
+    let id: String
     let name: String
     let address1: String
     let address2: String?
     let city: String
     let state: String
-    let zipCode: Int
+    let zipCode: String
     
     private enum CodingKeys : String, CodingKey {
         case id = "courseId"

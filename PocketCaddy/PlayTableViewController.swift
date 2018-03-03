@@ -12,27 +12,42 @@ class PlayTableViewController: UITableViewController, UISearchResultsUpdating {
     
     var course: [Course]?
     func updateSearchResults(for searchController: UISearchController) {
-
+        if let text = search.searchBar.text {
+            PocketCaddyData.search(searchText: text, completionHandler: { (course) in
+                if let course = course{
+                    self.course = course
+                    self.tableView.reloadData()
+                }
+            })
+        }
     }
     
     var search: UISearchController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.rowHeight = 98
+        self.definesPresentationContext = true
         search = UISearchController(searchResultsController: nil)
         search.searchResultsUpdater = self
         search.searchBar.sizeToFit()
         search.dimsBackgroundDuringPresentation = false
         tableView.tableHeaderView = search.searchBar
+        search.searchBar.showsCancelButton = false
         
-        let editButton = self.editButtonItem
-        self.navigationItem.rightBarButtonItem = editButton
+//        let editButton = self.editButtonItem
+//        self.navigationItem.rightBarButtonItem = editButton
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        search.dismiss(animated: true, completion: {})
     }
 
     override func didReceiveMemoryWarning() {
@@ -101,14 +116,14 @@ class PlayTableViewController: UITableViewController, UISearchResultsUpdating {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        search.dismiss(animated: true, completion: {})
     }
-    */
 
 }

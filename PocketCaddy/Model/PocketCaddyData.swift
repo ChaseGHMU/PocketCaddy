@@ -31,6 +31,7 @@ class PocketCaddyData{
     
     static let decoder = JSONDecoder()
     static var baseURL = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/"
+    static let allowedCharacterSet = (CharacterSet(charactersIn: "%"))
     
     /*
      POST FUNCTION: PARAMATERS
@@ -104,5 +105,39 @@ class PocketCaddyData{
             completionHandler([:], "Error", response.response?.statusCode)
             return
         })
+    }
+    
+    //Only used for realtime update of search bar in play
+    class func search(searchText: String, completionHandler: @escaping ([Course]? )-> Void){
+        var course = [Course]()
+        var url = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Courses?filter[where][courseName][like]="
+        url.append(searchText)
+        if(searchText != ""){
+            url.append("%25")
+        }
+        url = url.replacingOccurrences(of: " ", with: "+")
+        
+        Alamofire.request(url, method: .get).responseJSON(completionHandler: { response in
+            if response.result.value != nil, let data = response.data{
+                let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                if let array = json as? [Any]{
+                    for results in array{
+                        if let obj = results as? NSDictionary{
+                            let id = "\(obj["courseId"]!)"
+                            let address = "\(obj["addressLine1"]!)"
+                            let city = "\(obj["city"]!)"
+                            let name = "\(obj["courseName"]!)"
+                            let state = "\(obj["state"]!)"
+                            let zip = "\(obj["zipCode"]!)"
+                            course.append((Course(id: id, name: name, address1: address, address2: nil, city: city, state: state, zipCode: zip)))
+                        }
+                    }
+                    completionHandler(course)
+                }
+                
+
+            }
+        }).resume()
+        
     }
 }
