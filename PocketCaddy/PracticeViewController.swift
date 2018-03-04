@@ -28,7 +28,31 @@ class PracticeViewController: UIViewController {
     @IBOutlet weak var zipcode: UILabel!
     @IBOutlet weak var address: UILabel!
     
+    @IBOutlet weak var addClub: UIBarButtonItem! // megan -- button to allow user to add clubs
     
+    @IBAction func addClubAlert(_ sender: UIBarButtonItem) {
+        // create the alert
+        let alert = UIAlertController(title: "Add a Club", message: "Enter Name of Club:", preferredStyle: UIAlertControllerStyle.alert)
+        
+        //testing text field
+
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Enter Club"
+        }
+        //alert.addAction(action)
+        
+        
+        
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "Add", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

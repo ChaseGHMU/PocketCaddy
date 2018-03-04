@@ -423,9 +423,14 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Practice" id="2Xt-gs-3Dl"/>
                     <navigationItem key="navigationItem" title="Practice" id="DnX-fO-JjS">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="uEu-1Z-mbR"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="uEu-1Z-mbR">
+                            <connections>
+                                <action selector="addClubAlert:" destination="KUY-ER-4Nj" id="qHS-Uc-J4f"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addClub" destination="uEu-1Z-mbR" id="sVb-G3-GHQ"/>
                         <outlet property="address" destination="C4e-Od-d6W" id="mbM-zk-TEz"/>
                         <outlet property="name" destination="mmv-fe-gev" id="fLW-Zt-xPq"/>
                         <outlet property="zipcode" destination="yCJ-XM-ZUa" id="vvw-bU-Zo3"/>
