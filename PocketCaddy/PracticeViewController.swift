@@ -11,7 +11,7 @@ import UIKit
 class PracticeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // Data model: These strings will be the data for the table view cells
-    var clubs: [String] = ["club1", "club2", "club3", "club4", "club5"]
+    var clubs: [String] = []
     
     // cell reuse id (cells that scroll out of view can be reused)
     let cellReuseIdentifier = "cell"
