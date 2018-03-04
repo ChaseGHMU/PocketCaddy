@@ -16,6 +16,7 @@
 		94BD59722045CD86007E38BB /* PocketCaddyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BD59712045CD86007E38BB /* PocketCaddyData.swift */; };
 		94BD59742045CDC3007E38BB /* Courses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BD59732045CDC3007E38BB /* Courses.swift */; };
 		94BD59762045D0B9007E38BB /* Holes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BD59752045D0B9007E38BB /* Holes.swift */; };
+		94C490B2204B9F920098A8EF /* PlayResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C490B1204B9F920098A8EF /* PlayResultViewController.swift */; };
 		94E26C0A2044949D00CDE724 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E26C092044949D00CDE724 /* PracticeViewController.swift */; };
 		94E2ACF92031018700F98A0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E2ACF82031018700F98A0A /* AppDelegate.swift */; };
 		94E2ACFE2031018700F98A0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94E2ACFC2031018700F98A0A /* Main.storyboard */; };
@@ -57,6 +58,7 @@
 		94BD59712045CD86007E38BB /* PocketCaddyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketCaddyData.swift; sourceTree = "<group>"; };
 		94BD59732045CDC3007E38BB /* Courses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Courses.swift; sourceTree = "<group>"; };
 		94BD59752045D0B9007E38BB /* Holes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holes.swift; sourceTree = "<group>"; };
+		94C490B1204B9F920098A8EF /* PlayResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayResultViewController.swift; sourceTree = "<group>"; };
 		94E26C092044949D00CDE724 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		94E2ACF52031018700F98A0A /* PocketCaddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketCaddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E2ACF82031018700F98A0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				945DF8A82047DEF200D7F77C /* TabViewController.swift */,
 				947323BC204920DB008146F2 /* PlayTableViewController.swift */,
 				947323BE204922BC008146F2 /* PlaySearchTableViewCell.swift */,
+				94C490B1204B9F920098A8EF /* PlayResultViewController.swift */,
 			);
 			path = PocketCaddy;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				945DF8A72047D2D800D7F77C /* User.swift in Sources */,
 				94BD59722045CD86007E38BB /* PocketCaddyData.swift in Sources */,
 				945DF8A92047DEF200D7F77C /* TabViewController.swift in Sources */,
+				94C490B2204B9F920098A8EF /* PlayResultViewController.swift in Sources */,
 				947323BD204920DB008146F2 /* PlayTableViewController.swift in Sources */,
 				94BD59762045D0B9007E38BB /* Holes.swift in Sources */,
 				94E2ACF92031018700F98A0A /* AppDelegate.swift in Sources */,

@@ -123,6 +123,10 @@ class PlayTableViewController: UITableViewController, UISearchResultsUpdating {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? PlayResultViewController, let index = tableView.indexPathForSelectedRow,
+            let course = course{
+            destination.course = course[index.row]
+        }
         search.dismiss(animated: true, completion: {})
     }
 
