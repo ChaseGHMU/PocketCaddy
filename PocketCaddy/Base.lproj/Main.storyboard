@@ -403,17 +403,25 @@
                                     <action selector="pleaseWork:" destination="KUY-ER-4Nj" eventType="touchUpInside" id="AaD-Er-hhI"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3qd-u4-x5Q">
+                                <rect key="frame" x="0.0" y="135" width="375" height="483"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="C4e-Od-d6W" firstAttribute="leading" secondItem="yCJ-XM-ZUa" secondAttribute="trailing" constant="5" id="0ti-XF-nxE"/>
+                            <constraint firstItem="xmd-cD-Baw" firstAttribute="trailing" secondItem="3qd-u4-x5Q" secondAttribute="trailing" id="92A-1W-xPd"/>
                             <constraint firstItem="YbN-tF-qKW" firstAttribute="top" secondItem="yCJ-XM-ZUa" secondAttribute="bottom" constant="5" id="BlH-vA-FJq"/>
                             <constraint firstItem="mmv-fe-gev" firstAttribute="top" secondItem="xmd-cD-Baw" secondAttribute="top" constant="5" id="COT-jj-vWC"/>
                             <constraint firstItem="C4e-Od-d6W" firstAttribute="top" secondItem="xmd-cD-Baw" secondAttribute="top" constant="5" id="CoY-Tw-aXR"/>
+                            <constraint firstItem="3qd-u4-x5Q" firstAttribute="top" secondItem="YbN-tF-qKW" secondAttribute="bottom" constant="10" id="IZu-tx-D9a"/>
+                            <constraint firstItem="xmd-cD-Baw" firstAttribute="bottom" secondItem="3qd-u4-x5Q" secondAttribute="bottom" id="PUG-cA-Gih"/>
                             <constraint firstItem="YbN-tF-qKW" firstAttribute="centerX" secondItem="xmd-cD-Baw" secondAttribute="centerX" id="dWf-Wa-HMf"/>
                             <constraint firstItem="mmv-fe-gev" firstAttribute="leading" secondItem="xmd-cD-Baw" secondAttribute="leading" constant="5" id="lP7-Yd-n1D"/>
                             <constraint firstItem="yCJ-XM-ZUa" firstAttribute="top" secondItem="xmd-cD-Baw" secondAttribute="top" constant="5" id="m5o-7b-OdW"/>
                             <constraint firstItem="yCJ-XM-ZUa" firstAttribute="leading" secondItem="mmv-fe-gev" secondAttribute="trailing" constant="5" id="t4k-NK-zel"/>
+                            <constraint firstItem="3qd-u4-x5Q" firstAttribute="leading" secondItem="xmd-cD-Baw" secondAttribute="leading" id="xIH-j7-zXQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xmd-cD-Baw"/>
                     </view>
@@ -429,6 +437,7 @@
                         <outlet property="addClub" destination="uEu-1Z-mbR" id="sVb-G3-GHQ"/>
                         <outlet property="address" destination="C4e-Od-d6W" id="mbM-zk-TEz"/>
                         <outlet property="name" destination="mmv-fe-gev" id="fLW-Zt-xPq"/>
+                        <outlet property="tableView" destination="3qd-u4-x5Q" id="YW4-AD-HAe"/>
                         <outlet property="zipcode" destination="yCJ-XM-ZUa" id="vvw-bU-Zo3"/>
                     </connections>
                 </viewController>
