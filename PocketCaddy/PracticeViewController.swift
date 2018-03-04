@@ -11,7 +11,8 @@ import UIKit
 class PracticeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // Data model: These strings will be the data for the table view cells
-    let clubs: [String] = ["club1", "club2", "club3", "club4", "club5"]
+    var clubs: [String] = []
+    var namePassed:String!
     
     // cell reuse id (cells that scroll out of view can be reused)
     let cellReuseIdentifier = "cell"
@@ -49,7 +50,18 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
             textField.placeholder = "Enter Club"
         }
         // creates both add and cancel options for user
-        alert.addAction(UIAlertAction(title: "Add", style: UIAlertActionStyle.default, handler: nil))
+       // alert.addAction(UIAlertAction(title: "Add", style: UIAlertActionStyle.default, handler: nil))
+        
+        let submitAction = UIAlertAction(title: "Add", style: .default, handler: { (action) -> Void in
+            // Get 1st TextField's text
+            let textField = alert.textFields![0]
+            print(textField.text!)
+            self.clubs.append(textField.text!) //adds new club to array
+            self.tableView.reloadData() //reloads data so new club is displayed
+        })
+        alert.addAction(submitAction)
+        
+        
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
         
         // show alert to user
@@ -63,6 +75,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -89,7 +102,44 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
+        print(clubs[indexPath.row])
+        namePassed = clubs[indexPath.row]
+        
+        self.performSegue(withIdentifier: "segue", sender: indexPath)
+        
+
     }
+   
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? ClubCellViewController, let index = tableView.indexPathForSelectedRow,
+            let clubName = namePassed{
+            destination.name = clubs[index.row]
+        }
+        //search.dismiss(animated: true, completion: {})
+    }
+  
+
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            // remove the item from the data model
+            clubs.remove(at: indexPath.row)
+            
+            // delete the table view row
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+        } else if editingStyle == .insert {
+            // Not used in our example, but if you were adding a new row, this is where you would do it.
+        }
+    }
+    
+
 
     /*
     // MARK: - Navigation

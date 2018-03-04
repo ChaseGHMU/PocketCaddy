@@ -439,6 +439,7 @@
                         <outlet property="name" destination="mmv-fe-gev" id="fLW-Zt-xPq"/>
                         <outlet property="tableView" destination="3qd-u4-x5Q" id="YW4-AD-HAe"/>
                         <outlet property="zipcode" destination="yCJ-XM-ZUa" id="vvw-bU-Zo3"/>
+                        <segue destination="iQd-DM-fCA" kind="push" identifier="segue" id="xjE-e9-PY9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KuB-zj-t3i" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -450,7 +451,38 @@
                     </items>
                 </navigationBar>
             </objects>
-            <point key="canvasLocation" x="2480.8000000000002" y="1396.5517241379312"/>
+            <point key="canvasLocation" x="2506" y="1397"/>
+        </scene>
+        <!--Club Cell View Controller-->
+        <scene sceneID="CFo-ZT-1zU">
+            <objects>
+                <viewController storyboardIdentifier="ClubCellViewController" id="iQd-DM-fCA" customClass="ClubCellViewController" customModule="PocketCaddy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CNX-7v-cBX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emf-m9-nwU">
+                                <rect key="frame" x="166" y="307" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="emf-m9-nwU" firstAttribute="centerX" secondItem="rKB-oE-Mrx" secondAttribute="centerX" id="iRw-Ex-4ta"/>
+                            <constraint firstItem="emf-m9-nwU" firstAttribute="centerY" secondItem="rKB-oE-Mrx" secondAttribute="centerY" id="nLi-FP-BMJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rKB-oE-Mrx"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="y3Q-Cy-kcJ"/>
+                    <connections>
+                        <outlet property="clubName" destination="emf-m9-nwU" id="xaS-eC-ME0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qMX-ez-hqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3236" y="1388"/>
         </scene>
         <!--Scorecards-->
         <scene sceneID="XCn-5a-P0X">
