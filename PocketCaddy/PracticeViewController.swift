@@ -49,7 +49,18 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
             textField.placeholder = "Enter Club"
         }
         // creates both add and cancel options for user
-        alert.addAction(UIAlertAction(title: "Add", style: UIAlertActionStyle.default, handler: nil))
+       // alert.addAction(UIAlertAction(title: "Add", style: UIAlertActionStyle.default, handler: nil))
+        
+        let submitAction = UIAlertAction(title: "Add", style: .default, handler: { (action) -> Void in
+            // Get 1st TextField's text
+            let textField = alert.textFields![0]
+            print(textField.text!)
+            self.clubs.append(textField.text!) //adds new club to array
+            self.tableView.reloadData() //reloads data so new club is displayed
+        })
+        alert.addAction(submitAction)
+        
+        
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
         
         // show alert to user
@@ -63,6 +74,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
+        
     }
 
     override func didReceiveMemoryWarning() {
