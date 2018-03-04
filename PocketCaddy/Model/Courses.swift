@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct Course: Codable{
+struct Course: Codable {
+    
     let id: String
     let name: String
     let address1: String
