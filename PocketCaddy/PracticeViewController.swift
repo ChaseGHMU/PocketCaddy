@@ -12,6 +12,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     
     // Data model: These strings will be the data for the table view cells
     var clubs: [String] = []
+    var namePassed:String!
     
     // cell reuse id (cells that scroll out of view can be reused)
     let cellReuseIdentifier = "cell"
@@ -101,7 +102,27 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
+        print(clubs[indexPath.row])
+        namePassed = clubs[indexPath.row]
+        
+        self.performSegue(withIdentifier: "segue", sender: indexPath)
+        
+
     }
+   
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? ClubCellViewController, let index = tableView.indexPathForSelectedRow,
+            let clubName = namePassed{
+            destination.name = clubs[index.row]
+        }
+        //search.dismiss(animated: true, completion: {})
+    }
+  
+
+    
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
@@ -117,6 +138,8 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
             // Not used in our example, but if you were adding a new row, this is where you would do it.
         }
     }
+    
+
 
     /*
     // MARK: - Navigation
