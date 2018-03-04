@@ -8,8 +8,16 @@
 
 import UIKit
 
-class PracticeViewController: UIViewController {
+class PracticeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    // Data model: These strings will be the data for the table view cells
+    let clubs: [String] = ["club1", "club2", "club3", "club4", "club5"]
+    
+    // cell reuse id (cells that scroll out of view can be reused)
+    let cellReuseIdentifier = "cell"
 
+    @IBOutlet weak var tableView: UITableView!
+    
     @IBAction func pleaseWork(_ sender: Any) {
         PocketCaddyData.get(table: .courses, id: "1", exists: false) { (dict, success, status) in
             if let dict = dict, success == "Success", status == 200{
@@ -29,18 +37,59 @@ class PracticeViewController: UIViewController {
     @IBOutlet weak var address: UILabel!
     
     
+    //megan's changes
+    @IBOutlet weak var addClub: UIBarButtonItem! // megan -- button to allow user to add clubs
+    
+    @IBAction func addClubAlert(_ sender: UIBarButtonItem) {
+        // create the alert
+        let alert = UIAlertController(title: "Add a Club", message: "Enter Name of Club:", preferredStyle: UIAlertControllerStyle.alert)
+
+        // creating text field for club name
+        alert.addTextField { (textField) in
+            textField.placeholder = "Enter Club"
+        }
+        // creates both add and cancel options for user
+        alert.addAction(UIAlertAction(title: "Add", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        // show alert to user
+        self.present(alert, animated: true, completion: nil)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //tableview changes
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+   
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.clubs.count
+    }
     
+    // create a cell for each table view row
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // create a new cell if needed or reuse an old one
+        let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
+        
+        // set the text from the data model
+        cell.textLabel?.text = self.clubs[indexPath.row]
+        
+        return cell
+    }
+    
+    // method to run when table view cell is tapped
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("You tapped cell number \(indexPath.row).")
+    }
 
     /*
     // MARK: - Navigation
