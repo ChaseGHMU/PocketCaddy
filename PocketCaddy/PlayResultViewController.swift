@@ -1,21 +1,25 @@
 //
-//  TabViewController.swift
+//  PlayResultViewController.swift
 //  PocketCaddy
 //
-//  Created by Chase Allen on 3/1/18.
+//  Created by Chase Allen on 3/3/18.
 //  Copyright © 2018 Chase Allen. All rights reserved.
 //
 
 import UIKit
 
-class TabViewController: UITabBarController {
+class PlayResultViewController: UIViewController {
 
-    
-    var golfer:[User] = []
+    @IBOutlet weak var courseLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    var course:Course?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(golfer)
+        if let course = course{
+            courseLabel.text = course.name
+            addressLabel.text = "\(course.address1), \(course.city), \(course.state) \(course.zipCode)"
+        }
         // Do any additional setup after loading the view.
     }
 
