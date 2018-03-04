@@ -33,23 +33,16 @@ class PracticeViewController: UIViewController {
     @IBAction func addClubAlert(_ sender: UIBarButtonItem) {
         // create the alert
         let alert = UIAlertController(title: "Add a Club", message: "Enter Name of Club:", preferredStyle: UIAlertControllerStyle.alert)
-        
-        //testing text field
 
-        
+        // creating text field for club name
         alert.addTextField { (textField) in
             textField.placeholder = "Enter Club"
         }
-        //alert.addAction(action)
-        
-        
-        
-        
-        // add an action (button)
+        // creates both add and cancel options for user
         alert.addAction(UIAlertAction(title: "Add", style: UIAlertActionStyle.default, handler: nil))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
         
-        // show the alert
+        // show alert to user
         self.present(alert, animated: true, completion: nil)
         
     }
