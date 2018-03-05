@@ -23,18 +23,29 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
     @IBAction func addSwing(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Add New Swing", message: "How far did you hit the ball?", preferredStyle: UIAlertControllerStyle.alert)
         
-        // creating text field for club name
+        // creating text field for swing distance
+        
         alert.addTextField { (textField) in
             textField.placeholder = "Enter Distance"
+
         }
-     
+        
         // adds functionality to allow user to input a distance for a new swing
         let submitAction = UIAlertAction(title: "Add", style: .default, handler: { (action) -> Void in
             // Get 1st TextField's text
+            
             let textField = alert.textFields![0]
             print(textField.text!)
+            
             let textfieldInt: Int? = Int(textField.text!)
-            self.distances.append(textfieldInt!)
+            print(textfieldInt)
+            if (textfieldInt == nil){
+               print("Not an integer")  // if user enters a non-integer value, the error is printed to console and it is not added to the array...will work on alerting user of issue
+            }
+            else{
+                self.distances.append(textfieldInt!)
+            }
+            
             
             self.tableView.reloadData() //reloads data so new club is displayed
             
@@ -62,7 +73,6 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
         self.present(alert, animated: true, completion: nil)
         
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
