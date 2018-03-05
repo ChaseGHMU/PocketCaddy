@@ -12,11 +12,21 @@ class TabViewController: UITabBarController {
 
     
     var golfer:[User] = []
+    let defaults = UserDefaults.standard
+    var logged:Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(golfer)
+        logged = defaults.bool(forKey: "isLoggedIn")
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let logged = logged{
+            if(!logged){
+                self.performSegue(withIdentifier: "notLogged", sender: self)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

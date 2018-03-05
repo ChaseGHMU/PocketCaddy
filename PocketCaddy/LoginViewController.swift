@@ -30,16 +30,22 @@ class LoginViewController: UIViewController {
                 
                 PocketCaddyData.post(table: .golfers, parameters: login, login: true, completionHandler: { (dict, success, code) in
                     if(success == "Success"), let dict = dict{
-                        print(dict)
                         let dictID = "\(dict["userId"]!)"
-                        print(dictID)
                         PocketCaddyData.get(table: .golfers, id: dictID, exists: false, completionHandler: { (result, success, code) in
                             if(success == "Success"), let result = result{
                                 let id = "\(result["id"]!)"
                                 let user = "\(result["username"]!)"
                                 let userId = "\(dict["userId"]!)"
+                                let created = "\(dict["created"]!)"
                                 self.golfer.append(User(id: id, username: user, userId: userId))
-                                self.performSegue(withIdentifier: "successful", sender: self)
+                                let loggedIn = UserDefaults.standard
+                                loggedIn.set(id, forKey: "id")
+                                loggedIn.set(user, forKey: "username")
+                                loggedIn.set(userId, forKey: "userId")
+                                loggedIn.set(created, forKey: "created")
+                                loggedIn.set(true, forKey: "isLoggedIn")
+                                print("succesfuly stored")
+                                self.dismiss(animated: true, completion: {})
                             }
                         })
                     }else{
@@ -75,8 +81,5 @@ class LoginViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-            if let destination = segue.destination as? TabViewController{
-                destination.golfer = self.golfer
-            }
     }
 }
