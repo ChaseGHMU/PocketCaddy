@@ -107,7 +107,7 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
         // set the text from the data model
         //cell.textLabel?.text = self.distances[indexPath.row]
         
-        var stringInt = String(self.distances[indexPath.row])
+        let stringInt = String(self.distances[indexPath.row])
         cell.textLabel?.text = stringInt
         return cell
     }
