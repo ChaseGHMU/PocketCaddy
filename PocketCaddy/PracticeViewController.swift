@@ -25,7 +25,6 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
                 let name = "\(dict["courseName"]!)"
                 let address = "\(dict["addressLine1"]!)"
                 let zip = "\(dict["zipCode"]!)"
-                
                 self.name?.text = name
                 self.address?.text = address
                 self.zipcode?.text = zip

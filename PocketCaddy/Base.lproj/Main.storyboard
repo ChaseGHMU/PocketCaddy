@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L7c-Bf-6WN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -115,12 +115,11 @@
                         <outlet property="emailTextField" destination="uik-F4-hnK" id="mtI-hC-ndg"/>
                         <outlet property="forgotPassword" destination="fbh-It-Po0" id="J4E-LZ-Id6"/>
                         <outlet property="passwordTextField" destination="BGL-Ud-Gzi" id="RlX-b8-cDC"/>
-                        <segue destination="L7c-Bf-6WN" kind="show" identifier="successful" id="nBk-Hk-oe4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="365" y="53"/>
+            <point key="canvasLocation" x="-537" y="829"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="szc-sk-PoM">
@@ -586,17 +585,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PgQ-Zo-yk1">
-                                <rect key="frame" x="134.5" y="355" width="106" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4u0-O7-igb">
+                                <rect key="frame" x="163.5" y="350.5" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logout:" destination="J0Q-Iy-OhM" eventType="touchUpInside" id="ANG-pc-mVu"/>
+                                    <segue destination="L7c-Bf-6WN" kind="presentation" id="j8b-RB-cWr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="PgQ-Zo-yk1" firstAttribute="centerY" secondItem="3pN-jB-GSi" secondAttribute="centerY" id="2RI-5E-LFu"/>
-                            <constraint firstItem="PgQ-Zo-yk1" firstAttribute="centerX" secondItem="3pN-jB-GSi" secondAttribute="centerX" id="V0E-Td-dxC"/>
+                            <constraint firstItem="4u0-O7-igb" firstAttribute="centerX" secondItem="3pN-jB-GSi" secondAttribute="centerX" id="c80-dc-emd"/>
+                            <constraint firstItem="4u0-O7-igb" firstAttribute="centerY" secondItem="3pN-jB-GSi" secondAttribute="centerY" id="fPd-0s-vGV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3pN-jB-GSi"/>
                     </view>
@@ -617,8 +618,9 @@
                     <connections>
                         <outlet property="tabBar" destination="zWa-BM-HLj" id="01e-2Q-gWM"/>
                         <segue destination="cK9-wL-coE" kind="relationship" relationship="viewControllers" id="BZj-fN-ltM"/>
-                        <segue destination="KUL-kr-iRH" kind="relationship" relationship="viewControllers" id="2j3-ar-OE2"/>
-                        <segue destination="0hi-EI-56a" kind="relationship" relationship="viewControllers" id="My3-RB-7tI"/>
+                        <segue destination="y3i-lJ-har" kind="relationship" relationship="viewControllers" id="Cnv-cj-Gsb"/>
+                        <segue destination="KUY-ER-4Nj" kind="relationship" relationship="viewControllers" id="QnI-XZ-sm9"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="notLogged" animates="NO" id="91X-2a-5WP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ye4-01-7BK" userLabel="First Responder" sceneMemberID="firstResponder"/>
