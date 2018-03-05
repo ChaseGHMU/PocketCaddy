@@ -9,6 +9,7 @@
 import Foundation
 
 struct Holes: Codable {
+    
     let id: Int?
     let number: Int?
     let par: Int?
