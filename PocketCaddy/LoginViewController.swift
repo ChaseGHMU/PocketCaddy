@@ -38,13 +38,12 @@ class LoginViewController: UIViewController {
                                 let user = "\(result["username"]!)"
                                 let userId = "\(dict["userId"]!)"
                                 let created = "\(dict["created"]!)"
-                                self.golfer.append(User(id: id, username: user, userId: userId))
-                                let loggedIn = UserDefaults.standard
-                                loggedIn.set(id, forKey: "id")
-                                loggedIn.set(user, forKey: "username")
-                                loggedIn.set(userId, forKey: "userId")
-                                loggedIn.set(created, forKey: "created")
-                                loggedIn.set(true, forKey: "isLoggedIn")
+                                let defaults = UserDefaults.standard
+                                defaults.set(id, forKey: "id")
+                                defaults.set(user, forKey: "username")
+                                defaults.set(userId, forKey: "userId")
+                                defaults.set(created, forKey: "created")
+                                defaults.set(true, forKey: "isLoggedIn")
                                 print("succesfuly stored")
                                 self.dismiss(animated: true, completion: {})
                             }

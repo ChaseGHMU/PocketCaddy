@@ -38,7 +38,9 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
             print(textField.text!)
             
             let textfieldInt: Int? = Int(textField.text!)
-            print(textfieldInt)
+            if let textfieldInt = textfieldInt {
+                print(textfieldInt)
+            }
             if (textfieldInt == nil){
                print("Not an integer")  // if user enters a non-integer value, the error is printed to console and it is not added to the array...will work on alerting user of issue
             }
@@ -76,7 +78,9 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(name)
+        if let name = name{
+            print(name)
+        }
         clubName.text = name
         
         
