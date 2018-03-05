@@ -107,6 +107,14 @@ class PocketCaddyData{
         })
     }
     
+    class func delete(table: Table, id: String) -> Void {
+        let url = baseURL + "\(table)/\(id)"
+        
+        Alamofire.request(url, method: .delete).responseJSON(completionHandler: { response in
+            return
+        })
+    }
+    
     //Only used for realtime update of search bar in play
     class func search(searchText: String, completionHandler: @escaping ([Course]? )-> Void){
         var course = [Course]()
