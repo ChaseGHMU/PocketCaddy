@@ -11,6 +11,8 @@ import UIKit
 class ClubCellViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var clubName: UILabel!
+    @IBOutlet weak var avgDistance: UILabel!
+    @IBOutlet weak var numSwings: UILabel!
     var name: String?
     var distances: [Int] = []
     
@@ -25,17 +27,31 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
         alert.addTextField { (textField) in
             textField.placeholder = "Enter Distance"
         }
-        // creates both add and cancel options for user
-        // alert.addAction(UIAlertAction(title: "Add", style: UIAlertActionStyle.default, handler: nil))
-        
+     
+        // adds functionality to allow user to input a distance for a new swing
         let submitAction = UIAlertAction(title: "Add", style: .default, handler: { (action) -> Void in
             // Get 1st TextField's text
             let textField = alert.textFields![0]
             print(textField.text!)
             let textfieldInt: Int? = Int(textField.text!)
             self.distances.append(textfieldInt!)
-            //print(self.distances)
+            
             self.tableView.reloadData() //reloads data so new club is displayed
+            
+            let count = String(self.distances.count)
+            self.numSwings.text = count
+            
+            let sumArray = self.distances.reduce(0,+)
+            if(self.distances.count == 0){
+                self.avgDistance.text = "0"
+            }
+            else{
+                let average = sumArray / self.distances.count
+                let strAvg = String(average)
+                self.avgDistance.text = strAvg
+            }
+            print("average is: " + self.avgDistance.text!)
+            print("number is: " + self.numSwings.text!)
         })
         alert.addAction(submitAction)
         
@@ -44,6 +60,7 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
         
         // show alert to user
         self.present(alert, animated: true, completion: nil)
+        
     }
     
     
@@ -51,6 +68,7 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         print(name)
         clubName.text = name
+        
         
         //tableview setup
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
