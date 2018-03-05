@@ -461,28 +461,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emf-m9-nwU">
-                                <rect key="frame" x="166" y="307" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Club Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emf-m9-nwU">
+                                <rect key="frame" x="142" y="79" width="91" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Club:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ob9-rB-dIR">
+                                <rect key="frame" x="64" y="77" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Average Distance:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDf-DG-hMF">
+                                <rect key="frame" x="64" y="145" width="145" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="# of Practice Swings:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZ4-mh-1gW">
+                                <rect key="frame" x="64" y="206" width="169" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="704-pY-Zla">
+                                <rect key="frame" x="0.0" y="176" width="375" height="442"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="emf-m9-nwU" firstAttribute="centerX" secondItem="rKB-oE-Mrx" secondAttribute="centerX" id="iRw-Ex-4ta"/>
-                            <constraint firstItem="emf-m9-nwU" firstAttribute="centerY" secondItem="rKB-oE-Mrx" secondAttribute="centerY" id="nLi-FP-BMJ"/>
+                            <constraint firstItem="704-pY-Zla" firstAttribute="leading" secondItem="rKB-oE-Mrx" secondAttribute="leading" id="5LQ-2f-NJD"/>
+                            <constraint firstItem="rKB-oE-Mrx" firstAttribute="trailing" secondItem="704-pY-Zla" secondAttribute="trailing" id="9pP-tW-Xon"/>
+                            <constraint firstItem="emf-m9-nwU" firstAttribute="leading" secondItem="ob9-rB-dIR" secondAttribute="trailing" constant="5" id="Akj-QY-fES"/>
+                            <constraint firstItem="emf-m9-nwU" firstAttribute="top" secondItem="rKB-oE-Mrx" secondAttribute="top" constant="15" id="FLh-bG-sbT"/>
+                            <constraint firstItem="CDf-DG-hMF" firstAttribute="leading" secondItem="rKB-oE-Mrx" secondAttribute="leading" constant="25" id="VvG-Td-tkZ"/>
+                            <constraint firstItem="tZ4-mh-1gW" firstAttribute="top" secondItem="CDf-DG-hMF" secondAttribute="bottom" constant="7" id="YSi-95-iJH"/>
+                            <constraint firstItem="rKB-oE-Mrx" firstAttribute="bottom" secondItem="704-pY-Zla" secondAttribute="bottom" id="aHK-bG-5PI"/>
+                            <constraint firstItem="tZ4-mh-1gW" firstAttribute="leading" secondItem="rKB-oE-Mrx" secondAttribute="leading" constant="25" id="eft-Ny-DDe"/>
+                            <constraint firstItem="ob9-rB-dIR" firstAttribute="top" secondItem="rKB-oE-Mrx" secondAttribute="top" constant="15" id="rnH-Of-4nT"/>
+                            <constraint firstItem="ob9-rB-dIR" firstAttribute="leading" secondItem="rKB-oE-Mrx" secondAttribute="leading" constant="25" id="uf1-cZ-AhY"/>
+                            <constraint firstItem="704-pY-Zla" firstAttribute="top" secondItem="tZ4-mh-1gW" secondAttribute="bottom" constant="20" id="xzn-js-LqU"/>
+                            <constraint firstItem="CDf-DG-hMF" firstAttribute="top" secondItem="ob9-rB-dIR" secondAttribute="bottom" constant="7" id="yjF-dF-cU8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rKB-oE-Mrx"/>
                     </view>
-                    <navigationItem key="navigationItem" id="y3Q-Cy-kcJ"/>
+                    <navigationItem key="navigationItem" id="y3Q-Cy-kcJ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wgu-ru-hEf">
+                            <connections>
+                                <action selector="addSwing:" destination="iQd-DM-fCA" id="WcI-hF-DRK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="clubName" destination="emf-m9-nwU" id="xaS-eC-ME0"/>
+                        <outlet property="tableView" destination="704-pY-Zla" id="deM-fm-7yk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMX-ez-hqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3236" y="1388"/>
+            <point key="canvasLocation" x="3236" y="1387.5562218890557"/>
         </scene>
         <!--Scorecards-->
         <scene sceneID="XCn-5a-P0X">
