@@ -356,17 +356,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Settings Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PgQ-Zo-yk1">
-                                <rect key="frame" x="176" y="296" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4u0-O7-igb">
+                                <rect key="frame" x="163.5" y="350.5" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logout:" destination="J0Q-Iy-OhM" eventType="touchUpInside" id="ANG-pc-mVu"/>
+                                    <segue destination="L7c-Bf-6WN" kind="presentation" id="j8b-RB-cWr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="PgQ-Zo-yk1" firstAttribute="centerY" secondItem="3pN-jB-GSi" secondAttribute="centerY" id="2RI-5E-LFu"/>
-                            <constraint firstItem="PgQ-Zo-yk1" firstAttribute="centerX" secondItem="3pN-jB-GSi" secondAttribute="centerX" id="V0E-Td-dxC"/>
+                            <constraint firstItem="4u0-O7-igb" firstAttribute="centerX" secondItem="3pN-jB-GSi" secondAttribute="centerX" id="c80-dc-emd"/>
+                            <constraint firstItem="4u0-O7-igb" firstAttribute="centerY" secondItem="3pN-jB-GSi" secondAttribute="centerY" id="fPd-0s-vGV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3pN-jB-GSi"/>
                     </view>
