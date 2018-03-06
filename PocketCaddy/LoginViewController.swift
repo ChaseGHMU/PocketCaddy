@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     
+    @IBOutlet weak var buttonDesign: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     var golfer:[User] = []
     
@@ -30,16 +31,21 @@ class LoginViewController: UIViewController {
                 
                 PocketCaddyData.post(table: .golfers, parameters: login, login: true, completionHandler: { (dict, success, code) in
                     if(success == "Success"), let dict = dict{
-                        print(dict)
                         let dictID = "\(dict["userId"]!)"
-                        print(dictID)
                         PocketCaddyData.get(table: .golfers, id: dictID, exists: false, completionHandler: { (result, success, code) in
                             if(success == "Success"), let result = result{
                                 let id = "\(result["id"]!)"
                                 let user = "\(result["username"]!)"
                                 let userId = "\(dict["userId"]!)"
-                                self.golfer.append(User(id: id, username: user, userId: userId))
-                                self.performSegue(withIdentifier: "successful", sender: self)
+                                let created = "\(dict["created"]!)"
+                                let defaults = UserDefaults.standard
+                                defaults.set(id, forKey: "id")
+                                defaults.set(user, forKey: "username")
+                                defaults.set(userId, forKey: "userId")
+                                defaults.set(created, forKey: "created")
+                                defaults.set(true, forKey: "isLoggedIn")
+                                print("succesfuly stored")
+                                self.dismiss(animated: true, completion: {})
                             }
                         })
                     }else{
@@ -58,6 +64,12 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let image = UIImage(named: "iphone.jpg"){
+            self.view.backgroundColor = UIColor(patternImage: image)
+        }
+        buttonDesign.frame = CGRect(x: 100.0, y: 60.0, width: 120.0, height: 60.0)
+        buttonDesign.backgroundColor = UIColor(hue: 0.5667, saturation: 1, brightness: 1, alpha: 1.0)
+        buttonDesign.titleLabel?.textColor = UIColor.white
         passwordTextField.isSecureTextEntry = true
         // Do any additional setup after loading the view.
     }
@@ -75,8 +87,5 @@ class LoginViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-            if let destination = segue.destination as? TabViewController{
-                destination.golfer = self.golfer
-            }
     }
 }
