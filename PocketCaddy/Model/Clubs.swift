@@ -19,8 +19,19 @@ struct Clubs: Codable{
     private enum CodingKeys : String, CodingKey {
         case id = "clubId"
         case type
-        case name = "nickname"
+        case name = "nickname" //NOT NULL
         case distance = "avgDistance"
-        case userId
+        case userId //NOT NULL
     }
+    
+    /*
+    EXAMPLE POST PARARMETERS FOR CLUBS
+     
+    http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Clubs
+     
+    let clubPost: Parameters = [
+        "nickname": "insert_name_here",
+        "userId": "insert_id_from_UserDefault_here"
+    ]
+    */
 }

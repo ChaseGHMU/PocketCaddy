@@ -19,4 +19,13 @@ struct Swings: Codable {
         case distance
         case clubId
     }
+    
+    /*
+     EXAMPLE PARAMETERS FOR SWINGS PUT
+     
+     let swings: Parameters = [
+        "distance": "input_distance_hit",
+        "clubId": "input_clubId_for_user_here"
+     ]
+    */
 }
