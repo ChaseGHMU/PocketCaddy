@@ -25,7 +25,6 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
                 let name = "\(dict["courseName"]!)"
                 let address = "\(dict["addressLine1"]!)"
                 let zip = "\(dict["zipCode"]!)"
-                
                 self.name?.text = name
                 self.address?.text = address
                 self.zipcode?.text = zip
@@ -114,8 +113,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if let destination = segue.destination as? ClubCellViewController, let index = tableView.indexPathForSelectedRow,
-            let clubName = namePassed{
+        if let destination = segue.destination as? ClubCellViewController, let index = tableView.indexPathForSelectedRow {
             destination.name = clubs[index.row]
         }
         //search.dismiss(animated: true, completion: {})

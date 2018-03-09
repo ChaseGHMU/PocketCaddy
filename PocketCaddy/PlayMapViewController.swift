@@ -1,27 +1,22 @@
 //
-//  SettingsViewController.swift
+//  PlayMapViewController.swift
 //  PocketCaddy
 //
-//  Created by Megan Cochran on 3/1/18.
+//  Created by Chase Allen on 3/8/18.
 //  Copyright © 2018 Chase Allen. All rights reserved.
 //
 
 import UIKit
+import MapKit
 
-class SettingsViewController: UIViewController {
+class PlayMapViewController: UIViewController {
 
-    let defaults = UserDefaults.standard
-    @IBAction func logout(_ sender: Any) {
-        defaults.set(nil, forKey: "id")
-        defaults.set(nil, forKey: "username")
-        defaults.set(nil, forKey: "userId")
-        defaults.set(nil, forKey: "created")
-        defaults.set(false, forKey: "isLoggedIn")
-        
-    }
+
+    @IBOutlet weak var mapView: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        mapView.mapType = .satellite
         // Do any additional setup after loading the view.
     }
 
