@@ -25,10 +25,15 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
         
         // creating text field for swing distance
         
-        alert.addTextField { (textField) in
-            textField.placeholder = "Enter Distance"
-
-        }
+//        alert.addTextField { (textField) in
+//            textField.placeholder = "Enter Distance"
+//            textField.keyboardType = .decimalPad
+//        }
+        
+        alert.addTextField(configurationHandler: { textField in
+            textField.keyboardType = .numberPad
+        })
+        
         
         // adds functionality to allow user to input a distance for a new swing
         let submitAction = UIAlertAction(title: "Add", style: .default, handler: { (action) -> Void in
@@ -36,6 +41,8 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
             
             let textField = alert.textFields![0]
             print(textField.text!)
+            
+        
             
             let textfieldInt: Int? = Int(textField.text!)
             if let textfieldInt = textfieldInt {
