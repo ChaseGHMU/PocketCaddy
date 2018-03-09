@@ -8,21 +8,47 @@
 
 import UIKit
 import MapKit
+import WatchConnectivity
 
-class PlayMapViewController: UIViewController {
-
+class PlayMapViewController: UIViewController, WCSessionDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.mapType = .satellite
+        if WCSession.isSupported() {
+            let session = WCSession.default
+            session.delegate = self
+            session.activate()
+            sendData()
+        }
         // Do any additional setup after loading the view.
+    }
+    
+    func sendData() {
+        if WCSession.default.isReachable {
+            print("data sent")
+            let message = ["message": "hello"]
+            WCSession.default.sendMessage(message, replyHandler: nil, errorHandler: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        
     }
     
 

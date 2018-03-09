@@ -13,6 +13,14 @@
 		9401DBEA204BAA10005C1937 /* Swings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9401DBE9204BAA10005C1937 /* Swings.swift */; };
 		9401DBEC204BAA70005C1937 /* Clubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9401DBEB204BAA70005C1937 /* Clubs.swift */; };
 		940F651420523F4D00514850 /* PlayMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940F651320523F4D00514850 /* PlayMapViewController.swift */; };
+		940F656B20526DB500514850 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 940F656920526DB500514850 /* Interface.storyboard */; };
+		940F656D20526DB500514850 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 940F656C20526DB500514850 /* Assets.xcassets */; };
+		940F657420526DB600514850 /* PocketCaddyWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 940F657320526DB600514850 /* PocketCaddyWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		940F657920526DB600514850 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940F657820526DB600514850 /* InterfaceController.swift */; };
+		940F657B20526DB600514850 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940F657A20526DB600514850 /* ExtensionDelegate.swift */; };
+		940F657D20526DB600514850 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940F657C20526DB600514850 /* ComplicationController.swift */; };
+		940F657F20526DB600514850 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 940F657E20526DB600514850 /* Assets.xcassets */; };
+		940F658320526DB600514850 /* PocketCaddyWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 940F656720526DB500514850 /* PocketCaddyWatch.app */; };
 		945DF8A72047D2D800D7F77C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945DF8A62047D2D800D7F77C /* User.swift */; };
 		945DF8A92047DEF200D7F77C /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945DF8A82047DEF200D7F77C /* TabViewController.swift */; };
 		947323BD204920DB008146F2 /* PlayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947323BC204920DB008146F2 /* PlayTableViewController.swift */; };
@@ -33,6 +41,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		940F657520526DB600514850 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94E2ACED2031018700F98A0A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 940F657220526DB600514850;
+			remoteInfo = "PocketCaddyWatch Extension";
+		};
+		940F658120526DB600514850 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94E2ACED2031018700F98A0A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 940F656620526DB500514850;
+			remoteInfo = PocketCaddyWatch;
+		};
 		94E2AD0A2031018700F98A0A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 94E2ACED2031018700F98A0A /* Project object */;
@@ -49,6 +71,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		940F658920526DB600514850 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				940F657420526DB600514850 /* PocketCaddyWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		940F658B20526DB600514850 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				940F658320526DB600514850 /* PocketCaddyWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0CF830C11FCE6476F226F528 /* Pods_PocketCaddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketCaddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21311EFA2C8255605535C0D4 /* Pods-PocketCaddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketCaddy.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy.release.xcconfig"; sourceTree = "<group>"; };
@@ -59,6 +106,16 @@
 		9401DBE9204BAA10005C1937 /* Swings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swings.swift; sourceTree = "<group>"; };
 		9401DBEB204BAA70005C1937 /* Clubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clubs.swift; sourceTree = "<group>"; };
 		940F651320523F4D00514850 /* PlayMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMapViewController.swift; sourceTree = "<group>"; };
+		940F656720526DB500514850 /* PocketCaddyWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketCaddyWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		940F656A20526DB500514850 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		940F656C20526DB500514850 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		940F656E20526DB500514850 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		940F657320526DB600514850 /* PocketCaddyWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "PocketCaddyWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		940F657820526DB600514850 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		940F657A20526DB600514850 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		940F657C20526DB600514850 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		940F657E20526DB600514850 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		940F658020526DB600514850 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		945DF8A62047D2D800D7F77C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		945DF8A82047DEF200D7F77C /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		947323BC204920DB008146F2 /* PlayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTableViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +141,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		940F657020526DB600514850 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		94E2ACF22031018700F98A0A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -126,6 +190,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		940F656820526DB500514850 /* PocketCaddyWatch */ = {
+			isa = PBXGroup;
+			children = (
+				940F656920526DB500514850 /* Interface.storyboard */,
+				940F656C20526DB500514850 /* Assets.xcassets */,
+				940F656E20526DB500514850 /* Info.plist */,
+			);
+			path = PocketCaddyWatch;
+			sourceTree = "<group>";
+		};
+		940F657720526DB600514850 /* PocketCaddyWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				940F657820526DB600514850 /* InterfaceController.swift */,
+				940F657A20526DB600514850 /* ExtensionDelegate.swift */,
+				940F657C20526DB600514850 /* ComplicationController.swift */,
+				940F657E20526DB600514850 /* Assets.xcassets */,
+				940F658020526DB600514850 /* Info.plist */,
+			);
+			path = "PocketCaddyWatch Extension";
+			sourceTree = "<group>";
+		};
 		94BD59702045CCEF007E38BB /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +231,8 @@
 				94E2ACF72031018700F98A0A /* PocketCaddy */,
 				94E2AD0C2031018700F98A0A /* PocketCaddyTests */,
 				94E2AD172031018700F98A0A /* PocketCaddyUITests */,
+				940F656820526DB500514850 /* PocketCaddyWatch */,
+				940F657720526DB600514850 /* PocketCaddyWatch Extension */,
 				94E2ACF62031018700F98A0A /* Products */,
 				0C39F14E656FCE6B55CE8B19 /* Pods */,
 				8F09136B23E8631235FF727F /* Frameworks */,
@@ -157,6 +245,8 @@
 				94E2ACF52031018700F98A0A /* PocketCaddy.app */,
 				94E2AD092031018700F98A0A /* PocketCaddyTests.xctest */,
 				94E2AD142031018700F98A0A /* PocketCaddyUITests.xctest */,
+				940F656720526DB500514850 /* PocketCaddyWatch.app */,
+				940F657320526DB600514850 /* PocketCaddyWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,6 +295,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		940F656620526DB500514850 /* PocketCaddyWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 940F658A20526DB600514850 /* Build configuration list for PBXNativeTarget "PocketCaddyWatch" */;
+			buildPhases = (
+				940F656520526DB500514850 /* Resources */,
+				940F658920526DB600514850 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				940F657620526DB600514850 /* PBXTargetDependency */,
+			);
+			name = PocketCaddyWatch;
+			productName = PocketCaddyWatch;
+			productReference = 940F656720526DB500514850 /* PocketCaddyWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		940F657220526DB600514850 /* PocketCaddyWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 940F658820526DB600514850 /* Build configuration list for PBXNativeTarget "PocketCaddyWatch Extension" */;
+			buildPhases = (
+				940F656F20526DB600514850 /* Sources */,
+				940F657020526DB600514850 /* Frameworks */,
+				940F657120526DB600514850 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PocketCaddyWatch Extension";
+			productName = "PocketCaddyWatch Extension";
+			productReference = 940F657320526DB600514850 /* PocketCaddyWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		94E2ACF42031018700F98A0A /* PocketCaddy */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 94E2AD1D2031018700F98A0A /* Build configuration list for PBXNativeTarget "PocketCaddy" */;
@@ -215,10 +339,12 @@
 				94E2ACF32031018700F98A0A /* Resources */,
 				728EF0B128B0F4C40DED60C0 /* [CP] Embed Pods Frameworks */,
 				A44E021685F4D61390847BFF /* [CP] Copy Pods Resources */,
+				940F658B20526DB600514850 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				940F658220526DB600514850 /* PBXTargetDependency */,
 			);
 			name = PocketCaddy;
 			productName = PocketCaddy;
@@ -271,6 +397,14 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Chase Allen";
 				TargetAttributes = {
+					940F656620526DB500514850 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					940F657220526DB600514850 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					94E2ACF42031018700F98A0A = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -303,11 +437,30 @@
 				94E2ACF42031018700F98A0A /* PocketCaddy */,
 				94E2AD082031018700F98A0A /* PocketCaddyTests */,
 				94E2AD132031018700F98A0A /* PocketCaddyUITests */,
+				940F656620526DB500514850 /* PocketCaddyWatch */,
+				940F657220526DB600514850 /* PocketCaddyWatch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		940F656520526DB500514850 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				940F656D20526DB500514850 /* Assets.xcassets in Resources */,
+				940F656B20526DB500514850 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		940F657120526DB600514850 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				940F657F20526DB600514850 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		94E2ACF32031018700F98A0A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -388,6 +541,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		940F656F20526DB600514850 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				940F657B20526DB600514850 /* ExtensionDelegate.swift in Sources */,
+				940F657920526DB600514850 /* InterfaceController.swift in Sources */,
+				940F657D20526DB600514850 /* ComplicationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		94E2ACF12031018700F98A0A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -432,6 +595,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		940F657620526DB600514850 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 940F657220526DB600514850 /* PocketCaddyWatch Extension */;
+			targetProxy = 940F657520526DB600514850 /* PBXContainerItemProxy */;
+		};
+		940F658220526DB600514850 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 940F656620526DB500514850 /* PocketCaddyWatch */;
+			targetProxy = 940F658120526DB600514850 /* PBXContainerItemProxy */;
+		};
 		94E2AD0B2031018700F98A0A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 94E2ACF42031018700F98A0A /* PocketCaddy */;
@@ -445,6 +618,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		940F656920526DB500514850 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				940F656A20526DB500514850 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		94E2ACFC2031018700F98A0A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -456,6 +637,76 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		940F658420526DB600514850 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				IBSC_MODULE = PocketCaddyWatch_Extension;
+				INFOPLIST_FILE = PocketCaddyWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = PocketCaddy.PocketCaddy.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		940F658520526DB600514850 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				IBSC_MODULE = PocketCaddyWatch_Extension;
+				INFOPLIST_FILE = PocketCaddyWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = PocketCaddy.PocketCaddy.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
+		940F658620526DB600514850 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "PocketCaddyWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = PocketCaddy.PocketCaddy.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		940F658720526DB600514850 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "PocketCaddyWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = PocketCaddy.PocketCaddy.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
 		94E2AD1B2031018700F98A0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -658,6 +909,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		940F658820526DB600514850 /* Build configuration list for PBXNativeTarget "PocketCaddyWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				940F658620526DB600514850 /* Debug */,
+				940F658720526DB600514850 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		940F658A20526DB600514850 /* Build configuration list for PBXNativeTarget "PocketCaddyWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				940F658420526DB600514850 /* Debug */,
+				940F658520526DB600514850 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		94E2ACF02031018700F98A0A /* Build configuration list for PBXProject "PocketCaddy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
