@@ -12,6 +12,7 @@
 		4497642D2048716100AC8FC6 /* ScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4497642C2048716100AC8FC6 /* ScoresViewController.swift */; };
 		9401DBEA204BAA10005C1937 /* Swings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9401DBE9204BAA10005C1937 /* Swings.swift */; };
 		9401DBEC204BAA70005C1937 /* Clubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9401DBEB204BAA70005C1937 /* Clubs.swift */; };
+		940F651420523F4D00514850 /* PlayMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940F651320523F4D00514850 /* PlayMapViewController.swift */; };
 		945DF8A72047D2D800D7F77C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945DF8A62047D2D800D7F77C /* User.swift */; };
 		945DF8A92047DEF200D7F77C /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945DF8A82047DEF200D7F77C /* TabViewController.swift */; };
 		947323BD204920DB008146F2 /* PlayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947323BC204920DB008146F2 /* PlayTableViewController.swift */; };
@@ -57,6 +58,7 @@
 		832520ABDE89D77C223F5E93 /* Pods-PocketCaddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketCaddy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy.debug.xcconfig"; sourceTree = "<group>"; };
 		9401DBE9204BAA10005C1937 /* Swings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swings.swift; sourceTree = "<group>"; };
 		9401DBEB204BAA70005C1937 /* Clubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clubs.swift; sourceTree = "<group>"; };
+		940F651320523F4D00514850 /* PlayMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMapViewController.swift; sourceTree = "<group>"; };
 		945DF8A62047D2D800D7F77C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		945DF8A82047DEF200D7F77C /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		947323BC204920DB008146F2 /* PlayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTableViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				947323BC204920DB008146F2 /* PlayTableViewController.swift */,
 				947323BE204922BC008146F2 /* PlaySearchTableViewCell.swift */,
 				94C490B1204B9F920098A8EF /* PlayResultViewController.swift */,
+				940F651320523F4D00514850 /* PlayMapViewController.swift */,
 			);
 			path = PocketCaddy;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				947323BD204920DB008146F2 /* PlayTableViewController.swift in Sources */,
 				94BD59762045D0B9007E38BB /* Holes.swift in Sources */,
 				94E2ACF92031018700F98A0A /* AppDelegate.swift in Sources */,
+				940F651420523F4D00514850 /* PlayMapViewController.swift in Sources */,
 				947323BF204922BC008146F2 /* PlaySearchTableViewCell.swift in Sources */,
 				9401DBEA204BAA10005C1937 /* Swings.swift in Sources */,
 				448DB614204CA50B0045C13B /* ClubCellViewController.swift in Sources */,
