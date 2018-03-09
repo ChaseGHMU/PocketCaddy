@@ -24,12 +24,6 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
         let alert = UIAlertController(title: "Add New Swing", message: "How far did you hit the ball?", preferredStyle: UIAlertControllerStyle.alert)
         
         // creating text field for swing distance
-        
-//        alert.addTextField { (textField) in
-//            textField.placeholder = "Enter Distance"
-//            textField.keyboardType = .decimalPad
-//        }
-        
         alert.addTextField(configurationHandler: { textField in
             textField.keyboardType = .numberPad
         })
@@ -41,23 +35,44 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
             
             let textField = alert.textFields![0]
             print(textField.text!)
-            
-        
-            
             let textfieldInt: Int? = Int(textField.text!)
-            if let textfieldInt = textfieldInt {
-                print(textfieldInt)
-            }
-            if (textfieldInt == nil){
-               print("Not an integer")  // if user enters a non-integer value, the error is printed to console and it is not added to the array...will work on alerting user of issue
-            }
-            else{
-                self.distances.append(textfieldInt!)
-            }
             
+            //Error Checking for values over 300
+            if (textfieldInt! >= 300){
+                let alert2 = UIAlertController(title: "Are you sure", message: "Is " + textField.text! + " what you really meant?", preferredStyle: UIAlertControllerStyle.alert)
+                let submitAction2 = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
+                    self.distances.append(textfieldInt!)
+                    self.tableView.reloadData()
+                    
+                    //below block is for calculating average & number of swings, will eventually be replaced by Aaron
+                    let count = String(self.distances.count)
+                    self.numSwings.text = count
+                    
+                    let sumArray = self.distances.reduce(0,+)
+                    if(self.distances.count == 0){
+                        self.avgDistance.text = "0"
+                    }
+                    else{
+                        let average = sumArray / self.distances.count
+                        let strAvg = String(average)
+                        self.avgDistance.text = strAvg
+                    }
+                    print("average is: " + self.avgDistance.text!)
+                    print("number is: " + self.numSwings.text!)
+                    
+                })
+                alert2.addAction(submitAction2)
+                alert2.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
+                
+                self.present(alert2, animated: true, completion: nil)
+            } else {
+                  self.distances.append(textfieldInt!) //adds swing to array of swings
+            }
+
             
             self.tableView.reloadData() //reloads data so new club is displayed
             
+            //below block is for calculating average & number of swings, will eventually be replaced by Aaron
             let count = String(self.distances.count)
             self.numSwings.text = count
             
