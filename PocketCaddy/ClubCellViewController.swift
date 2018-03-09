@@ -61,8 +61,9 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
                     print("number is: " + self.numSwings.text!)
                     
                 })
-                alert2.addAction(submitAction2)
                 alert2.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
+                alert2.addAction(submitAction2)
+                
                 
                 self.present(alert2, animated: true, completion: nil)
             } else {
