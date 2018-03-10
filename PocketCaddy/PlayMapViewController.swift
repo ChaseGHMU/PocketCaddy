@@ -23,7 +23,7 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate {
         mapView.mapType = .satellite
         self.title = "Test"
         if let courseId = courseId {
-            PocketCaddyData.getHoles(courseId: courseId, completionHandler: {result in
+            PocketCaddyData.getHoles(courseId: courseId, completionHandler: { result in
                 self.holes = result
             })
         }
