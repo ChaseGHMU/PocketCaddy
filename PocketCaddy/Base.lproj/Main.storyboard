@@ -379,19 +379,46 @@
                                     <action selector="nextHole:" destination="1bs-ab-0L9" eventType="touchUpInside" id="aAo-Al-GEN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBs-ks-Euc">
+                                <rect key="frame" x="219" y="89" width="67" height="30"/>
+                                <state key="normal" title="Prev Hole"/>
+                                <connections>
+                                    <action selector="prevHole:" destination="1bs-ab-0L9" eventType="touchUpInside" id="gqp-Br-kEi"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hW3-uh-wTs">
+                                <rect key="frame" x="188" y="584" width="72" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sm3-Xb-LbH">
+                                <rect key="frame" x="268" y="584" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="106-L2-5WT" firstAttribute="bottom" secondItem="hW3-uh-wTs" secondAttribute="bottom" constant="13" id="5iA-Go-0gE"/>
                             <constraint firstItem="tj8-tf-8xW" firstAttribute="trailing" secondItem="106-L2-5WT" secondAttribute="trailing" id="Cd2-DG-1tu"/>
                             <constraint firstItem="106-L2-5WT" firstAttribute="bottom" secondItem="tj8-tf-8xW" secondAttribute="bottom" id="Ein-Qn-67N"/>
+                            <constraint firstItem="sm3-Xb-LbH" firstAttribute="top" secondItem="tj8-tf-8xW" secondAttribute="bottom" constant="-34" id="FOh-2P-jj0"/>
                             <constraint firstItem="4Bi-KY-E4t" firstAttribute="leading" secondItem="tj8-tf-8xW" secondAttribute="trailing" constant="-81" id="H83-pn-HMg"/>
+                            <constraint firstItem="OBs-ks-Euc" firstAttribute="leading" secondItem="tj8-tf-8xW" secondAttribute="trailing" constant="-156" id="Ua2-Ha-XPp"/>
                             <constraint firstItem="tj8-tf-8xW" firstAttribute="leading" secondItem="106-L2-5WT" secondAttribute="leading" id="aJB-a8-avg"/>
                             <constraint firstItem="tj8-tf-8xW" firstAttribute="top" secondItem="106-L2-5WT" secondAttribute="top" id="dis-UW-HW5"/>
+                            <constraint firstItem="tj8-tf-8xW" firstAttribute="top" secondItem="OBs-ks-Euc" secondAttribute="bottom" constant="-55" id="lft-tN-OJp"/>
                             <constraint firstItem="tj8-tf-8xW" firstAttribute="top" secondItem="4Bi-KY-E4t" secondAttribute="bottom" constant="-55" id="nvo-6h-oTb"/>
+                            <constraint firstItem="sm3-Xb-LbH" firstAttribute="leading" secondItem="hW3-uh-wTs" secondAttribute="trailing" constant="8" id="tjE-gx-1hs"/>
+                            <constraint firstItem="4Bi-KY-E4t" firstAttribute="leading" secondItem="OBs-ks-Euc" secondAttribute="trailing" constant="8" id="x3h-KH-DY2"/>
+                            <constraint firstItem="hW3-uh-wTs" firstAttribute="leading" secondItem="tj8-tf-8xW" secondAttribute="trailing" constant="-187" id="y34-pb-87T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="106-L2-5WT"/>
                     </view>
                     <connections>
+                        <outlet property="distanceLabel" destination="sm3-Xb-LbH" id="cng-cf-OFX"/>
                         <outlet property="mapView" destination="tj8-tf-8xW" id="tYm-dQ-S7G"/>
                     </connections>
                 </viewController>

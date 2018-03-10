@@ -12,7 +12,8 @@ import CoreLocation
 
 class PlayMapViewController: UIViewController, MKMapViewDelegate {
 
-
+    @IBOutlet weak var distanceLabel: UILabel!
+    
     @IBOutlet weak var mapView: MKMapView!
     
     var holes: [Holes] = []
@@ -40,8 +41,22 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate {
         if hole < 18{
             hole += 1
             getPoints(hole)
+        }else{
+            hole = 0
+            getPoints(hole)
         }
     }
+    
+    @IBAction func prevHole(_ sender: Any) {
+        if hole > 0{
+            hole -= 1
+            getPoints(hole)
+        }else{
+            hole = 17
+            getPoints(hole)
+        }
+    }
+    
     
     func getDistance(locationOne: CLLocationCoordinate2D, locationTwo: CLLocationCoordinate2D) -> Double {
         let x = CLLocation(latitude: locationOne.latitude, longitude: locationOne.longitude)
@@ -54,8 +69,10 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate {
         let holeNum = holes[hole]
         let teelocation = CLLocationCoordinate2D(latitude: holeNum.teeX, longitude: holeNum.teeY)
         let greenlocation = CLLocationCoordinate2D(latitude: holeNum.greenX, longitude: holeNum.greenY)
-        let dist = getDistance(locationOne: teelocation, locationTwo: greenlocation)
-        print(dist)
+        var dist = getDistance(locationOne: teelocation, locationTwo: greenlocation)
+        dist.round(.toNearestOrAwayFromZero)
+        distanceLabel.text = "\(dist) Yards"
+        
         createHoleMap(teeLocation: teelocation, greenLocation: greenlocation)
     }
     
