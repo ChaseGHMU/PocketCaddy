@@ -148,4 +148,42 @@ class PocketCaddyData{
         }).resume()
         
     }
+    
+    class func getHoles(courseId: String, completionHandler: @escaping ([Holes])->Void) {
+        var holes = [Holes]()
+        var url = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Holes?filter[where][courseID][is]="
+        url.append(courseId)
+        
+        Alamofire.request(url, method: .get).responseJSON(completionHandler: {response in
+            if response.result.value != nil, let data = response.data{
+                let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                if let array = json as? [Any]{
+                    for results in array{
+                        if let obj = results as? NSDictionary{
+                            let holeId = "\(obj["holeId"]!)"
+                            let courseId = "\(obj["courseId"]!)"
+                            let holeNum = obj["holeNum"] as! Int
+                            let par = obj["par"] as! Int
+                            let greenX = obj["greenX"] as! Double
+                            let greenY = obj["greenY"] as! Double
+                            let teeX = obj["teeX"] as! Double
+                            let teeY = obj["teeY"] as! Double
+                            var middleX = obj["middleX"] as? Double
+                            var middleY = obj["middleX"] as? Double
+                            
+                            if let middleX = middleX, let middleY = middleY {
+                                
+                            }else{
+                                middleX = 0.0
+                                middleY = 0.0
+                            }
+                            
+                            holes.append(Holes(holeID: holeId, courseID: courseId, holeNum: holeNum, par: par, greenX: greenX, greenY: greenY, teeX: teeX, teeY: teeY, middleX: middleX, middleY: middleY))
+                        }
+                    }
+                    completionHandler(holes)
+                }
+            }
+        })
+    }
 }
