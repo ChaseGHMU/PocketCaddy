@@ -8,15 +8,17 @@
 
 import Foundation
 
-struct Holes: Codable {
+struct Holes {
     
-    let id: Int?
-    let number: Int?
-    let par: Int?
+    let holeID: String
+    let courseID: String
+    let holeNum: Int
+    let par: Int
+    let greenX: Double
+    let greenY: Double
+    let teeX: Double
+    let teeY: Double
+    let middleX: Double?
+    let middleY: Double?
     
-    private enum CodingKeys : String, CodingKey {
-        case id = "courseID"
-        case number
-        case par
-    }
 }
