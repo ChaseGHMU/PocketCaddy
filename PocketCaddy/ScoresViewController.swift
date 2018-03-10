@@ -8,16 +8,45 @@
 
 import UIKit
 
-class ScoresViewController: UIViewController {
+class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var settingButton: UIBarButtonItem!
+    @IBOutlet weak var scoresTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        scoresTableView.delegate = self
+        scoresTableView.dataSource = self
+        if let image = UIImage(named: "iphone.jpg"){
+            self.view.backgroundColor = UIColor(patternImage: image)
+        }
         // Do any additional setup after loading the view.
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "scoresCell", for: indexPath)
+        if let cell = cell as? ScoresTableViewCell {
+            cell.courseName.text = "Augusta National"
+            cell.scoreShot.text = "+2"
+            cell.datePlayed.text = "April 15, 2017"
+        }
+        return cell
+    }
 
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "PREVIOUS 5 GAMES"
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
