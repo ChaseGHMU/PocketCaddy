@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class PlayMapViewController: UIViewController, MKMapViewDelegate {
 
@@ -41,11 +42,20 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate {
             getPoints(hole)
         }
     }
+    
+    func getDistance(locationOne: CLLocationCoordinate2D, locationTwo: CLLocationCoordinate2D) -> Double {
+        let x = CLLocation(latitude: locationOne.latitude, longitude: locationOne.longitude)
+        let y = CLLocation(latitude: locationTwo.latitude, longitude: locationTwo.longitude)
+        
+        return x.distance(from: y)
+    }
 
     func getPoints(_ hole:Int){
         let holeNum = holes[hole]
         let teelocation = CLLocationCoordinate2D(latitude: holeNum.teeX, longitude: holeNum.teeY)
         let greenlocation = CLLocationCoordinate2D(latitude: holeNum.greenX, longitude: holeNum.greenY)
+        let dist = getDistance(locationOne: teelocation, locationTwo: greenlocation)
+        print(dist)
         createHoleMap(teeLocation: teelocation, greenLocation: greenlocation)
     }
     
