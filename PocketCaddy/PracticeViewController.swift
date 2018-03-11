@@ -130,31 +130,51 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
         }
         //search.dismiss(animated: true, completion: {})
     }
-  
-
     
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        if editingStyle == .delete {
+        // Edit Club Code -- Work in Progress
+        let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
+            print("Edit tapped")
             
+            let alert = UIAlertController(title: "Edit a Club", message: "Enter New Name of Club:", preferredStyle: UIAlertControllerStyle.alert)
+            
+            // creating text field for club name
+            alert.addTextField { (textField) in
+                textField.placeholder = "Enter New Name"
+            }
+            
+            let submitAction = UIAlertAction(title: "Add", style: .default, handler: { (action) -> Void in
+                //enter edit code here
+            })
+            alert.addAction(submitAction)
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        })
+        editAction.backgroundColor = UIColor.blue
+        
+        // Delete Club Code
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
+            print("Delete tapped")
             let deleteAlert = UIAlertController(title: "Are you sure?", message: "", preferredStyle: UIAlertControllerStyle.alert)
             
-            let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
-                // remove the item from the data model
-                PocketCaddyData.delete(table: .clubs, id: self.clubs[indexPath.row].id)
-                self.clubs.remove(at: indexPath.row)
-                // delete the table view row
-                tableView.deleteRows(at: [indexPath], with: .fade)
-                self.tableView.reloadData()
-            })
-            deleteAlert.addAction(yesAction)
+                        let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
+                            // remove the item from the data model
+                            PocketCaddyData.delete(table: .clubs, id: self.clubs[indexPath.row].id)
+                            self.clubs.remove(at: indexPath.row)
+                            // delete the table view row
+                            tableView.deleteRows(at: [indexPath], with: .fade)
+                            self.tableView.reloadData()
+                        })
+                        deleteAlert.addAction(yesAction)
             
             
-            deleteAlert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
-            self.present(deleteAlert, animated: true, completion: nil)
-
-        }
+                        deleteAlert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+                        self.present(deleteAlert, animated: true, completion: nil)
+            
+                    })
+        deleteAction.backgroundColor = UIColor.red
+        return [editAction, deleteAction]
     }
     
 
