@@ -137,12 +137,23 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-            // remove the item from the data model
-            PocketCaddyData.delete(table: .clubs, id: clubs[indexPath.row].id)
-            clubs.remove(at: indexPath.row)
-            // delete the table view row
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            self.tableView.reloadData()
+            
+            let deleteAlert = UIAlertController(title: "Are you sure?", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
+                // remove the item from the data model
+                PocketCaddyData.delete(table: .clubs, id: self.clubs[indexPath.row].id)
+                self.clubs.remove(at: indexPath.row)
+                // delete the table view row
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                self.tableView.reloadData()
+            })
+            deleteAlert.addAction(yesAction)
+            
+            
+            deleteAlert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+            self.present(deleteAlert, animated: true, completion: nil)
+
         }
     }
     
