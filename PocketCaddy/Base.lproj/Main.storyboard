@@ -465,6 +465,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJI-pg-xmf">
+                                <rect key="frame" x="60" y="339" width="255" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3qd-u4-x5Q">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -472,7 +478,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="IJI-pg-xmf" firstAttribute="top" secondItem="xmd-cD-Baw" secondAttribute="top" constant="275" id="7IH-wG-Iha"/>
                             <constraint firstItem="xmd-cD-Baw" firstAttribute="trailing" secondItem="3qd-u4-x5Q" secondAttribute="trailing" id="92A-1W-xPd"/>
+                            <constraint firstItem="xmd-cD-Baw" firstAttribute="trailing" secondItem="IJI-pg-xmf" secondAttribute="trailing" constant="60" id="KLU-5l-Hr3"/>
+                            <constraint firstItem="IJI-pg-xmf" firstAttribute="leading" secondItem="xmd-cD-Baw" secondAttribute="leading" constant="60" id="KZC-k6-l5s"/>
+                            <constraint firstItem="IJI-pg-xmf" firstAttribute="leading" secondItem="xmd-cD-Baw" secondAttribute="leading" constant="60" id="a2k-HR-fX3"/>
                             <constraint firstItem="3qd-u4-x5Q" firstAttribute="top" secondItem="xmd-cD-Baw" secondAttribute="top" id="myY-IU-Qdt"/>
                             <constraint firstItem="3qd-u4-x5Q" firstAttribute="bottom" secondItem="xmd-cD-Baw" secondAttribute="bottom" id="tmr-51-RE6"/>
                             <constraint firstItem="3qd-u4-x5Q" firstAttribute="leading" secondItem="xmd-cD-Baw" secondAttribute="leading" id="xIH-j7-zXQ"/>
@@ -489,6 +499,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addClub" destination="uEu-1Z-mbR" id="sVb-G3-GHQ"/>
+                        <outlet property="emptyLabel" destination="IJI-pg-xmf" id="fbg-kA-kpG"/>
                         <outlet property="tableView" destination="3qd-u4-x5Q" id="YW4-AD-HAe"/>
                         <segue destination="iQd-DM-fCA" kind="show" identifier="segue" id="tEF-Di-fw9"/>
                     </connections>
