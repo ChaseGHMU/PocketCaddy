@@ -96,6 +96,8 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.clubs.count
+        
+        //update this
     }
     
     // create a cell for each table view row

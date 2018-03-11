@@ -14,6 +14,9 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var clubName: UILabel!
     @IBOutlet weak var avgDistance: UILabel!
     @IBOutlet weak var numSwings: UILabel!
+    
+    @IBOutlet weak var emptyLabel: UILabel!
+    
     var sum: Int = 0
     var club:Clubs?
     var swings: [Swings] = []
@@ -136,7 +139,21 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
     
     //tableview functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.swings.count
+        if self.swings.count == 0{
+            emptyLabel.text = "You haven't added any swings yet! Go to a driving range and practice to update this page."
+            emptyLabel.textAlignment = NSTextAlignment.center
+            self.tableView.backgroundView = emptyLabel
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+            tableView.isScrollEnabled = false
+            return 0
+        }else{
+           emptyLabel.text = ""
+           tableView.isScrollEnabled = true
+           return self.swings.count
+        }
+        
+        
+        
     }
     
     // create a cell for each table view row
@@ -154,7 +171,13 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Previous Swings"
+        if self.swings.count == 0{
+            return ""
+        }else{
+            return "Previous Swings"
+        }
+        
+        
     }
     
     // method to run when table view cell is tapped

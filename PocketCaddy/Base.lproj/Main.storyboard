@@ -552,15 +552,24 @@
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjt-JH-agn">
+                                <rect key="frame" x="30" y="410" width="315" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="qUl-sf-ZDC" firstAttribute="top" secondItem="NGH-N5-Dd2" secondAttribute="bottom" constant="7" id="2lN-5g-3ET"/>
+                            <constraint firstItem="rKB-oE-Mrx" firstAttribute="trailing" secondItem="Tjt-JH-agn" secondAttribute="trailing" constant="30" id="4nS-4O-Tdb"/>
                             <constraint firstItem="704-pY-Zla" firstAttribute="leading" secondItem="rKB-oE-Mrx" secondAttribute="leading" id="5LQ-2f-NJD"/>
                             <constraint firstItem="NGH-N5-Dd2" firstAttribute="leading" secondItem="CDf-DG-hMF" secondAttribute="trailing" constant="5" id="5bj-H7-Poz"/>
                             <constraint firstItem="rKB-oE-Mrx" firstAttribute="trailing" secondItem="704-pY-Zla" secondAttribute="trailing" id="9pP-tW-Xon"/>
                             <constraint firstItem="emf-m9-nwU" firstAttribute="leading" secondItem="ob9-rB-dIR" secondAttribute="trailing" constant="5" id="Akj-QY-fES"/>
                             <constraint firstItem="emf-m9-nwU" firstAttribute="top" secondItem="rKB-oE-Mrx" secondAttribute="top" constant="60" id="FLh-bG-sbT"/>
+                            <constraint firstItem="Tjt-JH-agn" firstAttribute="leading" secondItem="rKB-oE-Mrx" secondAttribute="leading" constant="30" id="Kfc-QK-rbd"/>
+                            <constraint firstItem="Tjt-JH-agn" firstAttribute="top" secondItem="tZ4-mh-1gW" secondAttribute="bottom" constant="200" id="ONF-E3-VCf"/>
                             <constraint firstItem="CDf-DG-hMF" firstAttribute="leading" secondItem="rKB-oE-Mrx" secondAttribute="leading" constant="85" id="VvG-Td-tkZ"/>
                             <constraint firstItem="tZ4-mh-1gW" firstAttribute="top" secondItem="CDf-DG-hMF" secondAttribute="bottom" constant="7" id="YSi-95-iJH"/>
                             <constraint firstItem="qUl-sf-ZDC" firstAttribute="leading" secondItem="tZ4-mh-1gW" secondAttribute="trailing" constant="5" id="Zy3-1f-p4c"/>
@@ -584,6 +593,7 @@
                     <connections>
                         <outlet property="avgDistance" destination="NGH-N5-Dd2" id="LFr-AT-fL8"/>
                         <outlet property="clubName" destination="emf-m9-nwU" id="xaS-eC-ME0"/>
+                        <outlet property="emptyLabel" destination="Tjt-JH-agn" id="UY8-bk-0no"/>
                         <outlet property="numSwings" destination="qUl-sf-ZDC" id="ecb-ah-POC"/>
                         <outlet property="tableView" destination="704-pY-Zla" id="deM-fm-7yk"/>
                     </connections>
