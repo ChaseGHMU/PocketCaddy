@@ -33,6 +33,7 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
             PocketCaddyData.getSwings(table: .swings, clubId: club.id, completionHandler: { response in
                 if let response = response{
                     self.swings = response
+                    self.swings.reverse()  // displays swings by most recent at top, rather than oldest on top
                 }
                 self.numSwings.text = "\(self.swings.count)"
                 self.getAvgSwing()
@@ -183,7 +184,7 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
         return [deleteAction]
     }
     
-    
+
     
 
     /*
