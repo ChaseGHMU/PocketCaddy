@@ -30,9 +30,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
         alert.addTextField { (textField) in
             textField.placeholder = "Enter Club"
         }
-        // creates both add and cancel options for user
-       // alert.addAction(UIAlertAction(title: "Add", style: UIAlertActionStyle.default, handler: nil))
-        
+        // creates both add and cancel options for user        
         let submitAction = UIAlertAction(title: "Add", style: .default, handler: { (action) -> Void in
             // Get 1st TextField's text
             let textField = alert.textFields![0]
@@ -145,7 +143,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
             }
             
             let submitAction = UIAlertAction(title: "Add", style: .default, handler: { (action) -> Void in
-                //enter edit code here
+                //enter edit code here, just need to change club name to existing club
             })
             alert.addAction(submitAction)
             alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
@@ -167,8 +165,6 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
                             self.tableView.reloadData()
                         })
                         deleteAlert.addAction(yesAction)
-            
-            
                         deleteAlert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
                         self.present(deleteAlert, animated: true, completion: nil)
             
