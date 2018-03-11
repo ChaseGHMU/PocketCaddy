@@ -19,15 +19,16 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate {
     var holes: [Holes] = []
     var hole: Int = 0
     var courseId: String?
+    var courseName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.mapType = .satellite
-        self.title = "Test"
-        if let courseId = courseId {
+        if let courseId = courseId, let courseName = courseName {
             PocketCaddyData.getHoles(courseId: courseId, completionHandler: { result in
                 self.holes = result
             })
+            self.title = courseName
         }
         
         // Do any additional setup after loading the view.
@@ -38,7 +39,7 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func nextHole(_ sender: Any) {
-        if hole < 18{
+        if hole < 17 {
             hole += 1
             getPoints(hole)
         }else{

@@ -151,7 +151,7 @@ class PocketCaddyData{
     
     class func getHoles(courseId: String, completionHandler: @escaping ([Holes])->Void) {
         var holes = [Holes]()
-        var url = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Holes?filter[where][courseID][is]="
+        var url = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Holes?filter[where][courseId]="
         url.append(courseId)
         
         Alamofire.request(url, method: .get).responseJSON(completionHandler: {response in

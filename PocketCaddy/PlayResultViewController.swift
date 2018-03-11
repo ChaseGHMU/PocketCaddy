@@ -38,6 +38,7 @@ class PlayResultViewController: UIViewController {
         // Pass the selected object to the new view controller.
         if let destination = segue.destination as? PlayMapViewController, let course = course{
                 destination.courseId = course.id
+                destination.courseName = course.name
         }
     }
 
