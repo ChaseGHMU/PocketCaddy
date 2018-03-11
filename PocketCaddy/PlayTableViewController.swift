@@ -34,7 +34,6 @@ class PlayTableViewController: UITableViewController, UISearchResultsUpdating {
         search.dimsBackgroundDuringPresentation = false
         tableView.tableHeaderView = search.searchBar
         search.searchBar.showsCancelButton = false
-        
 //        let editButton = self.editButtonItem
 //        self.navigationItem.rightBarButtonItem = editButton
         
