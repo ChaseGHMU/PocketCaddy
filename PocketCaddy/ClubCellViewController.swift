@@ -145,8 +145,6 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
         let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
         
         // set the text from the data model
-        //cell.textLabel?.text = self.distances[indexPath.row]
-        
         let stringInt = String(self.swings[indexPath.row].distance)
         cell.textLabel?.text = stringInt + " yards"
         return cell
@@ -156,16 +154,10 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
         return "Previous Swings"
     }
     
-    // method to run when table view cell is tapped
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("You tapped cell number \(indexPath.row).")
-//        print(distances[indexPath.row])
-    }
-    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         // Delete Swing Code
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
-//            print("Delete tapped")
+            
             let deleteAlert = UIAlertController(title: "Are you sure?", message: "", preferredStyle: UIAlertControllerStyle.alert)
             
             // once swings are persistent, the changes to delete will go in yesAction below
@@ -182,18 +174,5 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
         deleteAction.backgroundColor = UIColor.red
         return [deleteAction]
     }
-    
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

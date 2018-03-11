@@ -19,7 +19,6 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
     }
 
@@ -34,15 +33,13 @@ class SignUpViewController: UIViewController {
     
     @IBAction func submitNewUser(_ sender: Any) {
         if let email = emailTextField.text, let usr = usernameTextField.text, let pass = passwordTextField.text{
-            
             let obj: Parameters = [
                 "password": "\(pass)",
                 "email": "\(email)",
                 "username": "\(usr)"
             ]
-            
             PocketCaddyData.post(table: .golfers, parameters: obj, login: false, completionHandler: { (dict, success, code) in
-                if(success == "Success"){
+                if code == 200{
                     let alert = UIAlertController(title: "Account Succesfully Created", message: "Please confirm your email address to login", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{ (action: UIAlertAction!) in
                         alert.dismiss(animated: true, completion: nil)
@@ -58,18 +55,6 @@ class SignUpViewController: UIViewController {
                 }
             })
         }
-        
     }
-    
-
-//     MARK: - Navigation
-
-//     In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//         Get the new view controller using segue.destinationViewController.
-//         Pass the selected object to the new view controller.
-    
-    }
-    
 
 }
