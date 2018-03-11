@@ -20,26 +20,6 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     let defaults = UserDefaults.standard
 
     @IBOutlet weak var tableView: UITableView!
-    
-    @IBAction func pleaseWork(_ sender: Any) {
-        PocketCaddyData.get(table: .courses, id: "1", exists: false) { (dict, success, status) in
-            if let dict = dict, success == "Success", status == 200{
-                let name = "\(dict["courseName"]!)"
-                let address = "\(dict["addressLine1"]!)"
-                let zip = "\(dict["zipCode"]!)"
-                self.name?.text = name
-                self.address?.text = address
-                self.zipcode?.text = zip
-            }
-        }
-    }
-    
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var zipcode: UILabel!
-    @IBOutlet weak var address: UILabel!
-    
-    
-    //megan's changes
     @IBOutlet weak var addClub: UIBarButtonItem! // megan -- button to allow user to add clubs
     
     @IBAction func addClubAlert(_ sender: UIBarButtonItem) {
@@ -61,6 +41,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
                     "nickname": "\(textField)",
                     "userId": "\(userId)"
                 ]
+                
                 PocketCaddyData.post(table: .clubs, parameters: parameters, login: false, completionHandler: { (dict, string, response) in
                     if let dict = dict{
                         let id = "\(dict["clubId"]!)"
@@ -90,7 +71,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
                 if let array = json as? [Any]{
                     for results in array{
                         if let obj = results as? NSDictionary{
-                            let id = "\(obj["clubId"]!)"
+                           let id = "\(obj["clubId"]!)"
                             let nickname = "\(obj["nickname"]!)"
                             let userId = "\(obj["userId"]!)"
                             self.clubs.append(Clubs(id: id, type: "nil", name: nickname, distance: "0", userId: userId))
@@ -104,12 +85,19 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
+        
+        
+        if let image = UIImage(named: "iphone.jpg"){
+            self.view.backgroundColor = UIColor(patternImage: image)
+        }
+        navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.clubs.count
@@ -128,6 +116,10 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "segue", sender: indexPath)
     }
+    
+     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "List of Clubs"
+    }
    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -145,15 +137,12 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-            
             // remove the item from the data model
             PocketCaddyData.delete(table: .clubs, id: clubs[indexPath.row].id)
             clubs.remove(at: indexPath.row)
             // delete the table view row
             tableView.deleteRows(at: [indexPath], with: .fade)
             self.tableView.reloadData()
-        } else if editingStyle == .insert {
-            // Not used in our example, but if you were adding a new row, this is where you would do it.
         }
     }
     

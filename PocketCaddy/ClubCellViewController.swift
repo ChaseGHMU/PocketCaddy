@@ -112,6 +112,11 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.delegate = self
         tableView.dataSource = self
         
+        if let image = UIImage(named: "smallCourse.jpg"){
+            self.view.backgroundColor = UIColor(patternImage: image)
+        }
+        navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
+        
         // Do any additional setup after loading the view.
     }
 
@@ -137,6 +142,10 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
         let stringInt = String(self.distances[indexPath.row])
         cell.textLabel?.text = stringInt
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Previous Swings"
     }
     
     // method to run when table view cell is tapped

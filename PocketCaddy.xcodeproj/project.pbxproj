@@ -1,704 +1,704 @@
 // !$*UTF8*$!
 {
-    archiveVersion = 1;
-    classes = {
-    };
-    objectVersion = 48;
-    objects = {
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
 
 /* Begin PBXBuildFile section */
-        448DB614204CA50B0045C13B /* ClubCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448DB613204CA50B0045C13B /* ClubCellViewController.swift */; };
-        4497642B2048706800AC8FC6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4497642A2048706800AC8FC6 /* SettingsViewController.swift */; };
-        4497642D2048716100AC8FC6 /* ScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4497642C2048716100AC8FC6 /* ScoresViewController.swift */; };
-        9401DBEA204BAA10005C1937 /* Swings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9401DBE9204BAA10005C1937 /* Swings.swift */; };
-        9401DBEC204BAA70005C1937 /* Clubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9401DBEB204BAA70005C1937 /* Clubs.swift */; };
-        940F651420523F4D00514850 /* PlayMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940F651320523F4D00514850 /* PlayMapViewController.swift */; };
-        945DF8A72047D2D800D7F77C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945DF8A62047D2D800D7F77C /* User.swift */; };
-        945DF8A92047DEF200D7F77C /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945DF8A82047DEF200D7F77C /* TabViewController.swift */; };
-        94710A52204CC2CB007ECD9B /* ScoresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94710A51204CC2CB007ECD9B /* ScoresTableViewCell.swift */; };
-        947323BD204920DB008146F2 /* PlayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947323BC204920DB008146F2 /* PlayTableViewController.swift */; };
-        947323BF204922BC008146F2 /* PlaySearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947323BE204922BC008146F2 /* PlaySearchTableViewCell.swift */; };
-        94BD59722045CD86007E38BB /* PocketCaddyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BD59712045CD86007E38BB /* PocketCaddyData.swift */; };
-        94BD59742045CDC3007E38BB /* Courses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BD59732045CDC3007E38BB /* Courses.swift */; };
-        94BD59762045D0B9007E38BB /* Holes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BD59752045D0B9007E38BB /* Holes.swift */; };
-        94C490B2204B9F920098A8EF /* PlayResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C490B1204B9F920098A8EF /* PlayResultViewController.swift */; };
-        94E26C0A2044949D00CDE724 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E26C092044949D00CDE724 /* PracticeViewController.swift */; };
-        94E2ACF92031018700F98A0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E2ACF82031018700F98A0A /* AppDelegate.swift */; };
-        94E2ACFE2031018700F98A0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94E2ACFC2031018700F98A0A /* Main.storyboard */; };
-        94E2AD002031018700F98A0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94E2ACFF2031018700F98A0A /* Assets.xcassets */; };
-        94E2AD0E2031018700F98A0A /* PocketCaddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E2AD0D2031018700F98A0A /* PocketCaddyTests.swift */; };
-        94E2AD192031018700F98A0A /* PocketCaddyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E2AD182031018700F98A0A /* PocketCaddyUITests.swift */; };
-        94FA1BEF20478FC600956F75 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA1BEE20478FC600956F75 /* LoginViewController.swift */; };
-        94FA1BF12047958900956F75 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA1BF02047958900956F75 /* SignUpViewController.swift */; };
-        A7FA04DA78DEC85ED7569E49 /* Pods_PocketCaddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF830C11FCE6476F226F528 /* Pods_PocketCaddy.framework */; };
+		448DB614204CA50B0045C13B /* ClubCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448DB613204CA50B0045C13B /* ClubCellViewController.swift */; };
+		4497642B2048706800AC8FC6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4497642A2048706800AC8FC6 /* SettingsViewController.swift */; };
+		4497642D2048716100AC8FC6 /* ScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4497642C2048716100AC8FC6 /* ScoresViewController.swift */; };
+		9401DBEA204BAA10005C1937 /* Swings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9401DBE9204BAA10005C1937 /* Swings.swift */; };
+		9401DBEC204BAA70005C1937 /* Clubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9401DBEB204BAA70005C1937 /* Clubs.swift */; };
+		940F651420523F4D00514850 /* PlayMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940F651320523F4D00514850 /* PlayMapViewController.swift */; };
+		945DF8A72047D2D800D7F77C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945DF8A62047D2D800D7F77C /* User.swift */; };
+		945DF8A92047DEF200D7F77C /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945DF8A82047DEF200D7F77C /* TabViewController.swift */; };
+		94710A52204CC2CB007ECD9B /* ScoresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94710A51204CC2CB007ECD9B /* ScoresTableViewCell.swift */; };
+		947323BD204920DB008146F2 /* PlayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947323BC204920DB008146F2 /* PlayTableViewController.swift */; };
+		947323BF204922BC008146F2 /* PlaySearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947323BE204922BC008146F2 /* PlaySearchTableViewCell.swift */; };
+		94BD59722045CD86007E38BB /* PocketCaddyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BD59712045CD86007E38BB /* PocketCaddyData.swift */; };
+		94BD59742045CDC3007E38BB /* Courses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BD59732045CDC3007E38BB /* Courses.swift */; };
+		94BD59762045D0B9007E38BB /* Holes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BD59752045D0B9007E38BB /* Holes.swift */; };
+		94C490B2204B9F920098A8EF /* PlayResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C490B1204B9F920098A8EF /* PlayResultViewController.swift */; };
+		94E26C0A2044949D00CDE724 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E26C092044949D00CDE724 /* PracticeViewController.swift */; };
+		94E2ACF92031018700F98A0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E2ACF82031018700F98A0A /* AppDelegate.swift */; };
+		94E2ACFE2031018700F98A0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94E2ACFC2031018700F98A0A /* Main.storyboard */; };
+		94E2AD002031018700F98A0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94E2ACFF2031018700F98A0A /* Assets.xcassets */; };
+		94E2AD0E2031018700F98A0A /* PocketCaddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E2AD0D2031018700F98A0A /* PocketCaddyTests.swift */; };
+		94E2AD192031018700F98A0A /* PocketCaddyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E2AD182031018700F98A0A /* PocketCaddyUITests.swift */; };
+		94FA1BEF20478FC600956F75 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA1BEE20478FC600956F75 /* LoginViewController.swift */; };
+		94FA1BF12047958900956F75 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA1BF02047958900956F75 /* SignUpViewController.swift */; };
+		A7FA04DA78DEC85ED7569E49 /* Pods_PocketCaddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF830C11FCE6476F226F528 /* Pods_PocketCaddy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-        94E2AD0A2031018700F98A0A /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = 94E2ACED2031018700F98A0A /* Project object */;
-            proxyType = 1;
-            remoteGlobalIDString = 94E2ACF42031018700F98A0A;
-            remoteInfo = PocketCaddy;
-        };
-        94E2AD152031018700F98A0A /* PBXContainerItemProxy */ = {
-            isa = PBXContainerItemProxy;
-            containerPortal = 94E2ACED2031018700F98A0A /* Project object */;
-            proxyType = 1;
-            remoteGlobalIDString = 94E2ACF42031018700F98A0A;
-            remoteInfo = PocketCaddy;
-        };
+		94E2AD0A2031018700F98A0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94E2ACED2031018700F98A0A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94E2ACF42031018700F98A0A;
+			remoteInfo = PocketCaddy;
+		};
+		94E2AD152031018700F98A0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94E2ACED2031018700F98A0A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94E2ACF42031018700F98A0A;
+			remoteInfo = PocketCaddy;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-        0CF830C11FCE6476F226F528 /* Pods_PocketCaddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketCaddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-        21311EFA2C8255605535C0D4 /* Pods-PocketCaddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketCaddy.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy.release.xcconfig"; sourceTree = "<group>"; };
-        448DB613204CA50B0045C13B /* ClubCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubCellViewController.swift; sourceTree = "<group>"; };
-        4497642A2048706800AC8FC6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-        4497642C2048716100AC8FC6 /* ScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresViewController.swift; sourceTree = "<group>"; };
-        832520ABDE89D77C223F5E93 /* Pods-PocketCaddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketCaddy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy.debug.xcconfig"; sourceTree = "<group>"; };
-        9401DBE9204BAA10005C1937 /* Swings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swings.swift; sourceTree = "<group>"; };
-        9401DBEB204BAA70005C1937 /* Clubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clubs.swift; sourceTree = "<group>"; };
-        940F651320523F4D00514850 /* PlayMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMapViewController.swift; sourceTree = "<group>"; };
-        945DF8A62047D2D800D7F77C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-        945DF8A82047DEF200D7F77C /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
-        94710A51204CC2CB007ECD9B /* ScoresTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresTableViewCell.swift; sourceTree = "<group>"; };
-        947323BC204920DB008146F2 /* PlayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTableViewController.swift; sourceTree = "<group>"; };
-        947323BE204922BC008146F2 /* PlaySearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySearchTableViewCell.swift; sourceTree = "<group>"; };
-        94BD59712045CD86007E38BB /* PocketCaddyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketCaddyData.swift; sourceTree = "<group>"; };
-        94BD59732045CDC3007E38BB /* Courses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Courses.swift; sourceTree = "<group>"; };
-        94BD59752045D0B9007E38BB /* Holes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holes.swift; sourceTree = "<group>"; };
-        94C490B1204B9F920098A8EF /* PlayResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayResultViewController.swift; sourceTree = "<group>"; };
-        94E26C092044949D00CDE724 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
-        94E2ACF52031018700F98A0A /* PocketCaddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketCaddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
-        94E2ACF82031018700F98A0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-        94E2ACFD2031018700F98A0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-        94E2ACFF2031018700F98A0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-        94E2AD042031018700F98A0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-        94E2AD092031018700F98A0A /* PocketCaddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketCaddyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-        94E2AD0D2031018700F98A0A /* PocketCaddyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketCaddyTests.swift; sourceTree = "<group>"; };
-        94E2AD0F2031018700F98A0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-        94E2AD142031018700F98A0A /* PocketCaddyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketCaddyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-        94E2AD182031018700F98A0A /* PocketCaddyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketCaddyUITests.swift; sourceTree = "<group>"; };
-        94E2AD1A2031018700F98A0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-        94FA1BEE20478FC600956F75 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-        94FA1BF02047958900956F75 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		0CF830C11FCE6476F226F528 /* Pods_PocketCaddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketCaddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		21311EFA2C8255605535C0D4 /* Pods-PocketCaddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketCaddy.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy.release.xcconfig"; sourceTree = "<group>"; };
+		448DB613204CA50B0045C13B /* ClubCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubCellViewController.swift; sourceTree = "<group>"; };
+		4497642A2048706800AC8FC6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4497642C2048716100AC8FC6 /* ScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresViewController.swift; sourceTree = "<group>"; };
+		832520ABDE89D77C223F5E93 /* Pods-PocketCaddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketCaddy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy.debug.xcconfig"; sourceTree = "<group>"; };
+		9401DBE9204BAA10005C1937 /* Swings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swings.swift; sourceTree = "<group>"; };
+		9401DBEB204BAA70005C1937 /* Clubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clubs.swift; sourceTree = "<group>"; };
+		940F651320523F4D00514850 /* PlayMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMapViewController.swift; sourceTree = "<group>"; };
+		945DF8A62047D2D800D7F77C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		945DF8A82047DEF200D7F77C /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		94710A51204CC2CB007ECD9B /* ScoresTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresTableViewCell.swift; sourceTree = "<group>"; };
+		947323BC204920DB008146F2 /* PlayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTableViewController.swift; sourceTree = "<group>"; };
+		947323BE204922BC008146F2 /* PlaySearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySearchTableViewCell.swift; sourceTree = "<group>"; };
+		94BD59712045CD86007E38BB /* PocketCaddyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketCaddyData.swift; sourceTree = "<group>"; };
+		94BD59732045CDC3007E38BB /* Courses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Courses.swift; sourceTree = "<group>"; };
+		94BD59752045D0B9007E38BB /* Holes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holes.swift; sourceTree = "<group>"; };
+		94C490B1204B9F920098A8EF /* PlayResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayResultViewController.swift; sourceTree = "<group>"; };
+		94E26C092044949D00CDE724 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
+		94E2ACF52031018700F98A0A /* PocketCaddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketCaddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		94E2ACF82031018700F98A0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		94E2ACFD2031018700F98A0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		94E2ACFF2031018700F98A0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		94E2AD042031018700F98A0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94E2AD092031018700F98A0A /* PocketCaddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketCaddyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		94E2AD0D2031018700F98A0A /* PocketCaddyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketCaddyTests.swift; sourceTree = "<group>"; };
+		94E2AD0F2031018700F98A0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94E2AD142031018700F98A0A /* PocketCaddyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketCaddyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		94E2AD182031018700F98A0A /* PocketCaddyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketCaddyUITests.swift; sourceTree = "<group>"; };
+		94E2AD1A2031018700F98A0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94FA1BEE20478FC600956F75 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		94FA1BF02047958900956F75 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-        94E2ACF22031018700F98A0A /* Frameworks */ = {
-            isa = PBXFrameworksBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-                A7FA04DA78DEC85ED7569E49 /* Pods_PocketCaddy.framework in Frameworks */,
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        94E2AD062031018700F98A0A /* Frameworks */ = {
-            isa = PBXFrameworksBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        94E2AD112031018700F98A0A /* Frameworks */ = {
-            isa = PBXFrameworksBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+		94E2ACF22031018700F98A0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7FA04DA78DEC85ED7569E49 /* Pods_PocketCaddy.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94E2AD062031018700F98A0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94E2AD112031018700F98A0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-        0C39F14E656FCE6B55CE8B19 /* Pods */ = {
-            isa = PBXGroup;
-            children = (
-                832520ABDE89D77C223F5E93 /* Pods-PocketCaddy.debug.xcconfig */,
-                21311EFA2C8255605535C0D4 /* Pods-PocketCaddy.release.xcconfig */,
-            );
-            name = Pods;
-            sourceTree = "<group>";
-        };
-        8F09136B23E8631235FF727F /* Frameworks */ = {
-            isa = PBXGroup;
-            children = (
-                0CF830C11FCE6476F226F528 /* Pods_PocketCaddy.framework */,
-            );
-            name = Frameworks;
-            sourceTree = "<group>";
-        };
-        94BD59702045CCEF007E38BB /* Model */ = {
-            isa = PBXGroup;
-            children = (
-                94BD59712045CD86007E38BB /* PocketCaddyData.swift */,
-                94BD59732045CDC3007E38BB /* Courses.swift */,
-                94BD59752045D0B9007E38BB /* Holes.swift */,
-                945DF8A62047D2D800D7F77C /* User.swift */,
-                9401DBE9204BAA10005C1937 /* Swings.swift */,
-                9401DBEB204BAA70005C1937 /* Clubs.swift */,
-            );
-            path = Model;
-            sourceTree = "<group>";
-        };
-        94E2ACEC2031018700F98A0A = {
-            isa = PBXGroup;
-            children = (
-                94E2ACF72031018700F98A0A /* PocketCaddy */,
-                94E2AD0C2031018700F98A0A /* PocketCaddyTests */,
-                94E2AD172031018700F98A0A /* PocketCaddyUITests */,
-                94E2ACF62031018700F98A0A /* Products */,
-                0C39F14E656FCE6B55CE8B19 /* Pods */,
-                8F09136B23E8631235FF727F /* Frameworks */,
-            );
-            sourceTree = "<group>";
-        };
-        94E2ACF62031018700F98A0A /* Products */ = {
-            isa = PBXGroup;
-            children = (
-                94E2ACF52031018700F98A0A /* PocketCaddy.app */,
-                94E2AD092031018700F98A0A /* PocketCaddyTests.xctest */,
-                94E2AD142031018700F98A0A /* PocketCaddyUITests.xctest */,
-            );
-            name = Products;
-            sourceTree = "<group>";
-        };
-        94E2ACF72031018700F98A0A /* PocketCaddy */ = {
-            isa = PBXGroup;
-            children = (
-                94BD59702045CCEF007E38BB /* Model */,
-                94E2ACF82031018700F98A0A /* AppDelegate.swift */,
-                94E2ACFC2031018700F98A0A /* Main.storyboard */,
-                4497642C2048716100AC8FC6 /* ScoresViewController.swift */,
-                94E2ACFF2031018700F98A0A /* Assets.xcassets */,
-                94E2AD042031018700F98A0A /* Info.plist */,
-                448DB613204CA50B0045C13B /* ClubCellViewController.swift */,
-                94E26C092044949D00CDE724 /* PracticeViewController.swift */,
-                4497642A2048706800AC8FC6 /* SettingsViewController.swift */,
-                94FA1BEE20478FC600956F75 /* LoginViewController.swift */,
-                94FA1BF02047958900956F75 /* SignUpViewController.swift */,
-                945DF8A82047DEF200D7F77C /* TabViewController.swift */,
-                947323BC204920DB008146F2 /* PlayTableViewController.swift */,
-                947323BE204922BC008146F2 /* PlaySearchTableViewCell.swift */,
-                94C490B1204B9F920098A8EF /* PlayResultViewController.swift */,
-                940F651320523F4D00514850 /* PlayMapViewController.swift */,
-                94710A51204CC2CB007ECD9B /* ScoresTableViewCell.swift */,
-            );
-            path = PocketCaddy;
-            sourceTree = "<group>";
-        };
-        94E2AD0C2031018700F98A0A /* PocketCaddyTests */ = {
-            isa = PBXGroup;
-            children = (
-                94E2AD0D2031018700F98A0A /* PocketCaddyTests.swift */,
-                94E2AD0F2031018700F98A0A /* Info.plist */,
-            );
-            path = PocketCaddyTests;
-            sourceTree = "<group>";
-        };
-        94E2AD172031018700F98A0A /* PocketCaddyUITests */ = {
-            isa = PBXGroup;
-            children = (
-                94E2AD182031018700F98A0A /* PocketCaddyUITests.swift */,
-                94E2AD1A2031018700F98A0A /* Info.plist */,
-            );
-            path = PocketCaddyUITests;
-            sourceTree = "<group>";
-        };
+		0C39F14E656FCE6B55CE8B19 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				832520ABDE89D77C223F5E93 /* Pods-PocketCaddy.debug.xcconfig */,
+				21311EFA2C8255605535C0D4 /* Pods-PocketCaddy.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8F09136B23E8631235FF727F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0CF830C11FCE6476F226F528 /* Pods_PocketCaddy.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		94BD59702045CCEF007E38BB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				94BD59712045CD86007E38BB /* PocketCaddyData.swift */,
+				94BD59732045CDC3007E38BB /* Courses.swift */,
+				94BD59752045D0B9007E38BB /* Holes.swift */,
+				945DF8A62047D2D800D7F77C /* User.swift */,
+				9401DBE9204BAA10005C1937 /* Swings.swift */,
+				9401DBEB204BAA70005C1937 /* Clubs.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		94E2ACEC2031018700F98A0A = {
+			isa = PBXGroup;
+			children = (
+				94E2ACF72031018700F98A0A /* PocketCaddy */,
+				94E2AD0C2031018700F98A0A /* PocketCaddyTests */,
+				94E2AD172031018700F98A0A /* PocketCaddyUITests */,
+				94E2ACF62031018700F98A0A /* Products */,
+				0C39F14E656FCE6B55CE8B19 /* Pods */,
+				8F09136B23E8631235FF727F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		94E2ACF62031018700F98A0A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				94E2ACF52031018700F98A0A /* PocketCaddy.app */,
+				94E2AD092031018700F98A0A /* PocketCaddyTests.xctest */,
+				94E2AD142031018700F98A0A /* PocketCaddyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		94E2ACF72031018700F98A0A /* PocketCaddy */ = {
+			isa = PBXGroup;
+			children = (
+				94BD59702045CCEF007E38BB /* Model */,
+				94E2ACF82031018700F98A0A /* AppDelegate.swift */,
+				94E2ACFC2031018700F98A0A /* Main.storyboard */,
+				4497642C2048716100AC8FC6 /* ScoresViewController.swift */,
+				94E2ACFF2031018700F98A0A /* Assets.xcassets */,
+				94E2AD042031018700F98A0A /* Info.plist */,
+				448DB613204CA50B0045C13B /* ClubCellViewController.swift */,
+				94E26C092044949D00CDE724 /* PracticeViewController.swift */,
+				4497642A2048706800AC8FC6 /* SettingsViewController.swift */,
+				94FA1BEE20478FC600956F75 /* LoginViewController.swift */,
+				94FA1BF02047958900956F75 /* SignUpViewController.swift */,
+				945DF8A82047DEF200D7F77C /* TabViewController.swift */,
+				947323BC204920DB008146F2 /* PlayTableViewController.swift */,
+				947323BE204922BC008146F2 /* PlaySearchTableViewCell.swift */,
+				94C490B1204B9F920098A8EF /* PlayResultViewController.swift */,
+				940F651320523F4D00514850 /* PlayMapViewController.swift */,
+				94710A51204CC2CB007ECD9B /* ScoresTableViewCell.swift */,
+			);
+			path = PocketCaddy;
+			sourceTree = "<group>";
+		};
+		94E2AD0C2031018700F98A0A /* PocketCaddyTests */ = {
+			isa = PBXGroup;
+			children = (
+				94E2AD0D2031018700F98A0A /* PocketCaddyTests.swift */,
+				94E2AD0F2031018700F98A0A /* Info.plist */,
+			);
+			path = PocketCaddyTests;
+			sourceTree = "<group>";
+		};
+		94E2AD172031018700F98A0A /* PocketCaddyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				94E2AD182031018700F98A0A /* PocketCaddyUITests.swift */,
+				94E2AD1A2031018700F98A0A /* Info.plist */,
+			);
+			path = PocketCaddyUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-        94E2ACF42031018700F98A0A /* PocketCaddy */ = {
-            isa = PBXNativeTarget;
-            buildConfigurationList = 94E2AD1D2031018700F98A0A /* Build configuration list for PBXNativeTarget "PocketCaddy" */;
-            buildPhases = (
-                C7D0B5269814334C1E62F651 /* [CP] Check Pods Manifest.lock */,
-                94E2ACF12031018700F98A0A /* Sources */,
-                94E2ACF22031018700F98A0A /* Frameworks */,
-                94E2ACF32031018700F98A0A /* Resources */,
-                728EF0B128B0F4C40DED60C0 /* [CP] Embed Pods Frameworks */,
-                A44E021685F4D61390847BFF /* [CP] Copy Pods Resources */,
-            );
-            buildRules = (
-            );
-            dependencies = (
-            );
-            name = PocketCaddy;
-            productName = PocketCaddy;
-            productReference = 94E2ACF52031018700F98A0A /* PocketCaddy.app */;
-            productType = "com.apple.product-type.application";
-        };
-        94E2AD082031018700F98A0A /* PocketCaddyTests */ = {
-            isa = PBXNativeTarget;
-            buildConfigurationList = 94E2AD202031018700F98A0A /* Build configuration list for PBXNativeTarget "PocketCaddyTests" */;
-            buildPhases = (
-                94E2AD052031018700F98A0A /* Sources */,
-                94E2AD062031018700F98A0A /* Frameworks */,
-                94E2AD072031018700F98A0A /* Resources */,
-            );
-            buildRules = (
-            );
-            dependencies = (
-                94E2AD0B2031018700F98A0A /* PBXTargetDependency */,
-            );
-            name = PocketCaddyTests;
-            productName = PocketCaddyTests;
-            productReference = 94E2AD092031018700F98A0A /* PocketCaddyTests.xctest */;
-            productType = "com.apple.product-type.bundle.unit-test";
-        };
-        94E2AD132031018700F98A0A /* PocketCaddyUITests */ = {
-            isa = PBXNativeTarget;
-            buildConfigurationList = 94E2AD232031018700F98A0A /* Build configuration list for PBXNativeTarget "PocketCaddyUITests" */;
-            buildPhases = (
-                94E2AD102031018700F98A0A /* Sources */,
-                94E2AD112031018700F98A0A /* Frameworks */,
-                94E2AD122031018700F98A0A /* Resources */,
-            );
-            buildRules = (
-            );
-            dependencies = (
-                94E2AD162031018700F98A0A /* PBXTargetDependency */,
-            );
-            name = PocketCaddyUITests;
-            productName = PocketCaddyUITests;
-            productReference = 94E2AD142031018700F98A0A /* PocketCaddyUITests.xctest */;
-            productType = "com.apple.product-type.bundle.ui-testing";
-        };
+		94E2ACF42031018700F98A0A /* PocketCaddy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94E2AD1D2031018700F98A0A /* Build configuration list for PBXNativeTarget "PocketCaddy" */;
+			buildPhases = (
+				C7D0B5269814334C1E62F651 /* [CP] Check Pods Manifest.lock */,
+				94E2ACF12031018700F98A0A /* Sources */,
+				94E2ACF22031018700F98A0A /* Frameworks */,
+				94E2ACF32031018700F98A0A /* Resources */,
+				728EF0B128B0F4C40DED60C0 /* [CP] Embed Pods Frameworks */,
+				A44E021685F4D61390847BFF /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PocketCaddy;
+			productName = PocketCaddy;
+			productReference = 94E2ACF52031018700F98A0A /* PocketCaddy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		94E2AD082031018700F98A0A /* PocketCaddyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94E2AD202031018700F98A0A /* Build configuration list for PBXNativeTarget "PocketCaddyTests" */;
+			buildPhases = (
+				94E2AD052031018700F98A0A /* Sources */,
+				94E2AD062031018700F98A0A /* Frameworks */,
+				94E2AD072031018700F98A0A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94E2AD0B2031018700F98A0A /* PBXTargetDependency */,
+			);
+			name = PocketCaddyTests;
+			productName = PocketCaddyTests;
+			productReference = 94E2AD092031018700F98A0A /* PocketCaddyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		94E2AD132031018700F98A0A /* PocketCaddyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94E2AD232031018700F98A0A /* Build configuration list for PBXNativeTarget "PocketCaddyUITests" */;
+			buildPhases = (
+				94E2AD102031018700F98A0A /* Sources */,
+				94E2AD112031018700F98A0A /* Frameworks */,
+				94E2AD122031018700F98A0A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94E2AD162031018700F98A0A /* PBXTargetDependency */,
+			);
+			name = PocketCaddyUITests;
+			productName = PocketCaddyUITests;
+			productReference = 94E2AD142031018700F98A0A /* PocketCaddyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-        94E2ACED2031018700F98A0A /* Project object */ = {
-            isa = PBXProject;
-            attributes = {
-                LastSwiftUpdateCheck = 0920;
-                LastUpgradeCheck = 0920;
-                ORGANIZATIONNAME = "Chase Allen";
-                TargetAttributes = {
-                    94E2ACF42031018700F98A0A = {
-                        CreatedOnToolsVersion = 9.2;
-                        ProvisioningStyle = Automatic;
-                    };
-                    94E2AD082031018700F98A0A = {
-                        CreatedOnToolsVersion = 9.2;
-                        ProvisioningStyle = Automatic;
-                        TestTargetID = 94E2ACF42031018700F98A0A;
-                    };
-                    94E2AD132031018700F98A0A = {
-                        CreatedOnToolsVersion = 9.2;
-                        ProvisioningStyle = Automatic;
-                        TestTargetID = 94E2ACF42031018700F98A0A;
-                    };
-                };
-            };
-            buildConfigurationList = 94E2ACF02031018700F98A0A /* Build configuration list for PBXProject "PocketCaddy" */;
-            compatibilityVersion = "Xcode 8.0";
-            developmentRegion = en;
-            hasScannedForEncodings = 0;
-            knownRegions = (
-                en,
-                Base,
-            );
-            mainGroup = 94E2ACEC2031018700F98A0A;
-            productRefGroup = 94E2ACF62031018700F98A0A /* Products */;
-            projectDirPath = "";
-            projectRoot = "";
-            targets = (
-                94E2ACF42031018700F98A0A /* PocketCaddy */,
-                94E2AD082031018700F98A0A /* PocketCaddyTests */,
-                94E2AD132031018700F98A0A /* PocketCaddyUITests */,
-            );
-        };
+		94E2ACED2031018700F98A0A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Chase Allen";
+				TargetAttributes = {
+					94E2ACF42031018700F98A0A = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					94E2AD082031018700F98A0A = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 94E2ACF42031018700F98A0A;
+					};
+					94E2AD132031018700F98A0A = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 94E2ACF42031018700F98A0A;
+					};
+				};
+			};
+			buildConfigurationList = 94E2ACF02031018700F98A0A /* Build configuration list for PBXProject "PocketCaddy" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 94E2ACEC2031018700F98A0A;
+			productRefGroup = 94E2ACF62031018700F98A0A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				94E2ACF42031018700F98A0A /* PocketCaddy */,
+				94E2AD082031018700F98A0A /* PocketCaddyTests */,
+				94E2AD132031018700F98A0A /* PocketCaddyUITests */,
+			);
+		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-        94E2ACF32031018700F98A0A /* Resources */ = {
-            isa = PBXResourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-                94E2AD002031018700F98A0A /* Assets.xcassets in Resources */,
-                94E2ACFE2031018700F98A0A /* Main.storyboard in Resources */,
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        94E2AD072031018700F98A0A /* Resources */ = {
-            isa = PBXResourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        94E2AD122031018700F98A0A /* Resources */ = {
-            isa = PBXResourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+		94E2ACF32031018700F98A0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94E2AD002031018700F98A0A /* Assets.xcassets in Resources */,
+				94E2ACFE2031018700F98A0A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94E2AD072031018700F98A0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94E2AD122031018700F98A0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-        728EF0B128B0F4C40DED60C0 /* [CP] Embed Pods Frameworks */ = {
-            isa = PBXShellScriptBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            inputPaths = (
-                "${SRCROOT}/Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy-frameworks.sh",
-                "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-            );
-            name = "[CP] Embed Pods Frameworks";
-            outputPaths = (
-                "${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-            shellPath = /bin/sh;
-            shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy-frameworks.sh\"\n";
-            showEnvVarsInLog = 0;
-        };
-        A44E021685F4D61390847BFF /* [CP] Copy Pods Resources */ = {
-            isa = PBXShellScriptBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            inputPaths = (
-            );
-            name = "[CP] Copy Pods Resources";
-            outputPaths = (
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-            shellPath = /bin/sh;
-            shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy-resources.sh\"\n";
-            showEnvVarsInLog = 0;
-        };
-        C7D0B5269814334C1E62F651 /* [CP] Check Pods Manifest.lock */ = {
-            isa = PBXShellScriptBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-            );
-            inputPaths = (
-                "${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-                "${PODS_ROOT}/Manifest.lock",
-            );
-            name = "[CP] Check Pods Manifest.lock";
-            outputPaths = (
-                "$(DERIVED_FILE_DIR)/Pods-PocketCaddy-checkManifestLockResult.txt",
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-            shellPath = /bin/sh;
-            shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-            showEnvVarsInLog = 0;
-        };
+		728EF0B128B0F4C40DED60C0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A44E021685F4D61390847BFF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7D0B5269814334C1E62F651 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PocketCaddy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-        94E2ACF12031018700F98A0A /* Sources */ = {
-            isa = PBXSourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-                4497642D2048716100AC8FC6 /* ScoresViewController.swift in Sources */,
-                94FA1BEF20478FC600956F75 /* LoginViewController.swift in Sources */,
-                94FA1BF12047958900956F75 /* SignUpViewController.swift in Sources */,
-                94BD59742045CDC3007E38BB /* Courses.swift in Sources */,
-                4497642B2048706800AC8FC6 /* SettingsViewController.swift in Sources */,
-                94E26C0A2044949D00CDE724 /* PracticeViewController.swift in Sources */,
-                945DF8A72047D2D800D7F77C /* User.swift in Sources */,
-                94BD59722045CD86007E38BB /* PocketCaddyData.swift in Sources */,
-                945DF8A92047DEF200D7F77C /* TabViewController.swift in Sources */,
-                94C490B2204B9F920098A8EF /* PlayResultViewController.swift in Sources */,
-                947323BD204920DB008146F2 /* PlayTableViewController.swift in Sources */,
-                94BD59762045D0B9007E38BB /* Holes.swift in Sources */,
-                94710A52204CC2CB007ECD9B /* ScoresTableViewCell.swift in Sources */,
-                94E2ACF92031018700F98A0A /* AppDelegate.swift in Sources */,
-                940F651420523F4D00514850 /* PlayMapViewController.swift in Sources */,
-                947323BF204922BC008146F2 /* PlaySearchTableViewCell.swift in Sources */,
-                9401DBEA204BAA10005C1937 /* Swings.swift in Sources */,
-                448DB614204CA50B0045C13B /* ClubCellViewController.swift in Sources */,
-                9401DBEC204BAA70005C1937 /* Clubs.swift in Sources */,
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        94E2AD052031018700F98A0A /* Sources */ = {
-            isa = PBXSourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-                94E2AD0E2031018700F98A0A /* PocketCaddyTests.swift in Sources */,
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
-        94E2AD102031018700F98A0A /* Sources */ = {
-            isa = PBXSourcesBuildPhase;
-            buildActionMask = 2147483647;
-            files = (
-                94E2AD192031018700F98A0A /* PocketCaddyUITests.swift in Sources */,
-            );
-            runOnlyForDeploymentPostprocessing = 0;
-        };
+		94E2ACF12031018700F98A0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4497642D2048716100AC8FC6 /* ScoresViewController.swift in Sources */,
+				94FA1BEF20478FC600956F75 /* LoginViewController.swift in Sources */,
+				94FA1BF12047958900956F75 /* SignUpViewController.swift in Sources */,
+				94BD59742045CDC3007E38BB /* Courses.swift in Sources */,
+				4497642B2048706800AC8FC6 /* SettingsViewController.swift in Sources */,
+				94E26C0A2044949D00CDE724 /* PracticeViewController.swift in Sources */,
+				945DF8A72047D2D800D7F77C /* User.swift in Sources */,
+				94BD59722045CD86007E38BB /* PocketCaddyData.swift in Sources */,
+				945DF8A92047DEF200D7F77C /* TabViewController.swift in Sources */,
+				94C490B2204B9F920098A8EF /* PlayResultViewController.swift in Sources */,
+				947323BD204920DB008146F2 /* PlayTableViewController.swift in Sources */,
+				94BD59762045D0B9007E38BB /* Holes.swift in Sources */,
+				94710A52204CC2CB007ECD9B /* ScoresTableViewCell.swift in Sources */,
+				94E2ACF92031018700F98A0A /* AppDelegate.swift in Sources */,
+				940F651420523F4D00514850 /* PlayMapViewController.swift in Sources */,
+				947323BF204922BC008146F2 /* PlaySearchTableViewCell.swift in Sources */,
+				9401DBEA204BAA10005C1937 /* Swings.swift in Sources */,
+				448DB614204CA50B0045C13B /* ClubCellViewController.swift in Sources */,
+				9401DBEC204BAA70005C1937 /* Clubs.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94E2AD052031018700F98A0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94E2AD0E2031018700F98A0A /* PocketCaddyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94E2AD102031018700F98A0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94E2AD192031018700F98A0A /* PocketCaddyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-        94E2AD0B2031018700F98A0A /* PBXTargetDependency */ = {
-            isa = PBXTargetDependency;
-            target = 94E2ACF42031018700F98A0A /* PocketCaddy */;
-            targetProxy = 94E2AD0A2031018700F98A0A /* PBXContainerItemProxy */;
-        };
-        94E2AD162031018700F98A0A /* PBXTargetDependency */ = {
-            isa = PBXTargetDependency;
-            target = 94E2ACF42031018700F98A0A /* PocketCaddy */;
-            targetProxy = 94E2AD152031018700F98A0A /* PBXContainerItemProxy */;
-        };
+		94E2AD0B2031018700F98A0A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94E2ACF42031018700F98A0A /* PocketCaddy */;
+			targetProxy = 94E2AD0A2031018700F98A0A /* PBXContainerItemProxy */;
+		};
+		94E2AD162031018700F98A0A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94E2ACF42031018700F98A0A /* PocketCaddy */;
+			targetProxy = 94E2AD152031018700F98A0A /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-        94E2ACFC2031018700F98A0A /* Main.storyboard */ = {
-            isa = PBXVariantGroup;
-            children = (
-                94E2ACFD2031018700F98A0A /* Base */,
-            );
-            name = Main.storyboard;
-            sourceTree = "<group>";
-        };
+		94E2ACFC2031018700F98A0A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94E2ACFD2031018700F98A0A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-        94E2AD1B2031018700F98A0A /* Debug */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ALWAYS_SEARCH_USER_PATHS = NO;
-                CLANG_ANALYZER_NONNULL = YES;
-                CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-                CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-                CLANG_CXX_LIBRARY = "libc++";
-                CLANG_ENABLE_MODULES = YES;
-                CLANG_ENABLE_OBJC_ARC = YES;
-                CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-                CLANG_WARN_BOOL_CONVERSION = YES;
-                CLANG_WARN_COMMA = YES;
-                CLANG_WARN_CONSTANT_CONVERSION = YES;
-                CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-                CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-                CLANG_WARN_EMPTY_BODY = YES;
-                CLANG_WARN_ENUM_CONVERSION = YES;
-                CLANG_WARN_INFINITE_RECURSION = YES;
-                CLANG_WARN_INT_CONVERSION = YES;
-                CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-                CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-                CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-                CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-                CLANG_WARN_STRICT_PROTOTYPES = YES;
-                CLANG_WARN_SUSPICIOUS_MOVE = YES;
-                CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-                CLANG_WARN_UNREACHABLE_CODE = YES;
-                CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-                CODE_SIGN_IDENTITY = "iPhone Developer";
-                COPY_PHASE_STRIP = NO;
-                DEBUG_INFORMATION_FORMAT = dwarf;
-                ENABLE_STRICT_OBJC_MSGSEND = YES;
-                ENABLE_TESTABILITY = YES;
-                GCC_C_LANGUAGE_STANDARD = gnu11;
-                GCC_DYNAMIC_NO_PIC = NO;
-                GCC_NO_COMMON_BLOCKS = YES;
-                GCC_OPTIMIZATION_LEVEL = 0;
-                GCC_PREPROCESSOR_DEFINITIONS = (
-                    "DEBUG=1",
-                    "$(inherited)",
-                );
-                GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-                GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-                GCC_WARN_UNDECLARED_SELECTOR = YES;
-                GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-                GCC_WARN_UNUSED_FUNCTION = YES;
-                GCC_WARN_UNUSED_VARIABLE = YES;
-                IPHONEOS_DEPLOYMENT_TARGET = 11.2;
-                MTL_ENABLE_DEBUG_INFO = YES;
-                ONLY_ACTIVE_ARCH = YES;
-                SDKROOT = iphoneos;
-                SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-                SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-            };
-            name = Debug;
-        };
-        94E2AD1C2031018700F98A0A /* Release */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ALWAYS_SEARCH_USER_PATHS = NO;
-                CLANG_ANALYZER_NONNULL = YES;
-                CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-                CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-                CLANG_CXX_LIBRARY = "libc++";
-                CLANG_ENABLE_MODULES = YES;
-                CLANG_ENABLE_OBJC_ARC = YES;
-                CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-                CLANG_WARN_BOOL_CONVERSION = YES;
-                CLANG_WARN_COMMA = YES;
-                CLANG_WARN_CONSTANT_CONVERSION = YES;
-                CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-                CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-                CLANG_WARN_EMPTY_BODY = YES;
-                CLANG_WARN_ENUM_CONVERSION = YES;
-                CLANG_WARN_INFINITE_RECURSION = YES;
-                CLANG_WARN_INT_CONVERSION = YES;
-                CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-                CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-                CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-                CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-                CLANG_WARN_STRICT_PROTOTYPES = YES;
-                CLANG_WARN_SUSPICIOUS_MOVE = YES;
-                CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-                CLANG_WARN_UNREACHABLE_CODE = YES;
-                CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-                CODE_SIGN_IDENTITY = "iPhone Developer";
-                COPY_PHASE_STRIP = NO;
-                DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-                ENABLE_NS_ASSERTIONS = NO;
-                ENABLE_STRICT_OBJC_MSGSEND = YES;
-                GCC_C_LANGUAGE_STANDARD = gnu11;
-                GCC_NO_COMMON_BLOCKS = YES;
-                GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-                GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-                GCC_WARN_UNDECLARED_SELECTOR = YES;
-                GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-                GCC_WARN_UNUSED_FUNCTION = YES;
-                GCC_WARN_UNUSED_VARIABLE = YES;
-                IPHONEOS_DEPLOYMENT_TARGET = 11.2;
-                MTL_ENABLE_DEBUG_INFO = NO;
-                SDKROOT = iphoneos;
-                SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-                VALIDATE_PRODUCT = YES;
-            };
-            name = Release;
-        };
-        94E2AD1E2031018700F98A0A /* Debug */ = {
-            isa = XCBuildConfiguration;
-            baseConfigurationReference = 832520ABDE89D77C223F5E93 /* Pods-PocketCaddy.debug.xcconfig */;
-            buildSettings = {
-                ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-                CODE_SIGN_STYLE = Automatic;
-                INFOPLIST_FILE = PocketCaddy/Info.plist;
-                LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-                PRODUCT_BUNDLE_IDENTIFIER = PocketCaddy.PocketCaddy;
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                SWIFT_VERSION = 4.0;
-                TARGETED_DEVICE_FAMILY = "1,2";
-            };
-            name = Debug;
-        };
-        94E2AD1F2031018700F98A0A /* Release */ = {
-            isa = XCBuildConfiguration;
-            baseConfigurationReference = 21311EFA2C8255605535C0D4 /* Pods-PocketCaddy.release.xcconfig */;
-            buildSettings = {
-                ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-                CODE_SIGN_STYLE = Automatic;
-                INFOPLIST_FILE = PocketCaddy/Info.plist;
-                LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-                PRODUCT_BUNDLE_IDENTIFIER = PocketCaddy.PocketCaddy;
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                SWIFT_VERSION = 4.0;
-                TARGETED_DEVICE_FAMILY = "1,2";
-            };
-            name = Release;
-        };
-        94E2AD212031018700F98A0A /* Debug */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-                BUNDLE_LOADER = "$(TEST_HOST)";
-                CODE_SIGN_STYLE = Automatic;
-                INFOPLIST_FILE = PocketCaddyTests/Info.plist;
-                LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-                PRODUCT_BUNDLE_IDENTIFIER = PocketCaddy.PocketCaddyTests;
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                SWIFT_VERSION = 4.0;
-                TARGETED_DEVICE_FAMILY = "1,2";
-                TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PocketCaddy.app/PocketCaddy";
-            };
-            name = Debug;
-        };
-        94E2AD222031018700F98A0A /* Release */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-                BUNDLE_LOADER = "$(TEST_HOST)";
-                CODE_SIGN_STYLE = Automatic;
-                INFOPLIST_FILE = PocketCaddyTests/Info.plist;
-                LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-                PRODUCT_BUNDLE_IDENTIFIER = PocketCaddy.PocketCaddyTests;
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                SWIFT_VERSION = 4.0;
-                TARGETED_DEVICE_FAMILY = "1,2";
-                TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PocketCaddy.app/PocketCaddy";
-            };
-            name = Release;
-        };
-        94E2AD242031018700F98A0A /* Debug */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-                CODE_SIGN_STYLE = Automatic;
-                INFOPLIST_FILE = PocketCaddyUITests/Info.plist;
-                LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-                PRODUCT_BUNDLE_IDENTIFIER = PocketCaddy.PocketCaddyUITests;
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                SWIFT_VERSION = 4.0;
-                TARGETED_DEVICE_FAMILY = "1,2";
-                TEST_TARGET_NAME = PocketCaddy;
-            };
-            name = Debug;
-        };
-        94E2AD252031018700F98A0A /* Release */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-                CODE_SIGN_STYLE = Automatic;
-                INFOPLIST_FILE = PocketCaddyUITests/Info.plist;
-                LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-                PRODUCT_BUNDLE_IDENTIFIER = PocketCaddy.PocketCaddyUITests;
-                PRODUCT_NAME = "$(TARGET_NAME)";
-                SWIFT_VERSION = 4.0;
-                TARGETED_DEVICE_FAMILY = "1,2";
-                TEST_TARGET_NAME = PocketCaddy;
-            };
-            name = Release;
-        };
+		94E2AD1B2031018700F98A0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		94E2AD1C2031018700F98A0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		94E2AD1E2031018700F98A0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 832520ABDE89D77C223F5E93 /* Pods-PocketCaddy.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PocketCaddy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = PocketCaddy.PocketCaddy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		94E2AD1F2031018700F98A0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21311EFA2C8255605535C0D4 /* Pods-PocketCaddy.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PocketCaddy/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = PocketCaddy.PocketCaddy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		94E2AD212031018700F98A0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PocketCaddyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = PocketCaddy.PocketCaddyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PocketCaddy.app/PocketCaddy";
+			};
+			name = Debug;
+		};
+		94E2AD222031018700F98A0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PocketCaddyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = PocketCaddy.PocketCaddyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PocketCaddy.app/PocketCaddy";
+			};
+			name = Release;
+		};
+		94E2AD242031018700F98A0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PocketCaddyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = PocketCaddy.PocketCaddyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PocketCaddy;
+			};
+			name = Debug;
+		};
+		94E2AD252031018700F98A0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PocketCaddyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = PocketCaddy.PocketCaddyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PocketCaddy;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-        94E2ACF02031018700F98A0A /* Build configuration list for PBXProject "PocketCaddy" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                94E2AD1B2031018700F98A0A /* Debug */,
-                94E2AD1C2031018700F98A0A /* Release */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
-        94E2AD1D2031018700F98A0A /* Build configuration list for PBXNativeTarget "PocketCaddy" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                94E2AD1E2031018700F98A0A /* Debug */,
-                94E2AD1F2031018700F98A0A /* Release */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
-        94E2AD202031018700F98A0A /* Build configuration list for PBXNativeTarget "PocketCaddyTests" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                94E2AD212031018700F98A0A /* Debug */,
-                94E2AD222031018700F98A0A /* Release */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
-        94E2AD232031018700F98A0A /* Build configuration list for PBXNativeTarget "PocketCaddyUITests" */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                94E2AD242031018700F98A0A /* Debug */,
-                94E2AD252031018700F98A0A /* Release */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
+		94E2ACF02031018700F98A0A /* Build configuration list for PBXProject "PocketCaddy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94E2AD1B2031018700F98A0A /* Debug */,
+				94E2AD1C2031018700F98A0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94E2AD1D2031018700F98A0A /* Build configuration list for PBXNativeTarget "PocketCaddy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94E2AD1E2031018700F98A0A /* Debug */,
+				94E2AD1F2031018700F98A0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94E2AD202031018700F98A0A /* Build configuration list for PBXNativeTarget "PocketCaddyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94E2AD212031018700F98A0A /* Debug */,
+				94E2AD222031018700F98A0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94E2AD232031018700F98A0A /* Build configuration list for PBXNativeTarget "PocketCaddyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94E2AD242031018700F98A0A /* Debug */,
+				94E2AD252031018700F98A0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
-    };
-    rootObject = 94E2ACED2031018700F98A0A /* Project object */;
+	};
+	rootObject = 94E2ACED2031018700F98A0A /* Project object */;
 }
