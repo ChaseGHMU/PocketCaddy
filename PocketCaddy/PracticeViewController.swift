@@ -22,6 +22,39 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addClub: UIBarButtonItem! // megan -- button to allow user to add clubs
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        PocketCaddyData.getUserInfo(table: .clubs, userId: "\(defaults.string(forKey: "userId")!)", completionHandler: { response in
+            if let response = response{
+                for results in response {
+                    if let obj = results as? NSDictionary{
+                        let id = "\(obj["clubId"]!)"
+                        let nickname = "\(obj["nickname"]!)"
+                        let userId = "\(obj["userId"]!)"
+                        let avgDist = "\(obj["avgDistance"]!)"
+                        self.clubs.append(Clubs(id: id, type: "nil", name: nickname, distance: avgDist, userId: userId))
+                    }
+                }
+                self.tableView.reloadData()
+            }
+        })
+        //tableview changes
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        
+        if let image = UIImage(named: "iphone.jpg"){
+            self.view.backgroundColor = UIColor(patternImage: image)
+        }
+        navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     @IBAction func addClubAlert(_ sender: UIBarButtonItem) {
         // create the alert
         let alert = UIAlertController(title: "Add a Club", message: "Enter Name of Club:", preferredStyle: UIAlertControllerStyle.alert)
@@ -60,42 +93,6 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
         self.present(alert, animated: true, completion: nil)
         
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let url = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Clubs?filter[where][userId][like]=\(defaults.string(forKey: "userId")!)"
-        Alamofire.request(url,method: .get).responseData { (response) in
-            if response.result.value != nil, let data = response.data{
-                let json = try? JSONSerialization.jsonObject(with: data, options: [])
-                if let array = json as? [Any]{
-                    for results in array{
-                        if let obj = results as? NSDictionary{
-                           let id = "\(obj["clubId"]!)"
-                            let nickname = "\(obj["nickname"]!)"
-                            let userId = "\(obj["userId"]!)"
-                            self.clubs.append(Clubs(id: id, type: "nil", name: nickname, distance: "0", userId: userId))
-                            self.tableView.reloadData()
-                        }
-                    }
-                }
-            }
-        }
-        //tableview changes
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        
-        if let image = UIImage(named: "iphone.jpg"){
-            self.view.backgroundColor = UIColor(patternImage: image)
-        }
-        navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.clubs.count
@@ -124,7 +121,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if let destination = segue.destination as? ClubCellViewController, let index = tableView.indexPathForSelectedRow {
-            destination.name = clubs[index.row].name
+            destination.club = clubs[index.row]
         }
         //search.dismiss(animated: true, completion: {})
     }
