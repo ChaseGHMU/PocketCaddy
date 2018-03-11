@@ -41,6 +41,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
                     "nickname": "\(textField)",
                     "userId": "\(userId)"
                 ]
+                
                 PocketCaddyData.post(table: .clubs, parameters: parameters, login: false, completionHandler: { (dict, string, response) in
                     if let dict = dict{
                         let id = "\(dict["clubId"]!)"
@@ -70,7 +71,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
                 if let array = json as? [Any]{
                     for results in array{
                         if let obj = results as? NSDictionary{
-                            let id = "\(obj["clubId"]!)"
+                           let id = "\(obj["clubId"]!)"
                             let nickname = "\(obj["nickname"]!)"
                             let userId = "\(obj["userId"]!)"
                             self.clubs.append(Clubs(id: id, type: "nil", name: nickname, distance: "0", userId: userId))
@@ -136,15 +137,12 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-            
             // remove the item from the data model
             PocketCaddyData.delete(table: .clubs, id: clubs[indexPath.row].id)
             clubs.remove(at: indexPath.row)
             // delete the table view row
             tableView.deleteRows(at: [indexPath], with: .fade)
             self.tableView.reloadData()
-        } else if editingStyle == .insert {
-            // Not used in our example, but if you were adding a new row, this is where you would do it.
         }
     }
     
