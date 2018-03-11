@@ -19,6 +19,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     let cellReuseIdentifier = "cell"
     let defaults = UserDefaults.standard
 
+    @IBOutlet weak var emptyLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addClub: UIBarButtonItem! // megan -- button to allow user to add clubs
     
@@ -95,7 +96,18 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     }
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.clubs.count
+        if self.clubs.count == 0{
+            emptyLabel.text = "You haven't added any clubs yet! Press the '+' at the top of the page to fill your bag."
+            emptyLabel.textAlignment = NSTextAlignment.center
+            self.tableView.backgroundView = emptyLabel
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+            tableView.isScrollEnabled = false
+            return 0
+        }else{
+            emptyLabel.text = ""
+            tableView.isScrollEnabled = true
+            return self.clubs.count
+        }
     }
     
     // create a cell for each table view row
@@ -113,7 +125,11 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
      func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "List of Clubs"
+        if self.clubs.count == 0{
+           return ""
+        }else{
+          return "List of Clubs"
+        }
     }
    
     
