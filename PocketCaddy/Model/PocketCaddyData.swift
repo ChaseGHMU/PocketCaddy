@@ -115,11 +115,51 @@ class PocketCaddyData{
         })
     }
     
+    class func getUserInfo(table: Table, userId: String, completionHandler: @escaping ([Any]?) -> Void){
+        var url = baseURL
+        url.append("\(table)?filter[where][userId]=\(userId)")
+        
+        Alamofire.request(url).responseJSON(completionHandler: { response in
+            if response.result.value != nil, let data = response.data{
+                let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                if let array = json as? [Any]{
+                    completionHandler(array)
+                }
+                completionHandler(nil)
+            }
+            completionHandler(nil)
+        })
+    }
+    
+    class func getSwings(table: Table, clubId: String, completionHandler: @escaping ([Swings]?) -> Void){
+        var url = baseURL
+        url.append("\(table)?filter[where][clubId]=\(clubId)")
+        var swings = [Swings]()
+        Alamofire.request(url).responseJSON(completionHandler: { response in
+            if response.result.value != nil, let data = response.data{
+                let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                if let array = json as? [Any]{
+                        for results in array {
+                            if let obj = results as? NSDictionary{
+                                let swingId = "\(obj["swingId"]!)"
+                                let distance = obj["distance"]! as! Int
+                                let clubId = "\(obj["clubId"]!)"
+                                swings.append(Swings(swingId: swingId, distance: distance, clubId: clubId, date: nil))
+                            }
+                        }
+                        completionHandler(swings)
+                }
+                completionHandler(nil)
+            }
+            completionHandler(nil)
+        })
+    }
+    
     //Only used for realtime update of search bar in play
     class func search(searchText: String, completionHandler: @escaping ([Course]? )-> Void){
         var course = [Course]()
-        var url = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Courses?filter[where][courseName][like]="
-        url.append(searchText)
+        var url = baseURL
+        url.append("Courses?filter[where][courseName][like]=\(searchText)")
         if(searchText != ""){
             url.append("%25")
         }
@@ -171,9 +211,7 @@ class PocketCaddyData{
                             var middleX = obj["middleX"] as? Double
                             var middleY = obj["middleX"] as? Double
                             
-                            if let middleX = middleX, let middleY = middleY {
-                                
-                            }else{
+                            if(middleX == nil || middleY == nil){
                                 middleX = 0.0
                                 middleY = 0.0
                             }
