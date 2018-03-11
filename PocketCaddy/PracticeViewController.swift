@@ -20,26 +20,6 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     let defaults = UserDefaults.standard
 
     @IBOutlet weak var tableView: UITableView!
-    
-    @IBAction func pleaseWork(_ sender: Any) {
-        PocketCaddyData.get(table: .courses, id: "1", exists: false) { (dict, success, status) in
-            if let dict = dict, success == "Success", status == 200{
-                let name = "\(dict["courseName"]!)"
-                let address = "\(dict["addressLine1"]!)"
-                let zip = "\(dict["zipCode"]!)"
-                self.name?.text = name
-                self.address?.text = address
-                self.zipcode?.text = zip
-            }
-        }
-    }
-    
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var zipcode: UILabel!
-    @IBOutlet weak var address: UILabel!
-    
-    
-    //megan's changes
     @IBOutlet weak var addClub: UIBarButtonItem! // megan -- button to allow user to add clubs
     
     @IBAction func addClubAlert(_ sender: UIBarButtonItem) {
@@ -104,12 +84,19 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
+        
+        
+        if let image = UIImage(named: "iphone.jpg"){
+            self.view.backgroundColor = UIColor(patternImage: image)
+        }
+        navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.clubs.count
@@ -127,6 +114,10 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "segue", sender: indexPath)
+    }
+    
+     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "List of Clubs"
     }
    
     
