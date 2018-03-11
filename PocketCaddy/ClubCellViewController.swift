@@ -84,7 +84,7 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
             else{
                 let average = sumArray / self.distances.count
                 let strAvg = String(average)
-                self.avgDistance.text = strAvg
+                self.avgDistance.text = strAvg + "yd"
             }
             print("average is: " + self.avgDistance.text!)
             print("number is: " + self.numSwings.text!)
@@ -140,7 +140,7 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
         //cell.textLabel?.text = self.distances[indexPath.row]
         
         let stringInt = String(self.distances[indexPath.row])
-        cell.textLabel?.text = stringInt
+        cell.textLabel?.text = stringInt + " yards"
         return cell
     }
     
