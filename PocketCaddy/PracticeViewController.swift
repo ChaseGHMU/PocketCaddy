@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import Alamofire
 
 class PracticeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // Data model: These strings will be the data for the table view cells
-    var clubs: [String] = []
+    var clubs: [Clubs] = []
     var namePassed:String!
     
     // cell reuse id (cells that scroll out of view can be reused)
     let cellReuseIdentifier = "cell"
+    let defaults = UserDefaults.standard
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -54,9 +56,21 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
         let submitAction = UIAlertAction(title: "Add", style: .default, handler: { (action) -> Void in
             // Get 1st TextField's text
             let textField = alert.textFields![0]
-            print(textField.text!)
-            self.clubs.append(textField.text!) //adds new club to array
-            self.tableView.reloadData() //reloads data so new club is displayed
+            if let textField = textField.text, let userId = self.defaults.string(forKey: "userId") {
+                let parameters: Parameters = [
+                    "nickname": "\(textField)",
+                    "userId": "\(userId)"
+                ]
+                PocketCaddyData.post(table: .clubs, parameters: parameters, login: false, completionHandler: { (dict, string, response) in
+                    if let dict = dict{
+                        let id = "\(dict["clubId"]!)"
+                        let nickname = "\(dict["nickname"]!)"
+                        let userId = "\(dict["userId"]!)"
+                        self.clubs.append(Clubs(id: id, type: "nil", name: nickname, distance: "0.0", userId: userId))
+                    }
+                    self.tableView.reloadData()
+                })
+            }
         })
         alert.addAction(submitAction)
         
@@ -69,12 +83,27 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let url = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Clubs?filter[where][userId][like]=\(defaults.string(forKey: "userId")!)"
+        Alamofire.request(url,method: .get).responseData { (response) in
+            if response.result.value != nil, let data = response.data{
+                let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                if let array = json as? [Any]{
+                    for results in array{
+                        if let obj = results as? NSDictionary{
+                            let id = "\(obj["clubId"]!)"
+                            let nickname = "\(obj["nickname"]!)"
+                            let userId = "\(obj["userId"]!)"
+                            self.clubs.append(Clubs(id: id, type: "nil", name: nickname, distance: "0", userId: userId))
+                            self.tableView.reloadData()
+                        }
+                    }
+                }
+            }
+        }
         //tableview changes
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,25 +117,16 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     
     // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         // create a new cell if needed or reuse an old one
         let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
-        
         // set the text from the data model
-        cell.textLabel?.text = self.clubs[indexPath.row]
-        
+        cell.textLabel?.text = self.clubs[indexPath.row].name
         return cell
     }
     
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped cell number \(indexPath.row).")
-        print(clubs[indexPath.row])
-        namePassed = clubs[indexPath.row]
-        
         self.performSegue(withIdentifier: "segue", sender: indexPath)
-        
-
     }
    
     
@@ -114,7 +134,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if let destination = segue.destination as? ClubCellViewController, let index = tableView.indexPathForSelectedRow {
-            destination.name = clubs[index.row]
+            destination.name = clubs[index.row].name
         }
         //search.dismiss(animated: true, completion: {})
     }
@@ -127,11 +147,11 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
         if editingStyle == .delete {
             
             // remove the item from the data model
+            PocketCaddyData.delete(table: .clubs, id: clubs[indexPath.row].id)
             clubs.remove(at: indexPath.row)
-            
             // delete the table view row
             tableView.deleteRows(at: [indexPath], with: .fade)
-            
+            self.tableView.reloadData()
         } else if editingStyle == .insert {
             // Not used in our example, but if you were adding a new row, this is where you would do it.
         }
