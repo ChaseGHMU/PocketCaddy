@@ -19,6 +19,9 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let image = UIImage(named: "iphone.jpg"){
+            self.view.backgroundColor = UIColor(patternImage: image)
+        }
         // Do any additional setup after loading the view.
     }
 
