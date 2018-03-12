@@ -28,6 +28,25 @@ class PlayResultViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func openMapsWithDirections(_ sender: Any) {
+        if let course = course{
+            var address = course.address1
+            let state = course.state
+            var city = course.city
+            address = address.replacingOccurrences(of: " ", with: "+")
+            city = city.replacingOccurrences(of: " ", with: "+")
+            city.append(",+\(state)")
+            address.append(",+\(city)")
+            var map = "http://maps.apple.com/?daddr="
+            map.append(address)
+            let mapURL = URL(string: map)
+            if let mapURL = mapURL{
+                UIApplication.shared.open(mapURL, options: [:], completionHandler: nil)
+            }
+            print(address)
+        }
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
