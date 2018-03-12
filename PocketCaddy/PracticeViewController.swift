@@ -16,7 +16,6 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     var namePassed:String!
     
     // cell reuse id (cells that scroll out of view can be reused)
-    let cellReuseIdentifier = "cell"
     let defaults = UserDefaults.standard
 
     @IBOutlet weak var emptyLabel: UILabel!
@@ -40,7 +39,6 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
             }
         })
         //tableview changes
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -113,9 +111,14 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // create a new cell if needed or reuse an old one
-        let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "clubCell", for: indexPath)
+        
+        if let cell = cell as? PracticeClubViewCell {
+            cell.clubImage.image = UIImage(named: "flag-7.png")
+            cell.clubTitle.text = clubs[indexPath.row].name
+            cell.avgDistanceTitle.text = clubs[indexPath.row].distance
+        }
         // set the text from the data model
-        cell.textLabel?.text = self.clubs[indexPath.row].name
         return cell
     }
     
