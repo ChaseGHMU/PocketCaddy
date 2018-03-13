@@ -22,6 +22,7 @@
 		94BD59742045CDC3007E38BB /* Courses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BD59732045CDC3007E38BB /* Courses.swift */; };
 		94BD59762045D0B9007E38BB /* Holes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BD59752045D0B9007E38BB /* Holes.swift */; };
 		94C490B2204B9F920098A8EF /* PlayResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C490B1204B9F920098A8EF /* PlayResultViewController.swift */; };
+		94E15C90205610BA0069E253 /* PracticeClubViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E15C8F205610BA0069E253 /* PracticeClubViewCell.swift */; };
 		94E26C0A2044949D00CDE724 /* PracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E26C092044949D00CDE724 /* PracticeViewController.swift */; };
 		94E2ACF92031018700F98A0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E2ACF82031018700F98A0A /* AppDelegate.swift */; };
 		94E2ACFE2031018700F98A0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94E2ACFC2031018700F98A0A /* Main.storyboard */; };
@@ -69,6 +70,7 @@
 		94BD59732045CDC3007E38BB /* Courses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Courses.swift; sourceTree = "<group>"; };
 		94BD59752045D0B9007E38BB /* Holes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holes.swift; sourceTree = "<group>"; };
 		94C490B1204B9F920098A8EF /* PlayResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayResultViewController.swift; sourceTree = "<group>"; };
+		94E15C8F205610BA0069E253 /* PracticeClubViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeClubViewCell.swift; sourceTree = "<group>"; };
 		94E26C092044949D00CDE724 /* PracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeViewController.swift; sourceTree = "<group>"; };
 		94E2ACF52031018700F98A0A /* PocketCaddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketCaddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E2ACF82031018700F98A0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				94C490B1204B9F920098A8EF /* PlayResultViewController.swift */,
 				940F651320523F4D00514850 /* PlayMapViewController.swift */,
 				94710A51204CC2CB007ECD9B /* ScoresTableViewCell.swift */,
+				94E15C8F205610BA0069E253 /* PracticeClubViewCell.swift */,
 			);
 			path = PocketCaddy;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				94FA1BF12047958900956F75 /* SignUpViewController.swift in Sources */,
 				94BD59742045CDC3007E38BB /* Courses.swift in Sources */,
 				4497642B2048706800AC8FC6 /* SettingsViewController.swift in Sources */,
+				94E15C90205610BA0069E253 /* PracticeClubViewCell.swift in Sources */,
 				94E26C0A2044949D00CDE724 /* PracticeViewController.swift in Sources */,
 				945DF8A72047D2D800D7F77C /* User.swift in Sources */,
 				94BD59722045CD86007E38BB /* PocketCaddyData.swift in Sources */,
@@ -573,7 +577,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 44M78977LD;
 				INFOPLIST_FILE = PocketCaddy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PocketCaddy.PocketCaddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -588,7 +594,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 44M78977LD;
 				INFOPLIST_FILE = PocketCaddy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PocketCaddy.PocketCaddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
