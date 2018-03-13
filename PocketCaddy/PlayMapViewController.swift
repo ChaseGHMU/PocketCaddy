@@ -30,6 +30,7 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate {
             })
             self.title = courseName
         }
+        mapView.delegate = self
         
         // Do any additional setup after loading the view.
     }
@@ -92,9 +93,29 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate {
         
         if let location = destPlacemark.location {
             destinationAnnotation.coordinate = location.coordinate
+            let dest = MKAnnotationView(annotation: destinationAnnotation, reuseIdentifier: "pin")
+            self.mapView.addAnnotation(dest.annotation!)
+            self.mapView.addAnnotation(sourceAnnotation)
+            self.mapView.showAnnotations([sourceAnnotation,dest.annotation!], animated: true)
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        print("called")
+        let reuseIdentifier = "pin"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            annotationView?.canShowCallout = true
+            annotationView?.image = UIImage(named: "flag.png")
+        } else {
+            annotationView?.annotation = annotation
         }
         
-        self.mapView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true)
+        annotationView?.image = UIImage(named: "flag.png")!
+        
+        return annotationView
     }
 
     override func didReceiveMemoryWarning() {
