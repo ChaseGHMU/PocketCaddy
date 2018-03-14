@@ -82,38 +82,31 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate {
         self.mapView.removeAnnotations(self.mapView.annotations)
         let sourcePlacemark = MKPlacemark(coordinate: teeLocation)
         let destPlacemark = MKPlacemark(coordinate: greenLocation)
-
-        let sourceAnnotation = MKPointAnnotation()
         
-        if let location = sourcePlacemark.location {
-            sourceAnnotation.coordinate = location.coordinate
-        }
-        
-        let destinationAnnotation = MKPointAnnotation()
-        
-        if let location = destPlacemark.location {
-            destinationAnnotation.coordinate = location.coordinate
+        if let location1 = sourcePlacemark.location, let location2 = destPlacemark.location  {
+            let sourceAnnotation = FlagAnnotation(coordinate: location1.coordinate)
+            sourceAnnotation.imageName = "TransparentPin.png"
+            let destinationAnnotation = FlagAnnotation(coordinate: location2.coordinate)
+            destinationAnnotation.imageName = "flag.png"
             let dest = MKAnnotationView(annotation: destinationAnnotation, reuseIdentifier: "pin")
-            self.mapView.addAnnotation(dest.annotation!)
-            self.mapView.addAnnotation(sourceAnnotation)
-            self.mapView.showAnnotations([sourceAnnotation,dest.annotation!], animated: true)
+            let source = MKAnnotationView(annotation: sourceAnnotation, reuseIdentifier: "pin")
+            self.mapView.showAnnotations([source.annotation!,dest.annotation!], animated: true)
         }
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        print("called")
         let reuseIdentifier = "pin"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
         
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
             annotationView?.canShowCallout = true
-            annotationView?.image = UIImage(named: "flag.png")
         } else {
             annotationView?.annotation = annotation
         }
         
-        annotationView?.image = UIImage(named: "flag.png")!
+        let cpa = annotation as! FlagAnnotation
+        annotationView?.image = UIImage(named: cpa.imageName!)!
         
         return annotationView
     }
