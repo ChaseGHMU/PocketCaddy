@@ -87,7 +87,7 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate {
             let sourceAnnotation = FlagAnnotation(coordinate: location1.coordinate)
             sourceAnnotation.imageName = "TransparentPin.png"
             let destinationAnnotation = FlagAnnotation(coordinate: location2.coordinate)
-            destinationAnnotation.imageName = "flag.png"
+            destinationAnnotation.imageName = "HoleMarkerRed.png"
             let dest = MKAnnotationView(annotation: destinationAnnotation, reuseIdentifier: "pin")
             let source = MKAnnotationView(annotation: sourceAnnotation, reuseIdentifier: "pin")
             self.mapView.showAnnotations([source.annotation!,dest.annotation!], animated: true)
