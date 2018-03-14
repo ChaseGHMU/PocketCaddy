@@ -24,27 +24,28 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.mapType = .satellite
-        if let courseId = courseId, let courseName = courseName {
+        if let courseId = courseId {
             PocketCaddyData.getHoles(courseId: courseId, completionHandler: { result in
                 self.holes = result
+                self.getPoints(self.hole)
             })
-            self.title = courseName
+            self.title = "Hole \(hole+1)"
         }
+        let rightButton = UIBarButtonItem(barButtonSystemItem: .edit, target: [], action: nil)
+        self.navigationItem.rightBarButtonItem = rightButton
         mapView.delegate = self
         
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        getPoints(hole)
-    }
-    
     @IBAction func nextHole(_ sender: Any) {
         if hole < 17 {
             hole += 1
+            self.title = "Hole \(hole+1)"
             getPoints(hole)
         }else{
             hole = 0
+            self.title = "Hole \(hole+1)"
             getPoints(hole)
         }
     }
@@ -52,9 +53,11 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate {
     @IBAction func prevHole(_ sender: Any) {
         if hole > 0{
             hole -= 1
+            self.title = "Hole \(hole+1)"
             getPoints(hole)
         }else{
             hole = 17
+            self.title = "Hole \(hole+1)"
             getPoints(hole)
         }
     }
