@@ -31,11 +31,16 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate {
             })
             self.title = "Hole \(hole+1)"
         }
-        let rightButton = UIBarButtonItem(barButtonSystemItem: .edit, target: [], action: nil)
+
+        let rightButton = UIBarButtonItem.init(title: "Scorecard", style: .done, target: self, action: #selector(scorecardAction(sender:)))
         self.navigationItem.rightBarButtonItem = rightButton
         mapView.delegate = self
         
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func scorecardAction(sender: UIBarButtonItem){
+        performSegue(withIdentifier: "scorecard", sender: self)
     }
     
     @IBAction func nextHole(_ sender: Any) {
