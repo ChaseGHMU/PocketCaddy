@@ -34,6 +34,7 @@ class PlayTableViewController: UITableViewController, UISearchResultsUpdating {
         search.dimsBackgroundDuringPresentation = false
         tableView.tableHeaderView = search.searchBar
         search.searchBar.showsCancelButton = false
+        navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

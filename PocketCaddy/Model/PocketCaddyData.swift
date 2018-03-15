@@ -83,7 +83,7 @@ class PocketCaddyData{
      completionHandler:
         same as above. returns the same three things. This one returns status code because in some cases you will not get a NSDictionary back from your call, just a status code to confirm it worked.
     */
-    class func get(table: Table, id: String?, exists: Bool, completionHandler: @escaping (NSDictionary?, String, Int?) -> Void){
+    static func get(table: Table, id: String?, exists: Bool, completionHandler: @escaping (NSDictionary?, String, Int?) -> Void){
         var url = baseURL + "\(table)"
         if let id = id{
             url.append("/\(id)")
@@ -107,7 +107,7 @@ class PocketCaddyData{
         })
     }
     
-    class func delete(table: Table, id: String) -> Void {
+    static func delete(table: Table, id: String) -> Void {
         let url = baseURL + "\(table)/\(id)"
         
         Alamofire.request(url, method: .delete).responseJSON(completionHandler: { response in
@@ -115,7 +115,7 @@ class PocketCaddyData{
         })
     }
     
-    class func getUserInfo(table: Table, userId: String, completionHandler: @escaping ([Any]?) -> Void){
+    static func getUserInfo(table: Table, userId: String, completionHandler: @escaping ([Any]?) -> Void){
         var url = baseURL
         url.append("\(table)?filter[where][userId]=\(userId)")
         
@@ -131,7 +131,7 @@ class PocketCaddyData{
         })
     }
     
-    class func getSwings(table: Table, clubId: String, completionHandler: @escaping ([Swings]?) -> Void){
+    static func getSwings(table: Table, clubId: String, completionHandler: @escaping ([Swings]?) -> Void){
         var url = baseURL
         url.append("\(table)?filter[where][clubId]=\(clubId)")
         var swings = [Swings]()
@@ -156,7 +156,7 @@ class PocketCaddyData{
     }
     
     //Only used for realtime update of search bar in play
-    class func search(searchText: String, completionHandler: @escaping ([Course]? )-> Void){
+    static func search(searchText: String, completionHandler: @escaping ([Course]? )-> Void){
         var course = [Course]()
         var url = baseURL
         url.append("Courses?filter[where][courseName][like]=\(searchText)")
@@ -189,7 +189,7 @@ class PocketCaddyData{
         
     }
     
-    class func getHoles(courseId: String, completionHandler: @escaping ([Holes])->Void) {
+    static func getHoles(courseId: String, completionHandler: @escaping ([Holes])->Void) {
         var holes = [Holes]()
         var url = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Holes?filter[where][courseId]="
         url.append(courseId)

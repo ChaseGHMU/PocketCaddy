@@ -24,27 +24,33 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.mapType = .satellite
-        if let courseId = courseId, let courseName = courseName {
+        if let courseId = courseId {
             PocketCaddyData.getHoles(courseId: courseId, completionHandler: { result in
                 self.holes = result
+                self.getPoints(self.hole)
             })
-            self.title = courseName
+            self.title = "Hole \(hole+1)"
         }
+
+        let rightButton = UIBarButtonItem.init(title: "Scorecard", style: .done, target: self, action: #selector(scorecardAction(sender:)))
+        self.navigationItem.rightBarButtonItem = rightButton
         mapView.delegate = self
         
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        getPoints(hole)
+    @objc func scorecardAction(sender: UIBarButtonItem){
+        performSegue(withIdentifier: "scorecard", sender: self)
     }
     
     @IBAction func nextHole(_ sender: Any) {
         if hole < 17 {
             hole += 1
+            self.title = "Hole \(hole+1)"
             getPoints(hole)
         }else{
             hole = 0
+            self.title = "Hole \(hole+1)"
             getPoints(hole)
         }
     }
@@ -52,9 +58,11 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate {
     @IBAction func prevHole(_ sender: Any) {
         if hole > 0{
             hole -= 1
+            self.title = "Hole \(hole+1)"
             getPoints(hole)
         }else{
             hole = 17
+            self.title = "Hole \(hole+1)"
             getPoints(hole)
         }
     }
@@ -82,38 +90,31 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate {
         self.mapView.removeAnnotations(self.mapView.annotations)
         let sourcePlacemark = MKPlacemark(coordinate: teeLocation)
         let destPlacemark = MKPlacemark(coordinate: greenLocation)
-
-        let sourceAnnotation = MKPointAnnotation()
         
-        if let location = sourcePlacemark.location {
-            sourceAnnotation.coordinate = location.coordinate
-        }
-        
-        let destinationAnnotation = MKPointAnnotation()
-        
-        if let location = destPlacemark.location {
-            destinationAnnotation.coordinate = location.coordinate
+        if let location1 = sourcePlacemark.location, let location2 = destPlacemark.location  {
+            let sourceAnnotation = FlagAnnotation(coordinate: location1.coordinate)
+            sourceAnnotation.imageName = "TransparentPin.png"
+            let destinationAnnotation = FlagAnnotation(coordinate: location2.coordinate)
+            destinationAnnotation.imageName = "HoleMarkerRed.png"
             let dest = MKAnnotationView(annotation: destinationAnnotation, reuseIdentifier: "pin")
-            self.mapView.addAnnotation(dest.annotation!)
-            self.mapView.addAnnotation(sourceAnnotation)
-            self.mapView.showAnnotations([sourceAnnotation,dest.annotation!], animated: true)
+            let source = MKAnnotationView(annotation: sourceAnnotation, reuseIdentifier: "pin")
+            self.mapView.showAnnotations([source.annotation!,dest.annotation!], animated: true)
         }
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        print("called")
         let reuseIdentifier = "pin"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
         
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
             annotationView?.canShowCallout = true
-            annotationView?.image = UIImage(named: "flag.png")
         } else {
             annotationView?.annotation = annotation
         }
         
-        annotationView?.image = UIImage(named: "flag.png")!
+        let cpa = annotation as! FlagAnnotation
+        annotationView?.image = UIImage(named: cpa.imageName!)!
         
         return annotationView
     }
