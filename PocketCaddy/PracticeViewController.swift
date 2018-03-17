@@ -24,20 +24,6 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        PocketCaddyData.getUserInfo(table: .clubs, userId: "\(defaults.string(forKey: "userId")!)", completionHandler: { response in
-            if let response = response{
-                for results in response {
-                    if let obj = results as? NSDictionary{
-                        let id = "\(obj["clubId"]!)"
-                        let nickname = "\(obj["nickname"]!)"
-                        let userId = "\(obj["userId"]!)"
-                        let avgDist = "\(obj["avgDistance"]!)"
-                        self.clubs.append(Clubs(id: id, type: "nil", name: nickname, distance: avgDist, userId: userId))
-                    }
-                }
-                self.tableView.reloadData()
-            }
-        })
         //tableview changes
         tableView.delegate = self
         tableView.dataSource = self
@@ -47,6 +33,31 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
+    }
+    
+    func getClubs(){
+        PocketCaddyData.getUserInfo(table: .clubs, userId: "\(defaults.string(forKey: "userId")!)", completionHandler: { response in
+            if let response = response{
+                for results in response {
+                    if let obj = results as? NSDictionary{
+                        let id = "\(obj["clubId"]!)"
+                        let nickname = "\(obj["nickname"]!)"
+                        let userId = "\(obj["userId"]!)"
+                        var avgDist = "\(obj["avgDistance"]!)"
+                        if avgDist == "<null>"{
+                            avgDist = "0"
+                        }
+                        self.clubs.append(Clubs(id: id, type: "nil", name: nickname, distance: "\(avgDist) Yds", userId: userId))
+                    }
+                }
+                self.tableView.reloadData()
+            }
+        })
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        clubs = []
+        getClubs()
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,6 +86,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 PocketCaddyData.post(table: .clubs, parameters: parameters, login: false, completionHandler: { (dict, string, response) in
                     if let dict = dict{
+                        print(dict)
                         let id = "\(dict["clubId"]!)"
                         let nickname = "\(dict["nickname"]!)"
                         let userId = "\(dict["userId"]!)"

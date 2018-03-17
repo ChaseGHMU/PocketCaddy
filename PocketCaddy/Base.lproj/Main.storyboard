@@ -434,7 +434,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="sm3-Xb-LbH" firstAttribute="leading" secondItem="hW3-uh-wTs" secondAttribute="trailing" constant="8" id="2dT-dM-K3H"/>
-                            <constraint firstItem="hW3-uh-wTs" firstAttribute="leading" secondItem="106-L2-5WT" secondAttribute="leading" constant="218" id="2e5-94-p48"/>
+                            <constraint firstItem="hW3-uh-wTs" firstAttribute="leading" relation="lessThanOrEqual" secondItem="106-L2-5WT" secondAttribute="leading" constant="218" id="2e5-94-p48"/>
                             <constraint firstItem="106-L2-5WT" firstAttribute="bottom" secondItem="hW3-uh-wTs" secondAttribute="bottom" constant="13" id="BSV-4d-UIB"/>
                             <constraint firstItem="106-L2-5WT" firstAttribute="bottom" secondItem="tj8-tf-8xW" secondAttribute="bottom" id="Ein-Qn-67N"/>
                             <constraint firstItem="OBs-ks-Euc" firstAttribute="leading" secondItem="106-L2-5WT" secondAttribute="leading" constant="16" id="OrB-0t-vNz"/>
@@ -453,12 +453,28 @@
                     <connections>
                         <outlet property="distanceLabel" destination="sm3-Xb-LbH" id="cng-cf-OFX"/>
                         <outlet property="mapView" destination="tj8-tf-8xW" id="tYm-dQ-S7G"/>
-                        <segue destination="hG5-FC-lVg" kind="presentation" identifier="scorecard" id="Bac-nM-bwO"/>
+                        <segue destination="hG5-FC-lVg" kind="show" identifier="scorecard" id="BH7-ki-xT0"/>
+                        <segue destination="VyK-58-Gc1" kind="presentation" identifier="addScore" id="9qj-Zg-4UI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CYx-kV-Sxq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4837.6000000000004" y="456.52173913043481"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7b6-0Y-wqj">
+            <objects>
+                <viewController id="VyK-58-Gc1" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VxW-NR-84V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="iRn-os-Myj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PYP-rC-E68" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5740" y="696"/>
         </scene>
         <!--Play Scorecard View Controller-->
         <scene sceneID="38K-ik-gL3">
@@ -469,12 +485,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYY-kW-4JD">
-                                <rect key="frame" x="0.0" y="616" width="375" height="51"/>
+                                <rect key="frame" x="0.0" y="567" width="375" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="jHc-lH-Cjg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Continue" backgroundImage="buttonbackground">
+                                <state key="normal" title="Continue" backgroundImage="scorecardBackgroun">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -493,7 +509,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="naX-cz-mUi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5672.8000000000002" y="454.72263868065971"/>
+            <point key="canvasLocation" x="5722" y="-103"/>
         </scene>
         <!--Practice-->
         <scene sceneID="sVd-YP-YMx">
@@ -510,7 +526,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TpU-b0-a1M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1473" y="1253"/>
+            <point key="canvasLocation" x="1310" y="1253"/>
         </scene>
         <!--Practice-->
         <scene sceneID="rEs-ka-COd">
@@ -880,10 +896,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="buttonbackground" width="225" height="225"/>
         <image name="flag-7" width="30" height="30"/>
         <image name="loginBackgroun" width="225" height="225"/>
         <image name="plus-simple-7" width="30" height="30"/>
+        <image name="scorecardBackgroun" width="336" height="280"/>
         <image name="write-simple-7" width="29" height="30"/>
     </resources>
 </document>
