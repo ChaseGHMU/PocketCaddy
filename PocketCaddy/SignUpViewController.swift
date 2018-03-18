@@ -37,7 +37,7 @@ class SignUpViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
+    //source: https://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
     func validateEmail(enteredEmail:String) -> Bool {
         
         let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -46,12 +46,34 @@ class SignUpViewController: UIViewController {
         
     }
     
+    //checks if password is at least 8 characters
+    func validatePassword(enteredPass:String) -> Bool {
+        if enteredPass.count >= 8{
+            return true
+        } else {
+            return false
+        }
+    }
+    
     
     
     @IBAction func submitNewUser(_ sender: Any) {
         
-        if validateEmail(enteredEmail: emailTextField.text!) == false {
+        //validates both email and password, displays alerts to prompt user how to correct mistakes
+        if validateEmail(enteredEmail: emailTextField.text!) == false && validatePassword(enteredPass: passwordTextField.text!) == false {
+            let alert = UIAlertController(title: "Invalid Email & Password", message: "Please try again", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{ (action: UIAlertAction!) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true)
+        } else if validateEmail(enteredEmail: emailTextField.text!) == false {
             let alert = UIAlertController(title: "Invalid Email", message: "Please try entering your email again", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{ (action: UIAlertAction!) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true)
+        } else if validatePassword(enteredPass: passwordTextField.text!) == false {
+            let alert = UIAlertController(title: "Invalid Password", message: "Please try a password of at least 8 characters.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{ (action: UIAlertAction!) in
                 alert.dismiss(animated: true, completion: nil)
             }))
