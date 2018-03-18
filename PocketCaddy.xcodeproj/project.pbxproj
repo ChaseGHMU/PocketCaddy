@@ -175,9 +175,9 @@
 			children = (
 				94BD59702045CCEF007E38BB /* Model */,
 				94E2ACF82031018700F98A0A /* AppDelegate.swift */,
+				94E2ACFF2031018700F98A0A /* Assets.xcassets */,
 				94E2ACFC2031018700F98A0A /* Main.storyboard */,
 				4497642C2048716100AC8FC6 /* ScoresViewController.swift */,
-				94E2ACFF2031018700F98A0A /* Assets.xcassets */,
 				94E2AD042031018700F98A0A /* Info.plist */,
 				448DB613204CA50B0045C13B /* ClubCellViewController.swift */,
 				94E26C092044949D00CDE724 /* PracticeViewController.swift */,

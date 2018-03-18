@@ -192,7 +192,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pv6-Mc-r6C">
-                                <rect key="frame" x="159" y="526" width="49" height="30"/>
+                                <rect key="frame" x="159" y="526" width="57" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -226,7 +226,7 @@
                             <constraint firstItem="zRi-Ju-1Xj" firstAttribute="leading" secondItem="RFW-LF-JVG" secondAttribute="leading" constant="46" id="j9L-lx-63S"/>
                             <constraint firstItem="RFW-LF-JVG" firstAttribute="trailing" secondItem="YhP-tI-rYr" secondAttribute="trailing" constant="282" id="lHU-ah-uDn"/>
                             <constraint firstItem="YhP-tI-rYr" firstAttribute="leading" secondItem="RFW-LF-JVG" secondAttribute="leading" constant="47" id="mHR-h1-Wau"/>
-                            <constraint firstItem="RFW-LF-JVG" firstAttribute="trailing" secondItem="Pv6-Mc-r6C" secondAttribute="trailing" constant="167" id="nKa-Ft-jsW"/>
+                            <constraint firstItem="RFW-LF-JVG" firstAttribute="trailing" secondItem="Pv6-Mc-r6C" secondAttribute="trailing" constant="159" id="nKa-Ft-jsW"/>
                             <constraint firstItem="jbi-hJ-rv2" firstAttribute="leading" secondItem="RFW-LF-JVG" secondAttribute="leading" constant="46" id="pdF-Vh-Xls"/>
                             <constraint firstItem="RFW-LF-JVG" firstAttribute="trailing" secondItem="mIv-Eg-h0K" secondAttribute="trailing" constant="316" id="pm3-4Y-39T"/>
                             <constraint firstItem="RFW-LF-JVG" firstAttribute="trailing" secondItem="JgU-Zv-u3L" secondAttribute="trailing" constant="245" id="toS-0U-jdd"/>
@@ -238,6 +238,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="2Ff-mp-Tpf" id="xie-5a-Tth"/>
                         <outlet property="passwordTextField" destination="3CK-Vf-qMw" id="sOS-Bu-0fQ"/>
+                        <outlet property="submitButton" destination="Pv6-Mc-r6C" id="u0X-5M-m2b"/>
                         <outlet property="usernameTextField" destination="jbi-hJ-rv2" id="Db1-pV-xvs"/>
                     </connections>
                 </viewController>
