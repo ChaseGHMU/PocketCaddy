@@ -17,11 +17,14 @@ class SignUpViewController: UIViewController {
     var segue:String = "false"
     let user:[User] = []
     
+    @IBOutlet weak var submitButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let image = UIImage(named: "iphone.jpg"){
             self.view.backgroundColor = UIColor(patternImage: image)
         }
+        
         // Do any additional setup after loading the view.
     }
 
@@ -34,7 +37,28 @@ class SignUpViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    
+    func validateEmail(enteredEmail:String) -> Bool {
+        
+        let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
+        return emailPredicate.evaluate(with: enteredEmail)
+        
+    }
+    
+    
+    
     @IBAction func submitNewUser(_ sender: Any) {
+        
+        if validateEmail(enteredEmail: emailTextField.text!) == false {
+            let alert = UIAlertController(title: "Invalid Email", message: "Please try entering your email again", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{ (action: UIAlertAction!) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true)
+        }
+        
+        
         if let email = emailTextField.text, let usr = usernameTextField.text, let pass = passwordTextField.text{
             let obj: Parameters = [
                 "password": "\(pass)",
