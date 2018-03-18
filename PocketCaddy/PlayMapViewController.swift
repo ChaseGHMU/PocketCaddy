@@ -53,6 +53,7 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate {
             self.title = "Hole \(hole+1)"
             getPoints(hole)
         }
+        performSegue(withIdentifier: "addScore", sender: self)
     }
     
     @IBAction func prevHole(_ sender: Any) {

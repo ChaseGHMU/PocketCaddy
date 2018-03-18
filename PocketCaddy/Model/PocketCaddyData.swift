@@ -107,9 +107,33 @@ class PocketCaddyData{
         })
     }
     
+    static func getScores(gameId: String, completionHandler: @escaping ([Scores]) -> Void){
+        let url = baseURL + "Scores?filter[where][gameId]=\(gameId)"
+        var scores = [Scores]()
+        
+        Alamofire.request(url).responseJSON { response in
+            if response.result.value != nil, let data = response.data{
+                    let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                    if let array = json as? [Any]{
+                        for results in array{
+                            if let obj = results as? NSDictionary{
+                                let gameId = "\(obj["gameId"]!)"
+                                let holeId =  obj["holeId"] as! Int
+                                let score = "\(obj["score"]!)"
+                                scores.append(Scores(holeId: holeId, gameId: gameId, scores: score))
+                            }
+                        }
+                        completionHandler(scores)
+                        return
+                    }
+            }
+            completionHandler([])
+        }
+    }
+    
     static func delete(table: Table, id: String) -> Void {
         let url = baseURL + "\(table)/\(id)"
-        
+
         Alamofire.request(url, method: .delete).responseJSON(completionHandler: { response in
             return
         })
