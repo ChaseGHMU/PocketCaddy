@@ -56,6 +56,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBAction func addClubAlert(_ sender: UIBarButtonItem) {
         // create the alert
+
         let alert = UIAlertController(title: "Add a Club", message: "Enter Name of Club:", preferredStyle: UIAlertControllerStyle.alert)
 
         // creating text field for club name
@@ -72,17 +73,20 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
                     "nickname": "\(textField)",
                     "userId": "\(userId)"
                 ]
-                
+            
                 PocketCaddyData.post(table: .clubs, parameters: parameters, login: false, completionHandler: { (dict, string, response) in
                     if let dict = dict{
                         let id = "\(dict["clubId"]!)"
                         let nickname = "\(dict["nickname"]!)"
                         let userId = "\(dict["userId"]!)"
+                        print("Adding Club\n")
                         self.clubs.append(Clubs(id: id, type: "nil", name: nickname, distance: "0.0", userId: userId))
                     }
                     self.tableView.reloadData()
                 })
             }
+            
+            
         })
         alert.addAction(submitAction)
         
