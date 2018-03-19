@@ -10,16 +10,19 @@ import UIKit
 
 class PlayScorecardTableViewController: UITableViewController {
     var scores = [Scores]()
+    var gameId: String?
+    var holeNum: [Int] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        PocketCaddyData.getScores(gameId: "2", completionHandler: { score in
-            self.scores = score
-            print(self.scores)
-            self.tableView.reloadData()
-        })
+        if let gameId = gameId{
+            PocketCaddyData.getScores(gameId: gameId, completionHandler: { score in
+                self.scores = score
+                self.tableView.reloadData()
+            })
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -51,9 +54,9 @@ class PlayScorecardTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "scorecardCell", for: indexPath)
-
+    
         if let cell = cell as? PlayScorecardTableViewCell{
-            cell.holeNumberTitle.text = "Hole \(scores[indexPath.row].holeId)"
+            cell.holeNumberTitle.text = "Hole \(holeNum[indexPath.row])"
             if scores[indexPath.row].scores == "0"{
                 cell.scoresTitle.text = "Unplayed"
             }else{

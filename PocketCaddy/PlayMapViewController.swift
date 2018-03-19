@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Alamofire
 import CoreLocation
 
 class PlayMapViewController: UIViewController, MKMapViewDelegate {
@@ -20,14 +21,28 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate {
     var hole: Int = 0
     var courseId: String?
     var courseName: String?
+    var gameId: String?
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.mapType = .satellite
-        if let courseId = courseId {
+        if let courseId = courseId, let userId = defaults.string(forKey: "userId") {
+            
+            let params: Parameters = [
+                "courseId": courseId,
+                "userId": userId
+            ]
+            
             PocketCaddyData.getHoles(courseId: courseId, completionHandler: { result in
                 self.holes = result
                 self.getPoints(self.hole)
+            })
+            
+            PocketCaddyData.post(table: .games, parameters: params, login: false, completionHandler: { (dict, string, response) in
+                if let dict = dict, let gameId = dict["gameId"] {
+                    self.gameId = "\(gameId)"
+                }
             })
             self.title = "Hole \(hole+1)"
         }
@@ -123,6 +138,19 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? addScoreViewController{
+            if hole == 0 {
+                hole = 18
+            }
+            destination.holeId = holes[hole-1].holeID
+            destination.gameId = gameId
+        }
+        if let destination = segue.destination as? PlayScorecardTableViewController{
+            destination.gameId = gameId
+        }
     }
     
 }

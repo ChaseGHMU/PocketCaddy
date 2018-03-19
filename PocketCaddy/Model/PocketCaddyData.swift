@@ -139,6 +139,15 @@ class PocketCaddyData{
         })
     }
     
+    static func update(gameId: String, holeId: String, parameters: Parameters, completionHandler: @escaping (Bool) ->Void){
+        var url = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Scores/update?where=%7b%22holeId%22%3a\(holeId)%2c%22gameId%22%3a\(gameId)%7d"
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
+            if response.result.value != nil, let dict = response.result.value as? NSDictionary{
+                print(dict["count"])
+            }
+        }
+    }
+    
     static func getUserInfo(table: Table, userId: String, completionHandler: @escaping ([Any]?) -> Void){
         var url = baseURL
         url.append("\(table)?filter[where][userId]=\(userId)")

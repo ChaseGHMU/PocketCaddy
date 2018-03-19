@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class addScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -17,6 +18,8 @@ class addScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var putts = [1, 2, 3, 4 ,5]
     var strokesTitle = 1
     var puttsTitle = 1
+    var holeId: String?
+    var gameId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +27,6 @@ class addScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         numPuttsPicker.delegate = self
         shotsTakenPicker.dataSource = self
         shotsTakenPicker.delegate = self
-        print("loaded")
         // Do any additional setup after loading the view.
     }
 
@@ -34,8 +36,16 @@ class addScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     @IBAction func dismiss(_ sender: Any) {
-        print(puttsTitle)
-        print(strokesTitle)
+        if let gameId = gameId, let holeId = holeId{
+            let parameters: Parameters = [
+                "gameId": gameId,
+                "holeId": holeId,
+                "score": strokesTitle
+            ]
+            PocketCaddyData.update(gameId: gameId, holeId: holeId, parameters: parameters, completionHandler: { (bool) in
+                
+            })
+        }
         self.dismiss(animated: true, completion: nil)
     }
     
