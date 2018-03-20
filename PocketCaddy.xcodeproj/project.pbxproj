@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1398799320609C1900D7BDDE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1398799220609C1900D7BDDE /* CoreLocation.framework */; };
 		448DB614204CA50B0045C13B /* ClubCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448DB613204CA50B0045C13B /* ClubCellViewController.swift */; };
 		4497642B2048706800AC8FC6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4497642A2048706800AC8FC6 /* SettingsViewController.swift */; };
 		4497642D2048716100AC8FC6 /* ScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4497642C2048716100AC8FC6 /* ScoresViewController.swift */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		0CF830C11FCE6476F226F528 /* Pods_PocketCaddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketCaddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1398799220609C1900D7BDDE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		21311EFA2C8255605535C0D4 /* Pods-PocketCaddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketCaddy.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy.release.xcconfig"; sourceTree = "<group>"; };
 		448DB613204CA50B0045C13B /* ClubCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubCellViewController.swift; sourceTree = "<group>"; };
 		4497642A2048706800AC8FC6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1398799320609C1900D7BDDE /* CoreLocation.framework in Frameworks */,
 				A7FA04DA78DEC85ED7569E49 /* Pods_PocketCaddy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,6 +138,7 @@
 		8F09136B23E8631235FF727F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1398799220609C1900D7BDDE /* CoreLocation.framework */,
 				0CF830C11FCE6476F226F528 /* Pods_PocketCaddy.framework */,
 			);
 			name = Frameworks;
