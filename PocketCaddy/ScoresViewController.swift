@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import Alamofire
 
 class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var settingButton: UIBarButtonItem!
     @IBOutlet weak var scoresTableView: UITableView!
+    
+    var games: [Games] = []
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +26,26 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         // Do any additional setup after loading the view.
     }
+    
+    //added 3/19
+    func getGames(){
+        PocketCaddyData.getUserInfo(table: .games, userId: "\(defaults.string(forKey: "userId")!)", completionHandler: { response in
+            if let response = response{
+                for results in response {
+                    if let obj = results as? NSDictionary{
+                        let gameId = "\(obj["gameId"]!)"
+                        let courseId = "\(obj["courseId"]!)"
+                        let userId = "\(obj["userId"]!)"
+                        let gameTime = "\(obj["gameTime"]!)"
+                        let finalScore = "\(obj["finalScore"]!)"
+                        self.games.append(Games(gameId: gameId, courseId: courseId, userId: userId, gameTime: gameTime, finalScore: finalScore))
+                    }
+                }
+                self.scoresTableView.reloadData()
+            }
+        })
+    }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections

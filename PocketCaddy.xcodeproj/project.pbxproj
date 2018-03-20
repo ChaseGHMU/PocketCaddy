@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44435BEE2060BFF900055CC8 /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44435BED2060BFF900055CC8 /* Games.swift */; };
 		448DB614204CA50B0045C13B /* ClubCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448DB613204CA50B0045C13B /* ClubCellViewController.swift */; };
 		4497642B2048706800AC8FC6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4497642A2048706800AC8FC6 /* SettingsViewController.swift */; };
 		4497642D2048716100AC8FC6 /* ScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4497642C2048716100AC8FC6 /* ScoresViewController.swift */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		0CF830C11FCE6476F226F528 /* Pods_PocketCaddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketCaddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		21311EFA2C8255605535C0D4 /* Pods-PocketCaddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketCaddy.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy.release.xcconfig"; sourceTree = "<group>"; };
+		44435BED2060BFF900055CC8 /* Games.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
 		448DB613204CA50B0045C13B /* ClubCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubCellViewController.swift; sourceTree = "<group>"; };
 		4497642A2048706800AC8FC6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4497642C2048716100AC8FC6 /* ScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				9401DBE9204BAA10005C1937 /* Swings.swift */,
 				9401DBEB204BAA70005C1937 /* Clubs.swift */,
 				949286E220578E470004ABAE /* FlagAnnotation.swift */,
+				44435BED2060BFF900055CC8 /* Games.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				94E26C0A2044949D00CDE724 /* PracticeViewController.swift in Sources */,
 				945DF8A72047D2D800D7F77C /* User.swift in Sources */,
 				94BD59722045CD86007E38BB /* PocketCaddyData.swift in Sources */,
+				44435BEE2060BFF900055CC8 /* Games.swift in Sources */,
 				945DF8A92047DEF200D7F77C /* TabViewController.swift in Sources */,
 				94C490B2204B9F920098A8EF /* PlayResultViewController.swift in Sources */,
 				947323BD204920DB008146F2 /* PlayTableViewController.swift in Sources */,
