@@ -14,6 +14,7 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var settingButton: UIBarButtonItem!
     @IBOutlet weak var scoresTableView: UITableView!
     
+    //added 3/19
     var games: [Games] = []
     let defaults = UserDefaults.standard
     
@@ -48,6 +49,7 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         print(games.count)
     }
     
+    //added 3/19
     override func viewDidAppear(_ animated: Bool) {
         games = []
         getGames()
@@ -74,6 +76,7 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         return cell
 
+//added 3/19
 //        let cell = scoresTableView.dequeueReusableCell(withIdentifier: "scoresCell", for: indexPath)
 //        if let cell = cell as? ScoresTableViewCell {
 //           // cell.courseName.text = games[indexPath.row].courseId
