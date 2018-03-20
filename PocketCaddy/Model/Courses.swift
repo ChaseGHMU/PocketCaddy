@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Course: Codable {
+struct Course {
     
     let id: String
     let name: String
@@ -17,14 +17,5 @@ struct Course: Codable {
     let city: String
     let state: String
     let zipCode: String
-    
-    private enum CodingKeys : String, CodingKey {
-        case id = "courseId"
-        case name = "courseName"
-        case address1 = "addressLine1"
-        case address2 = "addressLine2"
-        case city
-        case state
-        case zipCode
-    }
+
 }

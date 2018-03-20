@@ -8,21 +8,13 @@
 
 import Foundation
 
-struct Clubs: Codable{
+struct Clubs {
     
     let id: String
     let type: String
     let name: String
     let distance: String
     let userId: String
-    
-    private enum CodingKeys : String, CodingKey {
-        case id = "clubId"
-        case type
-        case name = "nickname" //NOT NULL
-        case distance = "avgDistance"
-        case userId //NOT NULL
-    }
     
     /*
     EXAMPLE POST PARARMETERS FOR CLUBS

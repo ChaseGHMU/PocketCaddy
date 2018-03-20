@@ -67,8 +67,8 @@ class LoginViewController: UIViewController {
         if let image = UIImage(named: "iphone.jpg"){
             self.view.backgroundColor = UIColor(patternImage: image)
         }
-        buttonDesign.frame = CGRect(x: 100.0, y: 60.0, width: 120.0, height: 60.0)
-        buttonDesign.backgroundColor = UIColor(hue: 0.5667, saturation: 1, brightness: 1, alpha: 1.0)
+//        buttonDesign.frame = CGRect(x: 100.0, y: 60.0, width: 120.0, height: 60.0)
+//        buttonDesign.backgroundColor = UIColor(hue: 0.5667, saturation: 1, brightness: 1, alpha: 1.0)
         buttonDesign.titleLabel?.textColor = UIColor.white
         passwordTextField.isSecureTextEntry = true
         // Do any additional setup after loading the view.
@@ -78,12 +78,8 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
 
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
