@@ -44,7 +44,15 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.scoresTableView.reloadData()
             }
         })
+        print(games)
+        print(games.count)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        games = []
+        getGames()
+    }
+    
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -65,6 +73,14 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.datePlayed.text = "April 15, 2017"
         }
         return cell
+
+//        let cell = scoresTableView.dequeueReusableCell(withIdentifier: "scoresCell", for: indexPath)
+//        if let cell = cell as? ScoresTableViewCell {
+//           // cell.courseName.text = games[indexPath.row].courseId
+////            cell.scoreShot.text = games[indexPath.row].finalScore
+////            cell.datePlayed.text = games[indexPath.row].gameTime
+//        }
+//        return cell
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
