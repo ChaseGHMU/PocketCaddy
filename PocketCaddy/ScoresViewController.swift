@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import Alamofire
 
 class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var settingButton: UIBarButtonItem!
     @IBOutlet weak var scoresTableView: UITableView!
+    
+    //added 3/19
+    var games: [Games] = []
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +27,35 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         // Do any additional setup after loading the view.
     }
+    
+    //added 3/19
+    func getGames(){
+        PocketCaddyData.getUserInfo(table: .games, userId: "\(defaults.string(forKey: "userId")!)", completionHandler: { response in
+            if let response = response{
+                for results in response {
+                    if let obj = results as? NSDictionary{
+                        let gameId = "\(obj["gameId"]!)"
+                        let courseId = "\(obj["courseId"]!)"
+                        let userId = "\(obj["userId"]!)"
+                        let gameTime = "\(obj["gameTime"]!)"
+                        let finalScore = "\(obj["finalScore"]!)"
+                        self.games.append(Games(gameId: gameId, courseId: courseId, userId: userId, gameTime: gameTime, finalScore: finalScore))
+                    }
+                }
+                self.scoresTableView.reloadData()
+            }
+        })
+        print(games)
+        print(games.count)
+    }
+    
+    //added 3/19
+    override func viewDidAppear(_ animated: Bool) {
+        games = []
+        getGames()
+    }
+    
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -41,6 +75,15 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.datePlayed.text = "April 15, 2017"
         }
         return cell
+
+//added 3/19
+//        let cell = scoresTableView.dequeueReusableCell(withIdentifier: "scoresCell", for: indexPath)
+//        if let cell = cell as? ScoresTableViewCell {
+//           // cell.courseName.text = games[indexPath.row].courseId
+////            cell.scoreShot.text = games[indexPath.row].finalScore
+////            cell.datePlayed.text = games[indexPath.row].gameTime
+//        }
+//        return cell
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
