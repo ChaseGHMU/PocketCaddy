@@ -19,7 +19,7 @@ struct Games {
     /*
      EXAMPLE POST PARARMETERS FOR CLUBS
      
-     http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Clubs
+     http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Games
      
      let clubPost: Parameters = [
      "nickname": "insert_name_here",
