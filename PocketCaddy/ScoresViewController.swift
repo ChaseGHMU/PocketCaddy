@@ -37,16 +37,27 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         let gameId = "\(obj["gameId"]!)"
                         let courseId = "\(obj["courseId"]!)"
                         let userId = "\(obj["userId"]!)"
-                        let gameTime = "\(obj["gameTime"]!)"
-                        let finalScore = "\(obj["finalScore"]!)"
+                        var gameTime = "\(obj["gameTime"]!)"
+                        //below if stame removes extra date information to only show year/month/date
+                        if let tRange = gameTime.range(of: "T") {
+                            gameTime.removeSubrange(tRange.lowerBound..<gameTime.endIndex)
+                        }
+
+                       
+                        var finalScore = "\(obj["finalScore"]!)"
+                        if finalScore == "<null>"{
+                            finalScore = "In-Progress"
+                        }
                         self.games.append(Games(gameId: gameId, courseId: courseId, userId: userId, gameTime: gameTime, finalScore: finalScore))
+                       // print(self.games)
+                        //print(self.games[0].courseId)
                     }
                 }
                 self.scoresTableView.reloadData()
             }
         })
-        print(games)
-        print(games.count)
+//        print(games)
+//        print(games.count)
     }
     
     //added 3/19
@@ -63,27 +74,27 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return games.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "scoresCell", for: indexPath)
-        if let cell = cell as? ScoresTableViewCell {
-            cell.courseName.text = "Augusta National"
-            cell.scoreShot.text = "+2"
-            cell.datePlayed.text = "April 15, 2017"
-        }
-        return cell
-
-//added 3/19
-//        let cell = scoresTableView.dequeueReusableCell(withIdentifier: "scoresCell", for: indexPath)
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "scoresCell", for: indexPath)
 //        if let cell = cell as? ScoresTableViewCell {
-//           // cell.courseName.text = games[indexPath.row].courseId
-////            cell.scoreShot.text = games[indexPath.row].finalScore
-////            cell.datePlayed.text = games[indexPath.row].gameTime
+//            cell.courseName.text = "Augusta National"
+//            cell.scoreShot.text = "+2"
+//            cell.datePlayed.text = "April 15, 2017"
 //        }
 //        return cell
+
+//added 3/19
+        let cell = scoresTableView.dequeueReusableCell(withIdentifier: "scoresCell", for: indexPath)
+        if let cell = cell as? ScoresTableViewCell {
+            cell.courseName.text = self.games[indexPath.row].courseId
+            cell.scoreShot.text = self.games[indexPath.row].finalScore
+           cell.datePlayed.text = self.games[indexPath.row].gameTime
+        }
+     return cell
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
