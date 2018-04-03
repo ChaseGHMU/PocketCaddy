@@ -62,6 +62,16 @@ class PlayTableViewController: UITableViewController, UISearchResultsUpdating {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath)
         
+        if(indexPath.row % 2 == 0)
+        {
+            cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.96, alpha:1.0)
+        }
+            
+        else
+        {
+            cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.93, alpha:1.0)
+        }
+        
         if let cell = cell as? PlaySearchTableViewCell, let course = course?[indexPath.row] {
             cell.courseLabel.text = course.name
             cell.addressLabel.text = course.address1

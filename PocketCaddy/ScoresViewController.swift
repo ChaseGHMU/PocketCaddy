@@ -22,9 +22,11 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         scoresTableView.delegate = self
         scoresTableView.dataSource = self
-        if let image = UIImage(named: "iphone.jpg"){
+        if let image = UIImage(named: "magnolia-golf-course.jpg"){
             self.view.backgroundColor = UIColor(patternImage: image)
         }
+        
+        navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
         // Do any additional setup after loading the view.
     }
     
@@ -69,9 +71,33 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "scoresCell", for: indexPath)
+        
+        if(indexPath.row % 2 == 0)
+        {
+            cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.96, alpha:1.0)
+        }
+            
+        else
+        {
+            cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.93, alpha:1.0)
+        }
         if let cell = cell as? ScoresTableViewCell {
             cell.courseName.text = "Augusta National"
+            cell.courseName.textColor = UIColor(red: 0.00, green:0.56, blue:0.32, alpha:1.0)
             cell.scoreShot.text = "+2"
+            let score = cell.scoreShot.text![(cell.scoreShot.text?.startIndex)!]
+            if(score == "-")
+            {
+                cell.scoreShot.textColor = UIColor.red
+            }
+            else if(score == "+")
+            {
+                cell.scoreShot.textColor = UIColor(red: 0.00, green: 0.00, blue: 0.39, alpha: 1.0)
+            }
+            else
+            {
+                cell.scoreShot.textColor = UIColor.black
+            }
             cell.datePlayed.text = "April 15, 2017"
         }
         return cell

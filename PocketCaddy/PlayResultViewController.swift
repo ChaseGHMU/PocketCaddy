@@ -30,7 +30,8 @@ class PlayResultViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         startingHoleTextfield.text = holes[0]
         startingHoleTextfield.inputView = pickerView
-        
+    
+        navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
         // Do any additional setup after loading the view.
     }
 
