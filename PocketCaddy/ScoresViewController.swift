@@ -25,8 +25,15 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if let image = UIImage(named: "iphone.jpg"){
             self.view.backgroundColor = UIColor(patternImage: image)
         }
+        
+        print("view did load")
+        games = []
+        getGames()
+    
         // Do any additional setup after loading the view.
     }
+ 
+    
     
     //added 3/19
     func getGames(){
@@ -62,6 +69,7 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //added 3/19
     override func viewDidAppear(_ animated: Bool) {
+        print("view did appear")
         games = []
         getGames()
     }
@@ -79,14 +87,6 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "scoresCell", for: indexPath)
-//        if let cell = cell as? ScoresTableViewCell {
-//            cell.courseName.text = "Augusta National"
-//            cell.scoreShot.text = "+2"
-//            cell.datePlayed.text = "April 15, 2017"
-//        }
-//        return cell
-
 //added 3/19
         let cell = scoresTableView.dequeueReusableCell(withIdentifier: "scoresCell", for: indexPath)
         if let cell = cell as? ScoresTableViewCell {
@@ -99,7 +99,7 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "PREVIOUS 5 GAMES"
+        return "PREVIOUS GAMES"
     }
     
     func getName(courseId: String) -> String {
