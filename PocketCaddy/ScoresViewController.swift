@@ -90,15 +90,28 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //added 3/19
         let cell = scoresTableView.dequeueReusableCell(withIdentifier: "scoresCell", for: indexPath)
         if let cell = cell as? ScoresTableViewCell {
-            cell.courseName.text = self.games[indexPath.row].courseId
+           // cell.courseName.text = self.games[indexPath.row].courseId
+            cell.courseName.text = getName(courseId: self.games[indexPath.row].courseId)
             cell.scoreShot.text = self.games[indexPath.row].finalScore
-           cell.datePlayed.text = self.games[indexPath.row].gameTime
+            cell.datePlayed.text = self.games[indexPath.row].gameTime
         }
      return cell
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "PREVIOUS 5 GAMES"
+    }
+    
+    func getName(courseId: String) -> String {
+        if courseId == "1"{
+            return "Triple Lakes Golf Club"
+        }
+        if courseId == "2" {
+            return "L.A. Nickell"
+        }
+        else {
+            return "Golf Course"
+        }
     }
     
     override func didReceiveMemoryWarning() {
