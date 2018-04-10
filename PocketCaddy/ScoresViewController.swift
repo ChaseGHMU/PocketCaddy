@@ -25,52 +25,46 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if let image = UIImage(named: "magnolia-golf-course.jpg"){
             self.view.backgroundColor = UIColor(patternImage: image)
         }
-        
-        print("view did load")
         games = []
         getGames()
-        
         navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
         // Do any additional setup after loading the view.
     }
- 
-    
     
     //added 3/19
     func getGames(){
-        PocketCaddyData.getUserInfo(table: .games, userId: "\(defaults.string(forKey: "userId")!)", completionHandler: { response in
-            if let response = response{
-                for results in response {
-                    if let obj = results as? NSDictionary{
-                        let gameId = "\(obj["gameId"]!)"
-                        let courseId = "\(obj["courseId"]!)"
-                        let userId = "\(obj["userId"]!)"
-                        var gameTime = "\(obj["gameTime"]!)"
-                        //below if stame removes extra date information to only show year/month/date
-                        if let tRange = gameTime.range(of: "T") {
-                            gameTime.removeSubrange(tRange.lowerBound..<gameTime.endIndex)
-                        }
+        if let userid = defaults.string(forKey: "userId"){
+            PocketCaddyData.getUserInfo(table: .games, userId: userid, completionHandler: { response in
+                if let response = response{
+                    for results in response {
+                        if let obj = results as? NSDictionary{
+                            let gameId = "\(obj["gameId"]!)"
+                            let courseId = "\(obj["courseId"]!)"
+                            let userId = "\(obj["userId"]!)"
+                            var gameTime = "\(obj["gameTime"]!)"
+                            //below if stame removes extra date information to only show year/month/date
+                            if let tRange = gameTime.range(of: "T") {
+                                gameTime.removeSubrange(tRange.lowerBound..<gameTime.endIndex)
+                            }
 
-                       
-                        var finalScore = "\(obj["finalScore"]!)"
-                        if finalScore == "<null>"{
-                            finalScore = "In-Progress"
+                           
+                            var finalScore = "\(obj["finalScore"]!)"
+                            if finalScore == "<null>"{
+                                finalScore = "In-Progress"
+                            }
+                            self.games.append(Games(gameId: gameId, courseId: courseId, userId: userId, gameTime: gameTime, finalScore: finalScore))
+                           // print(self.games)
+                            //print(self.games[0].courseId)
                         }
-                        self.games.append(Games(gameId: gameId, courseId: courseId, userId: userId, gameTime: gameTime, finalScore: finalScore))
-                       // print(self.games)
-                        //print(self.games[0].courseId)
                     }
+                    self.scoresTableView.reloadData()
                 }
-                self.scoresTableView.reloadData()
-            }
-        })
-//        print(games)
-//        print(games.count)
+            })
+        }
     }
     
     //added 3/19
     override func viewDidAppear(_ animated: Bool) {
-        print("view did appear")
         games = []
         getGames()
     }
