@@ -33,6 +33,8 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
         // Do any additional setup after loading the view.
     }
+ 
+    
     
     //added 3/19
     func getGames(){
@@ -122,7 +124,19 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "PREVIOUS 5 GAMES"
+        return "PREVIOUS GAMES"
+    }
+    
+    func getName(courseId: String) -> String {
+        if courseId == "1"{
+            return "Triple Lakes Golf Club"
+        }
+        if courseId == "2" {
+            return "L.A. Nickell"
+        }
+        else {
+            return "Golf Course"
+        }
     }
     
     func getName(courseId: String) -> String {
