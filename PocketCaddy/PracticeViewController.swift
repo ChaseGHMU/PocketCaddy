@@ -129,8 +129,33 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
         // create a new cell if needed or reuse an old one
         let cell = tableView.dequeueReusableCell(withIdentifier: "clubCell", for: indexPath)
         
+        if(indexPath.row % 2 == 0)
+        {
+            cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.96, alpha:1.0)
+        }
+        
+        else
+        {
+            cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.93, alpha:1.0)
+        }
+        
         if let cell = cell as? PracticeClubViewCell {
-            cell.clubImage.image = UIImage(named: "flag-7.png")
+            /*if(clubs[indexPath.row].type == "Driver")
+            {
+               cell.clubImage.image = UIImage(named: "Driver Icon.png")
+            }
+            
+            else if(clubs[indexPath.row].type == "Iron")
+            {
+                cell.clubImage.image = UIImage(named: "Iron icon.png")
+            }
+            
+            else if(clubs[indexPath.row].type == "Putter")
+            {
+                cell.clubImage.image = UIImage(named: "Putter Icon.png")
+            }*/
+            
+            cell.clubImage.image = UIImage(named: "Driver Icon.png")
             cell.clubTitle.text = clubs[indexPath.row].name
             cell.avgDistanceTitle.text = clubs[indexPath.row].distance
         }

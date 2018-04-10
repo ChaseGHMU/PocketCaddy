@@ -22,14 +22,15 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         scoresTableView.delegate = self
         scoresTableView.dataSource = self
-        if let image = UIImage(named: "iphone.jpg"){
+        if let image = UIImage(named: "magnolia-golf-course.jpg"){
             self.view.backgroundColor = UIColor(patternImage: image)
         }
         
         print("view did load")
         games = []
         getGames()
-    
+        
+        navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
         // Do any additional setup after loading the view.
     }
  
@@ -87,19 +88,42 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//added 3/19
-        let cell = scoresTableView.dequeueReusableCell(withIdentifier: "scoresCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "scoresCell", for: indexPath)
+        
+        if(indexPath.row % 2 == 0)
+        {
+            cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.96, alpha:1.0)
+        }
+            
+        else
+        {
+            cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.93, alpha:1.0)
+        }
         if let cell = cell as? ScoresTableViewCell {
-           // cell.courseName.text = self.games[indexPath.row].courseId
+            // cell.courseName.text = self.games[indexPath.row].finalScore
             cell.courseName.text = getName(courseId: self.games[indexPath.row].courseId)
+            cell.courseName.textColor = UIColor(red: 0.00, green:0.56, blue:0.32, alpha:1.0)
             cell.scoreShot.text = self.games[indexPath.row].finalScore
+            let score = cell.scoreShot.text![(cell.scoreShot.text?.startIndex)!]
+            if(score == "-")
+            {
+                cell.scoreShot.textColor = UIColor.red
+            }
+            else if(score == "+")
+            {
+                cell.scoreShot.textColor = UIColor(red: 0.00, green: 0.00, blue: 0.39, alpha: 1.0)
+            }
+            else
+            {
+                cell.scoreShot.textColor = UIColor.black
+            }
             cell.datePlayed.text = self.games[indexPath.row].gameTime
         }
-     return cell
+        return cell
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "PREVIOUS GAMES"
+        return "PREVIOUS 5 GAMES"
     }
     
     func getName(courseId: String) -> String {
