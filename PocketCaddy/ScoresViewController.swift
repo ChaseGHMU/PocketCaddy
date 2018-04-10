@@ -26,6 +26,10 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.view.backgroundColor = UIColor(patternImage: image)
         }
         
+        print("view did load")
+        games = []
+        getGames()
+        
         navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
         // Do any additional setup after loading the view.
     }
@@ -39,20 +43,33 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         let gameId = "\(obj["gameId"]!)"
                         let courseId = "\(obj["courseId"]!)"
                         let userId = "\(obj["userId"]!)"
-                        let gameTime = "\(obj["gameTime"]!)"
-                        let finalScore = "\(obj["finalScore"]!)"
+                        var gameTime = "\(obj["gameTime"]!)"
+                        //below if stame removes date information to only show year/month/date
+                        if let tRange = gameTime.range(of: "T") {
+                            gameTime.removeSubrange(tRange.lowerBound..<gameTime.endIndex)
+                        }
+                        
+                        
+                        
+                        var finalScore = "\(obj["finalScore"]!)"
+                        if finalScore == "<null>"{
+                            finalScore = "In-Progress"
+                        }
                         self.games.append(Games(gameId: gameId, courseId: courseId, userId: userId, gameTime: gameTime, finalScore: finalScore))
+                        //print(self.games)
+                         //print(self.games[o].courseId)
                     }
                 }
                 self.scoresTableView.reloadData()
             }
         })
-        print(games)
-        print(games.count)
+//        print(games)
+//        print(games.count)
     }
     
     //added 3/19
     override func viewDidAppear(_ animated: Bool) {
+        print("view did appear")
         games = []
         getGames()
     }
@@ -65,7 +82,7 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return games.count
     }
     
     
@@ -82,9 +99,10 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.93, alpha:1.0)
         }
         if let cell = cell as? ScoresTableViewCell {
-            cell.courseName.text = "Augusta National"
+            // cell.courseName.text = self.games[indexPath.row].finalScore
+            cell.courseName.text = getName(courseId: self.games[indexPath.row].courseId)
             cell.courseName.textColor = UIColor(red: 0.00, green:0.56, blue:0.32, alpha:1.0)
-            cell.scoreShot.text = "+2"
+            cell.scoreShot.text = self.games[indexPath.row].finalScore
             let score = cell.scoreShot.text![(cell.scoreShot.text?.startIndex)!]
             if(score == "-")
             {
@@ -98,22 +116,25 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
             {
                 cell.scoreShot.textColor = UIColor.black
             }
-            cell.datePlayed.text = "April 15, 2017"
+            cell.datePlayed.text = self.games[indexPath.row].gameTime
         }
         return cell
-
-//added 3/19
-//        let cell = scoresTableView.dequeueReusableCell(withIdentifier: "scoresCell", for: indexPath)
-//        if let cell = cell as? ScoresTableViewCell {
-//           // cell.courseName.text = games[indexPath.row].courseId
-////            cell.scoreShot.text = games[indexPath.row].finalScore
-////            cell.datePlayed.text = games[indexPath.row].gameTime
-//        }
-//        return cell
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "PREVIOUS 5 GAMES"
+    }
+    
+    func getName(courseId: String) -> String {
+        if courseId == "1"{
+            return "Triple Lakes Golf Club"
+        }
+        if courseId == "2" {
+            return "L.A. Nickell"
+        }
+        else {
+            return "Golf Course"
+        }
     }
     
     override func didReceiveMemoryWarning() {
