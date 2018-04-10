@@ -46,20 +46,19 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         let courseId = "\(obj["courseId"]!)"
                         let userId = "\(obj["userId"]!)"
                         var gameTime = "\(obj["gameTime"]!)"
-                        //below if stame removes date information to only show year/month/date
+                        //below if stame removes extra date information to only show year/month/date
                         if let tRange = gameTime.range(of: "T") {
                             gameTime.removeSubrange(tRange.lowerBound..<gameTime.endIndex)
                         }
-                        
-                        
-                        
+
+                       
                         var finalScore = "\(obj["finalScore"]!)"
                         if finalScore == "<null>"{
                             finalScore = "In-Progress"
                         }
                         self.games.append(Games(gameId: gameId, courseId: courseId, userId: userId, gameTime: gameTime, finalScore: finalScore))
-                        //print(self.games)
-                         //print(self.games[o].courseId)
+                       // print(self.games)
+                        //print(self.games[0].courseId)
                     }
                 }
                 self.scoresTableView.reloadData()
@@ -124,19 +123,7 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "PREVIOUS GAMES"
-    }
-    
-    func getName(courseId: String) -> String {
-        if courseId == "1"{
-            return "Triple Lakes Golf Club"
-        }
-        if courseId == "2" {
-            return "L.A. Nickell"
-        }
-        else {
-            return "Golf Course"
-        }
+        return "PREVIOUS 5 GAMES"
     }
     
     func getName(courseId: String) -> String {
