@@ -328,8 +328,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="seasons" translatesAutoresizingMaskIntoConstraints="NO" id="XVD-TA-BHc">
-                                <rect key="frame" x="0.0" y="64" width="375" height="241"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seasons" translatesAutoresizingMaskIntoConstraints="NO" id="XVD-TA-BHc">
+                                <rect key="frame" x="0.0" y="64" width="375" height="220"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYk-fG-HSF">
                                 <rect key="frame" x="151" y="113" width="73" height="37"/>
@@ -487,6 +487,7 @@
                             <constraint firstItem="tj8-tf-8xW" firstAttribute="top" secondItem="106-L2-5WT" secondAttribute="top" id="dis-UW-HW5"/>
                             <constraint firstItem="sm3-Xb-LbH" firstAttribute="leading" secondItem="hW3-uh-wTs" secondAttribute="trailing" constant="8" id="h2e-V6-cBZ"/>
                             <constraint firstItem="OBs-ks-Euc" firstAttribute="top" secondItem="106-L2-5WT" secondAttribute="top" constant="25" id="rRa-Uo-FtE"/>
+                            <constraint firstItem="4Bi-KY-E4t" firstAttribute="leading" secondItem="OBs-ks-Euc" secondAttribute="trailing" constant="208" id="y0U-Mr-v5F"/>
                             <constraint firstItem="106-L2-5WT" firstAttribute="bottom" secondItem="sm3-Xb-LbH" secondAttribute="bottom" constant="13" id="yp6-Ov-Qo5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="106-L2-5WT"/>
