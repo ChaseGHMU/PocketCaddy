@@ -27,12 +27,9 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
         //tableview changes
         tableView.delegate = self
         tableView.dataSource = self
-        
-        if let image = UIImage(named: "iphone.jpg"){
-            self.view.backgroundColor = UIColor(patternImage: image)
-        }
     
         navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
+        
     }
     
     func getClubs(){
@@ -142,20 +139,25 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
         if let cell = cell as? PracticeClubViewCell {
             /*if(clubs[indexPath.row].type == "Driver")
             {
-               cell.clubImage.image = UIImage(named: "Driver Icon.png")
+               cell.clubImage.image = UIImage(named: "DriverIcon")
             }
             
             else if(clubs[indexPath.row].type == "Iron")
             {
-                cell.clubImage.image = UIImage(named: "Iron icon.png")
+                cell.clubImage.image = UIImage(named: "IronIcon")
             }
             
+            else if(clubs[indexPath.row].type == "Wedge")
+            {
+                cell.clubImage.image = UIImage(named: "IronIcon")
+            }
+             
             else if(clubs[indexPath.row].type == "Putter")
             {
-                cell.clubImage.image = UIImage(named: "Putter Icon.png")
+                cell.clubImage.image = UIImage(named: "PutterIcon")
             }*/
             
-            cell.clubImage.image = UIImage(named: "Driver Icon.png")
+            cell.clubImage.image = UIImage(named: "DriverIcon")
             cell.clubTitle.text = clubs[indexPath.row].name
             cell.avgDistanceTitle.text = clubs[indexPath.row].distance
         }

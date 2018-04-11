@@ -21,6 +21,7 @@ class TabViewController: UITabBarController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         logged = defaults.bool(forKey: "isLoggedIn")
         if let logged = logged{
             if(!logged){
