@@ -24,7 +24,7 @@ class SignUpViewController: UIViewController {
         if let image = UIImage(named: "iphone.jpg"){
             self.view.backgroundColor = UIColor(patternImage: image)
         }
-        
+        navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
         // Do any additional setup after loading the view.
     }
 

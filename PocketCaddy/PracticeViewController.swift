@@ -27,12 +27,9 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
         //tableview changes
         tableView.delegate = self
         tableView.dataSource = self
-        
-        if let image = UIImage(named: "iphone.jpg"){
-            self.view.backgroundColor = UIColor(patternImage: image)
-        }
     
         navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
+        
     }
     
     func getClubs(){
@@ -150,6 +147,11 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
                 cell.clubImage.image = UIImage(named: "IronIcon")
             }
             
+            else if(clubs[indexPath.row].type == "Wedge")
+            {
+                cell.clubImage.image = UIImage(named: "IronIcon")
+            }
+             
             else if(clubs[indexPath.row].type == "Putter")
             {
                 cell.clubImage.image = UIImage(named: "PutterIcon")

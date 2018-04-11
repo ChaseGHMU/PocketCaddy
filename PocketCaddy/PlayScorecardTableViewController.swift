@@ -23,6 +23,7 @@ class PlayScorecardTableViewController: UITableViewController {
                 self.tableView.reloadData()
             })
         }
+        navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -55,6 +56,16 @@ class PlayScorecardTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "scorecardCell", for: indexPath)
     
+        if(indexPath.row % 2 == 0)
+        {
+            cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.96, alpha:1.0)
+        }
+            
+        else
+        {
+            cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.93, alpha:1.0)
+        }
+        
         if let cell = cell as? PlayScorecardTableViewCell{
             cell.holeNumberTitle.text = "Hole \(holeNum[indexPath.row])"
             if scores[indexPath.row].scores == "0"{

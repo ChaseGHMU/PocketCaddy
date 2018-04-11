@@ -78,10 +78,12 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         //    mapView.delegate = self
         
         // Do any additional setup after loading the view.
+        navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
+        
     }
     
     @objc func scorecardAction(sender: UIBarButtonItem){
