@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -368,6 +369,7 @@
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ysj-cE-5AM">
                                 <rect key="frame" x="148" y="429" width="211" height="30"/>
+                                <color key="backgroundColor" red="0.99907451869999997" green="0.9807117581" blue="0.96288019420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="211" id="5ka-9N-WTJ"/>
                                 </constraints>
@@ -441,18 +443,18 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tj8-tf-8xW">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Bi-KY-E4t">
-                                <rect key="frame" x="291" y="89" width="68" height="30"/>
-                                <state key="normal" title="Next Hole">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Bi-KY-E4t">
+                                <rect key="frame" x="334" y="69" width="35" height="22"/>
+                                <state key="normal" image="Next Arrow">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="nextHole:" destination="1bs-ab-0L9" eventType="touchUpInside" id="aAo-Al-GEN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBs-ks-Euc">
-                                <rect key="frame" x="16" y="89" width="67" height="30"/>
-                                <state key="normal" title="Prev Hole">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBs-ks-Euc">
+                                <rect key="frame" x="9" y="69" width="35" height="22"/>
+                                <state key="normal" image="Previous Arrow">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -471,19 +473,32 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Compass Outside" translatesAutoresizingMaskIntoConstraints="NO" id="CEc-FR-aR7">
+                                <rect key="frame" x="9" y="92" width="35" height="36"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Compass Arrow" translatesAutoresizingMaskIntoConstraints="NO" id="T5l-QX-bcb">
+                                <rect key="frame" x="22" y="103" width="9" height="15"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="CEc-FR-aR7" firstAttribute="top" secondItem="OBs-ks-Euc" secondAttribute="bottom" constant="1" id="1u0-kn-UZk"/>
                             <constraint firstItem="sm3-Xb-LbH" firstAttribute="leading" secondItem="hW3-uh-wTs" secondAttribute="trailing" constant="8" id="2dT-dM-K3H"/>
                             <constraint firstItem="hW3-uh-wTs" firstAttribute="leading" relation="lessThanOrEqual" secondItem="106-L2-5WT" secondAttribute="leading" constant="218" id="2e5-94-p48"/>
+                            <constraint firstItem="4Bi-KY-E4t" firstAttribute="firstBaseline" secondItem="OBs-ks-Euc" secondAttribute="firstBaseline" id="6hv-wN-AIL"/>
+                            <constraint firstItem="4Bi-KY-E4t" firstAttribute="top" secondItem="106-L2-5WT" secondAttribute="top" constant="5" id="Ain-4Q-8hN"/>
                             <constraint firstItem="106-L2-5WT" firstAttribute="bottom" secondItem="hW3-uh-wTs" secondAttribute="bottom" constant="13" id="BSV-4d-UIB"/>
                             <constraint firstItem="106-L2-5WT" firstAttribute="bottom" secondItem="tj8-tf-8xW" secondAttribute="bottom" id="Ein-Qn-67N"/>
-                            <constraint firstItem="OBs-ks-Euc" firstAttribute="leading" secondItem="106-L2-5WT" secondAttribute="leading" constant="16" id="OrB-0t-vNz"/>
-                            <constraint firstItem="4Bi-KY-E4t" firstAttribute="top" secondItem="106-L2-5WT" secondAttribute="top" constant="25" id="TRf-OB-cft"/>
+                            <constraint firstItem="OBs-ks-Euc" firstAttribute="baseline" secondItem="4Bi-KY-E4t" secondAttribute="baseline" id="KM3-4J-KP8"/>
+                            <constraint firstItem="4Bi-KY-E4t" firstAttribute="baseline" secondItem="OBs-ks-Euc" secondAttribute="baseline" id="Qjl-XU-EcB"/>
+                            <constraint firstItem="OBs-ks-Euc" firstAttribute="leading" secondItem="106-L2-5WT" secondAttribute="leading" constant="9" id="TLm-nM-NLF"/>
                             <constraint firstItem="106-L2-5WT" firstAttribute="trailing" secondItem="sm3-Xb-LbH" secondAttribute="trailing" constant="16" id="TWQ-zG-x9D"/>
+                            <constraint firstItem="OBs-ks-Euc" firstAttribute="firstBaseline" secondItem="4Bi-KY-E4t" secondAttribute="firstBaseline" id="UC0-zA-OCi"/>
                             <constraint firstItem="tj8-tf-8xW" firstAttribute="leading" secondItem="106-L2-5WT" secondAttribute="leading" id="Zkg-kn-Re5"/>
+                            <constraint firstItem="CEc-FR-aR7" firstAttribute="leading" secondItem="OBs-ks-Euc" secondAttribute="leading" id="aAZ-NX-g5o"/>
+                            <constraint firstItem="CEc-FR-aR7" firstAttribute="centerX" secondItem="T5l-QX-bcb" secondAttribute="centerX" id="bBc-At-7eh"/>
+                            <constraint firstItem="CEc-FR-aR7" firstAttribute="centerY" secondItem="T5l-QX-bcb" secondAttribute="centerY" id="c4C-sz-TzK"/>
                             <constraint firstItem="tj8-tf-8xW" firstAttribute="trailing" secondItem="106-L2-5WT" secondAttribute="trailing" id="dEM-xV-eE7"/>
-                            <constraint firstItem="106-L2-5WT" firstAttribute="trailing" secondItem="4Bi-KY-E4t" secondAttribute="trailing" constant="16" id="dZ8-Tf-N0S"/>
                             <constraint firstItem="tj8-tf-8xW" firstAttribute="top" secondItem="106-L2-5WT" secondAttribute="top" id="dis-UW-HW5"/>
                             <constraint firstItem="sm3-Xb-LbH" firstAttribute="leading" secondItem="hW3-uh-wTs" secondAttribute="trailing" constant="8" id="h2e-V6-cBZ"/>
                             <constraint firstItem="OBs-ks-Euc" firstAttribute="top" secondItem="106-L2-5WT" secondAttribute="top" constant="25" id="rRa-Uo-FtE"/>
@@ -567,9 +582,11 @@
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ktl-Dr-VII">
                                 <rect key="frame" x="0.0" y="78" width="375" height="216"/>
+                                <color key="backgroundColor" red="0.99907451869999997" green="0.9807117581" blue="0.96288019420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pickerView>
                             <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fB4-z2-jux">
                                 <rect key="frame" x="0.0" y="335" width="375" height="216"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goC-sp-uiQ">
                                 <rect key="frame" x="0.0" y="581" width="375" height="51"/>
@@ -597,7 +614,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.99907451869999997" green="0.9807117581" blue="0.96288019420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="7iZ-D1-4fW" firstAttribute="leading" secondItem="iRn-os-Myj" secondAttribute="leading" constant="16" id="5Du-9j-ciU"/>
                             <constraint firstItem="ktl-Dr-VII" firstAttribute="trailing" secondItem="iRn-os-Myj" secondAttribute="trailing" id="Eaj-Jl-HrC"/>
@@ -1039,6 +1056,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Compass Arrow" width="9" height="15"/>
+        <image name="Compass Outside" width="35" height="36"/>
+        <image name="Next Arrow" width="35" height="20"/>
+        <image name="Previous Arrow" width="35" height="20"/>
         <image name="flag-7" width="30" height="30"/>
         <image name="loginBackgroun" width="225" height="225"/>
         <image name="plus-simple-7" width="30" height="30"/>
