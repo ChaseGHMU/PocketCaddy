@@ -71,6 +71,7 @@ class LoginViewController: UIViewController {
 //        buttonDesign.backgroundColor = UIColor(hue: 0.5667, saturation: 1, brightness: 1, alpha: 1.0)
         buttonDesign.titleLabel?.textColor = UIColor.white
         passwordTextField.isSecureTextEntry = true
+        navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
         // Do any additional setup after loading the view.
     }
 
