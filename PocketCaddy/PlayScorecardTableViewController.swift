@@ -81,6 +81,21 @@ class PlayScorecardTableViewController: UITableViewController {
             }else{
                 cell.scoresTitle.text = "\(scores[indexPath.row].scores)"
             }
+            
+            let strokes = Int(scores[indexPath.row].scores)
+            
+            if(strokes! < (holes[indexPath.row].par -  2) && strokes! > 0)
+            {
+                cell.scoresTitle.textColor = UIColor.red
+            }
+            else if(strokes! > (holes[indexPath.row].par -  2))
+            {
+                cell.scoresTitle.textColor = UIColor(red: 0.00, green: 0.00, blue: 0.39, alpha: 1.0)
+            }
+            else
+            {
+                cell.scoresTitle.textColor = UIColor.black
+            }
         }
 
         return cell
