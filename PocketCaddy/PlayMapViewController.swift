@@ -194,6 +194,7 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         }
         if let destination = segue.destination as? PlayScorecardTableViewController{
             destination.gameId = gameId
+            destination.courseId = courseId
         }
     }
     

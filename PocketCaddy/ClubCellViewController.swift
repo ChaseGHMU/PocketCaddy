@@ -160,19 +160,22 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // create a new cell if needed or reuse an old one
-        let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
-        if(indexPath.row % 2 == 0)
-        {
-            cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.96, alpha:1.0)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier)!
+        
+        if let cell = cell as? PracticeClubViewCell{
+            if(indexPath.row % 2 == 0)
+            {
+                cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.96, alpha:1.0)
+            }
+                
+            else
+            {
+                cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.93, alpha:1.0)
+            }
+            // set the text from the data model
+            let stringInt = String(self.swings[indexPath.row].distance)
+            cell.textLabel?.text = stringInt + " yards"
         }
-            
-        else
-        {
-            cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.93, alpha:1.0)
-        }
-        // set the text from the data model
-        let stringInt = String(self.swings[indexPath.row].distance)
-        cell.textLabel?.text = stringInt + " yards"
         return cell
     }
     
