@@ -63,46 +63,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func addClubAlert(_ sender: UIBarButtonItem) {
-        // create the alert
-
-        let alert = UIAlertController(title: "Add a Club", message: "Enter Name of Club:", preferredStyle: UIAlertControllerStyle.alert)
-
-        // creating text field for club name
-        alert.addTextField { (textField) in
-            textField.placeholder = "Enter Club"
-        }
-        // creates both add and cancel options for user        
-        let submitAction = UIAlertAction(title: "Add", style: .default, handler: { (action) -> Void in
-            // Get 1st TextField's text
-            let textField = alert.textFields![0]
-            
-            if let textField = textField.text, let userId = self.defaults.string(forKey: "userId") {
-                let parameters: Parameters = [
-                    "nickname": "\(textField)",
-                    "userId": "\(userId)"
-                ]
-            
-                PocketCaddyData.post(table: .clubs, parameters: parameters, login: false, completionHandler: { (dict, string, response) in
-                    if let dict = dict{
-                        print(dict)
-                        let id = "\(dict["clubId"]!)"
-                        let nickname = "\(dict["nickname"]!)"
-                        let userId = "\(dict["userId"]!)"
-                        print("Adding Club\n")
-                        self.clubs.append(Clubs(id: id, type: "nil", name: nickname, distance: "0.0", userId: userId))
-                    }
-                    self.tableView.reloadData()
-                })
-            }
-            
-            
-        })
-        alert.addAction(submitAction)
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
-        
-        // show alert to user
-        self.present(alert, animated: true, completion: nil)
+       
         
     }
    
