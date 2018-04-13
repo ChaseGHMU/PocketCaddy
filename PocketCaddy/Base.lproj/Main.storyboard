@@ -590,7 +590,7 @@
                             </pickerView>
                             <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fB4-z2-jux">
                                 <rect key="frame" x="0.0" y="335" width="375" height="216"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.99907451869999997" green="0.9807117581" blue="0.96288019420000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goC-sp-uiQ">
                                 <rect key="frame" x="0.0" y="581" width="375" height="51"/>
