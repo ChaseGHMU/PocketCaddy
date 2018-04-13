@@ -12,6 +12,7 @@ class PlayScorecardTableViewCell: UITableViewCell {
 
     @IBOutlet weak var holeNumberTitle: UILabel!
     @IBOutlet weak var scoresTitle: UILabel!
+    @IBOutlet weak var parTitle: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
