@@ -175,6 +175,7 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
             // set the text from the data model
             let stringInt = String(self.swings[indexPath.row].distance)
             cell.textLabel?.text = stringInt + " yards"
+            print(stringInt)
         }
         return cell
     }

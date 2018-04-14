@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L7c-Bf-6WN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L7c-Bf-6WN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </array>
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -758,6 +766,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="uEu-1Z-mbR">
                             <connections>
                                 <action selector="addClubAlert:" destination="KUY-ER-4Nj" id="qHS-Uc-J4f"/>
+                                <segue destination="9Sx-tW-Fcz" kind="show" id="ylJ-6G-Uxb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -778,6 +787,67 @@
                 </navigationBar>
             </objects>
             <point key="canvasLocation" x="2301.5999999999999" y="1252.6236881559221"/>
+        </scene>
+        <!--Add Club View Controller-->
+        <scene sceneID="G1b-mZ-KfC">
+            <objects>
+                <viewController id="9Sx-tW-Fcz" customClass="AddClubViewController" customModule="PocketCaddy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hS6-mg-9Ua">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Club:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZf-Bd-nbw">
+                                <rect key="frame" x="141" y="130" width="75" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbF-Ja-vKi">
+                                <rect key="frame" x="35" y="187" width="90" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SOE-po-f7Q">
+                                <rect key="frame" x="152" y="171" width="188" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNr-sc-6gH">
+                                <rect key="frame" x="35" y="223" width="82" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p84-D4-t0d">
+                                <rect key="frame" x="19" y="252" width="340" height="216"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dbF-Ja-vKi" firstAttribute="top" secondItem="XZf-Bd-nbw" secondAttribute="bottom" constant="36" id="JpV-qO-uvC"/>
+                            <constraint firstItem="p84-D4-t0d" firstAttribute="top" secondItem="aNr-sc-6gH" secondAttribute="bottom" constant="10" id="T3t-Fl-UWv"/>
+                            <constraint firstItem="SOE-po-f7Q" firstAttribute="top" secondItem="XZf-Bd-nbw" secondAttribute="bottom" constant="20" id="YJd-Dk-CZ2"/>
+                            <constraint firstItem="SOE-po-f7Q" firstAttribute="leading" secondItem="dbF-Ja-vKi" secondAttribute="trailing" constant="27" id="ZGb-sk-vpB"/>
+                            <constraint firstItem="aNr-sc-6gH" firstAttribute="leading" secondItem="CM4-IG-mxm" secondAttribute="leading" constant="35" id="kTw-50-Rjw"/>
+                            <constraint firstItem="aNr-sc-6gH" firstAttribute="top" secondItem="dbF-Ja-vKi" secondAttribute="bottom" constant="15" id="kvN-9M-sat"/>
+                            <constraint firstItem="dbF-Ja-vKi" firstAttribute="leading" secondItem="CM4-IG-mxm" secondAttribute="leading" constant="35" id="mnS-p1-fuc"/>
+                            <constraint firstItem="XZf-Bd-nbw" firstAttribute="centerY" secondItem="CM4-IG-mxm" secondAttribute="centerY" constant="-200.5" id="nem-q9-Rqr"/>
+                            <constraint firstItem="CM4-IG-mxm" firstAttribute="trailing" secondItem="SOE-po-f7Q" secondAttribute="trailing" constant="35" id="qLL-yg-kIT"/>
+                            <constraint firstItem="p84-D4-t0d" firstAttribute="leading" secondItem="CM4-IG-mxm" secondAttribute="leading" id="tZB-iu-xNA"/>
+                            <constraint firstItem="XZf-Bd-nbw" firstAttribute="centerX" secondItem="CM4-IG-mxm" secondAttribute="centerX" constant="-9" id="vAK-aJ-FUr"/>
+                            <constraint firstItem="CM4-IG-mxm" firstAttribute="trailing" secondItem="p84-D4-t0d" secondAttribute="trailing" id="zt0-aO-ju0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CM4-IG-mxm"/>
+                    </view>
+                    <connections>
+                        <outlet property="clubPicker" destination="p84-D4-t0d" id="yKo-HI-6mu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iai-MI-gIo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3101.5999999999999" y="1252.6236881559221"/>
         </scene>
         <!--Swings-->
         <scene sceneID="CFo-ZT-1zU">
