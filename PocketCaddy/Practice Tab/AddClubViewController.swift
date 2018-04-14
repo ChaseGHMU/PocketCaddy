@@ -47,7 +47,7 @@ class AddClubViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBAction func addClub(_ sender: Any) {
         print(clubName.text)
         var selectedValue = clubTypes[clubPicker.selectedRow(inComponent: 0)]
-      print(selectedValue)
+        print(selectedValue)
        
     }
     
