@@ -823,15 +823,24 @@
                             <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p84-D4-t0d">
                                 <rect key="frame" x="19" y="252" width="340" height="216"/>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Urv-HF-Dqz">
+                                <rect key="frame" x="155" y="517" width="46" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="addClub:" destination="9Sx-tW-Fcz" eventType="touchUpInside" id="da2-Wk-YoV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Urv-HF-Dqz" firstAttribute="centerX" secondItem="CM4-IG-mxm" secondAttribute="centerX" id="5TN-zE-13s"/>
                             <constraint firstItem="dbF-Ja-vKi" firstAttribute="top" secondItem="XZf-Bd-nbw" secondAttribute="bottom" constant="36" id="JpV-qO-uvC"/>
                             <constraint firstItem="p84-D4-t0d" firstAttribute="top" secondItem="aNr-sc-6gH" secondAttribute="bottom" constant="10" id="T3t-Fl-UWv"/>
                             <constraint firstItem="SOE-po-f7Q" firstAttribute="top" secondItem="XZf-Bd-nbw" secondAttribute="bottom" constant="20" id="YJd-Dk-CZ2"/>
                             <constraint firstItem="SOE-po-f7Q" firstAttribute="leading" secondItem="dbF-Ja-vKi" secondAttribute="trailing" constant="27" id="ZGb-sk-vpB"/>
                             <constraint firstItem="aNr-sc-6gH" firstAttribute="leading" secondItem="CM4-IG-mxm" secondAttribute="leading" constant="35" id="kTw-50-Rjw"/>
                             <constraint firstItem="aNr-sc-6gH" firstAttribute="top" secondItem="dbF-Ja-vKi" secondAttribute="bottom" constant="15" id="kvN-9M-sat"/>
+                            <constraint firstItem="Urv-HF-Dqz" firstAttribute="top" secondItem="p84-D4-t0d" secondAttribute="bottom" constant="25" id="lWF-be-Xt8"/>
                             <constraint firstItem="dbF-Ja-vKi" firstAttribute="leading" secondItem="CM4-IG-mxm" secondAttribute="leading" constant="35" id="mnS-p1-fuc"/>
                             <constraint firstItem="XZf-Bd-nbw" firstAttribute="centerY" secondItem="CM4-IG-mxm" secondAttribute="centerY" constant="-200.5" id="nem-q9-Rqr"/>
                             <constraint firstItem="CM4-IG-mxm" firstAttribute="trailing" secondItem="SOE-po-f7Q" secondAttribute="trailing" constant="35" id="qLL-yg-kIT"/>
@@ -842,6 +851,8 @@
                         <viewLayoutGuide key="safeArea" id="CM4-IG-mxm"/>
                     </view>
                     <connections>
+                        <outlet property="addClub" destination="Urv-HF-Dqz" id="t9k-SU-OeX"/>
+                        <outlet property="clubName" destination="SOE-po-f7Q" id="Z4q-Ib-cbc"/>
                         <outlet property="clubPicker" destination="p84-D4-t0d" id="yKo-HI-6mu"/>
                     </connections>
                 </viewController>
