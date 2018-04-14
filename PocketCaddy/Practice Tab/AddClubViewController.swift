@@ -10,8 +10,11 @@ import UIKit
 class AddClubViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
   
 
+    @IBOutlet weak var clubName: UITextField!
+    @IBOutlet weak var addClub: UIButton!
     @IBOutlet weak var clubPicker: UIPickerView!
     let clubTypes = ["Driver", "Putter", "Wedge", "Iron"]
+    var pickedType = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +41,15 @@ class AddClubViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         return clubTypes[row]
     }
     
+ 
+
+    
+    @IBAction func addClub(_ sender: Any) {
+        print(clubName.text)
+        var selectedValue = clubTypes[clubPicker.selectedRow(inComponent: 0)]
+      print(selectedValue)
+       
+    }
     
 
     /*
