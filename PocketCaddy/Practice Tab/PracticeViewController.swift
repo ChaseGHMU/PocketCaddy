@@ -15,6 +15,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     var clubs: [Clubs] = []
     var namePassed:String!
     
+    @IBOutlet weak var typeLabel: UILabel!
     // cell reuse id (cells that scroll out of view can be reused)
     let defaults = UserDefaults.standard
 
@@ -40,11 +41,13 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
                         let id = "\(obj["clubId"]!)"
                         let nickname = "\(obj["nickname"]!)"
                         let userId = "\(obj["userId"]!)"
+                        let type = "\(obj["type"]!)"
                         var avgDist = "\(obj["avgDistance"]!)"
                         if avgDist == "<null>"{
                             avgDist = "0"
                         }
-                        self.clubs.append(Clubs(id: id, type: "nil", name: nickname, distance: "\(avgDist) Yds", userId: userId))
+                        print(type)
+                        self.clubs.append(Clubs(id: id, type: type, name: nickname, distance: "\(avgDist) Yds", userId: userId))
                     }
                 }
                 self.tableView.reloadData()
@@ -120,6 +123,11 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
             
             cell.clubImage.image = UIImage(named: "DriverIcon")
             cell.clubTitle.text = clubs[indexPath.row].name
+            cell.typeTitle.text = clubs[indexPath.row].type
+            if cell.typeTitle.text == "<null>"{
+                cell.typeTitle.text = "Driver"
+            }
+            
             cell.avgDistanceTitle.text = clubs[indexPath.row].distance
         }
         // set the text from the data model
