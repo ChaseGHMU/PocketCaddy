@@ -124,6 +124,10 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
             cell.clubImage.image = UIImage(named: "DriverIcon")
             cell.clubTitle.text = clubs[indexPath.row].name
             cell.typeTitle.text = clubs[indexPath.row].type
+            if cell.typeTitle.text == "<null>"{
+                cell.typeTitle.text = "Driver"
+            }
+            
             cell.avgDistanceTitle.text = clubs[indexPath.row].distance
         }
         // set the text from the data model
