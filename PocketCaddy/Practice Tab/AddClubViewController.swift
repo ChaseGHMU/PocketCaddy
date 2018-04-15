@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class AddClubViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
   
@@ -15,6 +16,7 @@ class AddClubViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var clubPicker: UIPickerView!
     let clubTypes = ["Driver", "Putter", "Wedge", "Iron"]
     var pickedType = ""
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +51,32 @@ class AddClubViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         var selectedValue = clubTypes[clubPicker.selectedRow(inComponent: 0)]
         print(selectedValue)
        
+        if let textField = clubName.text, let userId = self.defaults.string(forKey: "userId") {
+            let parameters: Parameters = [
+                "nickname": "\(textField)",
+                "userId": "\(userId)",
+                "type": "\(selectedValue)"
+                
+            ]
+        
+        PocketCaddyData.post(table: .clubs, parameters: parameters, login: false, completionHandler: { (dict, string, response) in
+            if let dict = dict{
+                print(dict)
+                let id = "\(dict["clubId"]!)"
+                let nickname = "\(dict["nickname"]!)"
+                let userId = "\(dict["userId"]!)"
+                let type = "\(dict["type"]!)"
+                print("Adding Club\n")
+               // self.clubs.append(Clubs(id: id, type: selectedValue, name: nickname, distance: "0.0", userId: userId))
+            }
+           
+        })
+
+        
+        
     }
+    }
+   
     
 
     /*
