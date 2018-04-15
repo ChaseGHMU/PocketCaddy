@@ -71,10 +71,8 @@ class AddClubViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             }
            
         })
-
-        
-        
     }
+        navigationController?.popViewController(animated: true)
     }
    
     
