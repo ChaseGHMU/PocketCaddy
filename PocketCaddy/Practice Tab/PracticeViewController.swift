@@ -101,7 +101,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         if let cell = cell as? PracticeClubViewCell {
-            /*if(clubs[indexPath.row].type == "Driver")
+            if(clubs[indexPath.row].type == "Driver")
             {
                cell.clubImage.image = UIImage(named: "DriverIcon")
             }
@@ -119,9 +119,9 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
             else if(clubs[indexPath.row].type == "Putter")
             {
                 cell.clubImage.image = UIImage(named: "PutterIcon")
-            }*/
+            }
             
-            cell.clubImage.image = UIImage(named: "DriverIcon")
+//            cell.clubImage.image = UIImage(named: "DriverIcon")
             cell.clubTitle.text = clubs[indexPath.row].name
             cell.typeTitle.text = clubs[indexPath.row].type
             if cell.typeTitle.text == "<null>"{
