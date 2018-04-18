@@ -163,6 +163,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
             let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
                 // remove the item from the data model
                 PocketCaddyData.delete(table: .clubs, id: self.clubs[indexPath.row].id)
+                print(self.clubs[indexPath.row].id)
                 self.clubs.remove(at: indexPath.row)
                 // delete the table view row
                 tableView.deleteRows(at: [indexPath], with: .fade)
