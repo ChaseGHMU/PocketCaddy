@@ -50,7 +50,7 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
                            
                             var finalScore = "\(obj["finalScore"]!)"
                             if finalScore == "<null>"{
-                                finalScore = "In-Progress"
+                                finalScore = "Unfinished"
                             }
                             self.games.append(Games(gameId: gameId, courseId: courseId, userId: userId, gameTime: gameTime, finalScore: finalScore))
                            // print(self.games)
@@ -117,9 +117,10 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "PREVIOUS 5 GAMES"
+        return "PREVIOUS GAMES"
     }
     
+    //will need to be changed to accomadate more courses
     func getName(courseId: String) -> String {
         if courseId == "1"{
             return "Triple Lakes Golf Club"
