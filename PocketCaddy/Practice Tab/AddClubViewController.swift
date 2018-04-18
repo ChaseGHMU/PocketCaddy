@@ -47,8 +47,8 @@ class AddClubViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
     
     @IBAction func addClub(_ sender: Any) {
-        print(clubName.text)
-        var selectedValue = clubTypes[clubPicker.selectedRow(inComponent: 0)]
+//        print(clubName.text)
+        let selectedValue = clubTypes[clubPicker.selectedRow(inComponent: 0)]
         print(selectedValue)
        
         if let textField = clubName.text, let userId = self.defaults.string(forKey: "userId") {
@@ -62,11 +62,11 @@ class AddClubViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         PocketCaddyData.post(table: .clubs, parameters: parameters, login: false, completionHandler: { (dict, string, response) in
             if let dict = dict{
                 print(dict)
-                let id = "\(dict["clubId"]!)"
-                let nickname = "\(dict["nickname"]!)"
-                let userId = "\(dict["userId"]!)"
-                let type = "\(dict["type"]!)"
-                print("Adding Club\n")
+//                let id = "\(dict["clubId"]!)"
+//                let nickname = "\(dict["nickname"]!)"
+//                let userId = "\(dict["userId"]!)"
+//                let type = "\(dict["type"]!)"
+//                print("Adding Club\n")
                // self.clubs.append(Clubs(id: id, type: selectedValue, name: nickname, distance: "0.0", userId: userId))
             }
            

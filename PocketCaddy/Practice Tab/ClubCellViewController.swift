@@ -76,7 +76,6 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
             // Get 1st TextField's text
 
             let textField = alert.textFields![0]
-//            print(textField.text!)
             let textfieldInt: Int? = Int(textField.text!)
             
             //Error Checking for values over 300
@@ -151,9 +150,6 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
            tableView.isScrollEnabled = true
            return self.swings.count
         }
-        
-        
-        
     }
     
     // create a cell for each table view row
