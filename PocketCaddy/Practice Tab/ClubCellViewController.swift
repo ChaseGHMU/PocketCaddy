@@ -33,11 +33,23 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
         datetime.timeZone = TimeZone(secondsFromGMT: 0)
         if let club = club{
             clubName.text = club.name
+        
             PocketCaddyData.getSwings(table: .swings, clubId: club.id, completionHandler: { response in
                 if let response = response{
                     self.swings = response
                     self.swings.reverse()  // displays swings by most recent at top, rather than oldest on top
                 }
+//                    for results in response {
+//                        if let obj = results as? NSDictionary{
+//                            let id = "\(obj["swingId"]!)"
+//                            let distance = "\(obj["distance"]!)" //int
+//                            let clubId = "\(obj["clubId"]!)"
+//
+//                            //print(type)
+//                            self.swings.append(Swings(swingId: id, distance: Int(distance)!, clubId: clubId, date: self.now))
+//                        }}
+//                    }
+                    
                 self.numSwings.text = "\(self.swings.count)"
                 self.getAvgSwing()
                 self.tableView.reloadData()
@@ -90,6 +102,7 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
                 self.present(alert2, animated: true, completion: nil)
             } else {
                 self.postData(distance: textfieldInt!)
+                
             }
         })
         alert.addAction(submitAction)
@@ -171,7 +184,7 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
             // set the text from the data model
             let stringInt = String(self.swings[indexPath.row].distance)
             cell.textLabel?.text = stringInt + " yards"
-            print(stringInt)
+        
         //}
         return cell
     }
@@ -196,7 +209,8 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
             let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
                 self.swings.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
-               // PocketCaddyData.delete(table: .swings, id: self.swings[indexPath.row].id) //deletes swings from db
+                //PocketCaddyData.delete(table: .swings, id: self.swings[indexPath.row].swingId)
+                //print(self.swings[indexPath.row].swingId)
                 self.tableView.reloadData()
             })
             deleteAlert.addAction(yesAction)
