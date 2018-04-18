@@ -196,6 +196,7 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
             let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
                 self.swings.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
+                PocketCaddyData.delete(table: .swings, id: self.swings[indexPath.row].id) //deletes swings from db
                 self.tableView.reloadData()
             })
             deleteAlert.addAction(yesAction)

@@ -51,6 +51,11 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
                     }
                 }
                 self.tableView.reloadData()
+                self.emptyLabel.text = "You haven't added any clubs yet! Press the '+' at the top of the page to fill your bag."
+                self.emptyLabel.textAlignment = NSTextAlignment.center
+                self.tableView.backgroundView = self.emptyLabel
+                self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+              //  self.tableView.isScrollEnabled = false
             }
         })
     }
@@ -66,23 +71,25 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func addClubAlert(_ sender: UIBarButtonItem) {
-       
-        
+       //code moved to addclubviewcontroller
     }
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.clubs.count == 0{
-            emptyLabel.text = "You haven't added any clubs yet! Press the '+' at the top of the page to fill your bag."
-            emptyLabel.textAlignment = NSTextAlignment.center
-            self.tableView.backgroundView = emptyLabel
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-            tableView.isScrollEnabled = false
-            return 0
-        }else{
-            emptyLabel.text = ""
-            tableView.isScrollEnabled = true
-            return self.clubs.count
-        }
+//        if self.clubs.count == 0{
+//            emptyLabel.text = "You haven't added any clubs yet! Press the '+' at the top of the page to fill your bag."
+//            emptyLabel.textAlignment = NSTextAlignment.center
+//            self.tableView.backgroundView = emptyLabel
+//            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+//            tableView.isScrollEnabled = false
+//            return 0
+//        }else{
+//            emptyLabel.text = ""
+//            tableView.isScrollEnabled = true
+//            return self.clubs.count
+//        }
+        emptyLabel.text = ""
+        tableView.isScrollEnabled = true
+        return self.clubs.count
     }
     
     // create a cell for each table view row
@@ -148,26 +155,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        // Edit Club Code -- Work in Progress
-        let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
-            print("Edit tapped")
-            
-            let alert = UIAlertController(title: "Edit a Club", message: "Enter New Name of Club:", preferredStyle: UIAlertControllerStyle.alert)
-            
-            // creating text field for club name
-            alert.addTextField { (textField) in
-                textField.placeholder = "Enter New Name"
-            }
-            
-            let submitAction = UIAlertAction(title: "Add", style: .default, handler: { (action) -> Void in
-                //enter edit code here, just need to change club name to existing club
-            })
-            alert.addAction(submitAction)
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        })
-        editAction.backgroundColor = UIColor.blue
-        
+      
         // Delete Club Code
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
             print("Delete tapped")
@@ -179,13 +167,23 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
                 // delete the table view row
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 self.tableView.reloadData()
+                
+                if self.clubs.count == 0{
+                    self.emptyLabel.text = "You haven't added any clubs yet! Press the '+' at the top of the page to fill your bag."
+                    self.emptyLabel.textAlignment = NSTextAlignment.center
+                    self.tableView.backgroundView = self.emptyLabel
+                    self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+                    //self.tableView.isScrollEnabled = false
+                }
+                
+                
             })
             deleteAlert.addAction(yesAction)
             deleteAlert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
             self.present(deleteAlert, animated: true, completion: nil)
         })
         deleteAction.backgroundColor = UIColor.red
-        return [editAction, deleteAction]
+        return [deleteAction]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
