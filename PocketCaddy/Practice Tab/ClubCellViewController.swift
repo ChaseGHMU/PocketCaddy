@@ -17,7 +17,7 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var emptyLabel: UILabel!
     
-    var sum: Int = 0
+    //var sum: Int = 0
     var club:Clubs?
     var swings: [Swings] = []
     let now = Date()
@@ -95,6 +95,7 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
                 let alert2 = UIAlertController(title: "Are you sure", message: "Is " + textField.text! + " what you really meant?", preferredStyle: UIAlertControllerStyle.alert)
                 let submitAction2 = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
                     self.postData(distance: textfieldInt!)
+                    self.getAvgSwing()
                 })
                 alert2.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
                 alert2.addAction(submitAction2)
@@ -102,6 +103,7 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
                 self.present(alert2, animated: true, completion: nil)
             } else {
                 self.postData(distance: textfieldInt!)
+                self.getAvgSwing()
                 
             }
         })
@@ -128,23 +130,27 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
                 let clubId = "\(dict["clubId"]!)"
                 self.swings.append(Swings(swingId: swingId, distance: distance, clubId: clubId, date: nil))
             }
-            self.getAvgSwing()
+           // self.getAvgSwing()
             self.tableView.reloadData()
         })
     }
     
     func getAvgSwing() {
         let count = String(self.swings.count)
+        print("Count is: " + count)
+        var sum = 0.0
         
         for swing in self.swings {
-            self.sum += swing.distance
+            sum += Double(swing.distance)
         }
-        var average:Int = 0
+        //var average:Int = 0
+        var average:Double = 0.0
         if self.swings.count == 0{
             average = 0
         }else{
-            average = self.sum / self.swings.count
+            average = sum / Double(self.swings.count)
         }
+        
         self.avgDistance.text = "\(average)"
         self.numSwings.text = count
     }
