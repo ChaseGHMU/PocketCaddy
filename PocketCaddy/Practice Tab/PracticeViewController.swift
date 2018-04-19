@@ -135,6 +135,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
                 cell.typeTitle.text = "Driver"
             }
             
+            
             cell.avgDistanceTitle.text = clubs[indexPath.row].distance
         }
         // set the text from the data model
