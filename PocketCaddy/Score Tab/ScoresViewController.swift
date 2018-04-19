@@ -148,6 +148,16 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.performSegue(withIdentifier: "logoutSegue",sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? DetailedGameViewController, let index = scoresTableView.indexPathForSelectedRow {
+           // destination.club = clubs[index.row]
+            destination.game = games[index.row]
+            
+        }
+    }
+    
     
 
     /*
