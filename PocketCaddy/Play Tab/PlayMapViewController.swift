@@ -115,12 +115,23 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         }
     }
     
+    func metersPerSecondToMPH(metersPerSecond: Double) ->Double
+    {
+            return metersPerSecond * 2.23694
+    }
+    
+    func metersToYards(meters: Double) -> Double
+    {
+        return meters * 1.09361
+    }
     
     func getDistance(locationOne: CLLocationCoordinate2D, locationTwo: CLLocationCoordinate2D) -> Double {
         let x = CLLocation(latitude: locationOne.latitude, longitude: locationOne.longitude)
         let y = CLLocation(latitude: locationTwo.latitude, longitude: locationTwo.longitude)
         
-        return x.distance(from: y)
+        let meters = x.distance(from: y)
+        
+        return metersToYards(meters: meters)
     }
     
     //    func getPoints(_ hole:Int){
@@ -144,6 +155,75 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         distanceLabel.text = "\(dist) Yards"
         
         createHoleMap(teeLocation: teelocation, greenLocation: greenlocation)
+    }
+    
+    func degreesToRadians(degrees: Double) -> Double
+    {
+        return ((degrees * .pi) / 180.0)
+    }
+    
+    func radiansToDegrees(radians: Double) -> Double
+    {
+        return ((radians * 180) / .pi)
+    }
+    
+    func getDirectionBetweenToPoints(LocationOne: CLLocationCoordinate2D, LocationTwo: CLLocationCoordinate2D) -> Double
+    {
+        let lat1 = degreesToRadians(degrees: LocationOne.latitude)
+        let lat2 = degreesToRadians(degrees: LocationTwo.latitude)
+        
+        let lon1 = degreesToRadians(degrees: LocationOne.longitude)
+        let lon2 = degreesToRadians(degrees: LocationTwo.longitude)
+        
+        let dLon = lon2 - lon1
+        
+        let y = sin(dLon) * cos(lat2)
+        let x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon)
+        let direction = atan2(y, x)
+        
+        return radiansToDegrees(radians: direction)
+    }
+    
+    func getElevationChange(elevationOne: Double, elevationTwo: Double) -> Double
+    {
+        let elevationChange = elevationTwo - elevationOne
+        return metersToYards(meters: elevationChange)
+    }
+    
+    func accountForWind(shotDirection: Double, shotDistance: Double, windDirection: Double, windSpeed: Double) -> Double {
+        let difDirection = shotDirection - windDirection
+        var distanceChange: Double
+        
+        if(difDirection >= -15 && difDirection <= 15)
+        {
+            distanceChange = -1 * ((shotDistance * 0.005) * windSpeed)
+        }
+        
+        else if(difDirection >= -195 && difDirection <= -165)
+        {
+            distanceChange = ((shotDistance * 0.01) * windSpeed)
+        }
+        
+        else
+        {
+            distanceChange = 0;
+        }
+        
+        return distanceChange
+    }
+    
+    func clubRecommendation(locationOneCoordinate: CLLocationCoordinate2D, locationOneAltitude: CLLocationDistance, locationTwoCoordinate: CLLocationCoordinate2D, locationTwoAltitude: CLLocationDistance)
+            -> Double
+    {
+        let distance = getDistance(locationOne: locationOneCoordinate, locationTwo: locationTwoCoordinate)
+        let direction = getDirectionBetweenToPoints(LocationOne: locationOneCoordinate, LocationTwo: locationTwoCoordinate)
+        let elevationChange = getElevationChange(elevationOne: locationOneAltitude, elevationTwo: locationTwoAltitude)
+        //let windDistanceChange = accountForWind(shotDirection: direction, shotDistance: distance, windDirection: windDirection, windSpeed: windSpeed)
+        var adjustedDistance: Double
+        
+        adjustedDistance = distance + elevationChange //+ windDistanceChange
+        
+        return adjustedDistance
     }
     
     func createHoleMap(teeLocation: CLLocationCoordinate2D, greenLocation: CLLocationCoordinate2D){
