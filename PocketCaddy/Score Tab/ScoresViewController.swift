@@ -11,9 +11,8 @@ import Alamofire
 
 class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var settingButton: UIBarButtonItem!
     @IBOutlet weak var scoresTableView: UITableView!
-    
+
     //added 3/19
     var games: [Games] = []
     let defaults = UserDefaults.standard
@@ -50,7 +49,7 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
                            
                             var finalScore = "\(obj["finalScore"]!)"
                             if finalScore == "<null>"{
-                                finalScore = "In-Progress"
+                                finalScore = "Unfinished"
                             }
                             self.games.append(Games(gameId: gameId, courseId: courseId, userId: userId, gameTime: gameTime, finalScore: finalScore))
                            // print(self.games)
@@ -117,9 +116,10 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "PREVIOUS 5 GAMES"
+        return "PREVIOUS GAMES"
     }
     
+    //will need to be changed to accomadate more courses
     func getName(courseId: String) -> String {
         if courseId == "1"{
             return "Triple Lakes Golf Club"
@@ -136,6 +136,28 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
+    @IBAction func logout(_ sender: Any) {
+        defaults.set(nil, forKey: "id")
+        defaults.set(nil, forKey: "username")
+        defaults.set(nil, forKey: "userId")
+        defaults.set(nil, forKey: "created")
+        defaults.set(false, forKey: "isLoggedIn")
+        print("logging out")
+        self.performSegue(withIdentifier: "logoutSegue",sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? DetailedGameViewController, let index = scoresTableView.indexPathForSelectedRow {
+           // destination.club = clubs[index.row]
+            destination.game = games[index.row]
+            
+        }
+    }
+    
     
 
     /*
