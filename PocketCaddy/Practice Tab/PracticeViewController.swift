@@ -193,6 +193,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
         // Pass the selected object to the new view controller.
         if let destination = segue.destination as? ClubCellViewController, let index = tableView.indexPathForSelectedRow {
             destination.club = clubs[index.row]
+            
         }
     }
     

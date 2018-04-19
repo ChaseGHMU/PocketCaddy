@@ -1030,6 +1030,7 @@
                                             <outlet property="courseName" destination="74A-d7-V8q" id="pRQ-Ja-HEK"/>
                                             <outlet property="datePlayed" destination="jmG-Xi-hIp" id="6U3-Ei-e9x"/>
                                             <outlet property="scoreShot" destination="b1w-u9-oQB" id="8hm-9c-8fB"/>
+                                            <segue destination="8Fz-1G-dMn" kind="show" identifier="gameSegue" id="rBv-Ss-MVy"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1059,6 +1060,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4q-bl-LjM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3181.5999999999999" y="-384.55772113943033"/>
+        </scene>
+        <!--Detailed Game View Controller-->
+        <scene sceneID="Oab-XD-5Cu">
+            <objects>
+                <viewController id="8Fz-1G-dMn" customClass="DetailedGameViewController" customModule="PocketCaddy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V5j-A3-L6V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="FG5-o5-8Np"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MKl-aq-Dmc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4009" y="-390"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="Ihe-rx-5Ql">
