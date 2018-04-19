@@ -1045,15 +1045,15 @@
                         <viewLayoutGuide key="safeArea" id="QBO-Pl-xE1"/>
                     </view>
                     <navigationItem key="navigationItem" title="Scorecard" largeTitleDisplayMode="always" id="JhN-RE-5JO">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="uIm-eu-wjj">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="uIm-eu-wjj">
                             <connections>
-                                <segue destination="J0Q-Iy-OhM" kind="show" id="I7Y-Xu-Dbx"/>
+                                <action selector="logout:" destination="WeV-Oj-KdV" id="aZ5-Zw-2c2"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="logoutSegue" id="f0l-5j-sal"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="scoresTableView" destination="uC8-05-Cmi" id="KPD-Gh-hZO"/>
-                        <outlet property="settingButton" destination="uIm-eu-wjj" id="vvq-TH-FZh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4q-bl-LjM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1069,7 +1069,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4u0-O7-igb">
-                                <rect key="frame" x="157.5" y="350.5" width="60" height="30"/>
+                                <rect key="frame" x="157.5" y="328.5" width="60" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="2bg-BR-h3y"/>
                                     <constraint firstAttribute="height" constant="30" id="Pl5-tv-7RT"/>
@@ -1153,4 +1153,7 @@
         <image name="seasons" width="375" height="220"/>
         <image name="write-simple-7" width="29" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="f0l-5j-sal"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -11,9 +11,8 @@ import Alamofire
 
 class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var settingButton: UIBarButtonItem!
     @IBOutlet weak var scoresTableView: UITableView!
-    
+
     //added 3/19
     var games: [Games] = []
     let defaults = UserDefaults.standard
@@ -137,6 +136,18 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
+    @IBAction func logout(_ sender: Any) {
+        defaults.set(nil, forKey: "id")
+        defaults.set(nil, forKey: "username")
+        defaults.set(nil, forKey: "userId")
+        defaults.set(nil, forKey: "created")
+        defaults.set(false, forKey: "isLoggedIn")
+        print("logging out")
+        self.performSegue(withIdentifier: "logoutSegue",sender: self)
+    }
+    
     
 
     /*
