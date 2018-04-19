@@ -205,27 +205,27 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        // Delete Swing Code
-        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
-            
-            let deleteAlert = UIAlertController(title: "Are you sure?", message: "", preferredStyle: UIAlertControllerStyle.alert)
-            
-            // once swings are persistent, the changes to delete will go in yesAction below
-            let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
-                self.swings.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
-                //PocketCaddyData.delete(table: .swings, id: self.swings[indexPath.row].swingId)
-                //print(self.swings[indexPath.row].swingId)
-                self.tableView.reloadData()
-            })
-            deleteAlert.addAction(yesAction)
-            deleteAlert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
-            self.present(deleteAlert, animated: true, completion: nil)
-            
-        })
-        deleteAction.backgroundColor = UIColor.red
-        return [deleteAction]
-    }
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        // Delete Swing Code
+//        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
+//            
+//            let deleteAlert = UIAlertController(title: "Are you sure?", message: "", preferredStyle: UIAlertControllerStyle.alert)
+//            
+//            // once swings are persistent, the changes to delete will go in yesAction below
+//            let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
+//                self.swings.remove(at: indexPath.row)
+//                tableView.deleteRows(at: [indexPath], with: .fade)
+//                //PocketCaddyData.delete(table: .swings, id: self.swings[indexPath.row].swingId)
+//                //print(self.swings[indexPath.row].swingId)
+//                self.tableView.reloadData()
+//            })
+//            deleteAlert.addAction(yesAction)
+//            deleteAlert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+//            self.present(deleteAlert, animated: true, completion: nil)
+//            
+//        })
+//        deleteAction.backgroundColor = UIColor.red
+//        return [deleteAction]
+//    }
 
 }
