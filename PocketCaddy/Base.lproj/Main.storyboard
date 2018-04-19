@@ -1068,9 +1068,33 @@
                     <view key="view" contentMode="scaleToFill" id="V5j-A3-L6V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLD-Hg-Uch">
+                                <rect key="frame" x="135" y="89" width="104.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1D-jE-6gQ">
+                                <rect key="frame" x="159" y="162" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OLD-Hg-Uch" firstAttribute="top" secondItem="FG5-o5-8Np" secondAttribute="top" constant="25" id="4lR-yq-i67"/>
+                            <constraint firstItem="OLD-Hg-Uch" firstAttribute="centerX" secondItem="FG5-o5-8Np" secondAttribute="centerX" id="M1p-tU-HzZ"/>
+                            <constraint firstItem="m1D-jE-6gQ" firstAttribute="top" secondItem="OLD-Hg-Uch" secondAttribute="bottom" constant="7" id="WzN-PH-EQ6"/>
+                            <constraint firstItem="m1D-jE-6gQ" firstAttribute="centerX" secondItem="FG5-o5-8Np" secondAttribute="centerX" id="kPf-NV-dsf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="FG5-o5-8Np"/>
                     </view>
+                    <connections>
+                        <outlet property="courseName" destination="OLD-Hg-Uch" id="Wdu-Dh-asb"/>
+                        <outlet property="gameDate" destination="m1D-jE-6gQ" id="L0N-D9-wMN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKl-aq-Dmc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
