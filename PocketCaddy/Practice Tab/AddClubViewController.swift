@@ -22,8 +22,9 @@ class AddClubViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         super.viewDidLoad()
         clubPicker.delegate = self
         clubPicker.dataSource = self
-        
+        self.title = "Add Club"
 
+        navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
         // Do any additional setup after loading the view.
     }
 
