@@ -51,9 +51,14 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
                     }
                 }
                 self.tableView.reloadData()
+                self.emptyLabel.isHidden = true
                 self.emptyLabel.text = "You haven't added any clubs yet! Press the '+' at the top of the page to fill your bag."
                 self.emptyLabel.textAlignment = NSTextAlignment.center
                 self.tableView.backgroundView = self.emptyLabel
+                if(self.clubs.count == 0)
+                {
+                    self.emptyLabel.isHidden = false
+                }
                 self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
               //  self.tableView.isScrollEnabled = false
             }
