@@ -14,6 +14,7 @@
 		4497642D2048716100AC8FC6 /* ScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4497642C2048716100AC8FC6 /* ScoresViewController.swift */; };
 		44C3F9A62080FEB000CD9CD9 /* AddClubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C3F9A52080FEB000CD9CD9 /* AddClubViewController.swift */; };
 		44CEA1E020883F5A0075516F /* DetailedGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CEA1DF20883F5A0075516F /* DetailedGameViewController.swift */; };
+		44E1571620898C7600CCAB12 /* DetailedScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E1571520898C7600CCAB12 /* DetailedScoreTableViewCell.swift */; };
 		9401DBEA204BAA10005C1937 /* Swings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9401DBE9204BAA10005C1937 /* Swings.swift */; };
 		9401DBEC204BAA70005C1937 /* Clubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9401DBEB204BAA70005C1937 /* Clubs.swift */; };
 		940F651420523F4D00514850 /* PlayMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940F651320523F4D00514850 /* PlayMapViewController.swift */; };
@@ -70,6 +71,7 @@
 		4497642C2048716100AC8FC6 /* ScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresViewController.swift; sourceTree = "<group>"; };
 		44C3F9A52080FEB000CD9CD9 /* AddClubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClubViewController.swift; sourceTree = "<group>"; };
 		44CEA1DF20883F5A0075516F /* DetailedGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedGameViewController.swift; sourceTree = "<group>"; };
+		44E1571520898C7600CCAB12 /* DetailedScoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedScoreTableViewCell.swift; sourceTree = "<group>"; };
 		832520ABDE89D77C223F5E93 /* Pods-PocketCaddy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketCaddy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy.debug.xcconfig"; sourceTree = "<group>"; };
 		9401DBE9204BAA10005C1937 /* Swings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swings.swift; sourceTree = "<group>"; };
 		9401DBEB204BAA70005C1937 /* Clubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clubs.swift; sourceTree = "<group>"; };
@@ -169,9 +171,10 @@
 		44C3F9A9208100AC00CD9CD9 /* Score Tab */ = {
 			isa = PBXGroup;
 			children = (
+				44E1571520898C7600CCAB12 /* DetailedScoreTableViewCell.swift */,
 				44CEA1DF20883F5A0075516F /* DetailedGameViewController.swift */,
-				94710A51204CC2CB007ECD9B /* ScoresTableViewCell.swift */,
 				4497642C2048716100AC8FC6 /* ScoresViewController.swift */,
+				94710A51204CC2CB007ECD9B /* ScoresTableViewCell.swift */,
 				4497642A2048706800AC8FC6 /* SettingsViewController.swift */,
 			);
 			path = "Score Tab";
@@ -484,6 +487,7 @@
 				947323BF204922BC008146F2 /* PlaySearchTableViewCell.swift in Sources */,
 				9401DBEA204BAA10005C1937 /* Swings.swift in Sources */,
 				448DB614204CA50B0045C13B /* ClubCellViewController.swift in Sources */,
+				44E1571620898C7600CCAB12 /* DetailedScoreTableViewCell.swift in Sources */,
 				9492BF89205CCE930031ECD3 /* Scores.swift in Sources */,
 				9401DBEC204BAA70005C1937 /* Clubs.swift in Sources */,
 			);

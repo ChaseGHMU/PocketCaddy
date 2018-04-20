@@ -7,20 +7,33 @@
 //
 
 import UIKit
+import Alamofire
 
-class DetailedGameViewController: UIViewController {
-    
-   
-    
+class DetailedGameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     var game:Games?
     var scores: [Scores] = []
+    let defaults = UserDefaults.standard
+    var currentGame:String = ""
+    
     @IBOutlet weak var courseName: UILabel!
     @IBOutlet weak var gameDate: UILabel!
+    @IBOutlet weak var scoreTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         courseName.text = getName(courseId: (game?.courseId)!)
         gameDate.text = game?.gameTime
+        print(game?.gameId)
+        currentGame = (game?.gameId)!
+        
+        scoreTable.delegate = self
+        scoreTable.dataSource = self
+        
+        scores = []
+        getScores()
+        navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
+
 
         // Do any additional setup after loading the view.
     }
@@ -29,6 +42,58 @@ class DetailedGameViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return scores.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "holeCell", for: indexPath)
+        
+        if let cell = cell as? DetailedScoreTableViewCell {
+            //cell.hole.text = getName(courseId: self.games[indexPath.row].courseId)
+            if self.scores[indexPath.row].gameId == currentGame{
+                cell.hole.text = "Hole " + String(self.scores[indexPath.row].holeId)
+                cell.holeScore.text = self.scores[indexPath.row].scores
+            }
+            
+           
+        }
+        return cell
+        
+    }
+    func getScores(){
+        if let userid = defaults.string(forKey: "userId"){
+            PocketCaddyData.getUserInfo(table: .scores, userId: userid, completionHandler: { response in
+                if let response = response{
+                    for results in response {
+                        if let obj = results as? NSDictionary{
+                            
+                            
+                            let holeId = "\(obj["holeId"]!)"
+                            let gameId = "\(obj["gameId"]!)"
+                            
+                            var scores = "\(obj["scores"])"
+                            if scores == "nil"{
+                                scores = "No Score"
+                            }
+                           
+                            let holeId2 = Int(holeId)
+                            if gameId == self.currentGame{
+                                let myGame = gameId
+                                self.scores.append(Scores(holeId: holeId2!, gameId: myGame, scores: scores))
+                            }
+                           
+                            
+                            // print(self.games)
+                            //print(self.games[0].courseId)
+                        }
+                    }
+                    self.scoreTable.reloadData()
+                }
+            })
+        }
+    }
+    
     
     func getName(courseId: String) -> String {
         if courseId == "1"{
