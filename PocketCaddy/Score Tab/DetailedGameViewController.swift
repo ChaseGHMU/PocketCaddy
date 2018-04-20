@@ -16,6 +16,7 @@ class DetailedGameViewController: UIViewController {
     var scores: [Scores] = []
     @IBOutlet weak var courseName: UILabel!
     @IBOutlet weak var gameDate: UILabel!
+    @IBOutlet weak var scoreTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
