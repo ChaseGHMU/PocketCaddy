@@ -47,9 +47,7 @@ class AddClubViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
     
     @IBAction func addClub(_ sender: Any) {
-//        print(clubName.text)
         let selectedValue = clubTypes[clubPicker.selectedRow(inComponent: 0)]
-        print(selectedValue)
        
         if let textField = clubName.text, let userId = self.defaults.string(forKey: "userId") {
             let parameters: Parameters = [
@@ -60,31 +58,8 @@ class AddClubViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             ]
         
         PocketCaddyData.post(table: .clubs, parameters: parameters, login: false, completionHandler: { (dict, string, response) in
-            if let dict = dict{
-                print(dict)
-                let id = "\(dict["clubId"]!)"
-                let nickname = "\(dict["nickname"]!)"
-                let userId = "\(dict["userId"]!)"
-                let type = "\(dict["type"]!)"
-                print("Adding Club\n")
-               // self.class().append(Clubs(id: id, type: selectedValue, name: nickname, distance: "0.0", userId: userId))
-            }
-           
         })
     }
         navigationController?.popViewController(animated: true)
     }
-   
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -17,7 +17,6 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var emptyLabel: UILabel!
     
-    //var sum: Int = 0
     var club:Clubs?
     var swings: [Swings] = []
     let now = Date()
@@ -39,17 +38,7 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
                     self.swings = response
                     self.swings.reverse()  // displays swings by most recent at top, rather than oldest on top
                 }
-//                    for results in response {
-//                        if let obj = results as? NSDictionary{
-//                            let id = "\(obj["swingId"]!)"
-//                            let distance = "\(obj["distance"]!)" //int
-//                            let clubId = "\(obj["clubId"]!)"
-//
-//                            //print(type)
-//                            self.swings.append(Swings(swingId: id, distance: Int(distance)!, clubId: clubId, date: self.now))
-//                        }}
-//                    }
-                    
+
                 self.numSwings.text = "\(self.swings.count)"
                 self.getAvgSwing()
                 self.tableView.reloadData()
@@ -130,20 +119,17 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
                 let clubId = "\(dict["clubId"]!)"
                 self.swings.append(Swings(swingId: swingId, distance: distance, clubId: clubId, date: nil))
             }
-           // self.getAvgSwing()
             self.tableView.reloadData()
         })
     }
     
     func getAvgSwing() {
         let count = String(self.swings.count)
-        print("Count is: " + count)
         var sum = 0.0
         
         for swing in self.swings {
             sum += Double(swing.distance)
         }
-        //var average:Int = 0
         var average:Double = 0.0
         if self.swings.count == 0{
             average = 0
@@ -178,17 +164,6 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
         
         // create a new cell if needed or reuse an old one
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier)!
-        
-//        if let cell = cell as? PracticeClubViewCell{
-//            if(indexPath.row % 2 == 0)
-//            {
-//                cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.96, alpha:1.0)
-//            }
-//                
-//            else
-//            {
-//                cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.93, alpha:1.0)
-//            }
             // set the text from the data model
             let stringInt = String(self.swings[indexPath.row].distance)
             cell.textLabel?.text = stringInt + " yards"

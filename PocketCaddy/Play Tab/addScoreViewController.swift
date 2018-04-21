@@ -44,7 +44,6 @@ class addScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 "score": strokesTitle
             ]
             PocketCaddyData.update(gameId: gameId, holeId: holeId, parameters: parameters, completionHandler: { (bool) in
-                
             })
         }
         self.dismiss(animated: true, completion: nil)
@@ -75,17 +74,4 @@ class addScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
         return "\(putts[row])"
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

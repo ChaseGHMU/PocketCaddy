@@ -75,7 +75,6 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         
         let rightButton = UIBarButtonItem.init(title: "Scorecard", style: .done, target: self, action: #selector(scorecardAction(sender:)))
         self.navigationItem.rightBarButtonItem = rightButton
-        //    mapView.delegate = self
         
         // Do any additional setup after loading the view.
         navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
@@ -122,17 +121,7 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         
         return x.distance(from: y)
     }
-    
-    //    func getPoints(_ hole:Int){
-    //        let holeNum = holes[hole]
-    //        let teelocation = CLLocationCoordinate2D(latitude: holeNum.teeX, longitude: holeNum.teeY)
-    //        let greenlocation = CLLocationCoordinate2D(latitude: holeNum.greenX, longitude: holeNum.greenY)
-    //        var dist = getDistance(locationOne: teelocation, locationTwo: greenlocation)
-    //        dist.round(.toNearestOrAwayFromZero)
-    //        distanceLabel.text = "\(dist) Yards"
-    //
-    //        createHoleMap(teeLocation: teelocation, greenLocation: greenlocation)
-    //    }
+
     func getPoints(_ hole:Int){
         let holeNum = holes[hole]
         let currLocation:CLLocationCoordinate2D = userLocation
