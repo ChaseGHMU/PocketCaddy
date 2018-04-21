@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Alamofire
 
 class PlayScorecardTableViewController: UITableViewController {
     var scores = [Scores]()
     var holes = [Holes]()
     var gameId: String?
     var courseId: String?
+    let defaults = UserDefaults.standard
     var holeNum: [Int] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
     
     override func viewDidLoad() {
@@ -103,6 +105,41 @@ class PlayScorecardTableViewController: UITableViewController {
 
     @IBAction func finishRound(_ sender: Any) {
         print("button clicked")
+        /*
+         [
+         {
+         "gameId": 0,
+         "courseId": 0,
+         "userId": 0,
+         "gameTime": "2018-04-21T21:22:42.270Z",
+         "finalScore": 0
+         }
+         ]
+        */
+        if let gameId = gameId, let courseId = courseId, let userId = defaults.string(forKey: "userId"){
+            var totalScore = 0;
+            var totalPar = 0;
+            
+            for i in 0...17 {
+                let x: Int? = Int(scores[i].scores)
+                if let x = x, x != 0{
+                    totalScore += x
+                    totalPar += holes[i].par
+                }
+            }
+            
+            let finalScore = totalScore - totalPar
+            print("finalScore: \(finalScore)")
+            
+//            let params: Parameters = [
+//                "gameId": gameId,
+//                "courseId": courseId,
+//                "userId": userId,
+//                "finalScore": finalScore
+//            ]
+//
+//            PocketCaddyData.updateGame(parameters: params)
+        }
     }
     /*
     // Override to support conditional editing of the table view.

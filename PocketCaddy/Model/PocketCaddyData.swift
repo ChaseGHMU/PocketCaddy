@@ -72,6 +72,15 @@ class PocketCaddyData{
         return
     }
     
+    static func updateGame(parameters: Parameters){
+        let url = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Games/update"
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON(completionHandler: {response in
+            if response.result.value != nil {
+                print(response.response?.statusCode)
+            }
+        })
+    }
+    
     /*
      GET FUNCTION: PARAMETERS
      table:
