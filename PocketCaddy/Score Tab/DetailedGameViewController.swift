@@ -24,7 +24,6 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         courseName.text = getName(courseId: (game?.courseId)!)
         gameDate.text = game?.gameTime
-        print(game?.gameId)
         currentGame = (game?.gameId)!
         
         scoreTable.delegate = self
@@ -104,10 +103,6 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
                                 let myGame = gameId
                                 self.scores.append(Scores(holeId: holeId2!, gameId: myGame, scores: scores))
                             }
-                           
-                            
-                            // print(self.games)
-                            //print(self.games[0].courseId)
                         }
                     }
                     self.scoreTable.reloadData()
