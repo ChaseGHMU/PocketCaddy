@@ -104,18 +104,6 @@ class PlayScorecardTableViewController: UITableViewController {
     }
 
     @IBAction func finishRound(_ sender: Any) {
-        print("button clicked")
-        /*
-         [
-         {
-         "gameId": 0,
-         "courseId": 0,
-         "userId": 0,
-         "gameTime": "2018-04-21T21:22:42.270Z",
-         "finalScore": 0
-         }
-         ]
-        */
         if let gameId = gameId, let courseId = courseId, let userId = defaults.string(forKey: "userId"){
             var totalScore = 0;
             var totalPar = 0;
@@ -129,16 +117,15 @@ class PlayScorecardTableViewController: UITableViewController {
             }
             
             let finalScore = totalScore - totalPar
-            print("finalScore: \(finalScore)")
             
-//            let params: Parameters = [
-//                "gameId": gameId,
-//                "courseId": courseId,
-//                "userId": userId,
-//                "finalScore": finalScore
-//            ]
-//
-//            PocketCaddyData.updateGame(parameters: params)
+            let params: Parameters = [
+                "gameId": gameId,
+                "courseId": courseId,
+                "userId": userId,
+                "finalScore": finalScore
+            ]
+
+            PocketCaddyData.updateGame(parameters: params)
         }
     }
 }
