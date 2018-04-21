@@ -94,8 +94,8 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
                             let holeId = "\(obj["holeId"]!)"
                             let gameId = "\(obj["gameId"]!)"
                             
-                            var scores = "\(obj["scores"])"
-                            if scores == "nil"{
+                            var scores = "\(obj["score"]!)"
+                            if scores == "0"{
                                 scores = "No Score"
                             }
                            

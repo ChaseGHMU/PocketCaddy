@@ -174,7 +174,7 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
                 // delete the table view row
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 self.tableView.reloadData()
-                
+                print("NUMBER OF CLUBS = + \(self.clubs.count)")
                 if self.clubs.count == 0{
                     self.emptyLabel.text = "You haven't added any clubs yet! Press the '+' at the top of the page to fill your bag."
                     self.emptyLabel.textAlignment = NSTextAlignment.center
