@@ -104,7 +104,7 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
             } else {
                 self.postData(distance: textfieldInt!)
                 self.getAvgSwing()
-                
+                self.viewDidLoad()
             }
         })
         alert.addAction(submitAction)
