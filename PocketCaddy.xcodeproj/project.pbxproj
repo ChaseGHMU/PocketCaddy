@@ -174,8 +174,8 @@
 				44E1571520898C7600CCAB12 /* DetailedScoreTableViewCell.swift */,
 				44CEA1DF20883F5A0075516F /* DetailedGameViewController.swift */,
 				4497642C2048716100AC8FC6 /* ScoresViewController.swift */,
-				94710A51204CC2CB007ECD9B /* ScoresTableViewCell.swift */,
 				4497642A2048706800AC8FC6 /* SettingsViewController.swift */,
+				94710A51204CC2CB007ECD9B /* ScoresTableViewCell.swift */,
 			);
 			path = "Score Tab";
 			sourceTree = "<group>";
