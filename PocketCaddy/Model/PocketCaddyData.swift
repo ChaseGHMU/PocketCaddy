@@ -72,6 +72,16 @@ class PocketCaddyData{
         return
     }
     
+    static func updateGame(parameters: Parameters){
+        if let gameId = parameters["gameId"] as? String{
+            let url = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Games/update?where=%7B%22gameId%22%3A%20\(gameId)%7D"
+            Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON(completionHandler: {response in
+                if response.result.value != nil {
+                }
+            })
+        }
+    }
+    
     /*
      GET FUNCTION: PARAMETERS
      table:
@@ -83,7 +93,7 @@ class PocketCaddyData{
      completionHandler:
         same as above. returns the same three things. This one returns status code because in some cases you will not get a NSDictionary back from your call, just a status code to confirm it worked.
     */
-    class func get(table: Table, id: String?, exists: Bool, completionHandler: @escaping (NSDictionary?, String, Int?) -> Void){
+    static func get(table: Table, id: String?, exists: Bool, completionHandler: @escaping (NSDictionary?, String, Int?) -> Void){
         var url = baseURL + "\(table)"
         if let id = id{
             url.append("/\(id)")
@@ -107,11 +117,96 @@ class PocketCaddyData{
         })
     }
     
+    static func getScores(gameId: String, completionHandler: @escaping ([Scores]) -> Void){
+        let url = baseURL + "Scores?filter[where][gameId]=\(gameId)"
+        var scores = [Scores]()
+        
+        Alamofire.request(url).responseJSON { response in
+            if response.result.value != nil, let data = response.data{
+                    let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                    if let array = json as? [Any]{
+                        for results in array{
+                            if let obj = results as? NSDictionary{
+                                let gameId = "\(obj["gameId"]!)"
+                                let holeId =  obj["holeId"] as! Int
+                                let score = "\(obj["score"]!)"
+                                scores.append(Scores(holeId: holeId, gameId: gameId, scores: score))
+                            }
+                        }
+                        completionHandler(scores)
+                        return
+                    }
+            }
+            completionHandler([])
+        }
+    }
+    
+    static func delete(table: Table, id: String) -> Void {
+        let url = baseURL + "\(table)/\(id)"
+
+        Alamofire.request(url, method: .delete).responseJSON(completionHandler: { response in
+            return
+        })
+    }
+    
+    static func update(gameId: String, holeId: String, parameters: Parameters, completionHandler: @escaping (Bool) ->Void){
+        let url = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Scores/update?where=%7b%22holeId%22%3a\(holeId)%2c%22gameId%22%3a\(gameId)%7d"
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
+            if response.result.value != nil, let dict = response.result.value as? NSDictionary, let count = dict["count"] as? Int{
+                if count == 1 {
+                    completionHandler(true)
+                    return
+                }
+                completionHandler(false)
+            }
+        }
+    }
+    
+    static func getUserInfo(table: Table, userId: String, completionHandler: @escaping ([Any]?) -> Void){
+        var url = baseURL
+        url.append("\(table)?filter[where][userId]=\(userId)")
+        
+        Alamofire.request(url).responseJSON(completionHandler: { response in
+            if response.result.value != nil, let data = response.data{
+                let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                if let array = json as? [Any]{
+                    completionHandler(array)
+                }
+                completionHandler(nil)
+            }
+            completionHandler(nil)
+        })
+    }
+    
+    static func getSwings(table: Table, clubId: String, completionHandler: @escaping ([Swings]?) -> Void){
+        var url = baseURL
+        url.append("\(table)?filter[where][clubId]=\(clubId)")
+        var swings = [Swings]()
+        Alamofire.request(url).responseJSON(completionHandler: { response in
+            if response.result.value != nil, let data = response.data{
+                let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                if let array = json as? [Any]{
+                        for results in array {
+                            if let obj = results as? NSDictionary{
+                                let swingId = "\(obj["swingId"]!)"
+                                let distance = obj["distance"]! as! Int
+                                let clubId = "\(obj["clubId"]!)"
+                                swings.append(Swings(swingId: swingId, distance: distance, clubId: clubId, date: nil))
+                            }
+                        }
+                        completionHandler(swings)
+                }
+                completionHandler(nil)
+            }
+            completionHandler(nil)
+        })
+    }
+    
     //Only used for realtime update of search bar in play
-    class func search(searchText: String, completionHandler: @escaping ([Course]? )-> Void){
+    static func search(searchText: String, completionHandler: @escaping ([Course]? )-> Void){
         var course = [Course]()
-        var url = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Courses?filter[where][courseName][like]="
-        url.append(searchText)
+        var url = baseURL
+        url.append("Courses?filter[where][courseName][like]=\(searchText)")
         if(searchText != ""){
             url.append("%25")
         }
@@ -139,5 +234,41 @@ class PocketCaddyData{
             }
         }).resume()
         
+    }
+    
+    static func getHoles(courseId: String, completionHandler: @escaping ([Holes])->Void) {
+        var holes = [Holes]()
+        var url = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Holes?filter[where][courseId]="
+        url.append(courseId)
+        
+        Alamofire.request(url, method: .get).responseJSON(completionHandler: {response in
+            if response.result.value != nil, let data = response.data{
+                let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                if let array = json as? [Any]{
+                    for results in array{
+                        if let obj = results as? NSDictionary{
+                            let holeId = "\(obj["holeId"]!)"
+                            let courseId = "\(obj["courseId"]!)"
+                            let holeNum = obj["holeNum"] as! Int
+                            let par = obj["par"] as! Int
+                            let greenX = obj["greenX"] as! Double
+                            let greenY = obj["greenY"] as! Double
+                            let teeX = obj["teeX"] as! Double
+                            let teeY = obj["teeY"] as! Double
+                            var middleX = obj["middleX"] as? Double
+                            var middleY = obj["middleX"] as? Double
+                            
+                            if(middleX == nil || middleY == nil){
+                                middleX = 0.0
+                                middleY = 0.0
+                            }
+                            
+                            holes.append(Holes(holeID: holeId, courseID: courseId, holeNum: holeNum, par: par, greenX: greenX, greenY: greenY, teeX: teeX, teeY: teeY, middleX: middleX, middleY: middleY))
+                        }
+                    }
+                    completionHandler(holes)
+                }
+            }
+        })
     }
 }

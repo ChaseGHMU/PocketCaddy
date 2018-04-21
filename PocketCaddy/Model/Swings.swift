@@ -8,15 +8,19 @@
 
 import Foundation
 
-struct Swings: Codable {
+struct Swings {
     
     let swingId: String
-    let distance: String
+    let distance: Int
     let clubId: String
+    let date: Date?
     
-    private enum CodingKeys : String, CodingKey {
-        case swingId
-        case distance
-        case clubId
-    }
+    /*
+     EXAMPLE PARAMETERS FOR SWINGS PUT
+     
+     let swings: Parameters = [
+        "distance": "input_distance_hit",
+        "clubId": "input_clubId_for_user_here"
+     ]
+    */
 }
