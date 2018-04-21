@@ -50,9 +50,31 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
         
         if let cell = cell as? DetailedScoreTableViewCell {
             //cell.hole.text = getName(courseId: self.games[indexPath.row].courseId)
+            if(indexPath.row % 2 == 0)
+            {
+                cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.96, alpha:1.0)
+            }
+                
+            else
+            {
+                cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.93, alpha:1.0)
+            }
             if self.scores[indexPath.row].gameId == currentGame{
                 cell.hole.text = "Hole " + String(self.scores[indexPath.row].holeId)
                 cell.holeScore.text = self.scores[indexPath.row].scores
+                let score = cell.holeScore.text![(cell.holeScore.text?.startIndex)!]
+                if(score == "-")
+                {
+                    cell.holeScore.textColor = UIColor.red
+                }
+                else if(score == "+")
+                {
+                    cell.holeScore.textColor = UIColor(red: 0.00, green: 0.00, blue: 0.39, alpha: 1.0)
+                }
+                else
+                {
+                    cell.holeScore.textColor = UIColor.black
+                }
             }
             
            
