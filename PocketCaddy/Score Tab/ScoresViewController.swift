@@ -45,11 +45,15 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             if let tRange = gameTime.range(of: "T") {
                                 gameTime.removeSubrange(tRange.lowerBound..<gameTime.endIndex)
                             }
-
                            
                             var finalScore = "\(obj["finalScore"]!)"
+                            let scoreToNum:Int? = Int(finalScore)
                             if finalScore == "<null>"{
                                 finalScore = "Unfinished"
+                            }else{
+                                if let scoreToNum = scoreToNum, scoreToNum > 0{
+                                    finalScore = "+\(scoreToNum)"
+                                }
                             }
                             self.games.append(Games(gameId: gameId, courseId: courseId, userId: userId, gameTime: gameTime, finalScore: finalScore))
                         }
