@@ -53,6 +53,8 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             }else{
                                 if let scoreToNum = scoreToNum, scoreToNum > 0{
                                     finalScore = "+\(scoreToNum)"
+                                }else if scoreToNum == 0{
+                                    finalScore = "E"
                                 }
                             }
                             self.games.append(Games(gameId: gameId, courseId: courseId, userId: userId, gameTime: gameTime, finalScore: finalScore))
@@ -63,14 +65,6 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
             })
         }
     }
-    
-    //added 3/19
-    override func viewDidAppear(_ animated: Bool) {
-        games = []
-        getGames()
-    }
-    
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
