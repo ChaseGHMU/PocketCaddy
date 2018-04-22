@@ -1105,13 +1105,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLD-Hg-Uch">
-                                <rect key="frame" x="121" y="89" width="133.5" height="25.5"/>
+                                <rect key="frame" x="-79" y="89" width="133.5" height="25.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1D-jE-6gQ">
+                                <rect key="frame" x="-79" y="122.5" width="133.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="1QL-rU-PgE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTg-Ak-vZD">
+                                <rect key="frame" x="166.5" y="148.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="C17-fd-sbC">
-                                <rect key="frame" x="0.0" y="151.5" width="375" height="466.5"/>
+                                <rect key="frame" x="0.0" y="174.5" width="375" height="443.5"/>
                                 <color key="backgroundColor" red="0.99907451868057251" green="0.98071175813674927" blue="0.96288019418716431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="holeCell" id="3py-jQ-BfN" customClass="DetailedScoreTableViewCell" customModule="PocketCaddy" customModuleProvider="target">
@@ -1148,32 +1163,29 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1D-jE-6gQ">
-                                <rect key="frame" x="121" y="122.5" width="133.5" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="1QL-rU-PgE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.99907451868057251" green="0.98071175813674927" blue="0.96288019418716431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="C17-fd-sbC" firstAttribute="top" secondItem="m1D-jE-6gQ" secondAttribute="bottom" constant="8" symbolic="YES" id="0Hi-C2-IZe"/>
                             <constraint firstItem="C17-fd-sbC" firstAttribute="leading" secondItem="V5j-A3-L6V" secondAttribute="leading" id="0w3-xY-hE2"/>
-                            <constraint firstItem="C17-fd-sbC" firstAttribute="centerX" secondItem="m1D-jE-6gQ" secondAttribute="centerX" id="4hK-XZ-TqI"/>
+                            <constraint firstItem="RTg-Ak-vZD" firstAttribute="top" secondItem="m1D-jE-6gQ" secondAttribute="bottom" constant="5" id="1Ki-Et-bqc"/>
+                            <constraint firstItem="C17-fd-sbC" firstAttribute="centerX" secondItem="m1D-jE-6gQ" secondAttribute="centerX" constant="199.75" id="4hK-XZ-TqI"/>
                             <constraint firstItem="OLD-Hg-Uch" firstAttribute="top" secondItem="FG5-o5-8Np" secondAttribute="top" constant="25" id="4lR-yq-i67"/>
                             <constraint firstItem="m1D-jE-6gQ" firstAttribute="top" secondItem="OLD-Hg-Uch" secondAttribute="bottom" constant="8" symbolic="YES" id="5OT-cS-mmz"/>
                             <constraint firstItem="OLD-Hg-Uch" firstAttribute="centerX" secondItem="FG5-o5-8Np" secondAttribute="centerX" id="M1p-tU-HzZ"/>
                             <constraint firstItem="C17-fd-sbC" firstAttribute="bottom" secondItem="FG5-o5-8Np" secondAttribute="bottom" id="Myt-1U-M26"/>
+                            <constraint firstItem="RTg-Ak-vZD" firstAttribute="centerX" secondItem="FG5-o5-8Np" secondAttribute="centerX" id="UCU-ER-NaV"/>
                             <constraint firstItem="m1D-jE-6gQ" firstAttribute="leading" secondItem="OLD-Hg-Uch" secondAttribute="leading" id="WYF-X2-yxm"/>
+                            <constraint firstAttribute="bottom" secondItem="C17-fd-sbC" secondAttribute="bottom" id="Yct-Kw-SZI"/>
+                            <constraint firstItem="C17-fd-sbC" firstAttribute="leading" secondItem="FG5-o5-8Np" secondAttribute="leading" id="Yed-5R-QSc"/>
+                            <constraint firstItem="C17-fd-sbC" firstAttribute="trailing" secondItem="FG5-o5-8Np" secondAttribute="trailing" id="Zui-lb-lCf"/>
                             <constraint firstItem="m1D-jE-6gQ" firstAttribute="trailing" secondItem="OLD-Hg-Uch" secondAttribute="trailing" id="mAl-MR-pbT"/>
+                            <constraint firstItem="C17-fd-sbC" firstAttribute="top" secondItem="RTg-Ak-vZD" secondAttribute="bottom" constant="5" id="p8k-f0-ToS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FG5-o5-8Np"/>
                     </view>
                     <connections>
                         <outlet property="courseName" destination="OLD-Hg-Uch" id="Wdu-Dh-asb"/>
+                        <outlet property="finalScore" destination="RTg-Ak-vZD" id="aWb-Yw-za6"/>
                         <outlet property="gameDate" destination="m1D-jE-6gQ" id="L0N-D9-wMN"/>
                         <outlet property="scoreTable" destination="C17-fd-sbC" id="Eq0-i6-mG0"/>
                     </connections>
