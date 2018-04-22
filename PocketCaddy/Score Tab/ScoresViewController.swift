@@ -24,10 +24,10 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if let image = UIImage(named: "magnolia-golf-course.jpg"){
             self.view.backgroundColor = UIColor(patternImage: image)
         }
-        games = []
-        getGames()
         navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
         // Do any additional setup after loading the view.
+        games = []
+        getGames()
     }
     
     //added 3/19
@@ -141,7 +141,7 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
             destination.game = games[index.row]
         }
         //logoutSegue
-        if let destination = segue.destination as? LoginViewController {
+        if let destination = segue.destination as? TabViewController {
             defaults.set(nil, forKey: "id")
             defaults.set(nil, forKey: "username")
             defaults.set(nil, forKey: "userId")
