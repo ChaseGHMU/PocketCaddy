@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L7c-Bf-6WN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L7c-Bf-6WN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue-Bold</string>
-        </array>
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-Light</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -1084,7 +1076,7 @@
                     <navigationItem key="navigationItem" title="Scorecard" largeTitleDisplayMode="always" id="JhN-RE-5JO">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="uIm-eu-wjj">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" id="BHv-HE-8eR"/>
+                                <segue destination="L7c-Bf-6WN" kind="presentation" id="72G-sU-1fX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1215,7 +1207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJj-ZE-k5N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3181.5999999999999" y="-1181.5592203898052"/>
+            <point key="canvasLocation" x="1625" y="-1155"/>
         </scene>
         <!--Tab View Controller-->
         <scene sceneID="hmB-zX-92W">
@@ -1277,6 +1269,6 @@
         <image name="write-simple-7" width="29" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BHv-HE-8eR"/>
+        <segue reference="72G-sU-1fX"/>
     </inferredMetricsTieBreakers>
 </document>
