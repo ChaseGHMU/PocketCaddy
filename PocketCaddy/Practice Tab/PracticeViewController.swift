@@ -46,7 +46,6 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
                         if avgDist == "<null>"{
                             avgDist = "0"
                         }
-                        print(type)
                         self.clubs.append(Clubs(id: id, type: type, name: nickname, distance: "\(avgDist) Yds", userId: userId))
                     }
                 }
@@ -70,18 +69,6 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     }
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if self.clubs.count == 0{
-//            emptyLabel.text = "You haven't added any clubs yet! Press the '+' at the top of the page to fill your bag."
-//            emptyLabel.textAlignment = NSTextAlignment.center
-//            self.tableView.backgroundView = emptyLabel
-//            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-//            tableView.isScrollEnabled = false
-//            return 0
-//        }else{
-//            emptyLabel.text = ""
-//            tableView.isScrollEnabled = true
-//            return self.clubs.count
-//        }
         emptyLabel.text = ""
         tableView.isScrollEnabled = true
         return self.clubs.count
@@ -123,13 +110,11 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
                 cell.clubImage.image = UIImage(named: "PutterIcon")
             }
             
-//            cell.clubImage.image = UIImage(named: "DriverIcon")
             cell.clubTitle.text = clubs[indexPath.row].name
             cell.typeTitle.text = clubs[indexPath.row].type
             if cell.typeTitle.text == "<null>"{
                 cell.typeTitle.text = "Driver"
             }
-            
             
             cell.avgDistanceTitle.text = clubs[indexPath.row].distance
         }
@@ -154,17 +139,14 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
       
         // Delete Club Code
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
-            print("Delete tapped")
             let deleteAlert = UIAlertController(title: "Are you sure?", message: "", preferredStyle: UIAlertControllerStyle.alert)
             let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
                 // remove the item from the data model
                 PocketCaddyData.delete(table: .clubs, id: self.clubs[indexPath.row].id)
-                print(self.clubs[indexPath.row].id)
                 self.clubs.remove(at: indexPath.row)
                 // delete the table view row
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 self.tableView.reloadData()
-                print("NUMBER OF CLUBS = + \(self.clubs.count)")
                 if self.clubs.count == 0{
                     self.emptyLabel.text = "You haven't added any clubs yet! Press the '+' at the top of the page to fill your bag."
                     self.emptyLabel.textAlignment = NSTextAlignment.center

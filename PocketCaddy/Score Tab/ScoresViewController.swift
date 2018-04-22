@@ -45,15 +45,19 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             if let tRange = gameTime.range(of: "T") {
                                 gameTime.removeSubrange(tRange.lowerBound..<gameTime.endIndex)
                             }
-
                            
                             var finalScore = "\(obj["finalScore"]!)"
+                            let scoreToNum:Int? = Int(finalScore)
                             if finalScore == "<null>"{
                                 finalScore = "Unfinished"
+                            }else{
+                                if let scoreToNum = scoreToNum, scoreToNum > 0{
+                                    finalScore = "+\(scoreToNum)"
+                                }else if scoreToNum == 0{
+                                    finalScore = "E"
+                                }
                             }
                             self.games.append(Games(gameId: gameId, courseId: courseId, userId: userId, gameTime: gameTime, finalScore: finalScore))
-                           // print(self.games)
-                            //print(self.games[0].courseId)
                         }
                     }
                     self.scoresTableView.reloadData()
@@ -61,14 +65,6 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
             })
         }
     }
-    
-    //added 3/19
-    override func viewDidAppear(_ animated: Bool) {
-        games = []
-        getGames()
-    }
-    
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -93,7 +89,6 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.93, alpha:1.0)
         }
         if let cell = cell as? ScoresTableViewCell {
-            // cell.courseName.text = self.games[indexPath.row].finalScore
             cell.courseName.text = getName(courseId: self.games[indexPath.row].courseId)
             cell.courseName.textColor = UIColor(red: 0.00, green:0.56, blue:0.32, alpha:1.0)
             cell.scoreShot.text = self.games[indexPath.row].finalScore
@@ -138,36 +133,21 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
 
-    @IBAction func logout(_ sender: Any) {
-        defaults.set(nil, forKey: "id")
-        defaults.set(nil, forKey: "username")
-        defaults.set(nil, forKey: "userId")
-        defaults.set(nil, forKey: "created")
-        defaults.set(false, forKey: "isLoggedIn")
-        print("logging out")
-        self.performSegue(withIdentifier: "logoutSegue",sender: self)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if let destination = segue.destination as? DetailedGameViewController, let index = scoresTableView.indexPathForSelectedRow {
            // destination.club = clubs[index.row]
             destination.game = games[index.row]
-            
+        }
+        //logoutSegue
+        if let destination = segue.destination as? LoginViewController {
+            defaults.set(nil, forKey: "id")
+            defaults.set(nil, forKey: "username")
+            defaults.set(nil, forKey: "userId")
+            defaults.set(nil, forKey: "created")
+            defaults.set(false, forKey: "isLoggedIn")
+            print("Logging out")
         }
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
