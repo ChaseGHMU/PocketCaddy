@@ -213,6 +213,8 @@ class PocketCaddyData{
                         let rounded = speedDouble.rounded()
                         let doubleArray = [windDouble, rounded]
                         completionHandler(doubleArray)
+                        
+                        return
                     }
                     completionHandler([])
                 }

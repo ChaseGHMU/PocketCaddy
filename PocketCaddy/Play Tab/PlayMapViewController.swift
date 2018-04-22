@@ -18,6 +18,7 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     @IBOutlet weak var mapView: MKMapView!
     
     var holes: [Holes] = []
+    var wind = [Double]()
     var hole: Int = 0
     var courseId: String?
     var courseName: String?
@@ -59,7 +60,11 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
                 "courseId": courseId,
                 "userId": userId
             ]
+            PocketCaddyData.getWeather(zip: "65201", completionHandler: { wind in
+                self.wind = wind
+            })
             
+            print(wind)
             PocketCaddyData.getHoles(courseId: courseId, completionHandler: { result in
                 self.holes = result
                 self.getPoints(self.hole)
@@ -75,6 +80,7 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         
         let rightButton = UIBarButtonItem.init(title: "Scorecard", style: .done, target: self, action: #selector(scorecardAction(sender:)))
         self.navigationItem.rightBarButtonItem = rightButton
+        //    mapView.delegate = self
         
         // Do any additional setup after loading the view.
         navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
@@ -116,7 +122,7 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     
     func metersPerSecondToMPH(metersPerSecond: Double) ->Double
     {
-            return metersPerSecond * 2.23694
+        return metersPerSecond * 2.23694
     }
     
     func metersToYards(meters: Double) -> Double
@@ -132,7 +138,17 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         
         return metersToYards(meters: meters)
     }
-
+    
+    //    func getPoints(_ hole:Int){
+    //        let holeNum = holes[hole]
+    //        let teelocation = CLLocationCoordinate2D(latitude: holeNum.teeX, longitude: holeNum.teeY)
+    //        let greenlocation = CLLocationCoordinate2D(latitude: holeNum.greenX, longitude: holeNum.greenY)
+    //        var dist = getDistance(locationOne: teelocation, locationTwo: greenlocation)
+    //        dist.round(.toNearestOrAwayFromZero)
+    //        distanceLabel.text = "\(dist) Yards"
+    //
+    //        createHoleMap(teeLocation: teelocation, greenLocation: greenlocation)
+    //    }
     func getPoints(_ hole:Int){
         let holeNum = holes[hole]
         let currLocation:CLLocationCoordinate2D = userLocation
@@ -142,7 +158,7 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         var dist = getDistance(locationOne: currLocation, locationTwo: greenlocation)
         dist.round(.toNearestOrAwayFromZero)
         distanceLabel.text = "\(dist) Yards"
-        
+        let adjustedDistance = clubRecommendation(locationOneCoordinate: currLocation, locationTwoCoordinate: teelocation)
         createHoleMap(teeLocation: teelocation, greenLocation: greenlocation)
     }
     
@@ -187,12 +203,12 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         {
             distanceChange = -1 * ((shotDistance * 0.005) * windSpeed)
         }
-        
+            
         else if(difDirection >= -195 && difDirection <= -165)
         {
             distanceChange = ((shotDistance * 0.01) * windSpeed)
         }
-        
+            
         else
         {
             distanceChange = 0;
@@ -201,16 +217,15 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         return distanceChange
     }
     
-    func clubRecommendation(locationOneCoordinate: CLLocationCoordinate2D, locationOneAltitude: CLLocationDistance, locationTwoCoordinate: CLLocationCoordinate2D, locationTwoAltitude: CLLocationDistance)
-            -> Double
+    func clubRecommendation(locationOneCoordinate: CLLocationCoordinate2D, locationTwoCoordinate: CLLocationCoordinate2D)
+        -> Double
     {
         let distance = getDistance(locationOne: locationOneCoordinate, locationTwo: locationTwoCoordinate)
         let direction = getDirectionBetweenToPoints(LocationOne: locationOneCoordinate, LocationTwo: locationTwoCoordinate)
-        let elevationChange = getElevationChange(elevationOne: locationOneAltitude, elevationTwo: locationTwoAltitude)
-        //let windDistanceChange = accountForWind(shotDirection: direction, shotDistance: distance, windDirection: windDirection, windSpeed: windSpeed)
+        let windDistanceChange = accountForWind(shotDirection: direction, shotDistance: distance, windDirection: wind[0], windSpeed: wind[1])
         var adjustedDistance: Double
         
-        adjustedDistance = distance + elevationChange //+ windDistanceChange
+        adjustedDistance = distance + windDistanceChange
         
         return adjustedDistance
     }
