@@ -41,7 +41,7 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
         getScores()
 
         if let courseId = game?.courseId, let score = game?.finalScore, let gametime = game?.gameTime, let gameId = game?.gameId{
-            courseName.text = getName(courseId: courseId)
+            getName(courseId: (game?.courseId)!)
             gameDate.text = "Final Score: \(score)"  //game?.gameTime
             finalScore.text = gametime //"Final Score:" + (game?.finalScore)!
             
@@ -158,7 +158,7 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
                     }
                     
                 }
-            })
+            })}}
 
 
     /*
@@ -171,4 +171,4 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
     }
     */
 
-}
+        }
