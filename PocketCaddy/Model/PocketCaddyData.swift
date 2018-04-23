@@ -224,6 +224,27 @@ class PocketCaddyData{
         })
     }
     
+    static func getWeather(zip: String, completionHandler: @escaping ([Double])->Void){
+        let url = "http://api.openweathermap.org/data/2.5/weather?zip=\(zip),us&appid=14e3c11ef3f7e8c7fbaecae6510889f2"
+        
+        Alamofire.request(url, method: .get).responseJSON(completionHandler: {response in
+            if response.result.value != nil, let data = response.data{
+                let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                if let array = json as? NSDictionary, let wind = array["wind"] as? NSDictionary{
+                    if let windDouble = wind["deg"] as? Double, let speedDouble = wind["speed"] as? Double{
+                        let rounded = speedDouble.rounded()
+                        let doubleArray = [windDouble, rounded]
+                        completionHandler(doubleArray)
+                        
+                        return
+                    }
+                    completionHandler([])
+                }
+                completionHandler([])
+            }
+        }).resume()
+    }
+    
     //Only used for realtime update of search bar in play
     static func search(searchText: String, completionHandler: @escaping ([Course]? )-> Void){
         var course = [Course]()
