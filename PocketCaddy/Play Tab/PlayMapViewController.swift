@@ -82,7 +82,7 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
-        
+        mapView.delegate = self
     }
     
     @objc func scorecardAction(sender: UIBarButtonItem){
