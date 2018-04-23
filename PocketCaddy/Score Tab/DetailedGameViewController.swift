@@ -16,15 +16,18 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
     let defaults = UserDefaults.standard
     var currentGame:String = ""
     
+
+    @IBOutlet weak var finalScore: UILabel! //now gamedate
     @IBOutlet weak var courseName: UILabel!
-    @IBOutlet weak var gameDate: UILabel!
+    @IBOutlet weak var gameDate: UILabel! //now final score
     @IBOutlet weak var scoreTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         courseName.text = getName(courseId: (game?.courseId)!)
-        gameDate.text = game?.gameTime
+        gameDate.text = "Final Score: " + (game?.finalScore)!  //game?.gameTime
         currentGame = (game?.gameId)!
+        finalScore.text = game?.gameTime //"Final Score:" + (game?.finalScore)!
         
         scoreTable.delegate = self
         scoreTable.dataSource = self
