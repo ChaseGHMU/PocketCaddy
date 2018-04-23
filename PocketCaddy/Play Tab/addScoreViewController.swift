@@ -20,6 +20,7 @@ class addScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var puttsTitle = 1
     var holeId: String?
     var gameId: String?
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,13 +38,13 @@ class addScoreViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     @IBAction func dismiss(_ sender: Any) {
-        if let gameId = gameId, let holeId = holeId{
+        if let gameId = gameId, let holeId = holeId, let tokenId = defaults.string(forKey: "id"){
             let parameters: Parameters = [
                 "gameId": gameId,
                 "holeId": holeId,
                 "score": strokesTitle
             ]
-            PocketCaddyData.update(gameId: gameId, holeId: holeId, parameters: parameters, completionHandler: { (bool) in
+            PocketCaddyData.update(gameId: gameId, tokenId: tokenId, holeId: holeId, parameters: parameters, completionHandler: { (bool) in
             })
         }
         self.dismiss(animated: true, completion: nil)

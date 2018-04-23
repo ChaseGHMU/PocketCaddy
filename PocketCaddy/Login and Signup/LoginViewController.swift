@@ -29,12 +29,13 @@ class LoginViewController: UIViewController {
                     "password": "\(password)"
                 ]
                 
-                PocketCaddyData.post(table: .golfers, parameters: login, login: true, completionHandler: { (dict, success, code) in
+                PocketCaddyData.post(table: .golfers, newTable: nil, userId: nil, tokenId: nil, parameters: login, login: true, completionHandler: { (dict, success, code) in
                     if(success == "Success"), let dict = dict{
                         let dictID = "\(dict["userId"]!)"
-                        PocketCaddyData.get(table: .golfers, id: dictID, exists: false, completionHandler: { (result, success, code) in
+                        let tokenId = "\(dict["id"]!)"
+                        PocketCaddyData.get(table: .golfers, tokenId: tokenId, id: dictID, exists: false, completionHandler: { (result, success, code) in
                             if(success == "Success"), let result = result{
-                                let id = "\(result["id"]!)"
+                                let id = "\(dict["id"]!)"
                                 let user = "\(result["username"]!)"
                                 let userId = "\(dict["userId"]!)"
                                 let created = "\(dict["created"]!)"

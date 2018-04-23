@@ -34,24 +34,26 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func getClubs(){
-        PocketCaddyData.getUserInfo(table: .clubs, userId: "\(defaults.string(forKey: "userId")!)", completionHandler: { response in
-            if let response = response{
-                for results in response {
-                    if let obj = results as? NSDictionary{
-                        let id = "\(obj["clubId"]!)"
-                        let nickname = "\(obj["nickname"]!)"
-                        let userId = "\(obj["userId"]!)"
-                        let type = "\(obj["type"]!)"
-                        var avgDist = "\(obj["avgDistance"]!)"
-                        if avgDist == "<null>"{
-                            avgDist = "0"
+        if let userId = defaults.string(forKey: "userId"), let tokenId = defaults.string(forKey: "id"){
+            PocketCaddyData.getUserInfo(table: .clubs, tokenId: tokenId, userId: userId, completionHandler: { response in
+                if let response = response{
+                    for results in response {
+                        if let obj = results as? NSDictionary{
+                            let id = "\(obj["clubId"]!)"
+                            let nickname = "\(obj["nickname"]!)"
+                            let userId = "\(obj["userId"]!)"
+                            let type = "\(obj["type"]!)"
+                            var avgDist = "\(obj["avgDistance"]!)"
+                            if avgDist == "<null>"{
+                                avgDist = "0"
+                            }
+                            self.clubs.append(Clubs(id: id, type: type, name: nickname, distance: "\(avgDist) Yds", userId: userId))
                         }
-                        self.clubs.append(Clubs(id: id, type: type, name: nickname, distance: "\(avgDist) Yds", userId: userId))
                     }
+                    self.tableView.reloadData()
                 }
-                self.tableView.reloadData()
-            }
-        })
+            })
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -142,11 +144,13 @@ class PracticeViewController: UIViewController, UITableViewDelegate, UITableView
             let deleteAlert = UIAlertController(title: "Are you sure?", message: "", preferredStyle: UIAlertControllerStyle.alert)
             let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
                 // remove the item from the data model
-                PocketCaddyData.delete(table: .clubs, id: self.clubs[indexPath.row].id)
-                self.clubs.remove(at: indexPath.row)
-                // delete the table view row
-                tableView.deleteRows(at: [indexPath], with: .fade)
-                self.tableView.reloadData()
+                if let tokenId = self.defaults.string(forKey: "id"){
+                    PocketCaddyData.delete(table: .clubs, tokenId: tokenId, id: self.clubs[indexPath.row].id)
+                    self.clubs.remove(at: indexPath.row)
+                    // delete the table view row
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                    self.tableView.reloadData()
+                }
                 if self.clubs.count == 0{
                     self.emptyLabel.text = "You haven't added any clubs yet! Press the '+' at the top of the page to fill your bag."
                     self.emptyLabel.textAlignment = NSTextAlignment.center

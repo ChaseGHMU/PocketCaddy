@@ -87,6 +87,7 @@ class PlayResultViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 destination.courseId = course.id
                 destination.courseName = course.name
                 destination.hole = pickedHole
+                destination.zipCode = course.zipCode
         }
     }
 

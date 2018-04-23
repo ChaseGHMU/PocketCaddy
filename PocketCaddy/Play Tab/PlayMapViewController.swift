@@ -15,13 +15,19 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     
     @IBOutlet weak var distanceLabel: UILabel!
     
+    @IBOutlet weak var windSpeed: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var rotatedArrow: UIImageView!
     var holes: [Holes] = []
+    var wind = [Double]()
+    var clubs = [Clubs]()
     var hole: Int = 0
     var courseId: String?
     var courseName: String?
+    var zipCode: String?
     var gameId: String?
+    @IBOutlet weak var recommendedClub: UILabel!
     let defaults = UserDefaults.standard
     var userLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(0,0)
     
@@ -65,16 +71,19 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
                 self.getPoints(self.hole)
             })
             
-            PocketCaddyData.post(table: .games, parameters: params, login: false, completionHandler: { (dict, string, response) in
-                if let dict = dict, let gameId = dict["gameId"] {
-                    self.gameId = "\(gameId)"
-                }
-            })
+            if let tokenId = defaults.string(forKey: "id"){
+                PocketCaddyData.post(table: .games, newTable: nil, userId: nil, tokenId: tokenId, parameters: params, login: false, completionHandler: { (dict, string, response) in
+                    if let dict = dict, let gameId = dict["gameId"] {
+                        self.gameId = "\(gameId)"
+                    }
+                })
+            }
             self.title = "Hole \(hole+1)"
         }
         
         let rightButton = UIBarButtonItem.init(title: "Scorecard", style: .done, target: self, action: #selector(scorecardAction(sender:)))
         self.navigationItem.rightBarButtonItem = rightButton
+        //    mapView.delegate = self
         
         // Do any additional setup after loading the view.
         navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
@@ -82,7 +91,7 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
-        
+        mapView.delegate = self
     }
     
     @objc func scorecardAction(sender: UIBarButtonItem){
@@ -114,12 +123,23 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         }
     }
     
+    func metersPerSecondToMPH(metersPerSecond: Double) ->Double
+    {
+        return metersPerSecond * 2.23694
+    }
+    
+    func metersToYards(meters: Double) -> Double
+    {
+        return meters * 1.09361
+    }
     
     func getDistance(locationOne: CLLocationCoordinate2D, locationTwo: CLLocationCoordinate2D) -> Double {
         let x = CLLocation(latitude: locationOne.latitude, longitude: locationOne.longitude)
         let y = CLLocation(latitude: locationTwo.latitude, longitude: locationTwo.longitude)
         
-        return x.distance(from: y)
+        let meters = x.distance(from: y)
+        
+        return metersToYards(meters: meters)
     }
 
     func getPoints(_ hole:Int){
@@ -131,8 +151,116 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         var dist = getDistance(locationOne: currLocation, locationTwo: greenlocation)
         dist.round(.toNearestOrAwayFromZero)
         distanceLabel.text = "\(dist) Yards"
-        
+        PocketCaddyData.getWeather(zip: zipCode!, completionHandler: { wind in
+            self.wind = wind
+            let adjustedDistance = self.clubRecommendation(locationOneCoordinate: currLocation, locationTwoCoordinate: teelocation)
+            print("Adjusted Distance: \(adjustedDistance)")
+            self.rotatedArrow.image = UIImage(named: "Compass Arrow.png")?.rotateImageByDegrees(CGFloat(wind[0]))
+            self.windSpeed.text = "\(wind[1]) MPH"
+            self.recommendClub(distance: adjustedDistance)
+        })
         createHoleMap(teeLocation: teelocation, greenLocation: greenlocation)
+    }
+    
+    func degreesToRadians(degrees: Double) -> Double
+    {
+        return ((degrees * .pi) / 180.0)
+    }
+    
+    func radiansToDegrees(radians: Double) -> Double
+    {
+        return ((radians * 180) / .pi)
+    }
+    
+    func getDirectionBetweenToPoints(LocationOne: CLLocationCoordinate2D, LocationTwo: CLLocationCoordinate2D) -> Double
+    {
+        let lat1 = degreesToRadians(degrees: LocationOne.latitude)
+        let lat2 = degreesToRadians(degrees: LocationTwo.latitude)
+        
+        let lon1 = degreesToRadians(degrees: LocationOne.longitude)
+        let lon2 = degreesToRadians(degrees: LocationTwo.longitude)
+        
+        let dLon = lon2 - lon1
+        
+        let y = sin(dLon) * cos(lat2)
+        let x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon)
+        let direction = atan2(y, x)
+        
+        return radiansToDegrees(radians: direction)
+    }
+    
+    func getElevationChange(elevationOne: Double, elevationTwo: Double) -> Double
+    {
+        let elevationChange = elevationTwo - elevationOne
+        return metersToYards(meters: elevationChange)
+    }
+    
+    func recommendClub(distance: Double){
+
+        if let userId = defaults.string(forKey: "userId"), let tokenId = defaults.string(forKey: "id"){
+            PocketCaddyData.getUserInfo(table: .clubs, tokenId: tokenId, userId: userId, completionHandler: { response in
+                if let response = response{
+                    for results in response {
+                        if let obj = results as? NSDictionary{
+                            let id = "\(obj["clubId"]!)"
+                            let nickname = "\(obj["nickname"]!)"
+                            let userId = "\(obj["userId"]!)"
+                            let type = "\(obj["type"]!)"
+                            var avgDist = "\(obj["avgDistance"]!)"
+                            if avgDist == "<null>"{
+                                avgDist = "0"
+                            }
+                            self.clubs.append(Clubs(id: id, type: type, name: nickname, distance: "\(avgDist)", userId: userId))
+                        }
+                    }
+
+                    for club in self.clubs{
+                        if let clubDistance = Int(club.distance){
+                            if Int(distance) < clubDistance {
+                                continue
+                            }
+                            self.recommendedClub.text = "Club: \(club.name)"
+                            break
+                        }
+                    }
+                }
+            })
+        }
+    }
+    
+    func accountForWind(shotDirection: Double, shotDistance: Double, windDirection: Double, windSpeed: Double) -> Double {
+        let difDirection = shotDirection - windDirection
+        var distanceChange: Double
+        
+        if(difDirection >= -15 && difDirection <= 15)
+        {
+            distanceChange = -1 * ((shotDistance * 0.005) * windSpeed)
+        }
+            
+        else if(difDirection >= -195 && difDirection <= -165)
+        {
+            distanceChange = ((shotDistance * 0.01) * windSpeed)
+        }
+            
+        else
+        {
+            distanceChange = 0;
+        }
+        
+        return distanceChange
+    }
+    
+    func clubRecommendation(locationOneCoordinate: CLLocationCoordinate2D, locationTwoCoordinate: CLLocationCoordinate2D)
+        -> Double
+    {
+        let distance = getDistance(locationOne: locationOneCoordinate, locationTwo: locationTwoCoordinate)
+        let direction = getDirectionBetweenToPoints(LocationOne: locationOneCoordinate, LocationTwo: locationTwoCoordinate)
+        let windDistanceChange = accountForWind(shotDirection: direction, shotDistance: distance, windDirection: wind[0], windSpeed: wind[1])
+        var adjustedDistance: Double
+        
+        adjustedDistance = distance + windDistanceChange
+        
+        return adjustedDistance
     }
     
     func createHoleMap(teeLocation: CLLocationCoordinate2D, greenLocation: CLLocationCoordinate2D){
@@ -154,7 +282,9 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let reuseIdentifier = "pin"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
-        
+        if annotation is MKUserLocation{
+            return nil
+        }
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
             annotationView?.canShowCallout = true

@@ -24,16 +24,16 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if let image = UIImage(named: "magnolia-golf-course.jpg"){
             self.view.backgroundColor = UIColor(patternImage: image)
         }
-        games = []
-        getGames()
         navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
         // Do any additional setup after loading the view.
+        games=[]
+        getGames()
     }
     
     //added 3/19
     func getGames(){
-        if let userid = defaults.string(forKey: "userId"){
-            PocketCaddyData.getUserInfo(table: .games, userId: userid, completionHandler: { response in
+        if let userid = defaults.string(forKey: "userId"), let tokenId = defaults.string(forKey: "id"){
+            PocketCaddyData.getUserInfo(table: .games, tokenId: tokenId, userId: userid, completionHandler: { response in
                 if let response = response{
                     for results in response {
                         if let obj = results as? NSDictionary{
@@ -45,11 +45,17 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             if let tRange = gameTime.range(of: "T") {
                                 gameTime.removeSubrange(tRange.lowerBound..<gameTime.endIndex)
                             }
-
                            
                             var finalScore = "\(obj["finalScore"]!)"
+                            let scoreToNum:Int? = Int(finalScore)
                             if finalScore == "<null>"{
                                 finalScore = "Unfinished"
+                            }else{
+                                if let scoreToNum = scoreToNum, scoreToNum > 0{
+                                    finalScore = "+\(scoreToNum)"
+                                }else if scoreToNum == 0{
+                                    finalScore = "E"
+                                }
                             }
                             self.games.append(Games(gameId: gameId, courseId: courseId, userId: userId, gameTime: gameTime, finalScore: finalScore))
                         }
@@ -59,14 +65,6 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
             })
         }
     }
-    
-    //added 3/19
-    override func viewDidAppear(_ animated: Bool) {
-        games = []
-        getGames()
-    }
-    
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -91,7 +89,7 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.93, alpha:1.0)
         }
         if let cell = cell as? ScoresTableViewCell {
-            cell.courseName.text = getName(courseId: self.games[indexPath.row].courseId)
+            getName(courseId: self.games[indexPath.row].courseId, cell: cell)
             cell.courseName.textColor = UIColor(red: 0.00, green:0.56, blue:0.32, alpha:1.0)
             cell.scoreShot.text = self.games[indexPath.row].finalScore
             let score = cell.scoreShot.text![(cell.scoreShot.text?.startIndex)!]
@@ -116,16 +114,25 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return "PREVIOUS GAMES"
     }
     
-    //will need to be changed to accomadate more courses
-    func getName(courseId: String) -> String {
-        if courseId == "1"{
-            return "Triple Lakes Golf Club"
-        }
-        if courseId == "2" {
-            return "L.A. Nickell"
-        }
-        else {
-            return "Golf Course"
+    func getName(courseId: String, cell: ScoresTableViewCell){
+        var usedName:String = ""
+        
+        if let userid = defaults.string(forKey: "userId"), let tokenId = defaults.string(forKey: "id"){
+            PocketCaddyData.getUserInfo(table: .courses, tokenId: nil, userId: userid, completionHandler: { response in
+                if let response = response{
+                    for results in response {
+                        if let obj = results as? NSDictionary{
+                            let id = "\(obj["courseId"]!)"
+                            let name = "\(obj["courseName"]!)"
+                            if courseId == id{
+                                usedName = name
+                               cell.courseName.text = usedName
+                            }
+                        }
+                    }
+                    
+                }
+            })
         }
     }
     
@@ -135,22 +142,21 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
 
-    @IBAction func logout(_ sender: Any) {
-        defaults.set(nil, forKey: "id")
-        defaults.set(nil, forKey: "username")
-        defaults.set(nil, forKey: "userId")
-        defaults.set(nil, forKey: "created")
-        defaults.set(false, forKey: "isLoggedIn")
-        self.performSegue(withIdentifier: "logoutSegue",sender: self)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if let destination = segue.destination as? DetailedGameViewController, let index = scoresTableView.indexPathForSelectedRow {
            // destination.club = clubs[index.row]
             destination.game = games[index.row]
-            
+        }
+        //logoutSegue
+        if let destination = segue.destination as? TabViewController {
+            defaults.set(nil, forKey: "id")
+            defaults.set(nil, forKey: "username")
+            defaults.set(nil, forKey: "userId")
+            defaults.set(nil, forKey: "created")
+            defaults.set(false, forKey: "isLoggedIn")
+            print("Logging out")
         }
     }
 }
