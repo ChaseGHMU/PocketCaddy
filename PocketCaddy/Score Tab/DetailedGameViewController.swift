@@ -15,6 +15,7 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
     var scores: [Scores] = []
     let defaults = UserDefaults.standard
     var currentGame:String = ""
+    var cName:String = ""
     
 
     @IBOutlet weak var finalScore: UILabel! //now gamedate
@@ -24,7 +25,8 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        courseName.text = getName(courseId: (game?.courseId)!)
+        getName(courseId: (game?.courseId)!)
+        print("Label Text: " + courseName.text!)
         gameDate.text = "Final Score: " + (game?.finalScore)!  //game?.gameTime
         currentGame = (game?.gameId)!
         finalScore.text = game?.gameTime //"Final Score:" + (game?.finalScore)!
@@ -114,16 +116,26 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    
-    func getName(courseId: String) -> String {
-        if courseId == "1"{
-            return "Triple Lakes Golf Club"
-        }
-        if courseId == "2" {
-            return "L.A. Nickell"
-        }
-        else {
-            return "Golf Course"
+
+    func getName(courseId: String){
+        var usedName:String = ""
+
+        if let userid = defaults.string(forKey: "userId"){
+            PocketCaddyData.getUserInfo(table: .courses, userId: userid, completionHandler: { response in
+                if let response = response{
+                    for results in response {
+                        if let obj = results as? NSDictionary{
+                            let id = "\(obj["courseId"]!)"
+                            let name = "\(obj["courseName"]!)"
+                            if courseId == String(id){
+                                usedName = name
+                                 self.courseName.text = usedName
+                            }
+                        }
+                    }
+                    
+                }
+            })
         }
     }
 
