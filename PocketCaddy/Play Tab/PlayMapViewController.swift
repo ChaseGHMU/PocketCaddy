@@ -18,12 +18,14 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     @IBOutlet weak var windSpeed: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var rotatedArrow: UIImageView!
     var holes: [Holes] = []
     var wind = [Double]()
     var clubs = [Clubs]()
     var hole: Int = 0
     var courseId: String?
     var courseName: String?
+    var zipCode: String?
     var gameId: String?
     @IBOutlet weak var recommendedClub: UILabel!
     let defaults = UserDefaults.standard
@@ -149,10 +151,11 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         var dist = getDistance(locationOne: currLocation, locationTwo: greenlocation)
         dist.round(.toNearestOrAwayFromZero)
         distanceLabel.text = "\(dist) Yards"
-        PocketCaddyData.getWeather(zip: "65201", completionHandler: { wind in
+        PocketCaddyData.getWeather(zip: zipCode!, completionHandler: { wind in
             self.wind = wind
             let adjustedDistance = self.clubRecommendation(locationOneCoordinate: currLocation, locationTwoCoordinate: teelocation)
             print("Adjusted Distance: \(adjustedDistance)")
+            self.rotatedArrow.image = UIImage(named: "Compass Arrow.png")?.rotateImageByDegrees(CGFloat(wind[0]))
             self.windSpeed.text = "\(wind[1]) MPH"
             self.recommendClub(distance: adjustedDistance)
         })
