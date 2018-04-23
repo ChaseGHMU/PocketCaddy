@@ -16,6 +16,7 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
     var holes: [Holes] = []
     let defaults = UserDefaults.standard
     var currentGame:String = ""
+    var cName:String = ""
     
 
     @IBOutlet weak var finalScore: UILabel! //now gamedate
@@ -26,8 +27,10 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+
         if let courseId = game?.courseId, let score = game?.finalScore, let gametime = game?.gameTime, let gameId = game?.gameId{
-            courseName.text = getName(courseId: courseId)
+            getName(courseId: (game?.courseId)!)
             gameDate.text = "Final Score: \(score)"  //game?.gameTime
             finalScore.text = gametime //"Final Score:" + (game?.finalScore)!
             
@@ -41,6 +44,7 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
             self.scoreTable.delegate = self
             self.scoreTable.dataSource = self
         }
+
         navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
 
 
@@ -94,18 +98,57 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
         return cell
         
     }
-    
-    func getName(courseId: String) -> String {
-        if courseId == "1"{
-            return "Triple Lakes Golf Club"
-        }
-        if courseId == "2" {
-            return "L.A. Nickell"
-        }
-        else {
-            return "Golf Course"
+
+    func getScores(){
+        if let userid = defaults.string(forKey: "userId"){
+            PocketCaddyData.getUserInfo(table: .scores, userId: userid, completionHandler: { response in
+                if let response = response{
+                    for results in response {
+                        if let obj = results as? NSDictionary{
+                            
+                            
+                            let holeId = "\(obj["holeId"]!)"
+                            let gameId = "\(obj["gameId"]!)"
+                            
+                            var scores = "\(obj["score"]!)"
+                            if scores == "0"{
+                                scores = "No Score"
+                            }
+                           
+                            let holeId2 = Int(holeId)
+                            if gameId == self.currentGame{
+                                let myGame = gameId
+                                self.scores.append(Scores(holeId: holeId2!, gameId: myGame, scores: scores))
+                            }
+                        }
+                    }
+                    self.scoreTable.reloadData()
+                }
+            })
         }
     }
+    
+
+    func getName(courseId: String){
+        var usedName:String = ""
+
+        if let userid = defaults.string(forKey: "userId"){
+            PocketCaddyData.getUserInfo(table: .courses, userId: userid, completionHandler: { response in
+                if let response = response{
+                    for results in response {
+                        if let obj = results as? NSDictionary{
+                            let id = "\(obj["courseId"]!)"
+                            let name = "\(obj["courseName"]!)"
+                            if courseId == String(id){
+                                usedName = name
+                                 self.courseName.text = usedName
+                            }
+                        }
+                    }
+                    
+                }
+            })}}
+
 
     /*
     // MARK: - Navigation
@@ -117,4 +160,4 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
     }
     */
 
-}
+        }
