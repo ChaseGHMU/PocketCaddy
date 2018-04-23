@@ -28,17 +28,6 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        getName(courseId: (game?.courseId)!)
-        print("Label Text: " + courseName.text!)
-        gameDate.text = "Final Score: " + (game?.finalScore)!  //game?.gameTime
-        currentGame = (game?.gameId)!
-        finalScore.text = game?.gameTime //"Final Score:" + (game?.finalScore)!
-        
-        scoreTable.delegate = self
-        scoreTable.dataSource = self
-        
-        scores = []
-        getScores()
 
         if let courseId = game?.courseId, let score = game?.finalScore, let gametime = game?.gameTime, let gameId = game?.gameId{
             getName(courseId: (game?.courseId)!)
