@@ -39,6 +39,8 @@
 		94E2AD002031018700F98A0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94E2ACFF2031018700F98A0A /* Assets.xcassets */; };
 		94E2AD0E2031018700F98A0A /* PocketCaddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E2AD0D2031018700F98A0A /* PocketCaddyTests.swift */; };
 		94E2AD192031018700F98A0A /* PocketCaddyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E2AD182031018700F98A0A /* PocketCaddyUITests.swift */; };
+		94ED6F09208E9C7A0023B8D9 /* NotebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ED6F08208E9C7A0023B8D9 /* NotebookViewController.swift */; };
+		94ED6F0B208EA0350023B8D9 /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94ED6F0A208EA0350023B8D9 /* Comments.swift */; };
 		94FA1BEF20478FC600956F75 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA1BEE20478FC600956F75 /* LoginViewController.swift */; };
 		94FA1BF12047958900956F75 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA1BF02047958900956F75 /* SignUpViewController.swift */; };
 		94FB12AF208E781900CAD90F /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FB12AE208E781900CAD90F /* ImageViewExtension.swift */; };
@@ -105,6 +107,8 @@
 		94E2AD142031018700F98A0A /* PocketCaddyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketCaddyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E2AD182031018700F98A0A /* PocketCaddyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketCaddyUITests.swift; sourceTree = "<group>"; };
 		94E2AD1A2031018700F98A0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94ED6F08208E9C7A0023B8D9 /* NotebookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookViewController.swift; sourceTree = "<group>"; };
+		94ED6F0A208EA0350023B8D9 /* Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
 		94FA1BEE20478FC600956F75 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		94FA1BF02047958900956F75 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		94FB12AE208E781900CAD90F /* ImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 				947323BE204922BC008146F2 /* PlaySearchTableViewCell.swift */,
 				94C490B1204B9F920098A8EF /* PlayResultViewController.swift */,
 				940F651320523F4D00514850 /* PlayMapViewController.swift */,
+				94ED6F08208E9C7A0023B8D9 /* NotebookViewController.swift */,
 			);
 			path = "Play Tab";
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 			children = (
 				94BD59712045CD86007E38BB /* PocketCaddyData.swift */,
 				94BD59732045CDC3007E38BB /* Courses.swift */,
+				94ED6F0A208EA0350023B8D9 /* Comments.swift */,
 				94BD59752045D0B9007E38BB /* Holes.swift */,
 				945DF8A62047D2D800D7F77C /* User.swift */,
 				9401DBE9204BAA10005C1937 /* Swings.swift */,
@@ -490,8 +496,10 @@
 				44C3F9A62080FEB000CD9CD9 /* AddClubViewController.swift in Sources */,
 				94710A52204CC2CB007ECD9B /* ScoresTableViewCell.swift in Sources */,
 				94E2ACF92031018700F98A0A /* AppDelegate.swift in Sources */,
+				94ED6F09208E9C7A0023B8D9 /* NotebookViewController.swift in Sources */,
 				94FB12AF208E781900CAD90F /* ImageViewExtension.swift in Sources */,
 				940F651420523F4D00514850 /* PlayMapViewController.swift in Sources */,
+				94ED6F0B208EA0350023B8D9 /* Comments.swift in Sources */,
 				947323BF204922BC008146F2 /* PlaySearchTableViewCell.swift in Sources */,
 				9401DBEA204BAA10005C1937 /* Swings.swift in Sources */,
 				448DB614204CA50B0045C13B /* ClubCellViewController.swift in Sources */,
