@@ -15,6 +15,7 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     
     @IBOutlet weak var distanceLabel: UILabel!
     
+    @IBOutlet weak var windSpeed: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
     var holes: [Holes] = []
@@ -160,6 +161,7 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
             self.wind = wind
             let adjustedDistance = self.clubRecommendation(locationOneCoordinate: currLocation, locationTwoCoordinate: teelocation)
             print("Adjusted Distance: \(adjustedDistance)")
+            self.windSpeed.text = "\(wind[1]) MPH"
             self.recommendClub(distance: adjustedDistance)
         })
         createHoleMap(teeLocation: teelocation, greenLocation: greenlocation)
@@ -216,12 +218,13 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
                             self.clubs.append(Clubs(id: id, type: type, name: nickname, distance: "\(avgDist)", userId: userId))
                         }
                     }
+
                     for club in self.clubs{
                         if let clubDistance = Int(club.distance){
                             if Int(distance) < clubDistance {
                                 continue
                             }
-                            self.recommendedClub.text = club.name
+                            self.recommendedClub.text = "Club: \(club.name)"
                             break
                         }
                     }
