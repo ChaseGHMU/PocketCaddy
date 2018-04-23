@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		1398799320609C1900D7BDDE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1398799220609C1900D7BDDE /* CoreLocation.framework */; };
+		13E499A2208CFE0B004480F8 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945DF8A82047DEF200D7F77C /* TabViewController.swift */; };
+		13E499BD208D04D6004480F8 /* SignUpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E499BC208D04D6004480F8 /* SignUpUITests.swift */; };
+		13E499D4208D0668004480F8 /* LogInUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E499D3208D0668004480F8 /* LogInUITests.swift */; };
+		13E499D6208D5B18004480F8 /* PlaySearchUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E499D5208D5B18004480F8 /* PlaySearchUITest.swift */; };
+		13E499D8208D5C08004480F8 /* PlayMapViewUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E499D7208D5C08004480F8 /* PlayMapViewUITest.swift */; };
+		13E499DD208D5F61004480F8 /* PracticeAddClubUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E499DC208D5F61004480F8 /* PracticeAddClubUITest.swift */; };
+		13E499DF208D6183004480F8 /* PracticeAddSwingUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E499DE208D6183004480F8 /* PracticeAddSwingUITest.swift */; };
+		13E499E2208E8D04004480F8 /* ScoreTabUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E499E1208E8D04004480F8 /* ScoreTabUITest.swift */; };
+		13E499E4208E971A004480F8 /* ForgetPassUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E499E3208E971A004480F8 /* ForgetPassUITest.swift */; };
+		13E499E6208E9853004480F8 /* NavigateToCourseUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E499E5208E9853004480F8 /* NavigateToCourseUITest.swift */; };
+		13E499E8208E9973004480F8 /* PlayUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E499E7208E9973004480F8 /* PlayUITest.swift */; };
+		13E499EA208E9FEA004480F8 /* LogOutUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E499E9208E9FEA004480F8 /* LogOutUITest.swift */; };
 		44435BEE2060BFF900055CC8 /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44435BED2060BFF900055CC8 /* Games.swift */; };
 		448DB614204CA50B0045C13B /* ClubCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448DB613204CA50B0045C13B /* ClubCellViewController.swift */; };
 		4497642B2048706800AC8FC6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4497642A2048706800AC8FC6 /* SettingsViewController.swift */; };
@@ -19,7 +31,6 @@
 		9401DBEC204BAA70005C1937 /* Clubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9401DBEB204BAA70005C1937 /* Clubs.swift */; };
 		940F651420523F4D00514850 /* PlayMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940F651320523F4D00514850 /* PlayMapViewController.swift */; };
 		945DF8A72047D2D800D7F77C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945DF8A62047D2D800D7F77C /* User.swift */; };
-		945DF8A92047DEF200D7F77C /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945DF8A82047DEF200D7F77C /* TabViewController.swift */; };
 		94710A52204CC2CB007ECD9B /* ScoresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94710A51204CC2CB007ECD9B /* ScoresTableViewCell.swift */; };
 		947323BD204920DB008146F2 /* PlayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947323BC204920DB008146F2 /* PlayTableViewController.swift */; };
 		947323BF204922BC008146F2 /* PlaySearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947323BE204922BC008146F2 /* PlaySearchTableViewCell.swift */; };
@@ -37,7 +48,6 @@
 		94E2ACF92031018700F98A0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E2ACF82031018700F98A0A /* AppDelegate.swift */; };
 		94E2ACFE2031018700F98A0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94E2ACFC2031018700F98A0A /* Main.storyboard */; };
 		94E2AD002031018700F98A0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94E2ACFF2031018700F98A0A /* Assets.xcassets */; };
-		94E2AD0E2031018700F98A0A /* PocketCaddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E2AD0D2031018700F98A0A /* PocketCaddyTests.swift */; };
 		94E2AD192031018700F98A0A /* PocketCaddyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E2AD182031018700F98A0A /* PocketCaddyUITests.swift */; };
 		94FA1BEF20478FC600956F75 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA1BEE20478FC600956F75 /* LoginViewController.swift */; };
 		94FA1BF12047958900956F75 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FA1BF02047958900956F75 /* SignUpViewController.swift */; };
@@ -45,6 +55,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		13E499B1208D043A004480F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94E2ACED2031018700F98A0A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94E2ACF42031018700F98A0A;
+			remoteInfo = PocketCaddy;
+		};
+		13E499BF208D04D6004480F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94E2ACED2031018700F98A0A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94E2ACF42031018700F98A0A;
+			remoteInfo = PocketCaddy;
+		};
+		13E499CD208D0617004480F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94E2ACED2031018700F98A0A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94E2ACF42031018700F98A0A;
+			remoteInfo = PocketCaddy;
+		};
 		94E2AD0A2031018700F98A0A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 94E2ACED2031018700F98A0A /* Project object */;
@@ -64,6 +95,22 @@
 /* Begin PBXFileReference section */
 		0CF830C11FCE6476F226F528 /* Pods_PocketCaddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketCaddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1398799220609C1900D7BDDE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		13E499AC208D043A004480F8 /* AddScoreViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AddScoreViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		13E499B0208D043A004480F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13E499BA208D04D5004480F8 /* SignUpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SignUpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		13E499BC208D04D6004480F8 /* SignUpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUITests.swift; sourceTree = "<group>"; };
+		13E499BE208D04D6004480F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13E499C8208D0617004480F8 /* LogInUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogInUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		13E499D3208D0668004480F8 /* LogInUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInUITests.swift; sourceTree = "<group>"; };
+		13E499D5208D5B18004480F8 /* PlaySearchUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySearchUITest.swift; sourceTree = "<group>"; };
+		13E499D7208D5C08004480F8 /* PlayMapViewUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMapViewUITest.swift; sourceTree = "<group>"; };
+		13E499DC208D5F61004480F8 /* PracticeAddClubUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeAddClubUITest.swift; sourceTree = "<group>"; };
+		13E499DE208D6183004480F8 /* PracticeAddSwingUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeAddSwingUITest.swift; sourceTree = "<group>"; };
+		13E499E1208E8D04004480F8 /* ScoreTabUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTabUITest.swift; sourceTree = "<group>"; };
+		13E499E3208E971A004480F8 /* ForgetPassUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPassUITest.swift; sourceTree = "<group>"; };
+		13E499E5208E9853004480F8 /* NavigateToCourseUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigateToCourseUITest.swift; sourceTree = "<group>"; };
+		13E499E7208E9973004480F8 /* PlayUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayUITest.swift; sourceTree = "<group>"; };
+		13E499E9208E9FEA004480F8 /* LogOutUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutUITest.swift; sourceTree = "<group>"; };
 		21311EFA2C8255605535C0D4 /* Pods-PocketCaddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketCaddy.release.xcconfig"; path = "Pods/Target Support Files/Pods-PocketCaddy/Pods-PocketCaddy.release.xcconfig"; sourceTree = "<group>"; };
 		44435BED2060BFF900055CC8 /* Games.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
 		448DB613204CA50B0045C13B /* ClubCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubCellViewController.swift; sourceTree = "<group>"; };
@@ -98,8 +145,6 @@
 		94E2ACFF2031018700F98A0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94E2AD042031018700F98A0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94E2AD092031018700F98A0A /* PocketCaddyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketCaddyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		94E2AD0D2031018700F98A0A /* PocketCaddyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketCaddyTests.swift; sourceTree = "<group>"; };
-		94E2AD0F2031018700F98A0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94E2AD142031018700F98A0A /* PocketCaddyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketCaddyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E2AD182031018700F98A0A /* PocketCaddyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketCaddyUITests.swift; sourceTree = "<group>"; };
 		94E2AD1A2031018700F98A0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,6 +153,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		13E499A9208D043A004480F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13E499B7208D04D5004480F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13E499C5208D0617004480F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		94E2ACF22031018700F98A0A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -141,6 +207,47 @@
 				21311EFA2C8255605535C0D4 /* Pods-PocketCaddy.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		13E499AD208D043A004480F8 /* PlayTabUITests */ = {
+			isa = PBXGroup;
+			children = (
+				13E499D5208D5B18004480F8 /* PlaySearchUITest.swift */,
+				13E499D7208D5C08004480F8 /* PlayMapViewUITest.swift */,
+				13E499E5208E9853004480F8 /* NavigateToCourseUITest.swift */,
+				13E499E7208E9973004480F8 /* PlayUITest.swift */,
+				13E499B0208D043A004480F8 /* Info.plist */,
+			);
+			path = PlayTabUITests;
+			sourceTree = "<group>";
+		};
+		13E499BB208D04D6004480F8 /* SignUpLogInUITests */ = {
+			isa = PBXGroup;
+			children = (
+				13E499BC208D04D6004480F8 /* SignUpUITests.swift */,
+				13E499D3208D0668004480F8 /* LogInUITests.swift */,
+				13E499E3208E971A004480F8 /* ForgetPassUITest.swift */,
+				13E499BE208D04D6004480F8 /* Info.plist */,
+				13E499E9208E9FEA004480F8 /* LogOutUITest.swift */,
+			);
+			path = SignUpLogInUITests;
+			sourceTree = "<group>";
+		};
+		13E499DB208D5F2B004480F8 /* PracticeUITest */ = {
+			isa = PBXGroup;
+			children = (
+				13E499DC208D5F61004480F8 /* PracticeAddClubUITest.swift */,
+				13E499DE208D6183004480F8 /* PracticeAddSwingUITest.swift */,
+			);
+			path = PracticeUITest;
+			sourceTree = "<group>";
+		};
+		13E499E0208E685F004480F8 /* ScoreTabUITest */ = {
+			isa = PBXGroup;
+			children = (
+				13E499E1208E8D04004480F8 /* ScoreTabUITest.swift */,
+			);
+			path = ScoreTabUITest;
 			sourceTree = "<group>";
 		};
 		44C3F9A72081001500CD9CD9 /* Practice Tab */ = {
@@ -218,7 +325,6 @@
 			isa = PBXGroup;
 			children = (
 				94E2ACF72031018700F98A0A /* PocketCaddy */,
-				94E2AD0C2031018700F98A0A /* PocketCaddyTests */,
 				94E2AD172031018700F98A0A /* PocketCaddyUITests */,
 				94E2ACF62031018700F98A0A /* Products */,
 				0C39F14E656FCE6B55CE8B19 /* Pods */,
@@ -232,6 +338,9 @@
 				94E2ACF52031018700F98A0A /* PocketCaddy.app */,
 				94E2AD092031018700F98A0A /* PocketCaddyTests.xctest */,
 				94E2AD142031018700F98A0A /* PocketCaddyUITests.xctest */,
+				13E499AC208D043A004480F8 /* AddScoreViewUITests.xctest */,
+				13E499BA208D04D5004480F8 /* SignUpUITests.xctest */,
+				13E499C8208D0617004480F8 /* LogInUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -243,28 +352,23 @@
 				94E2ACF82031018700F98A0A /* AppDelegate.swift */,
 				94E2ACFF2031018700F98A0A /* Assets.xcassets */,
 				94E2ACFC2031018700F98A0A /* Main.storyboard */,
+				945DF8A82047DEF200D7F77C /* TabViewController.swift */,
 				94E2AD042031018700F98A0A /* Info.plist */,
 				44C3F9A72081001500CD9CD9 /* Practice Tab */,
 				44C3F9A82081005200CD9CD9 /* Play Tab */,
 				44C3F9AA208100FF00CD9CD9 /* Login and Signup */,
 				44C3F9A9208100AC00CD9CD9 /* Score Tab */,
-				945DF8A82047DEF200D7F77C /* TabViewController.swift */,
 			);
 			path = PocketCaddy;
-			sourceTree = "<group>";
-		};
-		94E2AD0C2031018700F98A0A /* PocketCaddyTests */ = {
-			isa = PBXGroup;
-			children = (
-				94E2AD0D2031018700F98A0A /* PocketCaddyTests.swift */,
-				94E2AD0F2031018700F98A0A /* Info.plist */,
-			);
-			path = PocketCaddyTests;
 			sourceTree = "<group>";
 		};
 		94E2AD172031018700F98A0A /* PocketCaddyUITests */ = {
 			isa = PBXGroup;
 			children = (
+				13E499E0208E685F004480F8 /* ScoreTabUITest */,
+				13E499DB208D5F2B004480F8 /* PracticeUITest */,
+				13E499AD208D043A004480F8 /* PlayTabUITests */,
+				13E499BB208D04D6004480F8 /* SignUpLogInUITests */,
 				94E2AD182031018700F98A0A /* PocketCaddyUITests.swift */,
 				94E2AD1A2031018700F98A0A /* Info.plist */,
 			);
@@ -274,6 +378,60 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		13E499AB208D043A004480F8 /* AddScoreViewUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13E499B3208D043A004480F8 /* Build configuration list for PBXNativeTarget "AddScoreViewUITests" */;
+			buildPhases = (
+				13E499A8208D043A004480F8 /* Sources */,
+				13E499A9208D043A004480F8 /* Frameworks */,
+				13E499AA208D043A004480F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				13E499B2208D043A004480F8 /* PBXTargetDependency */,
+			);
+			name = AddScoreViewUITests;
+			productName = AddScoreViewUITests;
+			productReference = 13E499AC208D043A004480F8 /* AddScoreViewUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		13E499B9208D04D5004480F8 /* SignUpUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13E499C1208D04D6004480F8 /* Build configuration list for PBXNativeTarget "SignUpUITests" */;
+			buildPhases = (
+				13E499B6208D04D5004480F8 /* Sources */,
+				13E499B7208D04D5004480F8 /* Frameworks */,
+				13E499B8208D04D5004480F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				13E499C0208D04D6004480F8 /* PBXTargetDependency */,
+			);
+			name = SignUpUITests;
+			productName = SignUpUITests;
+			productReference = 13E499BA208D04D5004480F8 /* SignUpUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		13E499C7208D0617004480F8 /* LogInUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13E499CF208D0617004480F8 /* Build configuration list for PBXNativeTarget "LogInUITests" */;
+			buildPhases = (
+				13E499C4208D0617004480F8 /* Sources */,
+				13E499C5208D0617004480F8 /* Frameworks */,
+				13E499C6208D0617004480F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				13E499CE208D0617004480F8 /* PBXTargetDependency */,
+			);
+			name = LogInUITests;
+			productName = LogInUITests;
+			productReference = 13E499C8208D0617004480F8 /* LogInUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		94E2ACF42031018700F98A0A /* PocketCaddy */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 94E2AD1D2031018700F98A0A /* Build configuration list for PBXNativeTarget "PocketCaddy" */;
@@ -336,10 +494,25 @@
 		94E2ACED2031018700F98A0A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Chase Allen";
 				TargetAttributes = {
+					13E499AB208D043A004480F8 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 94E2ACF42031018700F98A0A;
+					};
+					13E499B9208D04D5004480F8 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 94E2ACF42031018700F98A0A;
+					};
+					13E499C7208D0617004480F8 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 94E2ACF42031018700F98A0A;
+					};
 					94E2ACF42031018700F98A0A = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -372,11 +545,35 @@
 				94E2ACF42031018700F98A0A /* PocketCaddy */,
 				94E2AD082031018700F98A0A /* PocketCaddyTests */,
 				94E2AD132031018700F98A0A /* PocketCaddyUITests */,
+				13E499AB208D043A004480F8 /* AddScoreViewUITests */,
+				13E499B9208D04D5004480F8 /* SignUpUITests */,
+				13E499C7208D0617004480F8 /* LogInUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		13E499AA208D043A004480F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13E499B8208D04D5004480F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13E499C6208D0617004480F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		94E2ACF32031018700F98A0A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -457,6 +654,28 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		13E499A8208D043A004480F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13E499B6208D04D5004480F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13E499BD208D04D6004480F8 /* SignUpUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13E499C4208D0617004480F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		94E2ACF12031018700F98A0A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -473,7 +692,6 @@
 				945DF8A72047D2D800D7F77C /* User.swift in Sources */,
 				94BD59722045CD86007E38BB /* PocketCaddyData.swift in Sources */,
 				44435BEE2060BFF900055CC8 /* Games.swift in Sources */,
-				945DF8A92047DEF200D7F77C /* TabViewController.swift in Sources */,
 				94C490B2204B9F920098A8EF /* PlayResultViewController.swift in Sources */,
 				9492BF8D205CD4090031ECD3 /* PlayScorecardTableViewCell.swift in Sources */,
 				9492BF8B205CD0FC0031ECD3 /* PlayScorecardTableViewController.swift in Sources */,
@@ -486,6 +704,7 @@
 				940F651420523F4D00514850 /* PlayMapViewController.swift in Sources */,
 				947323BF204922BC008146F2 /* PlaySearchTableViewCell.swift in Sources */,
 				9401DBEA204BAA10005C1937 /* Swings.swift in Sources */,
+				13E499A2208CFE0B004480F8 /* TabViewController.swift in Sources */,
 				448DB614204CA50B0045C13B /* ClubCellViewController.swift in Sources */,
 				44E1571620898C7600CCAB12 /* DetailedScoreTableViewCell.swift in Sources */,
 				9492BF89205CCE930031ECD3 /* Scores.swift in Sources */,
@@ -497,7 +716,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94E2AD0E2031018700F98A0A /* PocketCaddyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,13 +723,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13E499D8208D5C08004480F8 /* PlayMapViewUITest.swift in Sources */,
+				13E499DD208D5F61004480F8 /* PracticeAddClubUITest.swift in Sources */,
 				94E2AD192031018700F98A0A /* PocketCaddyUITests.swift in Sources */,
+				13E499E2208E8D04004480F8 /* ScoreTabUITest.swift in Sources */,
+				13E499DF208D6183004480F8 /* PracticeAddSwingUITest.swift in Sources */,
+				13E499EA208E9FEA004480F8 /* LogOutUITest.swift in Sources */,
+				13E499E4208E971A004480F8 /* ForgetPassUITest.swift in Sources */,
+				13E499D6208D5B18004480F8 /* PlaySearchUITest.swift in Sources */,
+				13E499E6208E9853004480F8 /* NavigateToCourseUITest.swift in Sources */,
+				13E499D4208D0668004480F8 /* LogInUITests.swift in Sources */,
+				13E499E8208E9973004480F8 /* PlayUITest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		13E499B2208D043A004480F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94E2ACF42031018700F98A0A /* PocketCaddy */;
+			targetProxy = 13E499B1208D043A004480F8 /* PBXContainerItemProxy */;
+		};
+		13E499C0208D04D6004480F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94E2ACF42031018700F98A0A /* PocketCaddy */;
+			targetProxy = 13E499BF208D04D6004480F8 /* PBXContainerItemProxy */;
+		};
+		13E499CE208D0617004480F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94E2ACF42031018700F98A0A /* PocketCaddy */;
+			targetProxy = 13E499CD208D0617004480F8 /* PBXContainerItemProxy */;
+		};
 		94E2AD0B2031018700F98A0A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 94E2ACF42031018700F98A0A /* PocketCaddy */;
@@ -536,6 +779,102 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		13E499B4208D043A004480F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AddScoreViewUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pocketcaddy.AddScoreViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PocketCaddy;
+			};
+			name = Debug;
+		};
+		13E499B5208D043A004480F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AddScoreViewUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pocketcaddy.AddScoreViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PocketCaddy;
+			};
+			name = Release;
+		};
+		13E499C2208D04D6004480F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SignUpUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pocketcaddy.SignUpUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PocketCaddy;
+			};
+			name = Debug;
+		};
+		13E499C3208D04D6004480F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SignUpUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pocketcaddy.SignUpUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PocketCaddy;
+			};
+			name = Release;
+		};
+		13E499D0208D0617004480F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LogInUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pocketcaddy.LogInUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PocketCaddy;
+			};
+			name = Debug;
+		};
+		13E499D1208D0617004480F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LogInUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pocketcaddy.LogInUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PocketCaddy;
+			};
+			name = Release;
+		};
 		94E2AD1B2031018700F98A0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -746,6 +1085,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		13E499B3208D043A004480F8 /* Build configuration list for PBXNativeTarget "AddScoreViewUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13E499B4208D043A004480F8 /* Debug */,
+				13E499B5208D043A004480F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13E499C1208D04D6004480F8 /* Build configuration list for PBXNativeTarget "SignUpUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13E499C2208D04D6004480F8 /* Debug */,
+				13E499C3208D04D6004480F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13E499CF208D0617004480F8 /* Build configuration list for PBXNativeTarget "LogInUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13E499D0208D0617004480F8 /* Debug */,
+				13E499D1208D0617004480F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		94E2ACF02031018700F98A0A /* Build configuration list for PBXProject "PocketCaddy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
