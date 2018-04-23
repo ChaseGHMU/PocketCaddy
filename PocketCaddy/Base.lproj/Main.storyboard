@@ -522,6 +522,7 @@
                         <outlet property="distanceLabel" destination="sm3-Xb-LbH" id="cng-cf-OFX"/>
                         <outlet property="mapView" destination="tj8-tf-8xW" id="tYm-dQ-S7G"/>
                         <outlet property="recommendedClub" destination="pdF-gY-4zB" id="j9l-4j-RhA"/>
+                        <outlet property="rotatedArrow" destination="T5l-QX-bcb" id="Mpb-gM-GPK"/>
                         <outlet property="windSpeed" destination="z5L-rX-MTa" id="esy-gc-Nmk"/>
                         <segue destination="VyK-58-Gc1" kind="presentation" identifier="addScore" id="9qj-Zg-4UI"/>
                         <segue destination="JDB-zt-f9t" kind="show" identifier="scorecard" id="GEX-DQ-pTE"/>
