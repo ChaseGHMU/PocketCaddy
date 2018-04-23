@@ -64,7 +64,6 @@ class PocketCaddyData{
         if let tokenId = tokenId{
             url.append("?access_token=\(tokenId)")
         }
-        print(url)
         
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON(completionHandler: { response in
             if response.result.value != nil {
@@ -87,7 +86,6 @@ class PocketCaddyData{
         if let gameId = parameters["gameId"] as? String{
             let url = "https://www.pocketcaddyservice.com/api/Games/update?where=%7B%22gameId%22%3A%20\(gameId)%7D&access_token=\(tokenId)"
             Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON(completionHandler: {response in
-                print(response.result.value)
                 if response.result.value != nil {
                     
                 }
@@ -117,7 +115,6 @@ class PocketCaddyData{
         if(exists){
             url.append("/exists")
         }
-        print(url)
         
         Alamofire.request(url, method: .get).responseJSON(completionHandler: { response in
             if response.result.value != nil{
@@ -186,7 +183,6 @@ class PocketCaddyData{
         }else{
             url.append("\(table)?filter[where][userId]=\(userId)")
         }
-        print(url)
         
         Alamofire.request(url).responseJSON(completionHandler: { response in
             if response.result.value != nil, let data = response.data{

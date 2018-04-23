@@ -139,17 +139,7 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         
         return metersToYards(meters: meters)
     }
-    
-    //    func getPoints(_ hole:Int){
-    //        let holeNum = holes[hole]
-    //        let teelocation = CLLocationCoordinate2D(latitude: holeNum.teeX, longitude: holeNum.teeY)
-    //        let greenlocation = CLLocationCoordinate2D(latitude: holeNum.greenX, longitude: holeNum.greenY)
-    //        var dist = getDistance(locationOne: teelocation, locationTwo: greenlocation)
-    //        dist.round(.toNearestOrAwayFromZero)
-    //        distanceLabel.text = "\(dist) Yards"
-    //
-    //        createHoleMap(teeLocation: teelocation, greenLocation: greenlocation)
-    //    }
+
     func getPoints(_ hole:Int){
         let holeNum = holes[hole]
         let currLocation:CLLocationCoordinate2D = userLocation
@@ -204,8 +194,8 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     
     func recommendClub(distance: Double){
 
-        if let userId = defaults.string(forKey: "userId"){
-            PocketCaddyData.getUserInfo(table: .clubs, userId: userId, completionHandler: { response in
+        if let userId = defaults.string(forKey: "userId"), let tokenId = defaults.string(forKey: "id"){
+            PocketCaddyData.getUserInfo(table: .clubs, tokenId: tokenId, userId: userId, completionHandler: { response in
                 if let response = response{
                     for results in response {
                         if let obj = results as? NSDictionary{
@@ -289,7 +279,9 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let reuseIdentifier = "pin"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
-        
+        if annotation is MKUserLocation{
+            return nil
+        }
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
             annotationView?.canShowCallout = true

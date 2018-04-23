@@ -26,9 +26,6 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         games=[]
         getGames()
     }

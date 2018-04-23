@@ -33,7 +33,8 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
             getName(courseId: (game?.courseId)!)
             gameDate.text = "Final Score: \(score)"  //game?.gameTime
             finalScore.text = gametime //"Final Score:" + (game?.finalScore)!
-            
+            self.scoreTable.delegate = self
+            self.scoreTable.dataSource = self
             PocketCaddyData.getHoles(courseId: courseId, completionHandler: {holes in
                 PocketCaddyData.getScores(gameId: gameId, tokenId: tokenId, completionHandler: {scores in
                     self.scores = scores
@@ -41,8 +42,6 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
                     self.scoreTable.reloadData()
                 })
             })
-            self.scoreTable.delegate = self
-            self.scoreTable.dataSource = self
         }
 
         navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
