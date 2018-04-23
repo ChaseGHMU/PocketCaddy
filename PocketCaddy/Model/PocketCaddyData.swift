@@ -160,6 +160,7 @@ class PocketCaddyData{
         
         Alamofire.request(url).responseJSON { response in
             if response.result.value != nil, let data = response.data{
+                print(response.result.value)
                     let json = try? JSONSerialization.jsonObject(with: data, options: [])
                     if let array = json as? [Any]{
                         for results in array{
@@ -305,6 +306,7 @@ class PocketCaddyData{
         
         Alamofire.request(url, method: .get).responseJSON(completionHandler: {response in
             if response.result.value != nil, let data = response.data{
+                print(response.result.value)
                 let json = try? JSONSerialization.jsonObject(with: data, options: [])
                 if let array = json as? [Any]{
                     for results in array{
