@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L7c-Bf-6WN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L7c-Bf-6WN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue-Bold</string>
-        </array>
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-Light</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -486,6 +478,12 @@
                                     <action selector="nextHole:" destination="1bs-ab-0L9" eventType="touchUpInside" id="aAo-Al-GEN"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club: Drvier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdF-gY-4zB">
+                                <rect key="frame" x="16" y="584" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -493,6 +491,7 @@
                             <constraint firstItem="hW3-uh-wTs" firstAttribute="leading" relation="lessThanOrEqual" secondItem="106-L2-5WT" secondAttribute="leading" constant="218" id="2e5-94-p48"/>
                             <constraint firstItem="106-L2-5WT" firstAttribute="bottom" secondItem="hW3-uh-wTs" secondAttribute="bottom" constant="13" id="BSV-4d-UIB"/>
                             <constraint firstItem="106-L2-5WT" firstAttribute="bottom" secondItem="tj8-tf-8xW" secondAttribute="bottom" id="Ein-Qn-67N"/>
+                            <constraint firstItem="pdF-gY-4zB" firstAttribute="leading" secondItem="106-L2-5WT" secondAttribute="leading" constant="16" id="SJd-cK-rh3"/>
                             <constraint firstItem="4Bi-KY-E4t" firstAttribute="leading" secondItem="tj8-tf-8xW" secondAttribute="trailing" constant="-51" id="Sh8-3h-pbN"/>
                             <constraint firstItem="OBs-ks-Euc" firstAttribute="leading" secondItem="106-L2-5WT" secondAttribute="leading" constant="9" id="TLm-nM-NLF"/>
                             <constraint firstItem="106-L2-5WT" firstAttribute="trailing" secondItem="sm3-Xb-LbH" secondAttribute="trailing" constant="16" id="TWQ-zG-x9D"/>
@@ -503,6 +502,7 @@
                             <constraint firstItem="tj8-tf-8xW" firstAttribute="top" secondItem="106-L2-5WT" secondAttribute="top" id="dis-UW-HW5"/>
                             <constraint firstItem="tj8-tf-8xW" firstAttribute="top" secondItem="OBs-ks-Euc" secondAttribute="bottom" constant="-40" id="gdt-A7-Wps"/>
                             <constraint firstItem="sm3-Xb-LbH" firstAttribute="leading" secondItem="hW3-uh-wTs" secondAttribute="trailing" constant="8" id="h2e-V6-cBZ"/>
+                            <constraint firstItem="pdF-gY-4zB" firstAttribute="top" secondItem="tj8-tf-8xW" secondAttribute="bottom" constant="-34" id="mpa-6u-9Ze"/>
                             <constraint firstItem="T5l-QX-bcb" firstAttribute="top" secondItem="OBs-ks-Euc" secondAttribute="bottom" constant="19" id="oDh-Xb-RuL"/>
                             <constraint firstItem="tj8-tf-8xW" firstAttribute="top" secondItem="4Bi-KY-E4t" secondAttribute="bottom" constant="-40" id="pPy-rK-Sp8"/>
                             <constraint firstItem="tj8-tf-8xW" firstAttribute="leading" secondItem="CEc-FR-aR7" secondAttribute="trailing" constant="-44" id="t7u-ss-8Wf"/>
@@ -513,6 +513,7 @@
                     <connections>
                         <outlet property="distanceLabel" destination="sm3-Xb-LbH" id="cng-cf-OFX"/>
                         <outlet property="mapView" destination="tj8-tf-8xW" id="tYm-dQ-S7G"/>
+                        <outlet property="recommendedClub" destination="pdF-gY-4zB" id="j9l-4j-RhA"/>
                         <segue destination="VyK-58-Gc1" kind="presentation" identifier="addScore" id="9qj-Zg-4UI"/>
                         <segue destination="JDB-zt-f9t" kind="show" identifier="scorecard" id="GEX-DQ-pTE"/>
                     </connections>

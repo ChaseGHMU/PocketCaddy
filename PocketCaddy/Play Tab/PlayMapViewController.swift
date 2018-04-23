@@ -19,10 +19,12 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     
     var holes: [Holes] = []
     var wind = [Double]()
+    var clubs = [Clubs]()
     var hole: Int = 0
     var courseId: String?
     var courseName: String?
     var gameId: String?
+    @IBOutlet weak var recommendedClub: UILabel!
     let defaults = UserDefaults.standard
     var userLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(0,0)
     
@@ -60,11 +62,7 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
                 "courseId": courseId,
                 "userId": userId
             ]
-            PocketCaddyData.getWeather(zip: "65201", completionHandler: { wind in
-                self.wind = wind
-            })
             
-            print(wind)
             PocketCaddyData.getHoles(courseId: courseId, completionHandler: { result in
                 self.holes = result
                 self.getPoints(self.hole)
@@ -158,7 +156,12 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         var dist = getDistance(locationOne: currLocation, locationTwo: greenlocation)
         dist.round(.toNearestOrAwayFromZero)
         distanceLabel.text = "\(dist) Yards"
-        let adjustedDistance = clubRecommendation(locationOneCoordinate: currLocation, locationTwoCoordinate: teelocation)
+        PocketCaddyData.getWeather(zip: "65201", completionHandler: { wind in
+            self.wind = wind
+            let adjustedDistance = self.clubRecommendation(locationOneCoordinate: currLocation, locationTwoCoordinate: teelocation)
+            print("Adjusted Distance: \(adjustedDistance)")
+            self.recommendClub(distance: adjustedDistance)
+        })
         createHoleMap(teeLocation: teelocation, greenLocation: greenlocation)
     }
     
@@ -193,6 +196,38 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     {
         let elevationChange = elevationTwo - elevationOne
         return metersToYards(meters: elevationChange)
+    }
+    
+    func recommendClub(distance: Double){
+
+        if let userId = defaults.string(forKey: "userId"){
+            PocketCaddyData.getUserInfo(table: .clubs, userId: userId, completionHandler: { response in
+                if let response = response{
+                    for results in response {
+                        if let obj = results as? NSDictionary{
+                            let id = "\(obj["clubId"]!)"
+                            let nickname = "\(obj["nickname"]!)"
+                            let userId = "\(obj["userId"]!)"
+                            let type = "\(obj["type"]!)"
+                            var avgDist = "\(obj["avgDistance"]!)"
+                            if avgDist == "<null>"{
+                                avgDist = "0"
+                            }
+                            self.clubs.append(Clubs(id: id, type: type, name: nickname, distance: "\(avgDist)", userId: userId))
+                        }
+                    }
+                    for club in self.clubs{
+                        if let clubDistance = Int(club.distance){
+                            if Int(distance) < clubDistance {
+                                continue
+                            }
+                            self.recommendedClub.text = club.name
+                            break
+                        }
+                    }
+                }
+            })
+        }
     }
     
     func accountForWind(shotDirection: Double, shotDistance: Double, windDirection: Double, windSpeed: Double) -> Double {
