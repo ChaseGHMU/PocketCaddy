@@ -30,10 +30,10 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         datetime.dateFormat = "yyyy-MM-dd"
         datetime.timeZone = TimeZone(secondsFromGMT: 0)
-        if let club = club{
+        if let club = club, let tokenId = defaults.string(forKey: "id"){
             clubName.text = club.name
         
-            PocketCaddyData.getSwings(table: .swings, clubId: club.id, completionHandler: { response in
+            PocketCaddyData.getSwings(table: .swings, tokenId: tokenId, clubId: club.id, completionHandler: { response in
                 if let response = response{
                     self.swings = response
                     self.swings.reverse()  // displays swings by most recent at top, rather than oldest on top
@@ -112,15 +112,17 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
             "distance": "\(distance)",
             "clubId": "\(self.club!.id)"
         ]
-        PocketCaddyData.post(table: .swings, parameters: parameters, login: false, completionHandler: { (dict, string, response) in
-            if let dict = dict{
-                let swingId = "\(dict["swingId"]!)"
-                let distance = dict["distance"]! as! Int
-                let clubId = "\(dict["clubId"]!)"
-                self.swings.append(Swings(swingId: swingId, distance: distance, clubId: clubId, date: nil))
-            }
-            self.tableView.reloadData()
-        })
+        if let tokenId = defaults.string(forKey: "id"){
+            PocketCaddyData.post(table: .swings, newTable: nil, userId: nil, tokenId: tokenId, parameters: parameters, login: false, completionHandler: { (dict, string, response) in
+                if let dict = dict{
+                    let swingId = "\(dict["swingId"]!)"
+                    let distance = dict["distance"]! as! Int
+                    let clubId = "\(dict["clubId"]!)"
+                    self.swings.append(Swings(swingId: swingId, distance: distance, clubId: clubId, date: nil))
+                }
+                self.tableView.reloadData()
+            })
+        }
     }
     
     func getAvgSwing() {

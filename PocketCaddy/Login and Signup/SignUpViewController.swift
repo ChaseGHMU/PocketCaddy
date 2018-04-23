@@ -87,7 +87,7 @@ class SignUpViewController: UIViewController {
                 "email": "\(email)",
                 "username": "\(usr)"
             ]
-            PocketCaddyData.post(table: .golfers, parameters: obj, login: false, completionHandler: { (dict, success, code) in
+            PocketCaddyData.post(table: .golfers, newTable: nil, userId: nil, tokenId: nil, parameters: obj, login: false, completionHandler: { (dict, success, code) in
                 if code == 200{
                     let alert = UIAlertController(title: "Account Succesfully Created", message: "Please confirm your email address to login", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .default, handler:{ (action: UIAlertAction!) in

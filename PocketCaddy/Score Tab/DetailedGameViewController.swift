@@ -29,17 +29,17 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
 
 
-        if let courseId = game?.courseId, let score = game?.finalScore, let gametime = game?.gameTime, let gameId = game?.gameId{
+        if let courseId = game?.courseId, let score = game?.finalScore, let gametime = game?.gameTime, let gameId = game?.gameId, let tokenId = defaults.string(forKey: "id"){
             getName(courseId: (game?.courseId)!)
             gameDate.text = "Final Score: \(score)"  //game?.gameTime
             finalScore.text = gametime //"Final Score:" + (game?.finalScore)!
             
-            PocketCaddyData.getScores(gameId: gameId, completionHandler: {scores in
-                self.scores = scores
-            })
             PocketCaddyData.getHoles(courseId: courseId, completionHandler: {holes in
-                self.holes = holes
-                self.scoreTable.reloadData()
+                PocketCaddyData.getScores(gameId: gameId, tokenId: tokenId, completionHandler: {scores in
+                    self.scores = scores
+                    self.holes = holes
+                    self.scoreTable.reloadData()
+                })
             })
             self.scoreTable.delegate = self
             self.scoreTable.dataSource = self
@@ -99,41 +99,10 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
         
     }
 
-    func getScores(){
-        if let userid = defaults.string(forKey: "userId"){
-            PocketCaddyData.getUserInfo(table: .scores, userId: userid, completionHandler: { response in
-                if let response = response{
-                    for results in response {
-                        if let obj = results as? NSDictionary{
-                            
-                            
-                            let holeId = "\(obj["holeId"]!)"
-                            let gameId = "\(obj["gameId"]!)"
-                            
-                            var scores = "\(obj["score"]!)"
-                            if scores == "0"{
-                                scores = "No Score"
-                            }
-                           
-                            let holeId2 = Int(holeId)
-                            if gameId == self.currentGame{
-                                let myGame = gameId
-                                self.scores.append(Scores(holeId: holeId2!, gameId: myGame, scores: scores))
-                            }
-                        }
-                    }
-                    self.scoreTable.reloadData()
-                }
-            })
-        }
-    }
-    
-
     func getName(courseId: String){
         var usedName:String = ""
-
-        if let userid = defaults.string(forKey: "userId"){
-            PocketCaddyData.getUserInfo(table: .courses, userId: userid, completionHandler: { response in
+        if let userid = defaults.string(forKey: "userId") {
+            PocketCaddyData.getUserInfo(table: .courses, tokenId: nil, userId: userid, completionHandler: { response in
                 if let response = response{
                     for results in response {
                         if let obj = results as? NSDictionary{
@@ -147,17 +116,8 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
                     }
                     
                 }
-            })}}
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+            })
         }
+    }
+
+}

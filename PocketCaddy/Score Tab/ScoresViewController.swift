@@ -26,14 +26,17 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
         // Do any additional setup after loading the view.
-        games = []
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        games=[]
         getGames()
     }
     
     //added 3/19
     func getGames(){
-        if let userid = defaults.string(forKey: "userId"){
-            PocketCaddyData.getUserInfo(table: .games, userId: userid, completionHandler: { response in
+        if let userid = defaults.string(forKey: "userId"), let tokenId = defaults.string(forKey: "id"){
+            PocketCaddyData.getUserInfo(table: .games, tokenId: tokenId, userId: userid, completionHandler: { response in
                 if let response = response{
                     for results in response {
                         if let obj = results as? NSDictionary{
@@ -117,8 +120,8 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func getName(courseId: String, cell: ScoresTableViewCell){
         var usedName:String = ""
         
-        if let userid = defaults.string(forKey: "userId"){
-            PocketCaddyData.getUserInfo(table: .courses, userId: userid, completionHandler: { response in
+        if let userid = defaults.string(forKey: "userId"), let tokenId = defaults.string(forKey: "id"){
+            PocketCaddyData.getUserInfo(table: .courses, tokenId: nil, userId: userid, completionHandler: { response in
                 if let response = response{
                     for results in response {
                         if let obj = results as? NSDictionary{

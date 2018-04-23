@@ -30,7 +30,7 @@ class PocketCaddyData{
     }
     
     static let decoder = JSONDecoder()
-    static var baseURL = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/"
+    static var baseURL = "https://www.pocketcaddyservice.com/api/"
     static let allowedCharacterSet = (CharacterSet(charactersIn: "%"))
     
     /*
@@ -50,11 +50,21 @@ class PocketCaddyData{
      It will give you a blank dictionary and 'Error' if it does not.
     */
     
-    class func post(table: Table, parameters: Parameters, login: Bool, completionHandler: @escaping  (NSDictionary?, String, Int?) -> Void) {
+    class func post(table: Table, newTable: Table?, userId: String?, tokenId: String?, parameters: Parameters, login: Bool, completionHandler: @escaping  (NSDictionary?, String, Int?) -> Void) {
         var url = baseURL + "\(table)"
         if(login){
             url.append("/login")
         }
+        if let userId = userId {
+            url.append("/\(userId)")
+        }
+        if let newTable = newTable{
+            url.append("/\(newTable)")
+        }
+        if let tokenId = tokenId{
+            url.append("?access_token=\(tokenId)")
+        }
+        print(url)
         
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON(completionHandler: { response in
             if response.result.value != nil {
@@ -72,11 +82,14 @@ class PocketCaddyData{
         return
     }
     
-    static func updateGame(parameters: Parameters){
+    //NEED
+    static func updateGame(parameters: Parameters, tokenId: String){
         if let gameId = parameters["gameId"] as? String{
-            let url = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Games/update?where=%7B%22gameId%22%3A%20\(gameId)%7D"
+            let url = "https://www.pocketcaddyservice.com/api/Games/update?where=%7B%22gameId%22%3A%20\(gameId)%7D&access_token=\(tokenId)"
             Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON(completionHandler: {response in
+                print(response.result.value)
                 if response.result.value != nil {
+                    
                 }
             })
         }
@@ -93,14 +106,18 @@ class PocketCaddyData{
      completionHandler:
         same as above. returns the same three things. This one returns status code because in some cases you will not get a NSDictionary back from your call, just a status code to confirm it worked.
     */
-    static func get(table: Table, id: String?, exists: Bool, completionHandler: @escaping (NSDictionary?, String, Int?) -> Void){
+    static func get(table: Table, tokenId: String?, id: String?, exists: Bool, completionHandler: @escaping (NSDictionary?, String, Int?) -> Void){
         var url = baseURL + "\(table)"
-        if let id = id{
+        if let id = id {
             url.append("/\(id)")
+        }
+        if let tokenId = tokenId{
+            url.append("?access_token=\(tokenId)")
         }
         if(exists){
             url.append("/exists")
         }
+        print(url)
         
         Alamofire.request(url, method: .get).responseJSON(completionHandler: { response in
             if response.result.value != nil{
@@ -117,8 +134,8 @@ class PocketCaddyData{
         })
     }
     
-    static func getScores(gameId: String, completionHandler: @escaping ([Scores]) -> Void){
-        let url = baseURL + "Scores?filter[where][gameId]=\(gameId)"
+    static func getScores(gameId: String, tokenId: String, completionHandler: @escaping ([Scores]) -> Void){
+        let url = baseURL + "Scores?filter[where][gameId]=\(gameId)&access_token=\(tokenId)"
         var scores = [Scores]()
         
         Alamofire.request(url).responseJSON { response in
@@ -141,16 +158,16 @@ class PocketCaddyData{
         }
     }
     
-    static func delete(table: Table, id: String) -> Void {
-        let url = baseURL + "\(table)/\(id)"
+    static func delete(table: Table, tokenId: String, id: String) -> Void {
+        let url = baseURL + "\(table)/\(id)?access_token=\(tokenId)"
 
         Alamofire.request(url, method: .delete).responseJSON(completionHandler: { response in
             return
         })
     }
     
-    static func update(gameId: String, holeId: String, parameters: Parameters, completionHandler: @escaping (Bool) ->Void){
-        let url = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Scores/update?where=%7b%22holeId%22%3a\(holeId)%2c%22gameId%22%3a\(gameId)%7d"
+    static func update(gameId: String, tokenId:String, holeId: String, parameters: Parameters, completionHandler: @escaping (Bool) ->Void){
+        let url = "https://www.pocketcaddyservice.com/api/Scores/update?where=%7b%22holeId%22%3a\(holeId)%2c%22gameId%22%3a\(gameId)%7d&access_token=\(tokenId)"
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
             if response.result.value != nil, let dict = response.result.value as? NSDictionary, let count = dict["count"] as? Int{
                 if count == 1 {
@@ -162,9 +179,14 @@ class PocketCaddyData{
         }
     }
     
-    static func getUserInfo(table: Table, userId: String, completionHandler: @escaping ([Any]?) -> Void){
+    static func getUserInfo(table: Table, tokenId: String?, userId: String, completionHandler: @escaping ([Any]?) -> Void){
         var url = baseURL
-        url.append("\(table)?filter[where][userId]=\(userId)")
+        if let tokenId = tokenId{
+            url.append("/golfers/\(userId)/\(table)?access_token=\(tokenId)")
+        }else{
+            url.append("\(table)?filter[where][userId]=\(userId)")
+        }
+        print(url)
         
         Alamofire.request(url).responseJSON(completionHandler: { response in
             if response.result.value != nil, let data = response.data{
@@ -178,9 +200,9 @@ class PocketCaddyData{
         })
     }
     
-    static func getSwings(table: Table, clubId: String, completionHandler: @escaping ([Swings]?) -> Void){
+    static func getSwings(table: Table, tokenId: String, clubId: String, completionHandler: @escaping ([Swings]?) -> Void){
         var url = baseURL
-        url.append("\(table)?filter[where][clubId]=\(clubId)")
+        url.append("\(table)?filter[where][clubId]=\(clubId)&access_token=\(tokenId)")
         var swings = [Swings]()
         Alamofire.request(url).responseJSON(completionHandler: { response in
             if response.result.value != nil, let data = response.data{
@@ -238,7 +260,7 @@ class PocketCaddyData{
     
     static func getHoles(courseId: String, completionHandler: @escaping ([Holes])->Void) {
         var holes = [Holes]()
-        var url = "http://ec2-54-145-167-39.compute-1.amazonaws.com:3000/api/Holes?filter[where][courseId]="
+        var url = "https://www.pocketcaddyservice.com/api/Holes?filter[where][courseId]="
         url.append(courseId)
         
         Alamofire.request(url, method: .get).responseJSON(completionHandler: {response in

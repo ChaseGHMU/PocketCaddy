@@ -65,11 +65,13 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
                 self.getPoints(self.hole)
             })
             
-            PocketCaddyData.post(table: .games, parameters: params, login: false, completionHandler: { (dict, string, response) in
-                if let dict = dict, let gameId = dict["gameId"] {
-                    self.gameId = "\(gameId)"
-                }
-            })
+            if let tokenId = defaults.string(forKey: "id"){
+                PocketCaddyData.post(table: .games, newTable: nil, userId: nil, tokenId: tokenId, parameters: params, login: false, completionHandler: { (dict, string, response) in
+                    if let dict = dict, let gameId = dict["gameId"] {
+                        self.gameId = "\(gameId)"
+                    }
+                })
+            }
             self.title = "Hole \(hole+1)"
         }
         
