@@ -27,7 +27,7 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-<<<<<<< HEAD
+
         getName(courseId: (game?.courseId)!)
         print("Label Text: " + courseName.text!)
         gameDate.text = "Final Score: " + (game?.finalScore)!  //game?.gameTime
@@ -39,7 +39,7 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
         
         scores = []
         getScores()
-=======
+
         if let courseId = game?.courseId, let score = game?.finalScore, let gametime = game?.gameTime, let gameId = game?.gameId{
             courseName.text = getName(courseId: courseId)
             gameDate.text = "Final Score: \(score)"  //game?.gameTime
@@ -55,7 +55,7 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
             self.scoreTable.delegate = self
             self.scoreTable.dataSource = self
         }
->>>>>>> master
+
         navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
 
 
@@ -109,7 +109,7 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
         return cell
         
     }
-<<<<<<< HEAD
+
     func getScores(){
         if let userid = defaults.string(forKey: "userId"){
             PocketCaddyData.getUserInfo(table: .scores, userId: userid, completionHandler: { response in
@@ -159,20 +159,7 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
                     
                 }
             })
-=======
-    
-    func getName(courseId: String) -> String {
-        if courseId == "1"{
-            return "Triple Lakes Golf Club"
-        }
-        if courseId == "2" {
-            return "L.A. Nickell"
-        }
-        else {
-            return "Golf Course"
->>>>>>> master
-        }
-    }
+
 
     /*
     // MARK: - Navigation
