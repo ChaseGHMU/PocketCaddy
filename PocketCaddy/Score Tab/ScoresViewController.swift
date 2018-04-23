@@ -89,7 +89,7 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.93, alpha:1.0)
         }
         if let cell = cell as? ScoresTableViewCell {
-            cell.courseName.text = getName(courseId: self.games[indexPath.row].courseId)
+            getName(courseId: self.games[indexPath.row].courseId, cell: cell)
             cell.courseName.textColor = UIColor(red: 0.00, green:0.56, blue:0.32, alpha:1.0)
             cell.scoreShot.text = self.games[indexPath.row].finalScore
             let score = cell.scoreShot.text![(cell.scoreShot.text?.startIndex)!]
@@ -114,16 +114,25 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return "PREVIOUS GAMES"
     }
     
-    //will need to be changed to accomadate more courses
-    func getName(courseId: String) -> String {
-        if courseId == "1"{
-            return "Triple Lakes Golf Club"
-        }
-        if courseId == "2" {
-            return "L.A. Nickell"
-        }
-        else {
-            return "Golf Course"
+    func getName(courseId: String, cell: ScoresTableViewCell){
+        var usedName:String = ""
+        
+        if let userid = defaults.string(forKey: "userId"){
+            PocketCaddyData.getUserInfo(table: .courses, userId: userid, completionHandler: { response in
+                if let response = response{
+                    for results in response {
+                        if let obj = results as? NSDictionary{
+                            let id = "\(obj["courseId"]!)"
+                            let name = "\(obj["courseName"]!)"
+                            if courseId == id{
+                                usedName = name
+                               cell.courseName.text = usedName
+                            }
+                        }
+                    }
+                    
+                }
+            })
         }
     }
     
