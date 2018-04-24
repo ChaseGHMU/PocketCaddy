@@ -11,6 +11,7 @@ import UIKit
 class DetailedScoreTableViewCell: UITableViewCell {
     @IBOutlet weak var hole: UILabel!
     @IBOutlet weak var holeScore: UILabel!
+    @IBOutlet weak var parCell: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

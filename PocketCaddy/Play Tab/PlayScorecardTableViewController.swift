@@ -19,17 +19,18 @@ class PlayScorecardTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
-        if let gameId = gameId, let courseId = courseId{
-            PocketCaddyData.getScores(gameId: gameId, completionHandler: { score in
-                self.scores = score
-            })
-            PocketCaddyData.getHoles(courseId: courseId, completionHandler: {holes in
-                self.holes = holes
-                self.tableView.reloadData()
+        if let gameId = gameId, let courseId = courseId, let tokenId = defaults.string(forKey: "id"){
+            PocketCaddyData.getScores(gameId: gameId, tokenId: tokenId, completionHandler: { score in
+                PocketCaddyData.getHoles(courseId: courseId, completionHandler: {holes in
+                    self.holes = holes
+                    self.scores = score
+                    self.tableView.reloadData()
+                })
             })
         }
+        
+        tableView.dataSource = self
+        tableView.delegate = self
         
         navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
         // Uncomment the following line to preserve selection between presentations
@@ -104,7 +105,7 @@ class PlayScorecardTableViewController: UITableViewController {
     }
 
     @IBAction func finishRound(_ sender: Any) {
-        if let gameId = gameId, let courseId = courseId, let userId = defaults.string(forKey: "userId"){
+        if let gameId = gameId, let courseId = courseId, let userId = defaults.string(forKey: "userId"), let tokenId = defaults.string(forKey: "id"){
             var totalScore = 0;
             var totalPar = 0;
             
@@ -125,7 +126,7 @@ class PlayScorecardTableViewController: UITableViewController {
                 "finalScore": finalScore
             ]
 
-            PocketCaddyData.updateGame(parameters: params)
+            PocketCaddyData.updateGame(parameters: params, tokenId: tokenId)
         }
     }
 }

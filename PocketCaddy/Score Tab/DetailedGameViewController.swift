@@ -13,27 +13,37 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
 
     var game:Games?
     var scores: [Scores] = []
+    var holes: [Holes] = []
     let defaults = UserDefaults.standard
     var currentGame:String = ""
+    var cName:String = ""
     
 
     @IBOutlet weak var finalScore: UILabel! //now gamedate
     @IBOutlet weak var courseName: UILabel!
     @IBOutlet weak var gameDate: UILabel! //now final score
     @IBOutlet weak var scoreTable: UITableView!
+    var holeNum: [Int] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        courseName.text = getName(courseId: (game?.courseId)!)
-        gameDate.text = "Final Score: " + (game?.finalScore)!  //game?.gameTime
-        currentGame = (game?.gameId)!
-        finalScore.text = game?.gameTime //"Final Score:" + (game?.finalScore)!
-        
-        scoreTable.delegate = self
-        scoreTable.dataSource = self
-        
-        scores = []
-        getScores()
+
+
+        if let courseId = game?.courseId, let score = game?.finalScore, let gametime = game?.gameTime, let gameId = game?.gameId, let tokenId = defaults.string(forKey: "id"){
+            getName(courseId: (game?.courseId)!)
+            gameDate.text = "Final Score: \(score)"  //game?.gameTime
+            finalScore.text = gametime //"Final Score:" + (game?.finalScore)!
+            self.scoreTable.delegate = self
+            self.scoreTable.dataSource = self
+            PocketCaddyData.getHoles(courseId: courseId, completionHandler: {holes in
+                PocketCaddyData.getScores(gameId: gameId, tokenId: tokenId, completionHandler: {scores in
+                    self.scores = scores
+                    self.holes = holes
+                    self.scoreTable.reloadData()
+                })
+            })
+        }
+
         navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
 
 
@@ -62,15 +72,19 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
             {
                 cell.backgroundColor = UIColor(red:1.00, green:0.98, blue:0.93, alpha:1.0)
             }
-            if self.scores[indexPath.row].gameId == currentGame{
-                cell.hole.text = "Hole " + String(self.scores[indexPath.row].holeId)
-                cell.holeScore.text = self.scores[indexPath.row].scores
-                let score = cell.holeScore.text![(cell.holeScore.text?.startIndex)!]
-                if(score == "-")
+
+            cell.hole.text = "Hole \(holeNum[indexPath.row])"
+            cell.holeScore.text = self.scores[indexPath.row].scores
+            cell.parCell.text = "Par \(self.holes[indexPath.row].par)"
+            
+            let score = Int(scores[indexPath.row].scores)
+            let par = Int(holes[indexPath.row].par)
+            if let score = score{
+                if(score > par)
                 {
                     cell.holeScore.textColor = UIColor.red
                 }
-                else if(score == "+")
+                else if(score < par)
                 {
                     cell.holeScore.textColor = UIColor(red: 0.00, green: 0.00, blue: 0.39, alpha: 1.0)
                 }
@@ -79,62 +93,30 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
                     cell.holeScore.textColor = UIColor.black
                 }
             }
-            
-           
         }
         return cell
         
     }
-    func getScores(){
-        if let userid = defaults.string(forKey: "userId"){
-            PocketCaddyData.getUserInfo(table: .scores, userId: userid, completionHandler: { response in
+
+    func getName(courseId: String){
+        var usedName:String = ""
+        if let userid = defaults.string(forKey: "userId") {
+            PocketCaddyData.getUserInfo(table: .courses, tokenId: nil, userId: userid, completionHandler: { response in
                 if let response = response{
                     for results in response {
                         if let obj = results as? NSDictionary{
-                            
-                            
-                            let holeId = "\(obj["holeId"]!)"
-                            let gameId = "\(obj["gameId"]!)"
-                            
-                            var scores = "\(obj["score"]!)"
-                            if scores == "0"{
-                                scores = "No Score"
-                            }
-                           
-                            let holeId2 = Int(holeId)
-                            if gameId == self.currentGame{
-                                let myGame = gameId
-                                self.scores.append(Scores(holeId: holeId2!, gameId: myGame, scores: scores))
+                            let id = "\(obj["courseId"]!)"
+                            let name = "\(obj["courseName"]!)"
+                            if courseId == String(id){
+                                usedName = name
+                                 self.courseName.text = usedName
                             }
                         }
                     }
-                    self.scoreTable.reloadData()
+                    
                 }
             })
         }
     }
-    
-    
-    func getName(courseId: String) -> String {
-        if courseId == "1"{
-            return "Triple Lakes Golf Club"
-        }
-        if courseId == "2" {
-            return "L.A. Nickell"
-        }
-        else {
-            return "Golf Course"
-        }
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

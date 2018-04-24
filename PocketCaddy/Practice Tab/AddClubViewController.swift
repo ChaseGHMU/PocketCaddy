@@ -49,8 +49,8 @@ class AddClubViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBAction func addClub(_ sender: Any) {
         let selectedValue = clubTypes[clubPicker.selectedRow(inComponent: 0)]
-       
-        if let textField = clubName.text, let userId = self.defaults.string(forKey: "userId") {
+        if let textField = clubName.text, let userId = self.defaults.string(forKey: "userId"), let tokenId = defaults.string(forKey: "id"){
+            print("TOKEN: \(tokenId)")
             let parameters: Parameters = [
                 "nickname": "\(textField)",
                 "userId": "\(userId)",
@@ -58,7 +58,7 @@ class AddClubViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 
             ]
         
-        PocketCaddyData.post(table: .clubs, parameters: parameters, login: false, completionHandler: { (dict, string, response) in
+            PocketCaddyData.post(table: .golfers, newTable: .clubs, userId: userId, tokenId: tokenId, parameters: parameters, login: false, completionHandler: { (dict, string, response) in
         })
     }
         navigationController?.popViewController(animated: true)
