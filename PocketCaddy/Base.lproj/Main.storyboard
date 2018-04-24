@@ -564,6 +564,7 @@
                                     </state>
                                     <connections>
                                         <action selector="finishRound:" destination="JDB-zt-f9t" eventType="touchUpInside" id="JGg-2j-bQ8"/>
+                                        <segue destination="L7c-Bf-6WN" kind="presentation" identifier="returnSegue" id="VPW-zd-oBb"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -1472,6 +1473,6 @@
         <image name="write-simple-7" width="29" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="j8b-RB-cWr"/>
+        <segue reference="VPW-zd-oBb"/>
     </inferredMetricsTieBreakers>
 </document>
