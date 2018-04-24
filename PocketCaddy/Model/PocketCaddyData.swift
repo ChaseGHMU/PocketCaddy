@@ -94,6 +94,10 @@ class PocketCaddyData{
         }
     }
     
+    static func updateComments(parameters: Parameters, tokenId: String){
+        
+    }
+    
     /*
      GET FUNCTION: PARAMETERS
      table:
@@ -134,7 +138,6 @@ class PocketCaddyData{
     
     static func getComments(tokenId: String, userId: String, courseId: String, completionHandler: @escaping ([Comments])->Void){
         let url = baseURL + "Golfers/\(userId)/comments?filter[where][courseId]=\(courseId)&access_token=\(tokenId)"
-        print("URL: \(url)")
         var comments = [Comments]()
         
         Alamofire.request(url).responseJSON(completionHandler: { response in
@@ -149,7 +152,10 @@ class PocketCaddyData{
                             comments.append(Comments(userId: userId, courseId: courseId, content: comment))
                         }
                     }
+                    completionHandler(comments)
+                    return
                 }
+                completionHandler([])
             }
         })
     }
@@ -160,7 +166,6 @@ class PocketCaddyData{
         
         Alamofire.request(url).responseJSON { response in
             if response.result.value != nil, let data = response.data{
-                print(response.result.value)
                     let json = try? JSONSerialization.jsonObject(with: data, options: [])
                     if let array = json as? [Any]{
                         for results in array{
@@ -306,7 +311,6 @@ class PocketCaddyData{
         
         Alamofire.request(url, method: .get).responseJSON(completionHandler: {response in
             if response.result.value != nil, let data = response.data{
-                print(response.result.value)
                 let json = try? JSONSerialization.jsonObject(with: data, options: [])
                 if let array = json as? [Any]{
                     for results in array{

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class NotebookViewController: UIViewController {
 
@@ -29,7 +30,9 @@ class NotebookViewController: UIViewController {
                 for comment in self.comments{
                     commentString += comment.content
                 }
-                print("comment string: \(commentString)")
+                if commentString.isEmpty {
+                    commentString = "You have no comments yet! \nEnter a note about the course"
+                }
                 self.notebookTextView.text = commentString
             })
         }
@@ -42,6 +45,17 @@ class NotebookViewController: UIViewController {
     }
     
     @IBAction func updateNotebook(_ sender: Any) {
+        if let userId = defaults.string(forKey: "userId"), let tokenId = defaults.string(forKey: "id"), let courseId = courseId{
+            let params: Parameters = [
+                "userId": userId,
+                "courseId": courseId,
+                "content": self.notebookTextView.text
+            ]
+            PocketCaddyData.post(table: .golfers, newTable: .comments, userId: userId, tokenId: tokenId, parameters: params, login: false) { (dict, string, int) in
+                print("String Updated")
+            }
+        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     /*
