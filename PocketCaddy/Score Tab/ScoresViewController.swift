@@ -117,7 +117,7 @@ class ScoresViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func getName(courseId: String, cell: ScoresTableViewCell){
         var usedName:String = ""
         
-        if let userid = defaults.string(forKey: "userId"), let tokenId = defaults.string(forKey: "id"){
+        if let userid = defaults.string(forKey: "userId"){
             PocketCaddyData.getUserInfo(table: .courses, tokenId: nil, userId: userid, completionHandler: { response in
                 if let response = response{
                     for results in response {

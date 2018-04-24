@@ -80,12 +80,10 @@ class SignUpViewController: UIViewController {
             self.present(alert, animated: true)
         }
         
-        
-        if let email = emailTextField.text, let usr = usernameTextField.text, let pass = passwordTextField.text{
+        if let email = emailTextField.text, let pass = passwordTextField.text{
             let obj: Parameters = [
                 "password": "\(pass)",
                 "email": "\(email)",
-                "username": "\(usr)"
             ]
             PocketCaddyData.post(table: .golfers, newTable: nil, userId: nil, tokenId: nil, parameters: obj, login: false, completionHandler: { (dict, success, code) in
                 if code == 200{

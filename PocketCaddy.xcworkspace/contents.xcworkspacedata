@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../Misc/default.gpx">
+   </FileRef>
+   <FileRef
       location = "group:PocketCaddy.xcodeproj">
    </FileRef>
    <FileRef

@@ -30,12 +30,33 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
 
 
-        if let courseId = game?.courseId, let score = game?.finalScore, let gametime = game?.gameTime, let gameId = game?.gameId, let tokenId = defaults.string(forKey: "id"){
+        if let score = game?.finalScore, let gametime = game?.gameTime {
             getName(courseId: (game?.courseId)!)
             gameDate.text = "Final Score: \(score)"  //game?.gameTime
             finalScore.text = gametime //"Final Score:" + (game?.finalScore)!
             self.scoreTable.delegate = self
             self.scoreTable.dataSource = self
+            getHoles()
+        }
+
+        navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
+
+
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        getHoles()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func getHoles(){
+        holes = []
+        if let courseId = game?.courseId, let gameId = game?.gameId, let tokenId = defaults.string(forKey: "id"){
             PocketCaddyData.getHoles(courseId: courseId, completionHandler: {holes in
                 PocketCaddyData.getScores(gameId: gameId, tokenId: tokenId, completionHandler: {scores in
                     self.scores = scores
@@ -44,16 +65,6 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
                 })
             })
         }
-
-        navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
-
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return scores.count
