@@ -19,6 +19,9 @@ class PlayScorecardTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
+        print("view loaded")
         if let gameId = gameId, let courseId = courseId, let tokenId = defaults.string(forKey: "id"){
             PocketCaddyData.getScores(gameId: gameId, tokenId: tokenId, completionHandler: { score in
                 PocketCaddyData.getHoles(courseId: courseId, completionHandler: {holes in
@@ -28,9 +31,6 @@ class PlayScorecardTableViewController: UITableViewController {
                 })
             })
         }
-        
-        tableView.dataSource = self
-        tableView.delegate = self
         
         navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0.9725, blue: 0.8667, alpha: 1.0)
         // Uncomment the following line to preserve selection between presentations

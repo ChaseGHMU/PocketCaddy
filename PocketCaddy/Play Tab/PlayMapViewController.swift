@@ -53,9 +53,6 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         userLocation = myLocation;
     }
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.mapType = .satellite
@@ -313,6 +310,10 @@ class PlayMapViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         }
         if let destination = segue.destination as? PlayScorecardTableViewController{
             destination.gameId = gameId
+            destination.courseId = courseId
+        }
+        if let destination = segue.destination as? NotebookViewController {
+            destination.name = courseName
             destination.courseId = courseId
         }
     }

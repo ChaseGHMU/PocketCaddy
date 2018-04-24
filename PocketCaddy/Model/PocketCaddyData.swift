@@ -27,6 +27,7 @@ class PocketCaddyData{
         case holes
         case scores
         case swings
+        case comments
     }
     
     static let decoder = JSONDecoder()
@@ -92,6 +93,14 @@ class PocketCaddyData{
             })
         }
     }
+
+    static func updateComments(parameters: Parameters, tokenId: String){
+        if let courseId = parameters["courseId"]{
+            let url = "https://www.pocketcaddyservice.com/api/Comments/update?where=%7B%22courseId%22%3A%20\(courseId)%7D&access_token=\(tokenId)"
+            Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
+            }
+        }
+    }
     
     /*
      GET FUNCTION: PARAMETERS
@@ -128,6 +137,30 @@ class PocketCaddyData{
             }
             completionHandler([:], "Error", response.response?.statusCode)
             return
+        })
+    }
+    
+    static func getComments(tokenId: String, userId: String, courseId: String, completionHandler: @escaping ([Comments])->Void){
+        let url = baseURL + "Golfers/\(userId)/comments?filter[where][courseId]=\(courseId)&access_token=\(tokenId)"
+        var comments = [Comments]()
+        
+        Alamofire.request(url).responseJSON(completionHandler: { response in
+            if response.result.value != nil, let data = response.data{
+                let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                if let array = json as? [Any]{
+                    for results in array{
+                        if let obj = results as? NSDictionary {
+                            let userId = "\(obj["userId"]!)"
+                            let courseId = "\(obj["courseId"]!)"
+                            let comment = "\(obj["content"]!)"
+                            comments.append(Comments(userId: userId, courseId: courseId, content: comment))
+                        }
+                    }
+                    completionHandler(comments)
+                    return
+                }
+                completionHandler([])
+            }
         })
     }
     
