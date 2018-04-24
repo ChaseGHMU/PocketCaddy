@@ -127,6 +127,14 @@ class PlayScorecardTableViewController: UITableViewController {
             ]
 
             PocketCaddyData.updateGame(parameters: params, tokenId: tokenId)
+            
+            let finishAlert = UIAlertController(title: "Are you sure?", message: "Do you want to end your round?", preferredStyle: UIAlertControllerStyle.alert)
+            let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
+                self.performSegue(withIdentifier: "returnSegue", sender: self)
+            })
+            finishAlert.addAction(yesAction)
+            finishAlert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+            self.present(finishAlert, animated: true, completion: nil)
         }
     }
 }
