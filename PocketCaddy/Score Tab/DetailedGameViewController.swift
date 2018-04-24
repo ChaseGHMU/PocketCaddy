@@ -80,11 +80,11 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
             let score = Int(scores[indexPath.row].scores)
             let par = Int(holes[indexPath.row].par)
             if let score = score{
-                if(score > par)
+                if(score < par)
                 {
                     cell.holeScore.textColor = UIColor.red
                 }
-                else if(score < par)
+                else if(score > par)
                 {
                     cell.holeScore.textColor = UIColor(red: 0.00, green: 0.00, blue: 0.39, alpha: 1.0)
                 }
