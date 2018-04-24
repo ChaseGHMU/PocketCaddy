@@ -93,9 +93,13 @@ class PocketCaddyData{
             })
         }
     }
-    
+
     static func updateComments(parameters: Parameters, tokenId: String){
-        
+        if let courseId = parameters["courseId"]{
+            let url = "https://www.pocketcaddyservice.com/api/Comments/update?where=%7B%22courseId%22%3A%20\(courseId)%7D&access_token=\(tokenId)"
+            Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
+            }
+        }
     }
     
     /*

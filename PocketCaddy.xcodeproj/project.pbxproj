@@ -30,6 +30,7 @@
 		9401DBEA204BAA10005C1937 /* Swings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9401DBE9204BAA10005C1937 /* Swings.swift */; };
 		9401DBEC204BAA70005C1937 /* Clubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9401DBEB204BAA70005C1937 /* Clubs.swift */; };
 		940F651420523F4D00514850 /* PlayMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940F651320523F4D00514850 /* PlayMapViewController.swift */; };
+		942354D5208EF4AB00EFAA84 /* ScoresNotebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942354D4208EF4AB00EFAA84 /* ScoresNotebookViewController.swift */; };
 		945DF8A72047D2D800D7F77C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945DF8A62047D2D800D7F77C /* User.swift */; };
 		94710A52204CC2CB007ECD9B /* ScoresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94710A51204CC2CB007ECD9B /* ScoresTableViewCell.swift */; };
 		947323BD204920DB008146F2 /* PlayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947323BC204920DB008146F2 /* PlayTableViewController.swift */; };
@@ -127,6 +128,7 @@
 		9401DBE9204BAA10005C1937 /* Swings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swings.swift; sourceTree = "<group>"; };
 		9401DBEB204BAA70005C1937 /* Clubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clubs.swift; sourceTree = "<group>"; };
 		940F651320523F4D00514850 /* PlayMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMapViewController.swift; sourceTree = "<group>"; };
+		942354D4208EF4AB00EFAA84 /* ScoresNotebookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresNotebookViewController.swift; sourceTree = "<group>"; };
 		945DF8A62047D2D800D7F77C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		945DF8A82047DEF200D7F77C /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		94710A51204CC2CB007ECD9B /* ScoresTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresTableViewCell.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				4497642C2048716100AC8FC6 /* ScoresViewController.swift */,
 				4497642A2048706800AC8FC6 /* SettingsViewController.swift */,
 				94710A51204CC2CB007ECD9B /* ScoresTableViewCell.swift */,
+				942354D4208EF4AB00EFAA84 /* ScoresNotebookViewController.swift */,
 			);
 			path = "Score Tab";
 			sourceTree = "<group>";
@@ -700,6 +703,7 @@
 				44CEA1E020883F5A0075516F /* DetailedGameViewController.swift in Sources */,
 				94BD59742045CDC3007E38BB /* Courses.swift in Sources */,
 				4497642B2048706800AC8FC6 /* SettingsViewController.swift in Sources */,
+				942354D5208EF4AB00EFAA84 /* ScoresNotebookViewController.swift in Sources */,
 				94E15C90205610BA0069E253 /* PracticeClubViewCell.swift in Sources */,
 				94E26C0A2044949D00CDE724 /* PracticeViewController.swift in Sources */,
 				945DF8A72047D2D800D7F77C /* User.swift in Sources */,

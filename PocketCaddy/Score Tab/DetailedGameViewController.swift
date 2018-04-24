@@ -17,6 +17,7 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
     let defaults = UserDefaults.standard
     var currentGame:String = ""
     var cName:String = ""
+    var courseId:String?
     
 
     @IBOutlet weak var finalScore: UILabel! //now gamedate
@@ -109,13 +110,22 @@ class DetailedGameViewController: UIViewController, UITableViewDelegate, UITable
                             let name = "\(obj["courseName"]!)"
                             if courseId == String(id){
                                 usedName = name
-                                 self.courseName.text = usedName
+                                self.courseName.text = usedName
+                                self.courseId = id
+                                self.cName = usedName
                             }
                         }
                     }
                     
                 }
             })
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ScoresNotebookViewController{
+            destination.courseId = courseId
+            destination.name = cName
         }
     }
 
