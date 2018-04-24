@@ -30,20 +30,7 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         datetime.dateFormat = "yyyy-MM-dd"
         datetime.timeZone = TimeZone(secondsFromGMT: 0)
-        if let club = club, let tokenId = defaults.string(forKey: "id"){
-            clubName.text = club.name
-        
-            PocketCaddyData.getSwings(table: .swings, tokenId: tokenId, clubId: club.id, completionHandler: { response in
-                if let response = response{
-                    self.swings = response
-                    self.swings.reverse()  // displays swings by most recent at top, rather than oldest on top
-                }
-
-                self.numSwings.text = "\(self.swings.count)"
-                self.getAvgSwing()
-                self.tableView.reloadData()
-            })
-        }
+        getSwings()
         
         //tableview setup
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
@@ -84,7 +71,6 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
                 let alert2 = UIAlertController(title: "Are you sure", message: "Is " + textField.text! + " what you really meant?", preferredStyle: UIAlertControllerStyle.alert)
                 let submitAction2 = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
                     self.postData(distance: textfieldInt!)
-                    self.getAvgSwing()
                 })
                 alert2.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
                 alert2.addAction(submitAction2)
@@ -92,8 +78,6 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
                 self.present(alert2, animated: true, completion: nil)
             } else {
                 self.postData(distance: textfieldInt!)
-                self.getAvgSwing()
-                self.viewDidLoad()
             }
         })
         alert.addAction(submitAction)
@@ -120,6 +104,23 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
                     let clubId = "\(dict["clubId"]!)"
                     self.swings.append(Swings(swingId: swingId, distance: distance, clubId: clubId, date: nil))
                 }
+                self.getSwings()
+                self.tableView.reloadData()
+            })
+        }
+        
+    }
+    
+    func getSwings(){
+        if let club = club, let tokenId = defaults.string(forKey: "id"){
+            clubName.text = club.name
+            
+            PocketCaddyData.getSwings(table: .swings, tokenId: tokenId, clubId: club.id, completionHandler: { response in
+                if let response = response{
+                    self.swings = response
+                    self.swings.reverse()  // displays swings by most recent at top, rather than oldest on top
+                }
+                self.getAvgSwing()
                 self.tableView.reloadData()
             })
         }
@@ -194,28 +195,5 @@ class ClubCellViewController: UIViewController, UITableViewDelegate, UITableView
         
         
     }
-    
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//        // Delete Swing Code
-//        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
-//
-//            let deleteAlert = UIAlertController(title: "Are you sure?", message: "", preferredStyle: UIAlertControllerStyle.alert)
-//
-//            // once swings are persistent, the changes to delete will go in yesAction below
-//            let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) -> Void in
-//                self.swings.remove(at: indexPath.row)
-//                tableView.deleteRows(at: [indexPath], with: .fade)
-//                //PocketCaddyData.delete(table: .swings, id: self.swings[indexPath.row].swingId)
-//                //print(self.swings[indexPath.row].swingId)
-//                self.tableView.reloadData()
-//            })
-//            deleteAlert.addAction(yesAction)
-//            deleteAlert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
-//            self.present(deleteAlert, animated: true, completion: nil)
-//
-//        })
-//        deleteAction.backgroundColor = UIColor.red
-//        return [deleteAction]
-//    }
 
 }
